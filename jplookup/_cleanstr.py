@@ -38,22 +38,28 @@ def remove_unwanted_html(html: str) -> str:
     """Returns text with <ul> tags and pesky <span> tags removed."""
     soup = BeautifulSoup(html, "html.parser")
     
-    # removes all <ul> tags.
-    for ul in soup.find_all("ul"):
-        ul.decompose()
+    TAGS = ["ul", "cite"]
+
+    for tag in TAGS:
+        for obj in soup.find_all(tag):
+            obj.decompose()
     
-    # removes all <span> tags with the class type HQToggle.
-    for span in soup.find_all("span", class_="HQToggle"):
-        span.decompose()
-    
+    for obj in soup.find_all("span"):
+        if obj.get("class") in ["HQToggle", "None"]:
+            print("bye bye")
+            obj.decompose()
+
     return str(soup)
 
 
 # Extraction functions.
 def extract_tag_contents(html: str, tag: str) -> list:
-    """Returns all text contained inside the specified tag types."""
+    """
+    Returns all text contained inside 
+    the specified tag types (parents tags only).
+    """
     soup = BeautifulSoup(html, "html.parser")
-    return [str(t) for t in soup.find_all(tag)]
+    return [str(t) for t in soup.find_all(tag) if t.find_parent(tag) is None]
 
 
 def decode_furigana(word: str) -> list:

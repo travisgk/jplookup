@@ -57,17 +57,16 @@ def _scrape_word_info(term: str, jp_header) -> list:
             for h in headers:
                 if h.sourceline >= end_line_num:
                     # breaks out after the ending line.
-                    breakout = True
                     break
 
                 header_text = h.get_text().strip()
-                if header_text == part and part:
+                #print(header_text)
+                #print(part)
+                if header_text.startswith(part) and header_text != part + "s":
                     found_word_parts.append(part)
                     found_word_part_headers.append(h)
-            if breakout:
-                break
-        if breakout:
-            break
+
+    print(found_word_parts)
 
     """
     Step 4) Matches up elements by line numbers to determine the page layout.
