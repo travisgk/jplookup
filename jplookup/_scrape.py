@@ -4,6 +4,8 @@ from ._dictform import get_dictionary_form
 from ._extract import extract_data
 
 PARTS_OF_SPEECH = [
+    
+    "Noun",
     "Proper noun",
     "Particle",
     "Phrase",
@@ -14,7 +16,6 @@ PARTS_OF_SPEECH = [
     "Adjective",
     "Adnominal",
     "Verb",
-    "Noun",
 ]
 HEADER_TAGS = ["h4", "h3", "h2", "h1"]
 
@@ -76,7 +77,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
     h_used = [False for _ in pronunciation_headers]
     f_used = [False for _ in found_word_part_headers]
     if len(etymology_headers) == 0:
-        etymology_headers = [jp_header]
+        etymology_headers = [jp_header] # forces header.
 
     for i, e in enumerate(etymology_headers):
         key = f"e{i}"
@@ -145,12 +146,12 @@ def _scrape_word_info(term: str, jp_header) -> list:
         next_s = None  # part-of-speech.
 
         for p in p_headers:
-            if start_line_num <= p.sourceline:
+            if start_line_num < p.sourceline:
                 next_p = p
                 break
 
         for s in s_headers:
-            if start_line_num <= s.sourceline:
+            if start_line_num < s.sourceline:
                 next_s = s
                 break
 
@@ -163,32 +164,14 @@ def _scrape_word_info(term: str, jp_header) -> list:
         return None
 
     keys = list(layout.keys())
-    for i, key in enumerate(keys[:-1]):
+    for i, key in enumerate(keys):
         e = layout[key]
-        next_key = keys[i + 1]
-        next_e = layout[next_key]
-        e["end-line-num"] = next_e["etym-header"].sourceline
-
-        p_headers, s_headers = e["pronunciation-headers"], e["speech-headers"]
-        e["p-end-line-nums"] = []
-        e["s-end-line-nums"] = []
-        for p in p_headers:
-            next_header = find_next_header(p_headers, s_headers, p.sourceline)
-            if next_header is not None:
-                e["p-end-line-nums"].append(next_header.sourceline)
-            else:
-                e["p-end-line-nums"].append(9999999)
-
-        for s in s_headers:
-            next_header = find_next_header(p_headers, s_headers, s.sourceline)
-            if next_header is not None:
-                e["s-end-line-nums"].append(next_header.sourceline)
-            else:
-                e["s-end-line-nums"].append(9999999)
-
-        
-
-    layout[keys[-1]]["end-line-num"] = 9999999
+        if i < len(keys) - 1:
+            next_key = keys[i + 1]
+            next_e = layout[next_key]
+            e["end-line-num"] = next_e["etym-header"].sourceline
+        else:
+            e["end-line-num"] = end_line_num
 
     """
     Step 6) Extracts data using the layout dictionary.
