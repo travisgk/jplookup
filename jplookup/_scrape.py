@@ -4,7 +4,6 @@ from ._dictform import get_dictionary_form
 from ._extract import extract_data
 
 PARTS_OF_SPEECH = [
-    
     "Noun",
     "Proper noun",
     "Particle",
@@ -141,28 +140,6 @@ def _scrape_word_info(term: str, jp_header) -> list:
     Step 5) Adds details about the ending line numbers 
             to each element of the layout.
     """
-    def find_next_header(p_headers: list, s_headers: list, start_line_num: int):
-        next_p = None  # pronunciation.
-        next_s = None  # part-of-speech.
-
-        for p in p_headers:
-            if start_line_num < p.sourceline:
-                next_p = p
-                break
-
-        for s in s_headers:
-            if start_line_num < s.sourceline:
-                next_s = s
-                break
-
-        if next_p is not None and next_s is not None:
-            return next_p if next_p.sourceline < next_s.sourceline else next_s
-        if next_p is not None:
-            return next_p
-        if next_s is not None:
-            return next_s
-        return None
-
     keys = list(layout.keys())
     for i, key in enumerate(keys):
         e = layout[key]
