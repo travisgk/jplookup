@@ -5,7 +5,7 @@ import json
 import jplookup
 
 def main():
-    USE_PROMPT = False
+    USE_PROMPT = True
     AGGRESSIVENESS = 5
 
     if USE_PROMPT:
