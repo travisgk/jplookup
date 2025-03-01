@@ -53,7 +53,6 @@ def extract_data(layout: dict):
                     contents = [remove_tags(c) for c in contents]
                     data[key]["pronunciations"].append(contents)
         
-        
         """
         Searches for headwords under each Part of Speech header.
         """

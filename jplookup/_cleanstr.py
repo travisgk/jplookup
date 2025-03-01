@@ -12,6 +12,16 @@ def is_kana(char) -> bool:
     """Returns True if the given char is hiragana/katakana."""
     return ("\u3040" <= char <= "\u309f") or ("\u30a0" <= char <= "\u30ff")
 
+def is_japanese_char(char) -> bool:
+    return is_kanji(char) or is_kana(char)
+
+def percent_japanese(text: str):
+    num_jp = 0
+    for c in text:
+        if is_japanese_char(c):
+            num_jp += 1
+    return num_jp / len(text) if len(text) > 0 else 0
+
 
 def find_all_indices(text: str, word: str) -> list:
     """Returns the indices of all occurrences of <word> inside <text>."""

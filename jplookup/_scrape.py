@@ -1,5 +1,7 @@
+import time
 import requests
 from bs4 import BeautifulSoup
+from ._clean import clean_data
 from ._cleanstr import remove_unwanted_html
 from ._dictform import get_dictionary_form
 from ._extract import extract_data
@@ -152,15 +154,22 @@ def _scrape_word_info(term: str, jp_header) -> list:
             e["end-line-num"] = end_line_num
 
     """
-    Step 6) Extracts data using the layout dictionary.
+    Step 6) Extracts data using the layout dictionary,
+            then cleans up that data for user-friendliness
+            and returns the result.
     """
     data = extract_data(layout)
+    data = clean_data(data, term)
 
     return data
 
 
-def scrape(term: str, depth: int = 0) -> list:
-    MAX_DEPTH = 3
+def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
+    MAX_DEPTH = 2  # not inclusive.
+
+    if depth > 0: 
+        # sleeps when doing a recursive loop to prevent getting blocked.
+        time.sleep(sleep_seconds)
 
     # Gets the HTML source.
     url = f"https://en.wiktionary.org/wiki/{term}"
@@ -171,7 +180,7 @@ def scrape(term: str, depth: int = 0) -> list:
         if depth < MAX_DEPTH:
             dict_form = get_dictionary_form(term)
         if dict_form is not None:
-            return scrape(dict_form, depth + 1)
+            return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
         return None
 
     clean_html = response.text#remove_unwanted_html()
@@ -198,7 +207,7 @@ def scrape(term: str, depth: int = 0) -> list:
     word_info = _scrape_word_info(term, japanese_header)  # gets list of info.
     if word_info is not None and len(word_info.keys()) > 0:
         results.append(word_info)
-    #if #len(results) == 0 and depth < MAX_DEPTH:
+    
     if depth < MAX_DEPTH:
         # the program
         # checks to see if there are any alternatives that
@@ -214,17 +223,24 @@ def scrape(term: str, depth: int = 0) -> list:
                     if closing_index >= 0:
                         # splices out the term of the alternative spelling.
                         alternative = text[opening_index + 1 : closing_index]
-                        #print(alternative)
-                        alt_results = scrape(alternative, depth + 1)
+                        if (
+                            len(next_tables) == 1 
+                            and (results is None or len(results) == 0)
+                        ):
+                            next_depth = depth  # a simple redirect won't add depth.
+                        else:
+                            next_depth = depth + 1
+
+                        alt_results = scrape(alternative, next_depth, sleep_seconds=sleep_seconds)
                         if alt_results is not None:
                             results.extend(alt_results)
 
-    if len(results) == 0 and depth < MAX_DEPTH:
+    if (results is None or len(results) == 0) and depth < MAX_DEPTH:
         # if there were no results found after looking for alternatives,
         # then the program will try to look for a dictionary form
         # of the word (the program assuming it could be a verb).
         dict_form = get_dictionary_form(term)
         if dict_form is not None:
-            return scrape(dict_form, depth + 1)
+            return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
 
     return results

@@ -6,7 +6,7 @@ import jplookup
 
 def main():
     USE_PROMPT = False
-    AGGRESSIVENESS = 3
+    AGGRESSIVENESS = 5
 
     if USE_PROMPT:
         word = None
@@ -36,38 +36,33 @@ def main():
         data = {}
 
         unfound = []
-        for i, term in enumerate(terms[:15]):
+        exceptionals = []
+        for i, term in enumerate(terms):
             try:
-                word_info = jplookup.scrape(term)
-                time.sleep(random.uniform(AGGRESSIVENESS * 0.5, AGGRESSIVENESS * 1.5))
+                sleep_length = random.uniform(AGGRESSIVENESS * 0.5, AGGRESSIVENESS * 1.5)
+                time.sleep(sleep_length)
+                word_info = jplookup.scrape(term, sleep_seconds=sleep_length)
+                
                 
                 if len(word_info) > 0:
-                    print(f"\n\n{term}:")
+                    percent_done = int(i / len(terms) * 100)
+                    print(f"\n\n{percent_done:> 2d}% {term}:")
                     data[term] = word_info
 
-                    print("[")
-                    for entry in word_info:
-                        print("\t{")
-                        for ety_key in entry.keys():
-                            print(f'\t\t"{ety_key}": {{')
-                            data = entry[ety_key]
-                            for d_key in data.keys():
-                                print(f"\t\t\t{d_key}: {data[d_key]}")
-                            print("\t\t},")
-                        print("\t},")
-
-                    #print(f"\n\n{word_info}")
-                    #percent_done = int(i / len(terms) * 100)
-
-                    print("]")
-                    #print(f"{percent_done}% {term}")
+                    print(word_info)
                 else:
                     unfound.append(term)
             except KeyboardInterrupt:
                 print("Keyboard interrupt received, exiting gracefully.")
                 sys.exit(0)
-            except Exception as e:
-                unfound.append(term)
+            """except Exception as e:
+                print(f"################################\nEXCEPTION {e} from term {term}\n################################\n")
+                exceptionals.append(term)
+            """
+
+        with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
+            for x in exceptionals:
+                out_file.write(x + "\n")
 
         with open("unfound.txt", "w", encoding="utf-8") as out_file:
             for u in unfound:
