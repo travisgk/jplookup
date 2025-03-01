@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from ._cleanstr import remove_unwanted_html
 from ._dictform import get_dictionary_form
 from ._extract import extract_data
 
@@ -11,6 +12,7 @@ PARTS_OF_SPEECH = [
     "Adverb",
     "Proper noun",
     "Particle",
+    "Counter",
     "Affix",
     "Suffix",
     "Phrase",
@@ -18,7 +20,7 @@ PARTS_OF_SPEECH = [
     "Pronoun",
     "Numeral",
 ]
-HEADER_TAGS = ["h4", "h3", "h2", "h1"]
+HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
 def _scrape_word_info(term: str, jp_header) -> list:
     """
@@ -40,7 +42,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
             next_headers.extend([
                 h for h in found_headers 
                 if h.sourceline < end_line_num 
-                and contained_text in h.get_text()
+                and h.get_text().startswith(contained_text)
             ])
         return next_headers
 
@@ -133,7 +135,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
         del layout[key]
 
     if len(layout.keys()) == 0:
-        return []
+        return None
 
     """
     Step 5) Adds details about the ending line numbers 
@@ -170,10 +172,12 @@ def scrape(term: str, depth: int = 0) -> list:
             dict_form = get_dictionary_form(term)
         if dict_form is not None:
             return scrape(dict_form, depth + 1)
-        return []
+        return None
+
+    clean_html = response.text#remove_unwanted_html()
 
     # Finds the "Japanese" header; returns if no header was found.
-    soup = BeautifulSoup(response.text, "html.parser")
+    soup = BeautifulSoup(clean_html, "html.parser")
     japanese_header = None
     headers = []
     for header_tag in HEADER_TAGS:
@@ -184,15 +188,19 @@ def scrape(term: str, depth: int = 0) -> list:
 
     if japanese_header is None:
         print("Error: No Japanese header was found on that Wiktionary page.")
-        return []
+        return None
 
     # Scrapes.
     # ---
     # Recursion will be performed on pages linked to by Wiktionary
     # as being alternative spellings if a definition isn't found.
-    results = _scrape_word_info(term, japanese_header)  # gets list of info.
-    if len(results) == 0 and depth < MAX_DEPTH:
-        # if there were no results found, then the program
+    results = []
+    word_info = _scrape_word_info(term, japanese_header)  # gets list of info.
+    if word_info is not None and len(word_info.keys()) > 0:
+        results.append(word_info)
+    #if #len(results) == 0 and depth < MAX_DEPTH:
+    if depth < MAX_DEPTH:
+        # the program
         # checks to see if there are any alternatives that
         # Wiktionary is redirecting the user to.
         next_tables = soup.find_all("table", class_="wikitable ja-see")
@@ -206,8 +214,10 @@ def scrape(term: str, depth: int = 0) -> list:
                     if closing_index >= 0:
                         # splices out the term of the alternative spelling.
                         alternative = text[opening_index + 1 : closing_index]
+                        #print(alternative)
                         alt_results = scrape(alternative, depth + 1)
-                        results.extend(alt_results)
+                        if alt_results is not None:
+                            results.extend(alt_results)
 
     if len(results) == 0 and depth < MAX_DEPTH:
         # if there were no results found after looking for alternatives,

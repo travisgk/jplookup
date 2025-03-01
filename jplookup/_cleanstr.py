@@ -48,6 +48,9 @@ def remove_unwanted_html(html: str) -> str:
         if obj.get("class") in ["HQToggle", "None"]:
             obj.decompose()
 
+    for obj in soup.find_all("table", class_="wikitable kanji-table"):
+        obj.decompose()
+
     return str(soup)
 
 

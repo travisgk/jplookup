@@ -76,7 +76,8 @@ def extract_data(layout: dict):
             ol = headword_span.find_next("ol")
             definitions = []
             if ol is not None:
-                ol_str = str(ol)
+                #print(headword) # DEBUG
+                ol_str = remove_unwanted_html(str(ol))
                 li_contents = extract_tag_contents(ol_str, "li")
 
                 # iterates through every item in the ordered list.
@@ -84,7 +85,7 @@ def extract_data(layout: dict):
                     if len(li) <= 9 or '<div class="citation-whole">' in li:
                         continue
 
-                    entry = {"definition": "", "sublines": []}
+                    entry = {"definition": ""}
 
                     # cleans up the text contents.
                     li = li[4:-5]
@@ -97,8 +98,8 @@ def extract_data(layout: dict):
                         if sub_ol_end >= 0:
                             # the <ol> contains its very own <ol>.
                             parent_def = li[:sub_ol_start].strip()
-                            sublist = li[sub_ol_start + 4:sub_ol_end].strip()
-                            sublines = extract_tag_contents("li")
+                            sublist_str = li[sub_ol_start + 4:sub_ol_end].strip()
+                            sublines = extract_tag_contents(sublist_str, "li")
                             entry["definition"] = parent_def
                             entry["sublines"] = sublines
                             definitions.append(entry)
