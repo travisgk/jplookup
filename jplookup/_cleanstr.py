@@ -46,7 +46,6 @@ def remove_unwanted_html(html: str) -> str:
     
     for obj in soup.find_all("span"):
         if obj.get("class") in ["HQToggle", "None"]:
-            print("bye bye")
             obj.decompose()
 
     return str(soup)

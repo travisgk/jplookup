@@ -5,16 +5,18 @@ from ._extract import extract_data
 
 PARTS_OF_SPEECH = [
     "Noun",
-    "Proper noun",
-    "Particle",
-    "Phrase",
-    "Proverb",
-    "Pronoun",
-    "Adverb",
-    "Numeral",
     "Adjective",
     "Adnominal",
     "Verb",
+    "Adverb",
+    "Proper noun",
+    "Particle",
+    "Affix",
+    "Suffix",
+    "Phrase",
+    "Proverb",
+    "Pronoun",
+    "Numeral",
 ]
 HEADER_TAGS = ["h4", "h3", "h2", "h1"]
 
@@ -60,13 +62,9 @@ def _scrape_word_info(term: str, jp_header) -> list:
                     break
 
                 header_text = h.get_text().strip()
-                #print(header_text)
-                #print(part)
                 if header_text.startswith(part) and header_text != part + "s":
                     found_word_parts.append(part)
                     found_word_part_headers.append(h)
-
-    print(found_word_parts)
 
     """
     Step 4) Matches up elements by line numbers to determine the page layout.
@@ -83,6 +81,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
             "etym-header": e,
             "pronunciation-headers": [],
             "speech-headers": [],
+            "parts-of-speech": [],
         }
         if i == len(etymology_headers) - 1:
             next_ety_line_num = None
@@ -118,6 +117,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
             ):
                 f_used[j] = True
                 layout[key]["speech-headers"].append(f)
+                layout[key]["parts-of-speech"].append(found_word_parts[j])
 
     # Deletes any Etymology headers which contain no information.
     keys_to_delete = []
@@ -152,16 +152,9 @@ def _scrape_word_info(term: str, jp_header) -> list:
     """
     Step 6) Extracts data using the layout dictionary.
     """
-    extract_data(layout)
+    data = extract_data(layout)
 
-    #for h in pronunciation_headers:
-    #    print(f"{str(h)}\t{h.sourceline}")
-
-    #for f in found_word_part_headers:
-    #    print(f"{str(f)}\t{f.sourceline}")
-    #print(layout)
-    #print(found_word_parts)
-    return found_word_parts
+    return data
 
 
 def scrape(term: str, depth: int = 0) -> list:
