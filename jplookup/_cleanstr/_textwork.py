@@ -34,8 +34,31 @@ def remove_text_in_brackets(text: str) -> str:
     return re.sub(r'\[.*?\]', '', text)
 
 
+def shorten_html(html: str) -> str:
+    """
+    Returns the HTML text chopped down 
+    so that BeautifulSoup can parse it much more quickly.
+    """
+    DIV_TAG = '<div class="mw-heading mw-heading2">'
+
+    jp_header_index = html.find('id="Japanese">Japanese</h')
+    if jp_header_index >= 0:
+        a = html.rfind(DIV_TAG, 0, jp_header_index)
+        if a >= 0:
+            b = html.find(DIV_TAG, a + 1)
+            if b >= 0:
+                html = (
+                    "<!DOCTYPE html>\n<html>\n<body>\n" 
+                    + html[a:b]
+                    + "</body>\n</html>"
+                )
+
+    return html
+
+
 def remove_tags(html: str, omissions: list = []) -> str:
     """Returns the given text with all HTML tags removed."""
+
     soup = BeautifulSoup(html, "html.parser")
     for tag in soup.find_all(True):
         if tag.name not in omissions:
@@ -54,9 +77,11 @@ def remove_unwanted_html(html: str) -> str:
         for obj in soup.find_all(tag):
             obj.decompose()
     
-    for obj in soup.find_all("span"):
-        if obj.get("class") in ["HQToggle", "None"]:
-            obj.decompose()
+    for obj in soup.find_all("span", class_="HQToggle"):
+        obj.decompose()
+
+    for obj in soup.find_all("span", class_="None"):
+        obj.decompose()
 
     for obj in soup.find_all("table", class_="wikitable kanji-table"):
         obj.decompose()
