@@ -1,4 +1,4 @@
-from ._cleanstr import is_japanese_char, percent_japanese
+from jplookup._cleanstr._textwork import is_japanese_char, percent_japanese
 
 
 def _extract_japanese(subline: str) -> list:
@@ -6,13 +6,10 @@ def _extract_japanese(subline: str) -> list:
     Returns a list of every individual japanese phrase
     contained in the given text.
     """
-    i = 0
     in_jp = False
     terms = ["",]
-    for i in range(len(subline)):
-        c = subline[i]
-
-        if is_japanese_char:
+    for i, c in enumerate(subline):
+        if is_japanese_char(c):
             terms[-1] += c
             in_jp = True
 
@@ -20,29 +17,36 @@ def _extract_japanese(subline: str) -> list:
                 terms.append("")
                 in_jp = False
 
-    return [t for t in terms if len(t) > 0]
+    terms = [t for t in terms if len(t) > 0]
+    return terms
 
 
 def clean_data(word_info: list, term: str):
     result = {}
 
-    #print(word_info)
+    # Cycles through all the Etymology keys.
     etym_keys = word_info.keys()
     for etym_key in etym_keys:
         entry = word_info[etym_key]
-        if len(etym_keys) > 1:
-            etym_title = f"Etymology {int(etym_key[1:]) + 1}"
-        else:
-            etym_title = "Etymology"
-            
+
+        # creates a new dictionary for this etymology title.
+        etym_title = f"Etymology {int(etym_key[1:]) + 1}"   
         result[etym_title] = {}
+
+        # Cycles through the Parts of Speech under this Etymology header.
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
+            # Sets up the data entry for this particular Part of Speech.
             result[etym_title][part] = {
                 "headwords": entry["headwords"][i],
                 "definitions": [],
             }
 
+            # Cycles through the pronunciations under this Parts of Speech header.
+            for pronunciation in entry["pronunciations"]:
+                print(pronunciation) # DEBUG
+
+            # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
             for definition in entry["definitions"][i]:
                 sublines = definition.get("sublines")
@@ -50,12 +54,14 @@ def clean_data(word_info: list, term: str):
                     definitions.append(definition)
                 else:
                     new_def = {"definition": definition["definition"]}
-                    j = 0
                     percent_jp = [percent_japanese(s) for s in sublines]
+
+                    # Cycles through the Sublines under this Definition entry.
+                    j = 0
                     while j < len(sublines):
                         sub = sublines[j]
                         
-                        # handles synonyms and antonyms.
+                        # Handles synonyms and antonyms.
                         if sub.startswith("Synonym"):
                             sub = sub[7:]
                             new_def["synonyms"] = _extract_japanese(sub)
@@ -64,7 +70,7 @@ def clean_data(word_info: list, term: str):
                             sub = sub[7:]
                             new_def["antonyms"] = _extract_japanese(sub)
 
-                        # handles sentence examples.
+                        # Handles sentence examples.
                         elif j + 2 < len(sublines):
                             if (
                                 percent_jp[j] > 0.5
