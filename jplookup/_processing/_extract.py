@@ -1,12 +1,15 @@
 from jplookup._cleanstr._textwork import (
-    remove_tags, remove_unwanted_html, extract_tag_contents
+    remove_tags,
+    remove_unwanted_html,
+    extract_tag_contents,
 )
+
 
 def extract_data(layout: dict):
     """Extracts data from the given layout and returns it."""
     e_keys = list(layout.keys())
     e_keys.sort(key=lambda x: int(x[1:]))  # sorts for safety.
-    
+
     data = {}
     for key in e_keys:
         # sets up next data entry for the Etymology header.
@@ -23,14 +26,15 @@ def extract_data(layout: dict):
         """
         e = layout[key]
         results = []
-        results.extend([
-            (p.sourceline, p, f"p{i}") 
-            for i, p in enumerate(e["pronunciation-headers"])
-        ])
-        results.extend([
-            (s.sourceline, s, f"s{i}")
-            for i, s in enumerate(e["speech-headers"])
-        ])
+        results.extend(
+            [
+                (p.sourceline, p, f"p{i}")
+                for i, p in enumerate(e["pronunciation-headers"])
+            ]
+        )
+        results.extend(
+            [(s.sourceline, s, f"s{i}") for i, s in enumerate(e["speech-headers"])]
+        )
         results.sort(key=lambda x: x[0])
         to_end_line = {
             results[i][2]: (
@@ -43,7 +47,7 @@ def extract_data(layout: dict):
         """
         Searches for pronunciation information.
         """
-        
+
         for i, p_header in enumerate(e["pronunciation-headers"]):
 
             current_ul = p_header.find("ul")
@@ -56,8 +60,7 @@ def extract_data(layout: dict):
                     data[key]["pronunciations"].append(contents)
 
                 current_ul = current_ul.find("ul")
-                    
-        
+
         """
         Searches for headwords under each Part of Speech header.
         """
@@ -80,7 +83,7 @@ def extract_data(layout: dict):
             ol = headword_span.find_next("ol")
             definitions = []
             if ol is not None:
-                #print(headword) # DEBUG
+                # print(headword) # DEBUG
                 ol_str = remove_unwanted_html(str(ol))
                 li_contents = extract_tag_contents(ol_str, "li")
 
@@ -94,7 +97,7 @@ def extract_data(layout: dict):
                     # cleans up the text contents.
                     li = li[4:-5]
                     li = remove_tags(li, omissions=["ol", "li", "dd"])
-                    
+
                     # looks for an embedded <ol> inside the current <ol>.
                     sub_ol_start = li.find("<ol>")
                     if sub_ol_start >= 0:
@@ -102,7 +105,7 @@ def extract_data(layout: dict):
                         if sub_ol_end >= 0:
                             # the <ol> contains its very own <ol>.
                             parent_def = li[:sub_ol_start].strip()
-                            sublist_str = li[sub_ol_start + 4:sub_ol_end].strip()
+                            sublist_str = li[sub_ol_start + 4 : sub_ol_end].strip()
                             sublines = extract_tag_contents(sublist_str, "li")
                             entry["definition"] = parent_def
                             entry["sublines"] = sublines
@@ -127,9 +130,7 @@ def extract_data(layout: dict):
                             sub_dd_index = dd_content.find("<dd>")
                             if sub_dd_index >= 0:
                                 sublines.append(dd_content[:sub_dd_index])
-                                sub_dd_tags = extract_tag_contents(
-                                    dd_content, "dd"
-                                )
+                                sub_dd_tags = extract_tag_contents(dd_content, "dd")
                                 for sub_dd in sub_dd_tags:
                                     sublines.append(sub_dd)
                             else:

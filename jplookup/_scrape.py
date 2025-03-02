@@ -1,10 +1,10 @@
 import time
 import requests
 from bs4 import BeautifulSoup
-from ._clean import clean_data
-from ._cleanstr import remove_unwanted_html
-from ._dictform import get_dictionary_form
-from ._extract import extract_data
+from ._cleanstr._textwork import remove_unwanted_html, shorten_html
+from ._cleanstr._dictform import get_dictionary_form
+from ._processing._clean import clean_data
+from ._processing._extract import extract_data
 
 PARTS_OF_SPEECH = [
     "Noun",
@@ -24,6 +24,7 @@ PARTS_OF_SPEECH = [
 ]
 HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
+
 def _scrape_word_info(term: str, jp_header) -> list:
     """
     Step 1) Looks for the source line where the Japanese ends.
@@ -33,19 +34,19 @@ def _scrape_word_info(term: str, jp_header) -> list:
     if ending_header is not None:
         end_line_num = ending_header.sourceline
 
-
     """
     Step 2) Finds title tags containing "Pronunciation" and "Etymology".
     """
+
     def find_header_tags(contained_text: str) -> list:
         next_headers = []
         for header_tag in HEADER_TAGS:
-            found_headers = jp_header.find_all_next(header_tag)
-            next_headers.extend([
-                h for h in found_headers 
-                if h.sourceline < end_line_num 
-                and h.get_text().startswith(contained_text)
-            ])
+            current_header = jp_header.find_next(header_tag)
+            while current_header and current_header.sourceline < end_line_num:
+                if current_header.get_text().startswith(contained_text):
+                    next_headers.append(current_header)
+                current_header = current_header.find_next(header_tag)
+
         return next_headers
 
     pronunciation_headers = find_header_tags("Pronunciation")
@@ -59,16 +60,13 @@ def _scrape_word_info(term: str, jp_header) -> list:
     breakout = False
     for part in PARTS_OF_SPEECH:
         for tag in HEADER_TAGS:
-            headers = jp_header.find_all_next(tag)
-            for h in headers:
-                if h.sourceline >= end_line_num:
-                    # breaks out after the ending line.
-                    break
-
-                header_text = h.get_text().strip()
+            current_header = jp_header.find_next(tag)
+            while current_header and current_header.sourceline < end_line_num:
+                header_text = current_header.get_text().strip()
                 if header_text.startswith(part) and header_text != part + "s":
                     found_word_parts.append(part)
-                    found_word_part_headers.append(h)
+                    found_word_part_headers.append(current_header)
+                current_header = current_header.find_next(tag)
 
     """
     Step 4) Matches up elements by line numbers to determine the page layout.
@@ -77,7 +75,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
     h_used = [False for _ in pronunciation_headers]
     f_used = [False for _ in found_word_part_headers]
     if len(etymology_headers) == 0:
-        etymology_headers = [jp_header] # forces header.
+        etymology_headers = [jp_header]  # forces header.
 
     for i, e in enumerate(etymology_headers):
         key = f"e{i}"
@@ -94,14 +92,11 @@ def _scrape_word_info(term: str, jp_header) -> list:
 
         # adds any pronunciation header that's below the "Etymology" header.
         for j, h in enumerate(pronunciation_headers):
-            if (
-                not h_used[j]
-                and (
-                    e is None 
-                    or (
-                        e.sourceline <= h.sourceline 
-                        and (next_ety_line_num is None or h.sourceline < next_ety_line_num)
-                    )
+            if not h_used[j] and (
+                e is None
+                or (
+                    e.sourceline <= h.sourceline
+                    and (next_ety_line_num is None or h.sourceline < next_ety_line_num)
                 )
             ):
                 h_used[j] = True
@@ -109,14 +104,11 @@ def _scrape_word_info(term: str, jp_header) -> list:
 
         # adds any part-of-speech header that's below the "Etymology" header.
         for j, f in enumerate(found_word_part_headers):
-            if (
-                not f_used[j]
-                and (
-                    e is None
-                    or(
-                        e.sourceline <= f.sourceline 
-                        and (next_ety_line_num is None or f.sourceline < next_ety_line_num)
-                    )
+            if not f_used[j] and (
+                e is None
+                or (
+                    e.sourceline <= f.sourceline
+                    and (next_ety_line_num is None or f.sourceline < next_ety_line_num)
                 )
             ):
                 f_used[j] = True
@@ -128,9 +120,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
     sorted_keys = sorted(layout.keys(), key=lambda x: int(x[1:]))  # sorts for safety.
     for key in sorted_keys:
         info = layout[key]
-        if (
-            len(info["pronunciation-headers"]) == 0
-        ):
+        if len(info["pronunciation-headers"]) == 0:
             keys_to_delete.append(key)
 
     for key in keys_to_delete:
@@ -164,10 +154,15 @@ def _scrape_word_info(term: str, jp_header) -> list:
     return data
 
 
-def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
+import time  # DEBUG
+
+
+def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
+    # start_time = time.time() # DEBUG
+
     MAX_DEPTH = 2  # not inclusive.
 
-    if depth > 0: 
+    if depth > 0:
         # sleeps when doing a recursive loop to prevent getting blocked.
         time.sleep(sleep_seconds)
 
@@ -183,16 +178,26 @@ def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
             return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
         return None
 
-    clean_html = response.text#remove_unwanted_html()
+    # start_process_time = time.time() # DEBUG
+    # elapsed = start_process_time - start_time # DEBUG
+    # print(f"Getting wiki page took {elapsed:.2f} seconds.") # DEBUG
+
+    clean_text = shorten_html(response.text)
+    # elapsed = time.time() - start_process_time # DEBUG
+    # print(f"Shortening took {elapsed:.2f} seconds.") # DEBUG
 
     # Finds the "Japanese" header; returns if no header was found.
-    soup = BeautifulSoup(clean_html, "html.parser")
+    # soup_start = time.time()
+    soup = BeautifulSoup(clean_text, "html.parser")
+    # elapsed = time.time() - soup_start # DEBUG
+    # print(f"BeautifulSoup took {elapsed:.2f} seconds.") # DEBUG
+
     japanese_header = None
     headers = []
     for header_tag in HEADER_TAGS:
-        next_headers = soup.find_all(header_tag, id="Japanese")
-        if len(next_headers) > 0:
-            japanese_header = next_headers[0]
+        next_header = soup.find(header_tag, id="Japanese")
+        if next_header is not None:
+            japanese_header = next_header
             break
 
     if japanese_header is None:
@@ -207,12 +212,16 @@ def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
     word_info = _scrape_word_info(term, japanese_header)  # gets list of info.
     if word_info is not None and len(word_info.keys()) > 0:
         results.append(word_info)
-    
+
     if depth < MAX_DEPTH:
         # the program
         # checks to see if there are any alternatives that
         # Wiktionary is redirecting the user to.
-        next_tables = soup.find_all("table", class_="wikitable ja-see")
+        next_tables = []
+
+        # print(clean_text)
+        next_tables = japanese_header.find_all_next("table", class_="wikitable ja-see")
+        # print(len(next_tables))
         for table in next_tables:
             text = table.get_text()
             declaring_index = text.find("For pronunciation and definitions of")
@@ -223,15 +232,16 @@ def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
                     if closing_index >= 0:
                         # splices out the term of the alternative spelling.
                         alternative = text[opening_index + 1 : closing_index]
-                        if (
-                            len(next_tables) == 1 
-                            and (results is None or len(results) == 0)
-                        ):
+                        if (results is None or len(results) == 0) and len(
+                            next_tables
+                        ) == 1:
                             next_depth = depth  # a simple redirect won't add depth.
                         else:
                             next_depth = depth + 1
 
-                        alt_results = scrape(alternative, next_depth, sleep_seconds=sleep_seconds)
+                        alt_results = scrape(
+                            alternative, next_depth, sleep_seconds=sleep_seconds
+                        )
                         if alt_results is not None:
                             results.extend(alt_results)
 
@@ -243,4 +253,6 @@ def scrape(term: str, depth: int = 0, sleep_seconds = 1.5) -> list:
         if dict_form is not None:
             return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
 
+    # elapsed = time.time() - start_process_time # DEBUG
+    # print(f"jplookup took a total of {elapsed:.2f} seconds.") # DEBUG
     return results

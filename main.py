@@ -4,6 +4,7 @@ import sys
 import json
 import jplookup
 
+
 def main():
     USE_PROMPT = True
     AGGRESSIVENESS = 5
@@ -39,11 +40,12 @@ def main():
         exceptionals = []
         for i, term in enumerate(terms):
             try:
-                sleep_length = random.uniform(AGGRESSIVENESS * 0.5, AGGRESSIVENESS * 1.5)
+                sleep_length = random.uniform(
+                    AGGRESSIVENESS * 0.5, AGGRESSIVENESS * 1.5
+                )
                 time.sleep(sleep_length)
                 word_info = jplookup.scrape(term, sleep_seconds=sleep_length)
-                
-                
+
                 if len(word_info) > 0:
                     percent_done = int(i / len(terms) * 100)
                     print(f"\n\n{percent_done:> 2d}% {term}:")

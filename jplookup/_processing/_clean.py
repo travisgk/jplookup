@@ -7,15 +7,17 @@ def _extract_japanese(subline: str) -> list:
     contained in the given text.
     """
     in_jp = False
-    terms = ["",]
+    terms = [
+        "",
+    ]
     for i, c in enumerate(subline):
         if is_japanese_char(c):
             terms[-1] += c
             in_jp = True
 
         elif in_jp:  # not a jp char
-                terms.append("")
-                in_jp = False
+            terms.append("")
+            in_jp = False
 
     terms = [t for t in terms if len(t) > 0]
     return terms
@@ -30,7 +32,7 @@ def clean_data(word_info: list, term: str):
         entry = word_info[etym_key]
 
         # creates a new dictionary for this etymology title.
-        etym_title = f"Etymology {int(etym_key[1:]) + 1}"   
+        etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         result[etym_title] = {}
 
         # Cycles through the Parts of Speech under this Etymology header.
@@ -44,7 +46,7 @@ def clean_data(word_info: list, term: str):
 
             # Cycles through the pronunciations under this Parts of Speech header.
             for pronunciation in entry["pronunciations"]:
-                print(pronunciation) # DEBUG
+                print(pronunciation)  # DEBUG
 
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
@@ -60,7 +62,7 @@ def clean_data(word_info: list, term: str):
                     j = 0
                     while j < len(sublines):
                         sub = sublines[j]
-                        
+
                         # Handles synonyms and antonyms.
                         if sub.startswith("Synonym"):
                             sub = sub[7:]
@@ -72,16 +74,13 @@ def clean_data(word_info: list, term: str):
 
                         # Handles sentence examples.
                         elif j + 2 < len(sublines):
-                            if (
-                                percent_jp[j] > 0.5
-                                and all(
-                                    percent_jp[j + k] < 0.5 
-                                    and sublines[j + k].startswith("<dd>")
-                                    and sublines[j + k].endswith("</dd>")
-                                    for k in [1, 2]
-                                )
+                            if percent_jp[j] > 0.5 and all(
+                                percent_jp[j + k] < 0.5
+                                and sublines[j + k].startswith("<dd>")
+                                and sublines[j + k].endswith("</dd>")
+                                for k in [1, 2]
                             ):
-                                # 
+                                #
                                 if new_def.get("examples") is None:
                                     new_def["examples"] = []
 
@@ -99,8 +98,5 @@ def clean_data(word_info: list, term: str):
                         j += 1
                     definitions.append(new_def)
             result[etym_title][part]["definitions"] = definitions
-
-
-                        
 
     return result

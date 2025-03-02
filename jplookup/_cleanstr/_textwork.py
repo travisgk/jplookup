@@ -2,6 +2,7 @@ import random
 import re
 from bs4 import BeautifulSoup
 
+
 # Text identification/search functions.
 def is_kanji(char) -> bool:
     """Returns True if the given char is a Kanji."""
@@ -12,8 +13,10 @@ def is_kana(char) -> bool:
     """Returns True if the given char is hiragana/katakana."""
     return ("\u3040" <= char <= "\u309f") or ("\u30a0" <= char <= "\u30ff")
 
+
 def is_japanese_char(char) -> bool:
     return is_kanji(char) or is_kana(char)
+
 
 def percent_japanese(text: str):
     num_jp = 0
@@ -31,12 +34,12 @@ def find_all_indices(text: str, word: str) -> list:
 # Text removal functions.
 def remove_text_in_brackets(text: str) -> str:
     """Returns text with any text in [..] removed."""
-    return re.sub(r'\[.*?\]', '', text)
+    return re.sub(r"\[.*?\]", "", text)
 
 
 def shorten_html(html: str) -> str:
     """
-    Returns the HTML text chopped down 
+    Returns the HTML text chopped down
     so that BeautifulSoup can parse it much more quickly.
     """
     DIV_TAG = '<div class="mw-heading mw-heading2">'
@@ -48,9 +51,7 @@ def shorten_html(html: str) -> str:
             b = html.find(DIV_TAG, a + 1)
             if b >= 0:
                 html = (
-                    "<!DOCTYPE html>\n<html>\n<body>\n" 
-                    + html[a:b]
-                    + "</body>\n</html>"
+                    "<!DOCTYPE html>\n<html>\n<body>\n" + html[a:b] + "</body>\n</html>"
                 )
 
     return html
@@ -70,13 +71,13 @@ def remove_tags(html: str, omissions: list = []) -> str:
 def remove_unwanted_html(html: str) -> str:
     """Returns text with <ul> tags and pesky <span> tags removed."""
     soup = BeautifulSoup(html, "html.parser")
-    
+
     TAGS = ["ul", "cite"]
 
     for tag in TAGS:
         for obj in soup.find_all(tag):
             obj.decompose()
-    
+
     for obj in soup.find_all("span", class_="HQToggle"):
         obj.decompose()
 
@@ -92,7 +93,7 @@ def remove_unwanted_html(html: str) -> str:
 # Extraction functions.
 def extract_tag_contents(html: str, tag: str) -> list:
     """
-    Returns all text contained inside 
+    Returns all text contained inside
     the specified tag types (parents tags only).
     """
     soup = BeautifulSoup(html, "html.parser")
@@ -101,7 +102,7 @@ def extract_tag_contents(html: str, tag: str) -> list:
 
 def decode_furigana(word: str) -> list:
     """
-    Returns a list of tuples, with each tuple 
+    Returns a list of tuples, with each tuple
     being the furigana for each kanji.
     """
     furi = []
@@ -122,4 +123,4 @@ def decode_furigana(word: str) -> list:
 # Miscellaneous functions.
 def random_hex(length: int) -> str:
     """Returns a random string of hex characters."""
-    return ''.join(random.choices('0123456789abcdef', k=length))
+    return "".join(random.choices("0123456789abcdef", k=length))
