@@ -1,4 +1,6 @@
-from ._cleanstr import remove_tags, remove_unwanted_html, extract_tag_contents
+from jplookup._cleanstr._textwork import (
+    remove_tags, remove_unwanted_html, extract_tag_contents
+)
 
 def extract_data(layout: dict):
     """Extracts data from the given layout and returns it."""
@@ -41,17 +43,20 @@ def extract_data(layout: dict):
         """
         Searches for pronunciation information.
         """
+        
         for i, p_header in enumerate(e["pronunciation-headers"]):
-            uls = p_header.find_all_next("ul")
-            for ul in uls:
-                if ul.sourceline >= to_end_line[f"p{i}"]:
-                    break
 
-                ul_text = ul.get_text()
+            current_ul = p_header.find("ul")
+            end_line_num = to_end_line[f"p{i}"]
+            while current_ul is not None and current_ul.sourceline < end_line_num:
+                ul_text = current_ul.get_text()
                 if "IPA" in ul_text:
                     contents = extract_tag_contents(str(ul), "li")
                     contents = [remove_tags(c) for c in contents]
                     data[key]["pronunciations"].append(contents)
+
+                current_ul = current_ul.find("ul")
+                    
         
         """
         Searches for headwords under each Part of Speech header.
