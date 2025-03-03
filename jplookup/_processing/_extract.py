@@ -49,17 +49,21 @@ def extract_data(layout: dict):
         """
 
         for i, p_header in enumerate(e["pronunciation-headers"]):
-
-            current_ul = p_header.find("ul")
-            end_line_num = to_end_line[f"p{i}"]
-            while current_ul is not None and current_ul.sourceline < end_line_num:
+            # looks for the next <ul> which could contain pronunciation info.
+            current_ul = p_header.find_next("ul")
+            end_line_num = to_end_line[f"p{i}"]  # SUSPECT
+            while current_ul and current_ul.sourceline < end_line_num:
                 ul_text = current_ul.get_text()
                 if "IPA" in ul_text:
-                    contents = extract_tag_contents(str(ul), "li")
-                    contents = [remove_tags(c) for c in contents]
-                    data[key]["pronunciations"].append(contents)
 
-                current_ul = current_ul.find("ul")
+                    # contents = extract_tag_contents(ul_text, "li")
+                    # contents = [remove_tags(c) for c in contents]
+                    contents = remove_tags(ul_text)
+                    print(contents)
+                    data[key]["pronunciations"].append(contents)
+                    # print(contents)
+
+                current_ul = current_ul.find_next("ul")
 
         """
         Searches for headwords under each Part of Speech header.

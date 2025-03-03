@@ -1,4 +1,54 @@
-from jplookup._cleanstr._textwork import is_japanese_char, percent_japanese
+from jplookup._cleanstr._textwork import (
+    is_kana,
+    is_japanese_char,
+    percent_japanese,
+    separate_term_and_furigana,
+)
+
+
+def _break_up_headwords(headword_str: str) -> list:
+    """Returns a list of headwords (kanji and furigana in parentheses)."""
+    or_index = headword_str.find("or")
+    if or_index >= 0:
+        return [headword_str[:or_index], headword_str[or_index + 2 :]]
+    return [
+        headword_str,
+    ]
+
+
+def _extract_info_from_headwords(headwords: list):
+    """
+    Returns the Japanese term,
+    a list of furigana
+    and a list of hiragana transcriptions.
+    """
+    results = [separate_term_and_furigana(h) for h in headwords]
+
+    # gets the defining term for each headword.
+    terms = [r[0] for r in results]
+    if len(terms) == 0:
+        return None
+
+    # gets a list of furigana for each kanji.
+    furis = []
+    for r in results:
+        local_furi = r[1]
+        local_furi = ["".join(f) for f in local_furi]
+        furis.append(local_furi)
+
+    # gets the kana transcription for each headword.
+    kanas = []
+    for term, furi in zip(terms, furis):
+        kana = ""
+        for c, f in zip(term, furi):
+            kana += c if is_kana(c) else f
+
+        kanas.append(kana)
+
+    if any(t != terms[0] for t in terms):
+        print(f"The terms are different: {terms}")  # mere warning.
+
+    return terms[0], furis, kanas
 
 
 def _extract_japanese(subline: str) -> list:
@@ -39,12 +89,18 @@ def clean_data(word_info: list, term: str):
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
             # Sets up the data entry for this particular Part of Speech.
+            headwords = _break_up_headwords(entry["headwords"][i])
+            term, furigana, kanas = _extract_info_from_headwords(headwords)
             result[etym_title][part] = {
-                "headwords": entry["headwords"][i],
+                "term": term,
+                "transcriptions": [
+                    {"kana": k, "furigana": f} for f, k in zip(furigana, kanas)
+                ],
                 "definitions": [],
             }
 
-            # Cycles through the pronunciations under this Parts of Speech header.
+            # Cycles through the pronunciations
+            # under this Parts of Speech header.
             for pronunciation in entry["pronunciations"]:
                 print(pronunciation)  # DEBUG
 
@@ -92,7 +148,7 @@ def clean_data(word_info: list, term: str):
 
                                 new_def["examples"].append(sentence)
 
-                                j += 3
+                                j += 3  # skips ahead of the example lines.
                                 continue
 
                         j += 1

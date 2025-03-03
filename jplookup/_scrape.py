@@ -120,7 +120,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
     sorted_keys = sorted(layout.keys(), key=lambda x: int(x[1:]))  # sorts for safety.
     for key in sorted_keys:
         info = layout[key]
-        if len(info["pronunciation-headers"]) == 0:
+        if len(info["pronunciation-headers"]) == 0 and len(info["speech-headers"]) == 0:
             keys_to_delete.append(key)
 
     for key in keys_to_delete:
@@ -154,12 +154,7 @@ def _scrape_word_info(term: str, jp_header) -> list:
     return data
 
 
-import time  # DEBUG
-
-
 def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
-    # start_time = time.time() # DEBUG
-
     MAX_DEPTH = 2  # not inclusive.
 
     if depth > 0:
@@ -178,20 +173,10 @@ def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
             return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
         return None
 
-    # start_process_time = time.time() # DEBUG
-    # elapsed = start_process_time - start_time # DEBUG
-    # print(f"Getting wiki page took {elapsed:.2f} seconds.") # DEBUG
-
     clean_text = shorten_html(response.text)
-    # elapsed = time.time() - start_process_time # DEBUG
-    # print(f"Shortening took {elapsed:.2f} seconds.") # DEBUG
 
     # Finds the "Japanese" header; returns if no header was found.
-    # soup_start = time.time()
     soup = BeautifulSoup(clean_text, "html.parser")
-    # elapsed = time.time() - soup_start # DEBUG
-    # print(f"BeautifulSoup took {elapsed:.2f} seconds.") # DEBUG
-
     japanese_header = None
     headers = []
     for header_tag in HEADER_TAGS:
@@ -218,10 +203,8 @@ def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
         # checks to see if there are any alternatives that
         # Wiktionary is redirecting the user to.
         next_tables = []
-
-        # print(clean_text)
-        next_tables = japanese_header.find_all_next("table", class_="wikitable ja-see")
-        # print(len(next_tables))
+        JP_TABLE = "wikitable ja-see"
+        next_tables = japanese_header.find_all_next("table", class_=JP_TABLE)
         for table in next_tables:
             text = table.get_text()
             declaring_index = text.find("For pronunciation and definitions of")
@@ -253,6 +236,4 @@ def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
         if dict_form is not None:
             return scrape(dict_form, depth + 1, sleep_seconds=sleep_seconds)
 
-    # elapsed = time.time() - start_process_time # DEBUG
-    # print(f"jplookup took a total of {elapsed:.2f} seconds.") # DEBUG
     return results

@@ -15,10 +15,15 @@ def is_kana(char) -> bool:
 
 
 def is_japanese_char(char) -> bool:
+    """Returns True if the given char is a kanji or kana character."""
     return is_kanji(char) or is_kana(char)
 
 
 def percent_japanese(text: str):
+    """
+    Returns a value from 0.0 to 1.0 indicating
+    how many of the characters are Japanese.
+    """
     num_jp = 0
     for c in text:
         if is_japanese_char(c):
@@ -26,9 +31,11 @@ def percent_japanese(text: str):
     return num_jp / len(text) if len(text) > 0 else 0
 
 
+''' TO REMOVE
 def find_all_indices(text: str, word: str) -> list:
     """Returns the indices of all occurrences of <word> inside <text>."""
     return [match.start() for match in re.finditer(re.escape(word), text)]
+'''
 
 
 # Text removal functions.
@@ -100,6 +107,33 @@ def extract_tag_contents(html: str, tag: str) -> list:
     return [str(t) for t in soup.find_all(tag) if t.find_parent(tag) is None]
 
 
+def separate_term_and_furigana(word: str):
+    """
+    Returns a string and a list, with the string
+    containing the Japanese text outside parentheses
+    and the list containing tuples of the furigana,
+    with the index of each element corresponding to
+    the aforementioned returned string. (str, list).
+    """
+    term = ""
+    furi = []
+    inside_furi = False
+    for i, c in enumerate(word):
+        if not inside_furi and c == "(":
+            inside_furi = True
+        elif inside_furi and c == ")":
+            inside_furi = False
+        elif inside_furi:
+            furi[-1].append(c)
+        else:
+            furi.append([])
+            term += c
+
+    furi = [tuple(f) for f in furi]
+    return term, furi
+
+
+''' TO REMOVE
 def decode_furigana(word: str) -> list:
     """
     Returns a list of tuples, with each tuple
@@ -118,6 +152,7 @@ def decode_furigana(word: str) -> list:
             furi.append([])
 
     return [tuple(f) for f in furi]
+'''
 
 
 # Miscellaneous functions.
