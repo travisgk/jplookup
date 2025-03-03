@@ -47,21 +47,15 @@ def extract_data(layout: dict):
         """
         Searches for pronunciation information.
         """
-
         for i, p_header in enumerate(e["pronunciation-headers"]):
             # looks for the next <ul> which could contain pronunciation info.
             current_ul = p_header.find_next("ul")
             end_line_num = to_end_line[f"p{i}"]  # SUSPECT
             while current_ul and current_ul.sourceline < end_line_num:
                 ul_text = current_ul.get_text()
-                if "IPA" in ul_text:
-
-                    # contents = extract_tag_contents(ul_text, "li")
-                    # contents = [remove_tags(c) for c in contents]
+                if any(s in ul_text for s in ["ꜜ", "IPA"]):
                     contents = remove_tags(ul_text)
-                    print(contents)
                     data[key]["pronunciations"].append(contents)
-                    # print(contents)
 
                 current_ul = current_ul.find_next("ul")
 

@@ -133,6 +133,28 @@ def separate_term_and_furigana(word: str):
     return term, furi
 
 
+def extract_japanese(subline: str) -> list:
+    """
+    Returns a list of every individual japanese phrase
+    contained in the given text.
+    """
+    in_jp = False
+    terms = [
+        "",
+    ]
+    for i, c in enumerate(subline):
+        if is_japanese_char(c):
+            terms[-1] += c
+            in_jp = True
+
+        elif in_jp:  # not a jp char
+            terms.append("")
+            in_jp = False
+
+    terms = [t for t in terms if len(t) > 0]
+    return terms
+
+
 ''' TO REMOVE
 def decode_furigana(word: str) -> list:
     """

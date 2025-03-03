@@ -22,7 +22,7 @@ def main():
                 break
 
             word_info = jplookup.scrape(word)
-            print(len(word_info))
+            # print(len(word_info))
             for info in word_info:
                 print(info)
 

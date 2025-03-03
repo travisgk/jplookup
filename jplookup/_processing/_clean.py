@@ -3,7 +3,42 @@ from jplookup._cleanstr._textwork import (
     is_japanese_char,
     percent_japanese,
     separate_term_and_furigana,
+    extract_japanese,
 )
+
+
+def _extract_pronunciation_info(p_str: str):
+    """Returns the region, the kana, the pitch-accent and IPA."""
+    region, kana, pitch_accent, ipa = None, None, None, None
+
+    # Extracts the region.
+    if p_str.startswith("(Tokyo)"):
+        region = "Tokyo"
+
+    # Extracts the kana.
+    found_kana = extract_japanese(p_str)
+    if len(found_kana) > 0:
+        kana = found_kana[0]
+
+    # Extracts the accent number.
+    accent_start_index = p_str.find("– [")
+    if accent_start_index >= 0:
+        accent_end_index = p_str.find("])", accent_start_index)
+        if accent_end_index - accent_start_index == 4:
+            pitch_accent = int(p_str[accent_end_index - 1])
+
+    # Extracts the IPA.
+    IPA_TERM = "IPA(key):"
+    ipa_key_index = p_str.find(IPA_TERM)
+    if ipa_key_index >= 0:
+        ipa_key_index += len(IPA_TERM)
+        ipa_start_index = p_str.find("[", ipa_key_index)
+        if ipa_start_index >= 0:
+            ipa_end_index = p_str.find("]", ipa_start_index)
+            if ipa_end_index >= 0:
+                ipa = p_str[ipa_start_index + 1 : ipa_end_index]
+
+    return region, kana, pitch_accent, ipa
 
 
 def _break_up_headwords(headword_str: str) -> list:
@@ -51,29 +86,8 @@ def _extract_info_from_headwords(headwords: list):
     return terms[0], furis, kanas
 
 
-def _extract_japanese(subline: str) -> list:
-    """
-    Returns a list of every individual japanese phrase
-    contained in the given text.
-    """
-    in_jp = False
-    terms = [
-        "",
-    ]
-    for i, c in enumerate(subline):
-        if is_japanese_char(c):
-            terms[-1] += c
-            in_jp = True
-
-        elif in_jp:  # not a jp char
-            terms.append("")
-            in_jp = False
-
-    terms = [t for t in terms if len(t) > 0]
-    return terms
-
-
 def clean_data(word_info: list, term: str):
+    """Returns a dict object with all the given extracted data cleaned up."""
     result = {}
 
     # Cycles through all the Etymology keys.
@@ -85,8 +99,20 @@ def clean_data(word_info: list, term: str):
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         result[etym_title] = {}
 
+        # Cycles through the pronunciations
+        # under this Etymology header.
+        pronunciation_bank = {}
+        for pronunciation in entry["pronunciations"]:
+            region, kana, pitch_accent, ipa = _extract_pronunciation_info(pronunciation)
+            print(pronunciation)  # DEBUG
+            print(region)
+            print(kana)
+            print(pitch_accent)
+            print(ipa)
+
         # Cycles through the Parts of Speech under this Etymology header.
         parts_of_speech = entry["parts-of-speech"]
+
         for i, part in enumerate(parts_of_speech):
             # Sets up the data entry for this particular Part of Speech.
             headwords = _break_up_headwords(entry["headwords"][i])
@@ -98,11 +124,6 @@ def clean_data(word_info: list, term: str):
                 ],
                 "definitions": [],
             }
-
-            # Cycles through the pronunciations
-            # under this Parts of Speech header.
-            for pronunciation in entry["pronunciations"]:
-                print(pronunciation)  # DEBUG
 
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
@@ -122,11 +143,11 @@ def clean_data(word_info: list, term: str):
                         # Handles synonyms and antonyms.
                         if sub.startswith("Synonym"):
                             sub = sub[7:]
-                            new_def["synonyms"] = _extract_japanese(sub)
+                            new_def["synonyms"] = extract_japanese(sub)
 
                         elif sub.startswith("Antonym"):
                             sub = sub[7:]
-                            new_def["antonyms"] = _extract_japanese(sub)
+                            new_def["antonyms"] = extract_japanese(sub)
 
                         # Handles sentence examples.
                         elif j + 2 < len(sublines):
