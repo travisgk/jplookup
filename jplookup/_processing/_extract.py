@@ -1,5 +1,6 @@
 from jplookup._cleanstr._textwork import (
     remove_tags,
+    remove_further_pronunciations,
     remove_unwanted_html,
     extract_tag_contents,
 )

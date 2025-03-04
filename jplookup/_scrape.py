@@ -1,7 +1,11 @@
 import time
 import requests
 from bs4 import BeautifulSoup
-from ._cleanstr._textwork import remove_unwanted_html, shorten_html
+from ._cleanstr._textwork import (
+    remove_unwanted_html,
+    remove_further_pronunciations,
+    shorten_html,
+)
 from ._cleanstr._dictform import get_dictionary_form
 from ._processing._clean import clean_data
 from ._processing._extract import extract_data
@@ -13,6 +17,7 @@ PARTS_OF_SPEECH = [
     "Verb",
     "Adverb",
     "Proper noun",
+    "Interjection",
     "Particle",
     "Counter",
     "Affix",
@@ -174,6 +179,7 @@ def scrape(term: str, depth: int = 0, sleep_seconds=1.5) -> list:
         return None
 
     clean_text = shorten_html(response.text)
+    clean_text = remove_further_pronunciations(clean_text)
 
     # Finds the "Japanese" header; returns if no header was found.
     soup = BeautifulSoup(clean_text, "html.parser")

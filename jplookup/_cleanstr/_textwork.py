@@ -75,6 +75,18 @@ def remove_tags(html: str, omissions: list = []) -> str:
     return str(soup)
 
 
+def remove_further_pronunciations(html: str) -> str:
+    KEY = ">Further pronunciations</div>"
+    soup = BeautifulSoup(html, "html.parser")
+
+    further_ps = soup.find_all("div", class_="NavFrame")
+    for p in further_ps:
+        if KEY in str(p):
+            p.decompose()
+
+    return str(soup)
+
+
 def remove_unwanted_html(html: str) -> str:
     """Returns text with <ul> tags and pesky <span> tags removed."""
     soup = BeautifulSoup(html, "html.parser")

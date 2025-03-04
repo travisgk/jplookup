@@ -12,8 +12,11 @@ def _extract_pronunciation_info(p_str: str):
     region, kana, pitch_accent, ipa = None, None, None, None
 
     # Extracts the region.
-    if p_str.startswith("(Tokyo)"):
-        region = "Tokyo"
+    REGIONS = ["Tokyo", "Osaka"]
+    for r in REGIONS:
+        if p_str.startswith(f"({r})"):
+            region = r
+            break
 
     # Extracts the kana.
     found_kana = extract_japanese(p_str)
