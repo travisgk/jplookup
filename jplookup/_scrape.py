@@ -22,6 +22,7 @@ PARTS_OF_SPEECH = [
     "Counter",
     "Affix",
     "Suffix",
+    "Prefix",
     "Phrase",
     "Proverb",
     "Pronoun",

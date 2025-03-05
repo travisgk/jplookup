@@ -5,6 +5,7 @@ from jplookup._cleanstr._textwork import (
     separate_term_and_furigana,
     extract_japanese,
 )
+from ._pronunciation_match import *
 
 
 def _extract_pronunciation_info(p_str: str):
@@ -98,43 +99,87 @@ def clean_data(word_info: list, term: str):
     for etym_key in etym_keys:
         entry = word_info[etym_key]
 
-        # creates a new dictionary for this etymology title.
+        # Creates a new dictionary for this etymology title.
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         result[etym_title] = {}
 
         # Cycles through the pronunciations
         # under this Etymology header.
+        # ---
+        # Each pronunciation is stored in a bank
+        # and will be later matched up to the parts of speech
+        # by their kana.
         pronunciation_bank = {}
         for pronunciation in entry["pronunciations"]:
             region, kana, pitch_accent, ipa = _extract_pronunciation_info(pronunciation)
-            print(pronunciation)  # DEBUG
-            print(region)
-            print(kana)
-            print(pitch_accent)
-            print(ipa)
+
+            # adds a new pronunciation entry to the pronunciation bank.
+            if (
+                kana is not None
+                and pronunciation_bank.get(kana) is None
+                and any(t is not None for t in [region, pitch_accent, ipa])
+            ):
+                new_pronunciation = {}
+                if region is not None:
+                    new_pronunciation["region"] = region
+                if pitch_accent is not None:
+                    new_pronunciation["pitch-accent"] = pitch_accent
+                if ipa is not None:
+                    new_pronunciation["ipa"] = ipa
+                pronunciation_bank[kana] = new_pronunciation
 
         # Cycles through the Parts of Speech under this Etymology header.
         parts_of_speech = entry["parts-of-speech"]
-
         for i, part in enumerate(parts_of_speech):
             # Sets up the data entry for this particular Part of Speech.
             headwords = _break_up_headwords(entry["headwords"][i])
+
+            # Sets up the dictionary object for this Etymology + Part of Speech.
+            # ---
+            # gets the kana from the headword.
+            # a list with the furigana for each corresponding char
+            # is included only if a kanji with furigana is present.
             term, furigana, kanas = _extract_info_from_headwords(headwords)
-            result[etym_title][part] = {
-                "term": term,
-                "transcriptions": [
-                    {"kana": k, "furigana": f} for f, k in zip(furigana, kanas)
-                ],
-                "definitions": [],
-            }
+            transcriptions = [
+                (
+                    {"kana": k, "furigana": f}
+                    if any(len(furi) > 0 for furi in f)
+                    else {"kana": k}
+                )
+                for f, k in zip(furigana, kanas)
+            ]
+
+            # the transcriptions are matched up to the pronunciations
+            # to give each transcription additional phonetic information.
+            for t in transcriptions:
+                matching_pronunciation = find_pronunciation_match(pronunciation_bank, t)
+                if matching_pronunciation is not None:
+                    region = matching_pronunciation.get("region")
+                    pitch_accent = matching_pronunciation.get("pitch-accent")
+                    ipa = matching_pronunciation.get("ipa")
+                    if region is not None:
+                        t["region"] = region
+                    if pitch_accent is not None:
+                        t["pitch-accent"] = pitch_accent
+                    if ipa is not None:
+                        t["ipa"] = ipa
+
+            # finally creates the dictionary object for this etym + part.
+            result[etym_title][part] = {"term": term}
+            if len(transcriptions) > 0:
+                result[etym_title][part]["pronunciations"] = transcriptions
+            result[etym_title][part]["definitions"] = []
 
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
             for definition in entry["definitions"][i]:
                 sublines = definition.get("sublines")
                 if sublines is None:
+                    # this definition has no sublist so it can just be added.
                     definitions.append(definition)
                 else:
+                    # otherwise, the sublist will be included
+                    # along with its above definition text.
                     new_def = {"definition": definition["definition"]}
                     percent_jp = [percent_japanese(s) for s in sublines]
 
@@ -160,7 +205,10 @@ def clean_data(word_info: list, term: str):
                                 and sublines[j + k].endswith("</dd>")
                                 for k in [1, 2]
                             ):
-                                #
+                                # if the program finds a series of sublines
+                                # where it goes JP, <dd>EN</dd>, <dd>EN</dd>,
+                                # then this is assumed
+                                # to be an example sentence.
                                 if new_def.get("examples") is None:
                                     new_def["examples"] = []
 
