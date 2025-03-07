@@ -79,7 +79,7 @@ def extract_data(layout: dict):
             if i == len(e["speech-headers"]) - 1:
                 s_end_line_num = 9999999
             else:
-                s_end_line_num = e["speech-headers"].sourceline
+                s_end_line_num = e["speech-headers"][i + 1].sourceline
 
             usage_notes = None
             for j, u_header in enumerate(e["usage-headers"]):
