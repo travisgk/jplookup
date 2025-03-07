@@ -1,3 +1,6 @@
+import jaconv
+
+
 def _kana_matches(p_kana: str, t_kana: str) -> bool:
     """
     Returns True if the kana match each other,
@@ -8,6 +11,9 @@ def _kana_matches(p_kana: str, t_kana: str) -> bool:
     """
     if len(p_kana) != len(t_kana):
         return False
+
+    p_kana = jaconv.hira2kata(p_kana)
+    t_kana = jaconv.hira2kata(t_kana)
 
     for p, t in zip(p_kana, t_kana):
         if p != t and not (p == "ー" and t in "いう"):
