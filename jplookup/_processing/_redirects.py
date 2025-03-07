@@ -1,5 +1,5 @@
 import re
-from jplookup._cleanstr._textwork import remove_alternative_spellings
+from jplookup._cleanstr._textwork import is_kanji, remove_alternative_spellings
 
 
 def _sort_dict_by_trailing_number(data):
@@ -25,6 +25,37 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
 
     if len(clean_data) == 1 or redirects is None or len(redirects.keys()) == 0:
         return clean_data
+
+    # For any redirects, any definitions with specified kanji
+    # that DO NOT match the original term are removed;
+    # those without kanji or with matching kanji remain.
+    for entry in clean_data[1:]:
+        for etym in entry.values():
+            for part_of_speech, contents in etym.items():
+                if part_of_speech == "alternative-spellings":
+                    continue
+
+                defs = contents.get("definitions")
+                if defs is None:
+                    continue
+
+                def_indices_to_remove = []
+                for i, definition in enumerate(defs):
+                    def_str = definition["definition"]
+                    if is_kanji(def_str[0]):
+                        # there are kanji specifiers for this definition;
+                        # the program ensures only relevant definitions
+                        # of child entries are included.
+                        colon_index = def_str.find(":")
+                        kanji_terms = def_str[:colon_index].split(",")
+                        kanji_terms = [k.strip() for k in kanji_terms]
+                        if original_term not in kanji_terms:
+                            def_indices_to_remove.append(i)
+
+                if len(def_indices_to_remove) > 0:
+                    contents["definitions"] = [
+                        d for i, d in enumerate(defs) if i not in def_indices_to_remove
+                    ]
 
     successfully_redirected = [False for _ in clean_data]
 
