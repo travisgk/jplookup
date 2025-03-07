@@ -10,6 +10,8 @@ from jplookup._cleanstr._textwork import (
 )
 from ._pronunciation_match import *
 
+REMOVE_DUPLICATE_KATAKANA = True
+
 
 def _extract_pronunciation_info(p_str: str):
     """Returns the region, the kana, the pitch-accent and IPA."""
@@ -50,43 +52,10 @@ def _extract_pronunciation_info(p_str: str):
 
 def _break_up_headwords(headword_str: str) -> list:
     """Returns a list of headwords (kanji and furigana in parentheses)."""
-    results = headword_str.split("or")
-
-    # Headwords whose transcriptions are just one-to-one katakana 
-    # conversions are excluded.
-    hira_indices, kata_indices = [], []
-    for i, r in enumerate(results):
-        if is_hiragana(r[0]):
-            hira_indices.append(i)
-        elif is_katakana(r[0]):
-            kata_indices.append(i)
-        else:
-            param_start_i = r.find("(")
-            if param_start_i >= 0:
-                if is_hiragana(r[param_start_i + 1]):
-                    hira_indices.append(i)
-                elif is_katakana(r[param_start_i + 1]):
-                    kata_indices.append(i)
+    return headword_str.split("or")
 
 
-    hira_as_kata = {
-        i: jaconv.hira2kata(results[i]) 
-        for i in range(len(results)) 
-        if i in hira_indices
-    }
-
-    indices_to_remove = []
-    for i in kata_indices:
-        if any(results[i] == hira_as_kata[j] for j in hira_indices): 
-            indices_to_remove.append(i)
-
-    if len(indices_to_remove) > 0:
-        results = [r for i, r in enumerate(results) if i not in indices_to_remove]
-
-    return results
-
-
-def _extract_info_from_headwords(headwords: list):
+def _extract_info_from_headwords(headwords: list, prefers_katakana: bool = False):
     """
     Returns the Japanese term,
     a list of furigana
@@ -112,8 +81,38 @@ def _extract_info_from_headwords(headwords: list):
         kana = ""
         for c, f in zip(term, furi):
             kana += c if is_kana(c) else f
-
         kanas.append(kana)
+
+    # Headwords whose transcriptions are just one-to-one katakana
+    # conversions are excluded.
+    if REMOVE_DUPLICATE_KATAKANA:
+        hira_indices, kata_indices = [], []
+        for i, r in enumerate(kanas):
+            if is_hiragana(r[0]):
+                hira_indices.append(i)
+            elif is_katakana(r[0]):
+                kata_indices.append(i)
+
+        hira_as_kata = {
+            i: jaconv.hira2kata(kanas[i])
+            for i in range(len(kanas))
+            if i in hira_indices
+        }
+
+        indices_to_remove = []
+        for i in kata_indices:
+            for j in hira_indices:
+                if kanas[i] == hira_as_kata[j]:
+                    indices_to_remove.append(j if prefers_katakana else i)
+
+        if len(indices_to_remove) > 0:
+            new_furis, new_kanas = [], []
+            for i in range(len(kanas)):
+                if i not in indices_to_remove:
+                    new_furis.append(furis[i])
+                    new_kanas.append(kanas[i])
+            furis = new_furis
+            kanas = new_kanas
 
     if any(t != terms[0] for t in terms):
         print(f"The terms are different: {terms}")  # mere warning.
@@ -128,7 +127,6 @@ def clean_data(word_info: list, term: str):
 
     # Cycles through all the Etymology keys.
     etym_keys = word_info.keys()
-
     for etym_key in etym_keys:
         # Creates a new dictionary for this etymology title.
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
@@ -167,18 +165,36 @@ def clean_data(word_info: list, term: str):
         # Cycles through the Parts of Speech under this Etymology header.
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
+
             if part == "alternative-spellings":
                 continue
 
+            headword_str = entry["headwords"][i]
+            counter_index = headword_str.find(" counter:")
+            counter = None
+            if counter_index >= 0:
+                counter = headword_str[counter_index + 9 :]
+                headword_str = headword_str[:counter_index]
+
             # Sets up the data entry for this particular Part of Speech.
-            headwords = _break_up_headwords(entry["headwords"][i])
+            headwords = _break_up_headwords(headword_str)
 
             # Sets up the dictionary object for this Etymology + Part of Speech.
             # ---
             # gets the kana from the headword.
             # a list with the furigana for each corresponding char
             # is included only if a kanji with furigana is present.
-            term, furigana, kanas = _extract_info_from_headwords(headwords)
+            prefers_katakana = False
+            usage_notes = entry["usage-notes"][i]
+            if len(usage_notes) > 0:
+                # result[etym_title][part]["usage-notes"] = usage_notes
+                prefers_katakana = "often spelled in katakana" in usage_notes
+                if usage_notes is not None:
+                    del entry["usage-notes"]
+
+            term, furigana, kanas = _extract_info_from_headwords(
+                headwords, prefers_katakana
+            )
             transcriptions = [
                 (
                     {"kana": k, "furigana": f}
@@ -208,6 +224,10 @@ def clean_data(word_info: list, term: str):
 
             # finally creates the dictionary object for this etym + part.
             result[etym_title][part] = {"term": term}
+
+            if counter is not None:
+                result[etym_title][part]["counter"] = counter
+
             if len(transcriptions) > 0:
                 result[etym_title][part]["pronunciations"] = transcriptions
             result[etym_title][part]["definitions"] = []
@@ -221,7 +241,10 @@ def clean_data(word_info: list, term: str):
                     if def_text.startswith("("):
                         end_param_i = def_text.find(")")
                         if end_param_i >= 0:
-                            if "archaic" in def_text[1:end_param_i]:
+                            if any(
+                                forbid in def_text[1:end_param_i]
+                                for forbid in ["archaic", "Classical Japanese"]
+                            ):
                                 continue
 
                 # examines to see if there are any sublines provided.
@@ -238,6 +261,7 @@ def clean_data(word_info: list, term: str):
                     # Cycles through the Sublines under this Definition entry.
                     j = 0
                     while j < len(sublines):
+
                         sub = sublines[j]
 
                         # Handles synonyms and antonyms.
@@ -252,11 +276,11 @@ def clean_data(word_info: list, term: str):
                             new_def["antonyms"] = extract_japanese(sub)
                             handled = True
 
-                        elif "―" in sub: # some examples are given on one line.
+                        elif "―" in sub:  # some examples are given on one line.
                             sub_strs = sub.split("―")
                             if (
-                                len(sub_strs) == 3 
-                                and percent_japanese(sub_strs[0]) > 0.5 
+                                len(sub_strs) == 3
+                                and percent_japanese(sub_strs[0]) > 0.5
                                 and all(percent_japanese(s) < 0.5 for s in sub_strs[1:])
                             ):
                                 # adds the inline example.
@@ -271,14 +295,12 @@ def clean_data(word_info: list, term: str):
 
                                 new_def["examples"].append(sentence)
                                 handled = True
-                                
-
 
                         # Handles multi-line sentence examples.
                         if (
                             not handled
                             and j + 2 < len(sublines)
-                            and percent_jp[j] > 0.5 
+                            and percent_jp[j] > 0.5
                             and not sub.startswith("<dd>")
                             and all(
                                 percent_jp[j + k] < 0.5
@@ -314,6 +336,9 @@ def clean_data(word_info: list, term: str):
                 result[etym_title][part]["definitions"] = definitions
             else:
                 del result[etym_title][part]
+
+            if len(usage_notes) > 0:
+                result[etym_title][part]["usage-notes"] = usage_notes
 
     for etym_key in etym_keys:
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"

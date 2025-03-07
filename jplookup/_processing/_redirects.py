@@ -32,7 +32,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     for entry in clean_data[1:]:
         for etym in entry.values():
             for part_of_speech, contents in etym.items():
-                if part_of_speech == "alternative-spellings":
+                if part_of_speech in ["alternative-spellings", "usage-notes"]:
                     continue
 
                 defs = contents.get("definitions")

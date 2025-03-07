@@ -1,4 +1,5 @@
 from jplookup._cleanstr._textwork import (
+    percent_japanese,
     remove_text_in_brackets,
     remove_tags,
     remove_further_pronunciations,
@@ -20,6 +21,7 @@ def extract_data(layout: dict):
             "pronunciations": [],
             "definitions": [],
             "headwords": [],
+            "usage-notes": [],
         }
 
         """
@@ -69,16 +71,52 @@ def extract_data(layout: dict):
         """
         Searches for headwords under each Part of Speech header.
         """
+        u_has_been_used = [False for _ in e["usage-notes"]]
         for i, s_header in enumerate(e["speech-headers"]):
             headword = None
             headword_span = s_header.find_next("span", class_="headword-line")
+
+            if i == len(e["speech-headers"]) - 1:
+                s_end_line_num = 9999999
+            else:
+                s_end_line_num = e["speech-headers"].sourceline
+
+            usage_notes = None
+            for j, u_header in enumerate(e["usage-headers"]):
+                if (
+                    not u_has_been_used[j]
+                    and s_header.sourceline <= u_header.sourceline < s_end_line_num
+                ):
+                    u_has_been_used[j] = True
+                    usage_notes = e["usage-notes"][j]
+                    break
+
             if headword_span is not None:
                 headword = str(headword_span).strip()
                 period_index = headword.find("•")
+
+                # looks for a counter.
+                counter = None
                 if period_index >= 0:
                     headword = headword[:period_index].strip()
+                    p_parent = headword_span.find_parent("p")
+                    p_text = p_parent.get_text()
+                    counter_index = p_text.rfind("counter ")
+                    if counter_index >= 0:
+                        closing_index = p_text.find(")", counter_index + 8)
+                        if closing_index >= 0:
+                            contents = p_text[counter_index + 8 : closing_index]
+                            if percent_japanese(contents) > 0.9:
+                                counter = contents
+                                # print(f"counter is {counter}")
+
                 headword = remove_tags(headword).replace("\u0020", "")
-                data[key]["headwords"].extend([headword])
+                if counter is not None:
+                    headword += f" counter:{counter}"
+                data[key]["headwords"].append(headword)
+                data[key]["usage-notes"].append(
+                    "" if usage_notes is None else usage_notes
+                )
             else:
                 continue  # no headword span found. skips.
 

@@ -14,7 +14,7 @@ def is_hiragana(char) -> bool:
 
 
 def is_katakana(char) -> bool:
-    return "\u30a0" <= char <= "\u30ff"    
+    return "\u30a0" <= char <= "\u30ff"
 
 
 def is_kana(char) -> bool:

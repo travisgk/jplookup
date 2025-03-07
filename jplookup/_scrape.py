@@ -76,6 +76,7 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
 
     pronunciation_headers = find_header_tags("Pronunciation")
     etymology_headers = find_header_tags("Etymology")
+    usage_notes_headers = find_header_tags("Usage notes")
 
     """
     Step 3) Finds title tags containing parts of speech.
@@ -93,12 +94,24 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                     found_word_part_headers.append(current_header)
                 current_header = current_header.find_next(tag)
 
+    # Ensures that word parts all have unique key names.
+    for part in PARTS_OF_SPEECH:
+        found_indices = []
+        for i, found in enumerate(found_word_parts):
+            if found == part:
+                found_indices.append(i)
+        if len(found_indices) > 1:
+            for i, matching_index in enumerate(found_indices):
+                new_name = f"{part} {i + 1}"
+                found_word_parts[matching_index] = new_name
+
     """
     Step 4) Matches up elements by line numbers to determine the page layout.
     """
     layout = {}
     h_used = [False for _ in pronunciation_headers]
     f_used = [False for _ in found_word_part_headers]
+    u_used = [False for _ in usage_notes_headers]
     if len(etymology_headers) == 0:
         etymology_headers = [jp_header]  # forces header.
 
@@ -109,6 +122,8 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
             "pronunciation-headers": [],
             "speech-headers": [],
             "parts-of-speech": [],
+            "usage-headers": [],
+            "usage-notes": [],
         }
         if i == len(etymology_headers) - 1:
             next_ety_line_num = 9999999
@@ -137,22 +152,40 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
 
         # adds any pronunciation header that's below the "Etymology" header.
         for j, h in enumerate(pronunciation_headers):
-            if not h_used[j] and (
-                e is None
-                or (e.sourceline <= h.sourceline and h.sourceline < next_ety_line_num)
+            if (
+                not h_used[j]
+                and h.sourceline < next_ety_line_num
+                and (e is None or (e.sourceline <= h.sourceline))
             ):
                 h_used[j] = True
                 layout[key]["pronunciation-headers"].append(h)
 
         # adds any part-of-speech header that's below the "Etymology" header.
         for j, f in enumerate(found_word_part_headers):
-            if not f_used[j] and (
-                e is None
-                or (e.sourceline <= f.sourceline and f.sourceline < next_ety_line_num)
+            if (
+                not f_used[j]
+                and f.sourceline < next_ety_line_num
+                and (e is None or e.sourceline <= f.sourceline)
             ):
                 f_used[j] = True
                 layout[key]["speech-headers"].append(f)
                 layout[key]["parts-of-speech"].append(found_word_parts[j])
+
+        # adds any usage notes header that's below the "Etymology" header.
+        for j, u in enumerate(usage_notes_headers):
+            if (
+                not u_used[j]
+                and u.sourceline < next_ety_line_num
+                and (e is None or e.sourceline <= u.sourceline)
+            ):
+                u_used[j] = True
+
+                # retrieves the text contents out of the following <ul>
+                # to get the usage notes.
+                next_ul = u.find_next("ul")
+                if next_ul is not None and next_ul.sourceline < next_ety_line_num:
+                    layout[key]["usage-headers"].append(u)
+                    layout[key]["usage-notes"].append(next_ul.get_text())
 
     # Figures out which empty Etymology headers to delete.
     keys_to_delete = []

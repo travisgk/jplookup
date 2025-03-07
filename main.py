@@ -10,8 +10,24 @@ def main():
     USE_PROMPT = True
     AGGRESSIVENESS = 6
 
-    for i, c in enumerate(["鹿", "武器", "甘い", "本当", "魚", "便利", "目", "大きな"]):
-        word_info = jplookup.scrape(c, sleep_seconds=5)
+    for i, c in enumerate(
+        [
+            # "います",
+            # "して",
+            # "注意",
+            # "出没",
+            "鹿",
+            # "武器",
+            # "甘い",
+            # "本当",
+            # "魚",
+            # "便利",
+            # "目",
+            # "大きな",
+        ]
+    ):
+        time.sleep(5)
+        word_info = jplookup.scrape(c, sleep_seconds=3)
         with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
             json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
         print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
