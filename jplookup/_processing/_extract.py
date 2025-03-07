@@ -142,11 +142,13 @@ def extract_data(layout: dict):
                         entry["sublines"] = sublines
                     else:
                         entry["definition"] = li.strip()
-                    
+
                     # removes any text in brackets (usually a date of origin.
                     # since those are not helpful for learning.
-                    entry["definition"] = remove_text_in_brackets(entry["definition"]).strip()
-                    
+                    entry["definition"] = remove_text_in_brackets(
+                        entry["definition"]
+                    ).strip()
+
                     # the new definition entry is finally added.
                     definitions.append(entry)
 

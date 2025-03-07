@@ -6,17 +6,16 @@ import jplookup
 
 
 def main():
-    
+
     USE_PROMPT = True
     AGGRESSIVENESS = 6
-
 
     word_info = jplookup.scrape("大丈夫", sleep_seconds=5)
     with open("out-data.json", "w", encoding="utf-8") as json_file:
         json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
     print(word_info[0])
 
-    '''
+    """
     if USE_PROMPT:
         word = None
         while True:
@@ -81,10 +80,9 @@ def main():
         # Save the dictionary to a file
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, indent=4)
-    '''
-    
-   
-    ''' 
+    """
+
+    """ 
     # loads the .json with the written jplookup info.
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
@@ -116,6 +114,8 @@ def main():
     data = word_info.get("水")
     if len(data) > 0:
         print(data[0]["Etymology 1"])
-    '''
+    """
+
+
 if __name__ == "__main__":
     main()

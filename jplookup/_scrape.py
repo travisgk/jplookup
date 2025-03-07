@@ -10,9 +10,7 @@ from ._cleanstr._textwork import (
 from ._cleanstr._dictform import get_dictionary_form
 from ._processing._clean import clean_data
 from ._processing._extract import extract_data
-from ._processing._redirects import (
-    remove_alternative_spellings, link_up_redirects
-)
+from ._processing._redirects import remove_alternative_spellings, link_up_redirects
 
 PARTS_OF_SPEECH = [
     "Noun",
@@ -122,7 +120,7 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
         if alt_spellings_header is not None:
             table_text = str(alt_spellings_header)
             if (
-                alt_spellings_header.sourceline < next_ety_line_num 
+                alt_spellings_header.sourceline < next_ety_line_num
                 and "Alternative spelling" in table_text
             ):
                 soup = BeautifulSoup(table_text, "html.parser")
@@ -137,10 +135,7 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
         for j, h in enumerate(pronunciation_headers):
             if not h_used[j] and (
                 e is None
-                or (
-                    e.sourceline <= h.sourceline
-                    and h.sourceline < next_ety_line_num
-                )
+                or (e.sourceline <= h.sourceline and h.sourceline < next_ety_line_num)
             ):
                 h_used[j] = True
                 layout[key]["pronunciation-headers"].append(h)
@@ -149,10 +144,7 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
         for j, f in enumerate(found_word_part_headers):
             if not f_used[j] and (
                 e is None
-                or (
-                    e.sourceline <= f.sourceline
-                    and f.sourceline < next_ety_line_num
-                )
+                or (e.sourceline <= f.sourceline and f.sourceline < next_ety_line_num)
             ):
                 f_used[j] = True
                 layout[key]["speech-headers"].append(f)
@@ -164,12 +156,9 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
     for key in sorted_keys:
         info = layout[key]
 
-        if (
-            len(info["pronunciation-headers"]) == 0 
-            and len(info["speech-headers"]) == 0
-        ):
+        if len(info["pronunciation-headers"]) == 0 and len(info["speech-headers"]) == 0:
             keys_to_delete.append(key)
-    
+
     # Looks for redirects.
     JP_TABLE = "wikitable ja-see"
     redirects_to_etym = {}
@@ -184,8 +173,8 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
 
             next_table = etym_header.find_next("table", class_=JP_TABLE)
             if (
-                next_table is not None 
-                and next_table.sourceline < end_line 
+                next_table is not None
+                and next_table.sourceline < end_line
                 # and next_table.sourceline - etym_header.sourceline < 18
             ):
                 redirect_term = _get_alternative_term_from_table(next_table)
@@ -196,7 +185,7 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                     layout[f"e{i}"] = None
 
             etym_index = int(key[1:])
-    
+
     for key in keys_to_delete:
         del layout[key]
 
@@ -244,7 +233,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
         if depth < MAX_DEPTH:
             dict_form = get_dictionary_form(term)
         if dict_form is not None:
-            return scrape(dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds)
+            return scrape(
+                dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds
+            )
         return None
 
     clean_text = shorten_html(response.text)
@@ -275,9 +266,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
 
     if word_info is not None and len(word_info.keys()) > 0:
         results.append(word_info)
-    #elif depth == 0 and len(redirects_to_etym.keys()) > 1:
+    # elif depth == 0 and len(redirects_to_etym.keys()) > 1:
 
-    alternatives = [] # tuples of the term (str) and the sourceline (int).
+    alternatives = []  # tuples of the term (str) and the sourceline (int).
     if depth < MAX_DEPTH:
         # the program
         # checks to see if there are any alternatives that
@@ -287,9 +278,7 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
         for table in next_tables:
             alternative = _get_alternative_term_from_table(table)
             if alternative is not None:
-                if (results is None or len(results) == 0) and len(
-                    next_tables
-                ) == 1:
+                if (results is None or len(results) == 0) and len(next_tables) == 1:
                     next_depth = depth  # a simple redirect won't add depth.
                 else:
                     next_depth = depth + 1
@@ -297,7 +286,7 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
                 alt_results = scrape(
                     alternative, next_depth, original_term, sleep_seconds=sleep_seconds
                 )
-                
+
                 if alt_results is not None:
                     results.extend(alt_results)
 
@@ -307,7 +296,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
         # of the word (the program assuming it could be a verb).
         dict_form = get_dictionary_form(term)
         if dict_form is not None:
-            return scrape(dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds)
+            return scrape(
+                dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds
+            )
 
     if depth == 0:
         if len(redirects_to_etym.keys()) > 1:
@@ -315,11 +306,13 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
                 [v for v in redirects_to_etym.values()],
                 key=lambda v: int(v[10:]),
             )
-            results = [{v: None for v in sorted_values},] + results
+            results = [
+                {v: None for v in sorted_values},
+            ] + results
 
         results = link_up_redirects(
             results,
-            redirects_to_etym, 
+            redirects_to_etym,
             original_term if original_term else term,
         )
 

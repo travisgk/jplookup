@@ -102,10 +102,6 @@ def clean_data(word_info: list, term: str):
         if alt_spellings is not None:
             result[etym_title]["alternative-spellings"] = alt_spellings
 
-        
-
-
-
         # Cycles through the pronunciations
         # under this Etymology header.
         # ---
