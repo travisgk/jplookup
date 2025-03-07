@@ -1,4 +1,7 @@
+import jaconv
 from jplookup._cleanstr._textwork import (
+    is_hiragana,
+    is_katakana,
     is_kana,
     is_japanese_char,
     percent_japanese,
@@ -47,7 +50,40 @@ def _extract_pronunciation_info(p_str: str):
 
 def _break_up_headwords(headword_str: str) -> list:
     """Returns a list of headwords (kanji and furigana in parentheses)."""
-    return headword_str.split("or")
+    results = headword_str.split("or")
+
+    # Headwords whose transcriptions are just one-to-one katakana 
+    # conversions are excluded.
+    hira_indices, kata_indices = [], []
+    for i, r in enumerate(results):
+        if is_hiragana(r[0]):
+            hira_indices.append(i)
+        elif is_katakana(r[0]):
+            kata_indices.append(i)
+        else:
+            param_start_i = r.find("(")
+            if param_start_i >= 0:
+                if is_hiragana(r[param_start_i + 1]):
+                    hira_indices.append(i)
+                elif is_katakana(r[param_start_i + 1]):
+                    kata_indices.append(i)
+
+
+    hira_as_kata = {
+        i: jaconv.hira2kata(results[i]) 
+        for i in range(len(results)) 
+        if i in hira_indices
+    }
+
+    indices_to_remove = []
+    for i in kata_indices:
+        if any(results[i] == hira_as_kata[j] for j in hira_indices): 
+            indices_to_remove.append(i)
+
+    if len(indices_to_remove) > 0:
+        results = [r for i, r in enumerate(results) if i not in indices_to_remove]
+
+    return results
 
 
 def _extract_info_from_headwords(headwords: list):
@@ -87,6 +123,7 @@ def _extract_info_from_headwords(headwords: list):
 
 def clean_data(word_info: list, term: str):
     """Returns a dict object with all the given extracted data cleaned up."""
+    REMOVE_ARCHAIC_DEFINITIONS = True
     result = {}
 
     # Cycles through all the Etymology keys.
@@ -178,6 +215,16 @@ def clean_data(word_info: list, term: str):
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
             for definition in entry["definitions"][i]:
+                # prevents archaic definitions from being added.
+                if REMOVE_ARCHAIC_DEFINITIONS:
+                    def_text = definition["definition"]
+                    if def_text.startswith("("):
+                        end_param_i = def_text.find(")")
+                        if end_param_i >= 0:
+                            if "archaic" in def_text[1:end_param_i]:
+                                continue
+
+                # examines to see if there are any sublines provided.
                 sublines = definition.get("sublines")
                 if sublines is None:
                     # this definition has no sublist so it can just be added.
@@ -217,7 +264,7 @@ def clean_data(word_info: list, term: str):
                                     new_def["examples"] = []
 
                                 sentence = {
-                                    "japanase": sub_strs[0].strip(),
+                                    "japanese": sub_strs[0].strip(),
                                     "romanji": sub_strs[1].strip(),
                                     "english": sub_strs[2].strip(),
                                 }
@@ -248,7 +295,7 @@ def clean_data(word_info: list, term: str):
                                 new_def["examples"] = []
 
                             sentence = {
-                                "japanase": sublines[j],
+                                "japanese": sublines[j],
                                 "romanji": sublines[j + 1][4:-5],
                                 "english": sublines[j + 2][4:-5],
                             }
@@ -262,6 +309,16 @@ def clean_data(word_info: list, term: str):
 
                     # the updated definition is added.
                     definitions.append(new_def)
-            result[etym_title][part]["definitions"] = definitions
+
+            if len(definitions) > 0:
+                result[etym_title][part]["definitions"] = definitions
+            else:
+                del result[etym_title][part]
+
+    for etym_key in etym_keys:
+        etym_title = f"Etymology {int(etym_key[1:]) + 1}"
+        parts = [k for k in result[etym_title].keys() if k != "alternative-spellings"]
+        if all(len(result[etym_title][part].keys()) == 0 for part in parts):
+            del result[etym_title]
 
     return result

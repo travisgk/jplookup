@@ -9,9 +9,17 @@ def is_kanji(char) -> bool:
     return "\u4e00" <= char <= "\u9fff"
 
 
+def is_hiragana(char) -> bool:
+    return "\u3040" <= char <= "\u309f"
+
+
+def is_katakana(char) -> bool:
+    return "\u30a0" <= char <= "\u30ff"    
+
+
 def is_kana(char) -> bool:
     """Returns True if the given char is hiragana/katakana."""
-    return ("\u3040" <= char <= "\u309f") or ("\u30a0" <= char <= "\u30ff")
+    return is_hiragana(char) or is_katakana(char)
 
 
 def is_japanese_char(char) -> bool:
