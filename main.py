@@ -10,10 +10,11 @@ def main():
     USE_PROMPT = True
     AGGRESSIVENESS = 6
 
-    word_info = jplookup.scrape("目", sleep_seconds=5)
-    with open("out-data.json", "w", encoding="utf-8") as json_file:
-        json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
-    print(word_info[0])
+    for i, c in enumerate(["目", "大きな"]):
+        word_info = jplookup.scrape(c, sleep_seconds=5)
+        with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
+            json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
+        print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
 
     """
     if USE_PROMPT:

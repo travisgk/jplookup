@@ -117,10 +117,14 @@ def _scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
 
         # looks for any "Alternative Spelling" specifications.
         alt_spellings_header = e.find_next("table", class_="wikitable floatright")
+        if alt_spellings_header is None and len(etymology_headers) <= 1:
+            alt_spellings_header = jp_header.find_next(
+                "table", class_="wikitable floatright"
+            )
         if alt_spellings_header is not None:
             table_text = str(alt_spellings_header)
             if (
-                alt_spellings_header.sourceline < next_ety_line_num
+                alt_spellings_header.sourceline <= next_ety_line_num
                 and "Alternative spelling" in table_text
             ):
                 soup = BeautifulSoup(table_text, "html.parser")
@@ -276,7 +280,7 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
 
     # elif depth == 0 and len(redirects_to_etym.keys()) > 1:
 
-    alternatives = []  # tuples of the term (str) and the sourceline (int).
+    # alternatives = []  # tuples of the term (str) and the sourceline (int).
     if depth < MAX_DEPTH:
         # the program
         # checks to see if there are any alternatives that
@@ -309,9 +313,6 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
             )
 
     if depth == 0:
-        # if len(redirects_to_etym.keys()) > 1:
-        #     + results
-
         results = link_up_redirects(
             results,
             redirects_to_etym,

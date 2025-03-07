@@ -18,9 +18,6 @@ def _sort_dict_by_trailing_number(data):
 
 def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
     MAX_NUM_ETYMS = 9
-
-    print(clean_data)
-
     redirect_keys = redirects.keys()
 
     if len(clean_data) == 0:
@@ -30,9 +27,13 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
         return clean_data
 
     successfully_redirected = [False for _ in clean_data]
+
+    # goes through each wiki entry scraped in the given clean data
+    # that comes after the root entry.
     for i, entry in enumerate(clean_data[1:]):
         index = i + 1
 
+        # goes through each contained etymology header.
         for etym_key, etymology in entry.items():
             new_etym_header = None
             new_etym = None
@@ -40,12 +41,15 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
             if alt_spellings is None:
                 continue
 
+            # goes through each part-of-speech contents.
             for part_of_speech, word_data in etymology.items():
                 if part_of_speech == "alternative-spellings":
                     continue  # can prob move removal of alt spellings to prior to call and then i can do away with this if statement
 
                 term = word_data.get("term")
-                if term in redirect_keys and original_term in alt_spellings:
+                if term in redirect_keys and (
+                    len(entry) == 1 or (original_term in alt_spellings)
+                ):
                     new_etym_header = redirects[term]
                     new_etym = etymology
                     break
@@ -53,6 +57,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
             if new_etym is not None:
                 clean_data[0][new_etym_header] = new_etym
                 successfully_redirected[index] = True
+                break
 
     clean_data = [e for i, e in enumerate(clean_data) if not successfully_redirected[i]]
     clean_data[0] = _sort_dict_by_trailing_number(clean_data[0])
