@@ -47,12 +47,7 @@ def _extract_pronunciation_info(p_str: str):
 
 def _break_up_headwords(headword_str: str) -> list:
     """Returns a list of headwords (kanji and furigana in parentheses)."""
-    or_index = headword_str.find("or")
-    if or_index >= 0:
-        return [headword_str[:or_index], headword_str[or_index + 2 :]]
-    return [
-        headword_str,
-    ]
+    return headword_str.split("or")
 
 
 def _extract_info_from_headwords(headwords: list):
@@ -96,12 +91,20 @@ def clean_data(word_info: list, term: str):
 
     # Cycles through all the Etymology keys.
     etym_keys = word_info.keys()
-    for etym_key in etym_keys:
-        entry = word_info[etym_key]
 
+    for etym_key in etym_keys:
         # Creates a new dictionary for this etymology title.
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         result[etym_title] = {}
+        entry = word_info[etym_key]
+
+        alt_spellings = entry.get("alternative-spellings")
+        if alt_spellings is not None:
+            result[etym_title]["alternative-spellings"] = alt_spellings
+
+        
+
+
 
         # Cycles through the pronunciations
         # under this Etymology header.
@@ -131,6 +134,9 @@ def clean_data(word_info: list, term: str):
         # Cycles through the Parts of Speech under this Etymology header.
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
+            if part == "alternative-spellings":
+                continue
+
             # Sets up the data entry for this particular Part of Speech.
             headwords = _break_up_headwords(entry["headwords"][i])
 
@@ -152,7 +158,10 @@ def clean_data(word_info: list, term: str):
             # the transcriptions are matched up to the pronunciations
             # to give each transcription additional phonetic information.
             for t in transcriptions:
-                matching_pronunciation = find_pronunciation_match(pronunciation_bank, t)
+                matching_pronunciation = find_pronunciation_match(
+                    pronunciation_bank,
+                    t,
+                )
                 if matching_pronunciation is not None:
                     region = matching_pronunciation.get("region")
                     pitch_accent = matching_pronunciation.get("pitch-accent")

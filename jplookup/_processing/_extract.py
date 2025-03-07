@@ -1,4 +1,5 @@
 from jplookup._cleanstr._textwork import (
+    remove_text_in_brackets,
     remove_tags,
     remove_further_pronunciations,
     remove_unwanted_html,
@@ -25,7 +26,12 @@ def extract_data(layout: dict):
         Creates a dict mapping each header name (e.g. "p3" or "s1") 
         to the line where its contents end.
         """
-        e = layout[key]
+        e = layout[key]  # etymology.
+
+        alt_spellings = e.get("alternative-spellings")
+        if alt_spellings is not None:
+            data[key]["alternative-spellings"] = alt_spellings
+
         results = []
         results.extend(
             [
@@ -82,7 +88,6 @@ def extract_data(layout: dict):
             ol = headword_span.find_next("ol")
             definitions = []
             if ol is not None:
-                # print(headword) # DEBUG
                 ol_str = remove_unwanted_html(str(ol))
                 li_contents = extract_tag_contents(ol_str, "li")
 
@@ -137,6 +142,12 @@ def extract_data(layout: dict):
                         entry["sublines"] = sublines
                     else:
                         entry["definition"] = li.strip()
+                    
+                    # removes any text in brackets (usually a date of origin.
+                    # since those are not helpful for learning.
+                    entry["definition"] = remove_text_in_brackets(entry["definition"]).strip()
+                    
+                    # the new definition entry is finally added.
                     definitions.append(entry)
 
             data[key]["definitions"].append(definitions)

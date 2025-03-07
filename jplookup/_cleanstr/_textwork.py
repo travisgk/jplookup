@@ -31,13 +31,6 @@ def percent_japanese(text: str):
     return num_jp / len(text) if len(text) > 0 else 0
 
 
-''' TO REMOVE
-def find_all_indices(text: str, word: str) -> list:
-    """Returns the indices of all occurrences of <word> inside <text>."""
-    return [match.start() for match in re.finditer(re.escape(word), text)]
-'''
-
-
 # Text removal functions.
 def remove_text_in_brackets(text: str) -> str:
     """Returns text with any text in [..] removed."""
@@ -109,6 +102,20 @@ def remove_unwanted_html(html: str) -> str:
     return str(soup)
 
 
+def remove_alternative_spellings(data):
+    """Recursively removes all 'alternative-spellings' keys from nested dictionaries and lists."""
+    if isinstance(data, dict):
+        # Remove the key if it exists
+        data.pop("alternative-spellings", None)
+        # Recur for each value in the dictionary
+        for key, value in data.items():
+            data[key] = remove_alternative_spellings(value)
+    elif isinstance(data, list):
+        # Recur for each element in the list
+        data = [remove_alternative_spellings(item) for item in data]
+    return data
+
+
 # Extraction functions.
 def extract_tag_contents(html: str, tag: str) -> list:
     """
@@ -165,28 +172,6 @@ def extract_japanese(subline: str) -> list:
 
     terms = [t for t in terms if len(t) > 0]
     return terms
-
-
-''' TO REMOVE
-def decode_furigana(word: str) -> list:
-    """
-    Returns a list of tuples, with each tuple
-    being the furigana for each kanji.
-    """
-    furi = []
-    inside_furi = False
-    for i, c in enumerate(word):
-        if not inside_furi and c == "(":
-            inside_furi = True
-        elif inside_furi and c == ")":
-            inside_furi = False
-        elif inside_furi:
-            furi[-1].append(c)
-        else:
-            furi.append([])
-
-    return [tuple(f) for f in furi]
-'''
 
 
 # Miscellaneous functions.

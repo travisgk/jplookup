@@ -6,9 +6,17 @@ import jplookup
 
 
 def main():
+    
     USE_PROMPT = True
-    AGGRESSIVENESS = 5
+    AGGRESSIVENESS = 6
 
+
+    word_info = jplookup.scrape("大丈夫", sleep_seconds=5)
+    with open("out-data.json", "w", encoding="utf-8") as json_file:
+        json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
+    print(word_info[0])
+
+    '''
     if USE_PROMPT:
         word = None
         while True:
@@ -57,10 +65,10 @@ def main():
             except KeyboardInterrupt:
                 print("Keyboard interrupt received, exiting gracefully.")
                 sys.exit(0)
-            """except Exception as e:
+            except Exception as e:
                 print(f"################################\nEXCEPTION {e} from term {term}\n################################\n")
                 exceptionals.append(term)
-            """
+            
 
         with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
             for x in exceptionals:
@@ -73,7 +81,41 @@ def main():
         # Save the dictionary to a file
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, indent=4)
+    '''
+    
+   
+    ''' 
+    # loads the .json with the written jplookup info.
+    with open("jp-data.json", "r", encoding="utf-8") as f:
+        word_info = json.load(f)
 
+    # goes through each term in the .json.
+    for key in word_info.keys():
+        print(key)
 
+        # looks for the term.
+        data = word_info.get(key)
+        if data is None or len(data) == 0:
+            continue  # skips if term is not in dict.
+        
+        # looks for the first etymology header.
+        data[0]["Etymology 1"]
+        for i in range(1, 10):
+            etym = data[0].get(f"Etymology {i}")
+            if etym is not None:
+                data = etym
+                break
+        else:
+            continue
+
+        for part_of_speech in data.keys():
+            print(part_of_speech)
+            
+
+    # Print formatted JSON
+    data = word_info.get("水")
+    if len(data) > 0:
+        print(data[0]["Etymology 1"])
+    '''
 if __name__ == "__main__":
     main()
