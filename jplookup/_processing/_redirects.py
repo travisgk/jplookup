@@ -19,6 +19,8 @@ def _sort_dict_by_trailing_number(data):
 def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
     MAX_NUM_ETYMS = 9
 
+    print(clean_data)
+
     redirect_keys = redirects.keys()
 
     if len(clean_data) == 0:
@@ -34,12 +36,16 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
         for etym_key, etymology in entry.items():
             new_etym_header = None
             new_etym = None
+            alt_spellings = etymology.get("alternative-spellings")
+            if alt_spellings is None:
+                continue
+
             for part_of_speech, word_data in etymology.items():
                 if part_of_speech == "alternative-spellings":
                     continue  # can prob move removal of alt spellings to prior to call and then i can do away with this if statement
 
                 term = word_data.get("term")
-                if term in redirect_keys:
+                if term in redirect_keys and original_term in alt_spellings:
                     new_etym_header = redirects[term]
                     new_etym = etymology
                     break

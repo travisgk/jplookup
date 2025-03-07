@@ -266,6 +266,14 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
 
     if word_info is not None and len(word_info.keys()) > 0:
         results.append(word_info)
+    else:
+        sorted_values = sorted(
+            [v for v in redirects_to_etym.values()],
+            key=lambda v: int(v[10:]),
+        )
+
+        results.append({v: None for v in sorted_values})
+
     # elif depth == 0 and len(redirects_to_etym.keys()) > 1:
 
     alternatives = []  # tuples of the term (str) and the sourceline (int).
@@ -301,14 +309,8 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
             )
 
     if depth == 0:
-        if len(redirects_to_etym.keys()) > 1:
-            sorted_values = sorted(
-                [v for v in redirects_to_etym.values()],
-                key=lambda v: int(v[10:]),
-            )
-            results = [
-                {v: None for v in sorted_values},
-            ] + results
+        # if len(redirects_to_etym.keys()) > 1:
+        #     + results
 
         results = link_up_redirects(
             results,

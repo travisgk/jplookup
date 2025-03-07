@@ -10,7 +10,7 @@ def main():
     USE_PROMPT = True
     AGGRESSIVENESS = 6
 
-    word_info = jplookup.scrape("大丈夫", sleep_seconds=5)
+    word_info = jplookup.scrape("目", sleep_seconds=5)
     with open("out-data.json", "w", encoding="utf-8") as json_file:
         json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
     print(word_info[0])
