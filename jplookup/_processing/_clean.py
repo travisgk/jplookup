@@ -194,41 +194,73 @@ def clean_data(word_info: list, term: str):
                         sub = sublines[j]
 
                         # Handles synonyms and antonyms.
+                        handled = False
                         if sub.startswith("Synonym"):
                             sub = sub[7:]
                             new_def["synonyms"] = extract_japanese(sub)
+                            handled = True
 
                         elif sub.startswith("Antonym"):
                             sub = sub[7:]
                             new_def["antonyms"] = extract_japanese(sub)
+                            handled = True
 
-                        # Handles sentence examples.
-                        elif j + 2 < len(sublines):
-                            if percent_jp[j] > 0.5 and all(
-                                percent_jp[j + k] < 0.5
-                                and sublines[j + k].startswith("<dd>")
-                                and sublines[j + k].endswith("</dd>")
-                                for k in [1, 2]
+                        elif "―" in sub: # some examples are given on one line.
+                            sub_strs = sub.split("―")
+                            if (
+                                len(sub_strs) == 3 
+                                and percent_japanese(sub_strs[0]) > 0.5 
+                                and all(percent_japanese(s) < 0.5 for s in sub_strs[1:])
                             ):
-                                # if the program finds a series of sublines
-                                # where it goes JP, <dd>EN</dd>, <dd>EN</dd>,
-                                # then this is assumed
-                                # to be an example sentence.
+                                # adds the inline example.
                                 if new_def.get("examples") is None:
                                     new_def["examples"] = []
 
                                 sentence = {
-                                    "japanase": sublines[j],
-                                    "romanji": sublines[j + 1][4:-5],
-                                    "english": sublines[j + 2][4:-5],
+                                    "japanase": sub_strs[0].strip(),
+                                    "romanji": sub_strs[1].strip(),
+                                    "english": sub_strs[2].strip(),
                                 }
 
                                 new_def["examples"].append(sentence)
+                                handled = True
+                                
 
-                                j += 3  # skips ahead of the example lines.
-                                continue
+
+                        # Handles multi-line sentence examples.
+                        if (
+                            not handled
+                            and j + 2 < len(sublines)
+                            and percent_jp[j] > 0.5 
+                            and not sub.startswith("<dd>")
+                            and all(
+                                percent_jp[j + k] < 0.5
+                                and sublines[j + k].startswith("<dd>")
+                                and sublines[j + k].endswith("</dd>")
+                                for k in [1, 2]
+                            )
+                        ):
+                            # if the program finds a series of sublines
+                            # where it goes JP, <dd>EN</dd>, <dd>EN</dd>,
+                            # then this is assumed
+                            # to be an example sentence.
+                            if new_def.get("examples") is None:
+                                new_def["examples"] = []
+
+                            sentence = {
+                                "japanase": sublines[j],
+                                "romanji": sublines[j + 1][4:-5],
+                                "english": sublines[j + 2][4:-5],
+                            }
+
+                            new_def["examples"].append(sentence)
+
+                            j += 3  # skips ahead of the example lines.
+                            continue
 
                         j += 1
+
+                    # the updated definition is added.
                     definitions.append(new_def)
             result[etym_title][part]["definitions"] = definitions
 

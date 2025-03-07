@@ -1,5 +1,5 @@
 import re
-from jplookup._cleanstr._textwork import is_kanji, remove_alternative_spellings
+from jplookup._cleanstr._textwork import is_japanese_char, remove_alternative_spellings
 
 
 def _sort_dict_by_trailing_number(data):
@@ -42,7 +42,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                 def_indices_to_remove = []
                 for i, definition in enumerate(defs):
                     def_str = definition["definition"]
-                    if is_kanji(def_str[0]):
+                    if is_japanese_char(def_str[0]):
                         # there are kanji specifiers for this definition;
                         # the program ensures only relevant definitions
                         # of child entries are included.
