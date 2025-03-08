@@ -4,6 +4,7 @@ from jplookup._cleanstr._textwork import (
     remove_tags,
     remove_further_pronunciations,
     remove_unwanted_html,
+    extract_japanese,
     extract_tag_contents,
 )
 
@@ -195,3 +196,40 @@ def extract_data(layout: dict):
             data[key]["definitions"].append(definitions)
 
     return data
+
+
+def extract_pronunciation_info(p_str: str):
+    """Returns the region, the kana, the pitch-accent and IPA."""
+    region, kana, pitch_accent, ipa = None, None, None, None
+
+    # Extracts the region.
+    REGIONS = ["Tokyo", "Osaka"]
+    for r in REGIONS:
+        if p_str.startswith(f"({r})"):
+            region = r
+            break
+
+    # Extracts the kana.
+    found_kana = extract_japanese(p_str)
+    if len(found_kana) > 0:
+        kana = found_kana[0]
+
+    # Extracts the accent number.
+    accent_start_index = p_str.find("– [")
+    if accent_start_index >= 0:
+        accent_end_index = p_str.find("])", accent_start_index)
+        if accent_end_index - accent_start_index == 4:
+            pitch_accent = int(p_str[accent_end_index - 1])
+
+    # Extracts the IPA.
+    IPA_TERM = "IPA(key):"
+    ipa_key_index = p_str.find(IPA_TERM)
+    if ipa_key_index >= 0:
+        ipa_key_index += len(IPA_TERM)
+        ipa_start_index = p_str.find("[", ipa_key_index)
+        if ipa_start_index >= 0:
+            ipa_end_index = p_str.find("]", ipa_start_index)
+            if ipa_end_index >= 0:
+                ipa = p_str[ipa_start_index + 1 : ipa_end_index]
+
+    return region, kana, pitch_accent, ipa

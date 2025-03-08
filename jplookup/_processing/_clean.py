@@ -1,128 +1,16 @@
-import jaconv
 from jplookup._cleanstr._textwork import (
-    is_hiragana,
-    is_katakana,
-    is_kana,
-    is_japanese_char,
     percent_japanese,
-    separate_term_and_furigana,
     extract_japanese,
 )
-from ._pronunciation_match import *
+from ._extract import extract_pronunciation_info
+from ._tools._headwords import *
+from ._tools._pronunciation_match import *
 
-REMOVE_DUPLICATE_KATAKANA = True
-
-
-def _extract_pronunciation_info(p_str: str):
-    """Returns the region, the kana, the pitch-accent and IPA."""
-    region, kana, pitch_accent, ipa = None, None, None, None
-
-    # Extracts the region.
-    REGIONS = ["Tokyo", "Osaka"]
-    for r in REGIONS:
-        if p_str.startswith(f"({r})"):
-            region = r
-            break
-
-    # Extracts the kana.
-    found_kana = extract_japanese(p_str)
-    if len(found_kana) > 0:
-        kana = found_kana[0]
-
-    # Extracts the accent number.
-    accent_start_index = p_str.find("– [")
-    if accent_start_index >= 0:
-        accent_end_index = p_str.find("])", accent_start_index)
-        if accent_end_index - accent_start_index == 4:
-            pitch_accent = int(p_str[accent_end_index - 1])
-
-    # Extracts the IPA.
-    IPA_TERM = "IPA(key):"
-    ipa_key_index = p_str.find(IPA_TERM)
-    if ipa_key_index >= 0:
-        ipa_key_index += len(IPA_TERM)
-        ipa_start_index = p_str.find("[", ipa_key_index)
-        if ipa_start_index >= 0:
-            ipa_end_index = p_str.find("]", ipa_start_index)
-            if ipa_end_index >= 0:
-                ipa = p_str[ipa_start_index + 1 : ipa_end_index]
-
-    return region, kana, pitch_accent, ipa
-
-
-def _break_up_headwords(headword_str: str) -> list:
-    """Returns a list of headwords (kanji and furigana in parentheses)."""
-    return headword_str.split("or")
-
-
-def _extract_info_from_headwords(headwords: list, prefers_katakana: bool = False):
-    """
-    Returns the Japanese term,
-    a list of furigana
-    and a list of hiragana transcriptions.
-    """
-    results = [separate_term_and_furigana(h) for h in headwords]
-
-    # gets the defining term for each headword.
-    terms = [r[0] for r in results]
-    if len(terms) == 0:
-        return None
-
-    # gets a list of furigana for each kanji.
-    furis = []
-    for r in results:
-        local_furi = r[1]
-        local_furi = ["".join(f) for f in local_furi]
-        furis.append(local_furi)
-
-    # gets the kana transcription for each headword.
-    kanas = []
-    for term, furi in zip(terms, furis):
-        kana = ""
-        for c, f in zip(term, furi):
-            kana += c if is_kana(c) else f
-        kanas.append(kana)
-
-    # Headwords whose transcriptions are just one-to-one katakana
-    # conversions are excluded.
-    if REMOVE_DUPLICATE_KATAKANA:
-        hira_indices, kata_indices = [], []
-        for i, r in enumerate(kanas):
-            if is_hiragana(r[0]):
-                hira_indices.append(i)
-            elif is_katakana(r[0]):
-                kata_indices.append(i)
-
-        hira_as_kata = {
-            i: jaconv.hira2kata(kanas[i])
-            for i in range(len(kanas))
-            if i in hira_indices
-        }
-
-        indices_to_remove = []
-        for i in kata_indices:
-            for j in hira_indices:
-                if kanas[i] == hira_as_kata[j]:
-                    indices_to_remove.append(j if prefers_katakana else i)
-
-        if len(indices_to_remove) > 0:
-            new_furis, new_kanas = [], []
-            for i in range(len(kanas)):
-                if i not in indices_to_remove:
-                    new_furis.append(furis[i])
-                    new_kanas.append(kanas[i])
-            furis = new_furis
-            kanas = new_kanas
-
-    if any(t != terms[0] for t in terms):
-        print(f"The terms are different: {terms}")  # mere warning.
-
-    return terms[0], furis, kanas
+REMOVE_ARCHAIC_DEFINITIONS = True
 
 
 def clean_data(word_info: list, term: str):
     """Returns a dict object with all the given extracted data cleaned up."""
-    REMOVE_ARCHAIC_DEFINITIONS = True
     result = {}
 
     # Cycles through all the Etymology keys.
@@ -145,7 +33,7 @@ def clean_data(word_info: list, term: str):
         # by their kana.
         pronunciation_bank = {}
         for pronunciation in entry["pronunciations"]:
-            region, kana, pitch_accent, ipa = _extract_pronunciation_info(pronunciation)
+            region, kana, pitch_accent, ipa = extract_pronunciation_info(pronunciation)
 
             # adds a new pronunciation entry to the pronunciation bank.
             if (
@@ -177,7 +65,7 @@ def clean_data(word_info: list, term: str):
                 headword_str = headword_str[:counter_index]
 
             # Sets up the data entry for this particular Part of Speech.
-            headwords = _break_up_headwords(headword_str)
+            headwords = break_up_headwords(headword_str)
 
             # Sets up the dictionary object for this Etymology + Part of Speech.
             # ---
@@ -189,10 +77,8 @@ def clean_data(word_info: list, term: str):
             if len(usage_notes) > 0:
                 # result[etym_title][part]["usage-notes"] = usage_notes
                 prefers_katakana = "often spelled in katakana" in usage_notes
-                if usage_notes is not None:
-                    del entry["usage-notes"]
 
-            term, furigana, kanas = _extract_info_from_headwords(
+            term, furigana, kanas = extract_info_from_headwords(
                 headwords, prefers_katakana
             )
             transcriptions = [
@@ -248,20 +134,34 @@ def clean_data(word_info: list, term: str):
                                 continue
 
                 # examines to see if there are any sublines provided.
+                def_text = definition["definition"]
                 sublines = definition.get("sublines")
+                dd_index = def_text.find("<dd>")
+
                 if sublines is None:
-                    # this definition has no sublist so it can just be added.
-                    definitions.append(definition)
-                else:
-                    # otherwise, the sublist will be included
+                    if dd_index >= 0:
+                        # the definition text contains <dd> tags to break up.
+                        sublines = extract_tag_contents(def_text, tag="dd")
+                        if len(sublines) == 0:
+                            sublines = None
+                            definitions.append(definition)
+                        else:
+                            def_text = def_text[:dd_index].strip()
+                            def_text = def_text.replace("\n", "")
+                    else:
+                        # this definition has no sublist so it can just be added.
+                        definitions.append(definition)
+
+                if sublines is not None:
+                    # the found sublist will be included
                     # along with its above definition text.
-                    new_def = {"definition": definition["definition"]}
+                    def_text = def_text[:dd_index]
+                    new_def = {"definition": def_text}
                     percent_jp = [percent_japanese(s) for s in sublines]
 
                     # Cycles through the Sublines under this Definition entry.
                     j = 0
                     while j < len(sublines):
-
                         sub = sublines[j]
 
                         # Handles synonyms and antonyms.

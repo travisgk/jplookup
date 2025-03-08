@@ -7,32 +7,28 @@ import jplookup
 
 def main():
 
-    USE_PROMPT = True
+    USE_PROMPT = False
+
     AGGRESSIVENESS = 6
 
+    """
     for i, c in enumerate(
         [
-            "います",
-            "して",
-            "注意",
-            "出没",
-            "鹿",
-            "武器",
-            "甘い",
-            "本当",
-            "魚",
-            "便利",
-            "目",
-            "大きな",
+            "患い",
+            "煩い",
+            "好き",
+            "良い",
+            "いい",
         ]
     ):
-        time.sleep(5)
-        word_info = jplookup.scrape(c, sleep_seconds=3)
+        time.sleep(AGGRESSIVENESS)
+        word_info = jplookup.scrape(c, sleep_seconds=AGGRESSIVENESS)
         with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
             json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
         print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
-
     """
+
+    
     if USE_PROMPT:
         word = None
         while True:
@@ -96,10 +92,10 @@ def main():
 
         # Save the dictionary to a file
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
-            json.dump(data, json_file, indent=4)
-    """
+            json.dump(data, json_file, ensure_ascii=False, indent=4)
+    
 
-    """ 
+    """
     # loads the .json with the written jplookup info.
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
