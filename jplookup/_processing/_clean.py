@@ -7,6 +7,7 @@ from ._tools._headwords import *
 from ._tools._pronunciation_match import *
 
 REMOVE_ARCHAIC_DEFINITIONS = True
+ARCHAIC_TERMS = ["archaic", "Classical Japanese", "obsolete"]
 
 
 def clean_data(word_info: list, term: str):
@@ -129,7 +130,7 @@ def clean_data(word_info: list, term: str):
                         if end_param_i >= 0:
                             if any(
                                 forbid in def_text[1:end_param_i]
-                                for forbid in ["archaic", "Classical Japanese"]
+                                for forbid in ARCHAIC_TERMS
                             ):
                                 continue
 
@@ -236,11 +237,10 @@ def clean_data(word_info: list, term: str):
 
             if len(definitions) > 0:
                 result[etym_title][part]["definitions"] = definitions
+                if len(usage_notes) > 0:
+                    result[etym_title][part]["usage-notes"] = usage_notes
             else:
                 del result[etym_title][part]
-
-            if len(usage_notes) > 0:
-                result[etym_title][part]["usage-notes"] = usage_notes
 
     for etym_key in etym_keys:
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"

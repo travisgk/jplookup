@@ -33,7 +33,20 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if len(clean_data) == 0:
         return None
 
-    if len(clean_data) == 1 or redirects is None or len(redirects.keys()) == 0:
+    if len(clean_data) == 1:
+        return clean_data
+
+    if len(clean_data[0].keys()) == len(clean_data) - 1 and all(
+        v is None for v in clean_data[0].values()
+    ):
+        compilation = {
+            ("Etymology " + str(i + 1)): w for i, w in enumerate(clean_data[1:])
+        }
+        return [
+            compilation,
+        ]
+
+    elif redirects is None or len(redirects.keys()) == 0:
         return clean_data
 
     # For any redirects, any definitions with specified kanji

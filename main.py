@@ -11,15 +11,15 @@ def main():
 
     AGGRESSIVENESS = 6
 
-    """
     for i, c in enumerate(
         [
-            "野菜",
-            #"患い",
-            #"煩い",
-            #"好き",
-            #"良い",
-            #"いい",
+            # "あれ",
+            # "百",
+            "方",
+            "たくさん",
+            "それでは",
+            "そうして",
+            "そして",
         ]
     ):
         time.sleep(AGGRESSIVENESS)
@@ -27,8 +27,8 @@ def main():
         with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
             json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
         print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
-    """
 
+    '''
     if USE_PROMPT:
         word = None
         while True:
@@ -95,7 +95,7 @@ def main():
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 
-    """
+    ###########################
     # loads the .json with the written jplookup info.
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
@@ -128,6 +128,7 @@ def main():
     if len(data) > 0:
         print(data[0]["Etymology 1"])
     """
+    '''
 
 
 if __name__ == "__main__":

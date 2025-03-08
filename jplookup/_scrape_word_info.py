@@ -13,6 +13,7 @@ PARTS_OF_SPEECH = [
     "Interjection",
     "Particle",
     "Counter",
+    "Conjunction",
     "Affix",
     "Suffix",
     "Prefix",
@@ -209,7 +210,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
             ):
                 redirect_term = get_alternative_term_from_table(next_table)
                 if redirect_term is not None:
-                    etym_term = f"Etymology {i + 1}"
+                    etym_term = "Etymology " + str(i + 1)
                     redirects_to_etym[redirect_term] = etym_term
 
                     layout[f"e{i}"] = None
