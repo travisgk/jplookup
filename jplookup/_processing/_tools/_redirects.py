@@ -1,15 +1,15 @@
 import re
 from jplookup._cleanstr._textwork import is_japanese_char, remove_alternative_spellings
 
+
 def _remove_alt_spellings(data):
     if isinstance(data, dict):
-        data.pop("alternative-spellings", None) # pop out the alt spelling 
+        data.pop("alternative-spellings", None)  # pop out the alt spelling
         for key, value in data.items():
-            data[key] = _remove_alt_spellings(value) # recursion.
+            data[key] = _remove_alt_spellings(value)  # recursion.
     elif isinstance(data, list):
-        data = [_remove_alt_spellings(item) for item in data] # recursion.
+        data = [_remove_alt_spellings(item) for item in data]  # recursion.
     return data
-
 
 
 def _sort_dict_by_trailing_number(data):
@@ -27,8 +27,6 @@ def _sort_dict_by_trailing_number(data):
 
 
 def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
-    #print(clean_data)
-
     MAX_NUM_ETYMS = 9
     redirect_keys = redirects.keys()
 

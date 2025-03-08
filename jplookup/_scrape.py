@@ -82,13 +82,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
                 else:
                     next_depth = depth + 1
 
-                #print(f"\n\n\nLooking for alternative: {alternative}")
                 alt_results = scrape(
                     alternative, next_depth, original_term, sleep_seconds=sleep_seconds
                 )
-
-                #print(alt_results)
-                #print("\n\n\n")
 
                 if alt_results is not None:
                     results.extend(alt_results)
@@ -104,10 +100,6 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
             )
 
     if depth == 0:
-        #print("\n\n\nresults before linking up:")
-        #print(results)
-        #print("\n\n\n")
-
         results = link_up_redirects(
             results,
             redirects_to_etym,

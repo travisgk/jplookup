@@ -109,7 +109,6 @@ def extract_data(layout: dict):
                             contents = p_text[counter_index + 8 : closing_index]
                             if percent_japanese(contents) > 0.9:
                                 counter = contents
-                                # print(f"counter is {counter}")
 
                 headword = remove_tags(headword).replace("\u0020", "")
                 if counter is not None:

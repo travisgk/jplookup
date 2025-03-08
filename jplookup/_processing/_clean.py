@@ -147,7 +147,7 @@ def clean_data(word_info: list, term: str):
                             definitions.append(definition)
                         else:
                             def_text = def_text[:dd_index].strip()
-                            def_text = def_text.replace("\n", "")
+                            # def_text = def_text.replace("\n", "")
                     else:
                         # this definition has no sublist so it can just be added.
                         definitions.append(definition)
@@ -155,7 +155,9 @@ def clean_data(word_info: list, term: str):
                 if sublines is not None:
                     # the found sublist will be included
                     # along with its above definition text.
-                    def_text = def_text[:dd_index]
+                    if dd_index >= 0:
+                        def_text = def_text[:dd_index]
+
                     new_def = {"definition": def_text}
                     percent_jp = [percent_japanese(s) for s in sublines]
 

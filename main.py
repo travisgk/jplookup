@@ -14,21 +14,21 @@ def main():
     """
     for i, c in enumerate(
         [
-            "患い",
-            "煩い",
-            "好き",
-            "良い",
-            "いい",
+            "野菜",
+            #"患い",
+            #"煩い",
+            #"好き",
+            #"良い",
+            #"いい",
         ]
     ):
         time.sleep(AGGRESSIVENESS)
-        word_info = jplookup.scrape(c, sleep_seconds=AGGRESSIVENESS)
+        word_info = jplookup.scrape(c, sleep_seconds=5)
         with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
             json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
         print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
     """
 
-    
     if USE_PROMPT:
         word = None
         while True:
@@ -78,9 +78,10 @@ def main():
                 print("Keyboard interrupt received, exiting gracefully.")
                 sys.exit(0)
             except Exception as e:
-                print(f"################################\nEXCEPTION {e} from term {term}\n################################\n")
+                print(
+                    f"################################\nEXCEPTION {e} from term {term}\n################################\n"
+                )
                 exceptionals.append(term)
-            
 
         with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
             for x in exceptionals:
@@ -93,7 +94,6 @@ def main():
         # Save the dictionary to a file
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
-    
 
     """
     # loads the .json with the written jplookup info.

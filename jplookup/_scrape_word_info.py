@@ -130,21 +130,17 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
             )
 
         if alt_spellings_header is not None:
-            #print(f"found an alt spellings header for {term}")  # DEBUG
             table_text = str(alt_spellings_header)
             if (
                 alt_spellings_header.sourceline <= next_ety_line_num
                 and "Alternative spelling" in table_text
             ):
-                #print(f"found the 'Alternative spelling title' {term}")  # DEBUG
                 soup = BeautifulSoup(table_text, "html.parser")
                 alt_spellings = soup.find_all("span", class_="Jpan")
                 if len(alt_spellings) > 0:
-                    #print(f"found alternative spellings for {term}:")  # DEBUG
                     alts = []
                     for alt_spelling_span in alt_spellings:
                         alts.append(remove_tags(str(alt_spelling_span)))
-                        #print(f"\t{alts[-1]}")  # DEBUG
                     layout[key]["alternative-spellings"] = alts
 
         # adds any pronunciation header that's below the "Etymology" header.
