@@ -16,7 +16,7 @@ def _kana_matches(p_kana: str, t_kana: str) -> bool:
     t_kana = jaconv.hira2kata(t_kana)
 
     for p, t in zip(p_kana, t_kana):
-        if p != t and not (p == "ー" and t in "いう"):
+        if p != t and not (p == "ー" and t in "いうイウ"):
             return False
 
     return True
@@ -31,6 +31,7 @@ def find_pronunciation_match(pronunciation_bank: dict, transcription: dict):
     If there's no match, then None is returned.
     """
     t_kana = transcription["kana"]
+
     for p_kana in pronunciation_bank.keys():
         if _kana_matches(p_kana, t_kana):
             return pronunciation_bank[p_kana]

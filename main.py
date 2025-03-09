@@ -64,9 +64,11 @@ def main():
 
     # goes through each term in the .json.
     for key in word_info.keys():
-        # print(key)
+        """
 
-        # looks for the term.
+        Step 1)
+        """
+        # looks for the desired word entry.
         data = word_info.get(key)
         if data is None or len(data) == 0:
             continue  # skips if term is not in dict.
@@ -80,53 +82,76 @@ def main():
         else:
             continue
 
+        """
+
+        Step 2) Collects the parts of speech and pronunciation.
+        """
+
+        def search_for_pronunciation(pronunciations: list, keys: list):
+            for p in pronunciations:
+                if all(p.get(k) is not None for k in keys):
+                    return p
+            return None
+
         parts = {}
         first_term = None
         pronunciation = None
         for part_of_speech, part_data in data.items():
-            pronunciations = part_data.get("pronunciations")
-            if pronunciation is None:
-                for p in pronunciations:
-                    if p.get("ipa") and p.get("pitch-accent"):
-                        pronunciation = p
-                        break
-            if pronunciation is None:
-                for p in pronunciations:
-                    if p.get("pitch-accent"):
-                        pronunciation = p
-                        break
-            if pronunciation is None:
-                for p in pronunciations:
-                    if p.get("ipa"):
-                        pronunciation = p
-                        break
-            if pronunciation is None:
-                pronunciation = pronunciations[0]
-
+            # gets the first term found in the first part of speech.
             term = find_first_value(part_data, "term")
             if first_term is None:
-                first_term = term
-                parts[part_of_speech] = part_data
+                first_term = term  # the first term is used to match up.
+                parts[part_of_speech] = part_data  # adds the part of speech.
             elif term == first_term:
+                # adds the part of speech that matches with the first term found.
                 parts[part_of_speech] = part_data
 
+            # looks for the first pronunciation with sufficient data.
+            if pronunciation is None:
+                pronunces = part_data.get("pronunciations")
+                if pronunces is not None:
+                    p = search_for_pronunciation(pronunces, ["ipa", "pitch-accent"])
+                    if p is None:
+                        p = search_for_pronunciation(pronunces, ["pitch-accent"])
+                        if p is None:
+                            p = search_for_pronunciation(pronunces, ["ipa"])
+                            if p is None:
+                                p = pronunces[0]
+                    pronunciation = p
+
+        """
+
+        Step 3) Constructs an Anki card from the desired parts of speech.
+        """
+        card = {"term": first_term, "pronunciation": pronunciation}
         for part_of_speech, part_data in parts.items():
             speech_title = part_of_speech.split(" ")[0]
             if speech_title not in DESIRED_PARTS:
-                continue
+                continue  # only grabs the desired parts of speech.
 
+            # seeks out the term text.
             term = find_first_value(part_data, "term")
-            print(f"{key}\t{term}\t{speech_title}")
 
+            # print(f"{key}\t{term}\t{speech_title}")
+            def_str = ""
             for definition in part_data["definitions"]:
-                print(definition["definition"])
+                def_str += definition["definition"] + "\n"
+
+                """
                 examples = definition.get("examples")
                 if examples is not None:
                     for example in examples:
-                        print(f"\t{example}")
+                        jp = example["japanese"]
+                        roma = example["romanji"]
+                        en = example["english"]
+                        def_str += f"\t{jp}\n"
+                        def_str += f"\t{roma}\n"
+                        def_str += f"\t{en}\n"
+                """
 
-        print(pronunciation)
+            print(def_str)
 
+        # print(card)
         print("\n\n")
         # print(part_of_speech)
         # print(part_data)

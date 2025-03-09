@@ -78,7 +78,10 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
             alternative = get_alternative_term_from_table(table)
             if alternative is not None:
                 if (results is None or len(results) == 0) and len(next_tables) == 1:
-                    next_depth = depth + 1  # a simple redirect won't add depth.
+                    # a simple redirect.
+                    return scrape(
+                        alternative, 0, alternative, sleep_seconds=sleep_seconds
+                    )
                 else:
                     next_depth = depth + 1
 

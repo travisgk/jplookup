@@ -8,26 +8,25 @@ import jplookup
 
 def main():
 
+    MODE = "testing"
     USE_PROMPT = False
 
     AGGRESSIVENESS = 6
 
-    """
-    for i, c in enumerate(
-        [
-            "炎",
-            "矢",
-        ]
-    ):
-        time.sleep(AGGRESSIVENESS)
-        word_info = jplookup.scrape(c, sleep_seconds=5)
-        with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
-            json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
-        print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
-    
-    """
+    if MODE == "testing":
+        for i, c in enumerate(
+            [
+                "昨日",
+                "たばこ",
+            ]
+        ):
+            time.sleep(AGGRESSIVENESS)
+            word_info = jplookup.scrape(c, sleep_seconds=5)
+            with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
+                json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
+            print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
 
-    if USE_PROMPT:
+    elif MODE == "prompt":
         word = None
         while True:
             print("Enter a word: ", end="")
@@ -44,7 +43,7 @@ def main():
             for info in word_info:
                 print(info)
 
-    else:
+    elif MODE == "all":
         terms = []
         with open("n5.txt", "r", encoding="utf-8") as file:
             for line in file:
@@ -84,6 +83,11 @@ def main():
                 num_retries += 1
                 if num_retries <= 3:
                     continue  # tries again.
+                else:
+                    print(
+                        f"################################\nEXCEPTION {e} from term {term}\n################################\n"
+                    )
+                    exceptionals.append(term)
             except Exception as e:
                 print(
                     f"################################\nEXCEPTION {e} from term {term}\n################################\n"
@@ -103,43 +107,6 @@ def main():
         # Save the dictionary to a file
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
-
-    '''
-
-    ###########################
-    # loads the .json with the written jplookup info.
-    with open("jp-data.json", "r", encoding="utf-8") as f:
-        word_info = json.load(f)
-
-    # goes through each term in the .json.
-    for key in word_info.keys():
-        print(key)
-
-        # looks for the term.
-        data = word_info.get(key)
-        if data is None or len(data) == 0:
-            continue  # skips if term is not in dict.
-        
-        # looks for the first etymology header.
-        data[0]["Etymology 1"]
-        for i in range(1, 10):
-            etym = data[0].get(f"Etymology {i}")
-            if etym is not None:
-                data = etym
-                break
-        else:
-            continue
-
-        for part_of_speech in data.keys():
-            print(part_of_speech)
-            
-
-    # Print formatted JSON
-    data = word_info.get("水")
-    if len(data) > 0:
-        print(data[0]["Etymology 1"])
-    """
-    '''
 
 
 if __name__ == "__main__":

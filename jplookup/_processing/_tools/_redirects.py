@@ -33,27 +33,28 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if len(clean_data) == 0:
         return None
 
+    result = None  # temp var used to make use
     if len(clean_data) == 1:
-        return clean_data
+        result = clean_data
 
     if (
         (redirects is None or len(redirects.keys()) == 0)
         and len(clean_data[0].keys()) == len(clean_data) - 1
         and all(v is None for v in clean_data[0].values())
     ):
-        compilation = {
+        result = {
             ("Etymology " + str(i + 1)): w[list(w.keys())[0]]
             for i, w in enumerate(clean_data[1:])
         }
-        return [
-            compilation,
-        ]
 
     # For any redirects, any definitions with specified kanji
     # that DO NOT match the original term are removed;
     # those without kanji or with matching kanji remain.
-    for entry in clean_data[1:]:
+    for entry in clean_data:  # [1:]
         for etym in entry.values():
+            if etym is None:
+                continue
+
             for part_of_speech, contents in etym.items():
                 if part_of_speech in ["alternative-spellings", "usage-notes"]:
                     continue
@@ -76,7 +77,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
 
                             # removes the context specifiers when it's a referral.
                             end_i = colon_index + 1
-                            definition["definition"] = def_str[:end_i].strip()
+                            definition["definition"] = def_str[end_i:].strip()
                             if original_term not in kanji_terms:
                                 def_indices_to_remove.append(i)
 
@@ -84,6 +85,9 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                     contents["definitions"] = [
                         d for i, d in enumerate(defs) if i not in def_indices_to_remove
                     ]
+
+    if result is not None:
+        return result
 
     successfully_redirected = [False for _ in clean_data]
 
