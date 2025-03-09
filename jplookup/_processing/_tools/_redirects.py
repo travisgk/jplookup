@@ -36,18 +36,18 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if len(clean_data) == 1:
         return clean_data
 
-    if len(clean_data[0].keys()) == len(clean_data) - 1 and all(
-        v is None for v in clean_data[0].values()
+    if (
+        (redirects is None or len(redirects.keys()) == 0)
+        and len(clean_data[0].keys()) == len(clean_data) - 1
+        and all(v is None for v in clean_data[0].values())
     ):
         compilation = {
-            ("Etymology " + str(i + 1)): w for i, w in enumerate(clean_data[1:])
+            ("Etymology " + str(i + 1)): w[list(w.keys())[0]]
+            for i, w in enumerate(clean_data[1:])
         }
         return [
             compilation,
         ]
-
-    elif redirects is None or len(redirects.keys()) == 0:
-        return clean_data
 
     # For any redirects, any definitions with specified kanji
     # that DO NOT match the original term are removed;
@@ -70,10 +70,15 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                         # the program ensures only relevant definitions
                         # of child entries are included.
                         colon_index = def_str.find(":")
-                        kanji_terms = def_str[:colon_index].split(",")
-                        kanji_terms = [k.strip() for k in kanji_terms]
-                        if original_term not in kanji_terms:
-                            def_indices_to_remove.append(i)
+                        if colon_index >= 0:
+                            kanji_terms = def_str[:colon_index].split(",")
+                            kanji_terms = [k.strip() for k in kanji_terms]
+
+                            # removes the context specifiers when it's a referral.
+                            end_i = colon_index + 1
+                            definition["definition"] = def_str[:end_i].strip()
+                            if original_term not in kanji_terms:
+                                def_indices_to_remove.append(i)
 
                 if len(def_indices_to_remove) > 0:
                     contents["definitions"] = [
@@ -114,7 +119,24 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                 break
 
     clean_data = [e for i, e in enumerate(clean_data) if not successfully_redirected[i]]
+
+    """
+    empty_keys = []
+    for key, value in enumerate(clean_data[0].items()):
+        if value is None:
+            empty_keys.append(key)
+
+    if len(empty_keys) == len(clean_data) - 1:
+        for i, key in enumerate(empty_keys):
+            clean_data[0][key] = clean_data[i + 1][list(clean_data[i + 1].keys())[0]]
+        clean_data = clean_data[:1]
+    """
+
+    clean_data = [item for item in clean_data if item != {}]
     clean_data[0] = _sort_dict_by_trailing_number(clean_data[0])
     clean_data = _remove_alt_spellings(clean_data)
+
+    if all(clean_data[0][key] is None for key in clean_data[0].keys()):
+        clean_data = clean_data[1:]
 
     return clean_data

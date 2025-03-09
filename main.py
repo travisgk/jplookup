@@ -4,113 +4,74 @@ import sys
 import json
 import jplookup
 
+DESIRED_PARTS = [
+    "Noun",
+    "Adjective",
+    "Adnominal",
+    "Verb",
+    "Adverb",
+    "Proper noun",
+    "Interjection",
+    "Particle",
+    "Conjunction",
+    "Phrase",
+    "Proverb",
+    "Pronoun",
+    "Numeral",
+]
+
+
+def find_first_value(data, term):
+    """
+    Recursively searches through a nested structure (dictionaries and lists)
+    and returns the first non-None value for the specified key (term).
+
+    Parameters:
+        data (dict or list): The nested data structure to search.
+        term (str): The key to look for in dictionaries.
+
+    Returns:
+        The first non-None value found for the given key, or None if not found.
+    """
+    # If data is a dictionary, check the current level first.
+    if isinstance(data, dict):
+        # Check if the key exists and its value is not None.
+        value = data.get(term)
+        if value is not None:
+            return value
+
+        # Otherwise, iterate over each value in the dictionary.
+        for key in data:
+            result = find_first_value(data[key], term)
+            if result is not None:
+                return result
+
+    # If data is a list, iterate over its items.
+    elif isinstance(data, list):
+        for item in data:
+            result = find_first_value(item, term)
+            if result is not None:
+                return result
+
+    # Return None if the key is not found at this level.
+    return None
+
 
 def main():
-
-    USE_PROMPT = False
-
-    AGGRESSIVENESS = 6
-
-    for i, c in enumerate(
-        [
-            # "あれ",
-            # "百",
-            "方",
-            "たくさん",
-            "それでは",
-            "そうして",
-            "そして",
-        ]
-    ):
-        time.sleep(AGGRESSIVENESS)
-        word_info = jplookup.scrape(c, sleep_seconds=5)
-        with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
-            json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
-        print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
-
-    '''
-    if USE_PROMPT:
-        word = None
-        while True:
-            print("Enter a word: ", end="")
-            word = input()
-            if len(word) == 0:
-                print("Please enter a word.")
-                continue
-
-            if word.lower() == "exit":
-                break
-
-            word_info = jplookup.scrape(word)
-            # print(len(word_info))
-            for info in word_info:
-                print(info)
-
-    else:
-        terms = []
-        with open("n5.txt", "r", encoding="utf-8") as file:
-            for line in file:
-                clean_line = line.strip()
-                if clean_line not in terms:
-                    terms.append(clean_line)
-
-        data = {}
-
-        unfound = []
-        exceptionals = []
-        for i, term in enumerate(terms):
-            try:
-                sleep_length = random.uniform(
-                    AGGRESSIVENESS * 0.5, AGGRESSIVENESS * 1.5
-                )
-                time.sleep(sleep_length)
-                word_info = jplookup.scrape(term, sleep_seconds=sleep_length)
-
-                if len(word_info) > 0:
-                    percent_done = int(i / len(terms) * 100)
-                    print(f"\n\n{percent_done:> 2d}% {term}:")
-                    data[term] = word_info
-
-                    print(word_info)
-                else:
-                    unfound.append(term)
-            except KeyboardInterrupt:
-                print("Keyboard interrupt received, exiting gracefully.")
-                sys.exit(0)
-            except Exception as e:
-                print(
-                    f"################################\nEXCEPTION {e} from term {term}\n################################\n"
-                )
-                exceptionals.append(term)
-
-        with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
-            for x in exceptionals:
-                out_file.write(x + "\n")
-
-        with open("unfound.txt", "w", encoding="utf-8") as out_file:
-            for u in unfound:
-                out_file.write(u + "\n")
-
-        # Save the dictionary to a file
-        with open("jp-data.json", "w", encoding="utf-8") as json_file:
-            json.dump(data, json_file, ensure_ascii=False, indent=4)
-
-    ###########################
     # loads the .json with the written jplookup info.
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
 
     # goes through each term in the .json.
     for key in word_info.keys():
-        print(key)
+        # print(key)
 
         # looks for the term.
         data = word_info.get(key)
         if data is None or len(data) == 0:
             continue  # skips if term is not in dict.
-        
+
         # looks for the first etymology header.
-        data[0]["Etymology 1"]
         for i in range(1, 10):
             etym = data[0].get(f"Etymology {i}")
             if etym is not None:
@@ -119,16 +80,56 @@ def main():
         else:
             continue
 
-        for part_of_speech in data.keys():
-            print(part_of_speech)
-            
+        parts = {}
+        first_term = None
+        pronunciation = None
+        for part_of_speech, part_data in data.items():
+            pronunciations = part_data.get("pronunciations")
+            if pronunciation is None:
+                for p in pronunciations:
+                    if p.get("ipa") and p.get("pitch-accent"):
+                        pronunciation = p
+                        break
+            if pronunciation is None:
+                for p in pronunciations:
+                    if p.get("pitch-accent"):
+                        pronunciation = p
+                        break
+            if pronunciation is None:
+                for p in pronunciations:
+                    if p.get("ipa"):
+                        pronunciation = p
+                        break
+            if pronunciation is None:
+                pronunciation = pronunciations[0]
 
-    # Print formatted JSON
-    data = word_info.get("水")
-    if len(data) > 0:
-        print(data[0]["Etymology 1"])
-    """
-    '''
+            term = find_first_value(part_data, "term")
+            if first_term is None:
+                first_term = term
+                parts[part_of_speech] = part_data
+            elif term == first_term:
+                parts[part_of_speech] = part_data
+
+        for part_of_speech, part_data in parts.items():
+            speech_title = part_of_speech.split(" ")[0]
+            if speech_title not in DESIRED_PARTS:
+                continue
+
+            term = find_first_value(part_data, "term")
+            print(f"{key}\t{term}\t{speech_title}")
+
+            for definition in part_data["definitions"]:
+                print(definition["definition"])
+                examples = definition.get("examples")
+                if examples is not None:
+                    for example in examples:
+                        print(f"\t{example}")
+
+        print(pronunciation)
+
+        print("\n\n")
+        # print(part_of_speech)
+        # print(part_data)
 
 
 if __name__ == "__main__":

@@ -534,7 +534,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "中: inside",
+                            "definition": "中:",
                             "examples": [
                                 {
                                     "japanese": "箱(はこ)の中(なか)には何(なに)もありません。",
@@ -544,10 +544,10 @@
                             ]
                         },
                         {
-                            "definition": "中: middle"
+                            "definition": "中:"
                         },
                         {
-                            "definition": "中: among (a group or mass)",
+                            "definition": "中:",
                             "examples": [
                                 {
                                     "japanese": "この中(なか)に人(じん)狼(ろう)がいます。",
@@ -557,7 +557,7 @@
                             ]
                         },
                         {
-                            "definition": "中: during (time); amidst",
+                            "definition": "中:",
                             "examples": [
                                 {
                                     "japanese": "暑(あつ)い中(なか)お疲(つか)れ様(さま)です。",
@@ -1238,7 +1238,7 @@
                             "definition": "sickness, illness"
                         },
                         {
-                            "definition": "煩い: worry, agony"
+                            "definition": "煩い:"
                         }
                     ],
                     "usage-notes": "病気 (byōki)"
@@ -1890,7 +1890,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "私: (now dialectal) first-person singular pronoun"
+                            "definition": "私:"
                         },
                         {
                             "definition": "(dialectal, Tottori) second-person plural pronoun"
@@ -3770,7 +3770,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "撮る, 録る: to photograph, film, or record; to take a picture",
+                            "definition": "撮る, 録る:",
                             "examples": [
                                 {
                                     "japanese": "火(ひ)のあかりを写(しゃ)真(しん)に撮(と)ったりしていました。",
@@ -4908,7 +4908,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目, 眼: eye",
+                            "definition": "目, 眼:",
                             "examples": [
                                 {
                                     "japanese": "目(め)がかゆいです。",
@@ -4923,7 +4923,7 @@
                             ]
                         },
                         {
-                            "definition": "目: visually prominent feature of something:"
+                            "definition": "目:"
                         }
                     ]
                 },
@@ -4939,7 +4939,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目: -st, -nd, -rd, or -th, for ordinal numbers (e.g. 8th or eighth, 9th or ninth)",
+                            "definition": "目:",
                             "examples": [
                                 {
                                     "japanese": "三本(さんぼん)目(め)のボトル",
@@ -4949,7 +4949,7 @@
                             ]
                         },
                         {
-                            "definition": "目: visually prominent feature of something",
+                            "definition": "目:",
                             "examples": [
                                 {
                                     "japanese": "結(むす)び目(め)、編(あ)み目(め)、効(き)き目(め)",
@@ -4971,7 +4971,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目, 眼: prefixal bound form of め (me, “eye”)"
+                            "definition": "目, 眼:"
                         }
                     ]
                 }
@@ -13572,7 +13572,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "魚:  a fish",
+                            "definition": "魚:",
                             "examples": [
                                 {
                                     "japanese": "庭(にわ)で美(お)味(い)しい魚(さかな)を食(た)べた。",
@@ -14753,7 +14753,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "取る: to take",
+                            "definition": "取る:",
                             "examples": [
                                 {
                                     "japanese": "人(ひと)の手(て)を取(と)る",
@@ -14763,10 +14763,10 @@
                             ]
                         },
                         {
-                            "definition": "取る: (board games) to capture"
+                            "definition": "取る:"
                         },
                         {
-                            "definition": "取る: to pick up",
+                            "definition": "取る:",
                             "examples": [
                                 {
                                     "japanese": "花(はな)束(たば)を手(て)に取(と)る",
@@ -14776,7 +14776,7 @@
                             ]
                         },
                         {
-                            "definition": "取る: to pick up on; to grasp",
+                            "definition": "取る:",
                             "examples": [
                                 {
                                     "japanese": "意(い)味(み)を取(と)る",
@@ -14801,7 +14801,7 @@
                             ]
                         },
                         {
-                            "definition": "取る: to earn",
+                            "definition": "取る:",
                             "examples": [
                                 {
                                     "japanese": "いい成(せい)績(せき)をとる",
@@ -14811,7 +14811,7 @@
                             ]
                         },
                         {
-                            "definition": "取る: to remove (one's glasses, etc.)",
+                            "definition": "取る:",
                             "examples": [
                                 {
                                     "japanese": "歯(は)の黄(き)ばみを取(と)る",
@@ -14821,7 +14821,7 @@
                             ]
                         },
                         {
-                            "definition": "捕る, 獲る, 取る, 把る: to catch; to capture",
+                            "definition": "捕る, 獲る, 取る, 把る:",
                             "examples": [
                                 {
                                     "japanese": "虫(むし)を取(と)る",
@@ -14831,16 +14831,16 @@
                             ]
                         },
                         {
-                            "definition": "盗る, 取る, 奪る: to steal"
+                            "definition": "盗る, 取る, 奪る:"
                         },
                         {
-                            "definition": "摂る, 取る: to have food or a meal, to ingest, to eat"
+                            "definition": "摂る, 取る:"
                         },
                         {
-                            "definition": "採る, 取る: to take, to adopt (a measure, a choice, etc.), to choose"
+                            "definition": "採る, 取る:"
                         },
                         {
-                            "definition": "採る, 取る: to pick (plants), to harvest"
+                            "definition": "採る, 取る:"
                         }
                     ]
                 }
@@ -17793,7 +17793,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "建物: building, structure, construction, edifice",
+                            "definition": "建物:",
                             "synonyms": [
                                 "建造物",
                                 "建築物"
@@ -18639,7 +18639,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "池: a pond (small lake or pool)",
+                            "definition": "池:",
                             "examples": [
                                 {
                                     "japanese": "池(いけ)を乾(ほ)す",
@@ -18649,10 +18649,10 @@
                             ]
                         },
                         {
-                            "definition": "池: a pool (small amount of liquid in a surface)"
+                            "definition": "池:"
                         },
                         {
-                            "definition": "池: (calligraphy) part of an inkstone where water is stored",
+                            "definition": "池:",
                             "synonyms": [
                                 "海"
                             ]
@@ -22518,13 +22518,13 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "遅い: slow, late (as in delayed)",
+                            "definition": "遅い:",
                             "antonyms": [
                                 "速い"
                             ]
                         },
                         {
-                            "definition": "遅い, 晩い: late (as in during the day)",
+                            "definition": "遅い, 晩い:",
                             "antonyms": [
                                 "早い"
                             ]
@@ -24419,7 +24419,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "登る, 上る: to ascend, to climb, to go up",
+                            "definition": "登る, 上る:",
                             "antonyms": [
                                 "下る"
                             ]
@@ -27706,7 +27706,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "飲む, 呑む: to drink, to gulp, to swallow; to eat (soup)",
+                            "definition": "飲む, 呑む:",
                             "examples": [
                                 {
                                     "japanese": "私(わたし)たちはさじでスープを飲(の)む。",
@@ -27721,19 +27721,19 @@
                             ]
                         },
                         {
-                            "definition": "飲む, 喫む: (smoking) to smoke tobacco",
+                            "definition": "飲む, 喫む:",
                             "synonyms": [
                                 "すう"
                             ]
                         },
                         {
-                            "definition": "飲む: to overwhelm, to engulf"
+                            "definition": "飲む:"
                         },
                         {
-                            "definition": "飲む: to suppress, to keep down"
+                            "definition": "飲む:"
                         },
                         {
-                            "definition": "飲む, 呑む: to take (medicine)",
+                            "definition": "飲む, 呑む:",
                             "examples": [
                                 {
                                     "japanese": "薬(くすり)を飲(の)む",
@@ -27743,7 +27743,7 @@
                             ]
                         },
                         {
-                            "definition": "飲む, 呑む: to accept something like a demand or a condition"
+                            "definition": "飲む, 呑む:"
                         }
                     ],
                     "usage-notes": "飲み物 (nomimono, “a drink”)飲み込む (nomikomu, “to gulp down”)飲み放題 (nomihōdai, “all you can drink”)飲み干す (nomihosu, “empty one's glass”)飲み代 (nomishiro, “drinking money”)飲み会 (nomikai, “drinking party”)飲み屋 (nomiya, “bar, pub”)固唾を呑む (katazu o nomu)清濁併せ呑む (seidaku awasenomu)"
@@ -27811,10 +27811,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "歌う, 唄う: (transitive, intransitive) to sing"
+                            "definition": "歌う, 唄う:"
                         },
                         {
-                            "definition": "歌う, 唄う: (intransitive) to tweet, said of birds",
+                            "definition": "歌う, 唄う:",
                             "synonyms": [
                                 "鳴く"
                             ]
@@ -31188,13 +31188,13 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "口: mouth"
+                            "definition": "口:"
                         },
                         {
-                            "definition": "口: opening"
+                            "definition": "口:"
                         },
                         {
-                            "definition": "口: voice, author",
+                            "definition": "口:",
                             "examples": [
                                 {
                                     "japanese": "書(か)き口(くち)",
@@ -31204,7 +31204,7 @@
                             ]
                         },
                         {
-                            "definition": "口: drinker, consumer",
+                            "definition": "口:",
                             "examples": [
                                 {
                                     "japanese": "行(い)ける口(くち)",
@@ -31219,7 +31219,7 @@
                             ]
                         },
                         {
-                            "definition": "口: taste (in food), preference",
+                            "definition": "口:",
                             "examples": [
                                 {
                                     "japanese": "日(に)本(ほん)人(じん)の口(くち)に合(あ)わせた料(りょう)理(り)",
@@ -31241,7 +31241,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "口: prefixal bound form of くち (kuchi, “mouth”)"
+                            "definition": "口:"
                         }
                     ]
                 }
@@ -31472,7 +31472,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "足: foot"
+                            "definition": "足:"
                         }
                     ]
                 }
@@ -32137,7 +32137,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "欲しい: wanted, desired, needed",
+                            "definition": "欲しい:",
                             "examples": [
                                 {
                                     "japanese": "私(わたし)はこの本(ほん)が欲(ほ)しいです。",
@@ -33088,7 +33088,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "美味い, 旨い, 甘い, 甘美い, 味い, 美い: delicious, tasty",
+                            "definition": "美味い, 旨い, 甘い, 甘美い, 味い, 美い:",
                             "synonyms": [
                                 "美味しい"
                             ],
@@ -36132,7 +36132,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "厚い: thick",
+                            "definition": "厚い:",
                             "antonyms": [
                                 "薄い"
                             ],
@@ -36155,7 +36155,7 @@
                             ]
                         },
                         {
-                            "definition": "厚い, 篤い, 惇い, 淳い: hearty, sincere, warm",
+                            "definition": "厚い, 篤い, 惇い, 淳い:",
                             "examples": [
                                 {
                                     "japanese": "厚(あつ)い信(しん)頼(らい)",
@@ -38232,7 +38232,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "靴: footwear, footgear: a shoe, (a pair of) shoes"
+                            "definition": "靴:"
                         }
                     ]
                 }
@@ -38671,7 +38671,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "広い, 弘い, 宏い: wide, broad",
+                            "definition": "広い, 弘い, 宏い:",
                             "examples": [
                                 {
                                     "japanese": "その川(かわ)は広(ひろ)い。",
@@ -38681,7 +38681,7 @@
                             ]
                         },
                         {
-                            "definition": "広い, 弘い, 宏い: spacious",
+                            "definition": "広い, 弘い, 宏い:",
                             "examples": [
                                 {
                                     "japanese": "一(いち)番(ばん)広(ひろ)い都(と)道(どう)府(ふ)県(けん)",
@@ -38691,10 +38691,10 @@
                             ]
                         },
                         {
-                            "definition": "広い, 弘い, 宏い: vast, large"
+                            "definition": "広い, 弘い, 宏い:"
                         },
                         {
-                            "definition": "広い, 弘い, 宏い, 博い: broad, wide-ranging"
+                            "definition": "広い, 弘い, 宏い, 博い:"
                         }
                     ]
                 }
@@ -42025,7 +42025,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "分かる, 解る: to be understandable, to understand",
+                            "definition": "分かる, 解る:",
                             "examples": [
                                 {
                                     "japanese": "はい、分(わ)かりました。",
@@ -42035,13 +42035,13 @@
                             ]
                         },
                         {
-                            "definition": "分かる: to tell (one thing from another), to distinguish"
+                            "definition": "分かる:"
                         },
                         {
-                            "definition": "分かる, 判る: to be recognized, to be realized"
+                            "definition": "分かる, 判る:"
                         },
                         {
-                            "definition": "分かる: to become known, to turn out",
+                            "definition": "分かる:",
                             "examples": [
                                 {
                                     "japanese": "分(わ)かった！",
