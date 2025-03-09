@@ -534,7 +534,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "中:",
+                            "definition": "inside",
                             "examples": [
                                 {
                                     "japanese": "箱(はこ)の中(なか)には何(なに)もありません。",
@@ -544,10 +544,10 @@
                             ]
                         },
                         {
-                            "definition": "中:"
+                            "definition": "middle"
                         },
                         {
-                            "definition": "中:",
+                            "definition": "among (a group or mass)",
                             "examples": [
                                 {
                                     "japanese": "この中(なか)に人(じん)狼(ろう)がいます。",
@@ -557,7 +557,7 @@
                             ]
                         },
                         {
-                            "definition": "中:",
+                            "definition": "during (time); amidst",
                             "examples": [
                                 {
                                     "japanese": "暑(あつ)い中(なか)お疲(つか)れ様(さま)です。",
@@ -783,9 +783,6 @@
                         },
                         {
                             "definition": "to call; to order; to reserve"
-                        },
-                        {
-                            "definition": "恃む: to rely on"
                         }
                     ]
                 }
@@ -1124,7 +1121,10 @@
                             "furigana": [
                                 "ぼう",
                                 "たん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bo̞ːtã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -1238,7 +1238,7 @@
                             "definition": "sickness, illness"
                         },
                         {
-                            "definition": "煩い:"
+                            "definition": "worry, agony"
                         }
                     ],
                     "usage-notes": "病気 (byōki)"
@@ -1890,7 +1890,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "私:"
+                            "definition": "(now dialectal) first-person singular pronoun"
                         },
                         {
                             "definition": "(dialectal, Tottori) second-person plural pronoun"
@@ -2781,7 +2781,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "聞く, 聴く: to hear, to listen",
+                            "definition": "to hear, to listen",
                             "examples": [
                                 {
                                     "japanese": "よく聞(き)くとセミの鳴(な)き声(ごえ)が聞(き)こえる。",
@@ -2796,7 +2796,7 @@
                             ]
                         },
                         {
-                            "definition": "聞く: to obey",
+                            "definition": "to obey",
                             "examples": [
                                 {
                                     "japanese": "言(い)うことを聞(き)かない",
@@ -2806,7 +2806,7 @@
                             ]
                         },
                         {
-                            "definition": "聞く, 訊く: to ask a question",
+                            "definition": "to ask a question",
                             "examples": [
                                 {
                                     "japanese": "お母(かあ)さんに聞(き)いたら、だめだって。",
@@ -2821,7 +2821,7 @@
                             ]
                         },
                         {
-                            "definition": "聞く: to smell, sniff",
+                            "definition": "to smell, sniff",
                             "examples": [
                                 {
                                     "japanese": "香(こう)を聞(き)く",
@@ -2873,9 +2873,6 @@
                                     "english": "Ow!"
                                 }
                             ]
-                        },
-                        {
-                            "definition": "イタい: (slang) cringy; embarrassing"
                         }
                     ],
                     "usage-notes": "(embarrassing): 痛々しい (itaitashii)\n(wonderful): 素晴らしい (subarashii)"
@@ -3075,7 +3072,10 @@
                             "furigana": [
                                 "ろう",
                                 "か"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɾo̞ːka̠"
                         }
                     ],
                     "definitions": [
@@ -3442,7 +3442,10 @@
                             "furigana": [
                                 "",
                                 "きのう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "kʲino̞ː"
                         }
                     ],
                     "definitions": [
@@ -3600,34 +3603,7 @@
                             "kana": "よく"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "良く, 善く, 克く: adverbial form of よい (yoi, “good”) good, well"
-                        },
-                        {
-                            "definition": "良く: frequently, often",
-                            "examples": [
-                                {
-                                    "japanese": "私(わたし)は本(ほん)をよく読(よ)みます。",
-                                    "romanji": "Watashi wa hon o yoku yomimasu.",
-                                    "english": "I read books a lot."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "良く, 善く: having astonishing ability or guts",
-                            "examples": [
-                                {
-                                    "japanese": "よくそんなこと言(い)えるね。",
-                                    "romanji": "Yoku sonna koto ieru ne.",
-                                    "english": "You've got guts saying something like that."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "能く: (literary) able to"
-                        }
-                    ]
+                    "definitions": []
                 }
             },
             "Etymology 2": {
@@ -3770,7 +3746,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "撮る, 録る:",
+                            "definition": "to photograph, film, or record; to take a picture",
                             "examples": [
                                 {
                                     "japanese": "火(ひ)のあかりを写(しゃ)真(しん)に撮(と)ったりしていました。",
@@ -3940,7 +3916,10 @@
                                 "とう",
                                 "",
                                 ""
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "o̞to̞ːsã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -4089,7 +4068,10 @@
                             "furigana": [
                                 "どう",
                                 "ぶつ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "do̞ːbɯ̟t͡sɨ"
                         }
                     ],
                     "definitions": [
@@ -4112,7 +4094,10 @@
                             "furigana": [
                                 "ゆう",
                                 "めい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "jɯ̟ːme̞ː"
                         }
                     ],
                     "definitions": [
@@ -4129,7 +4114,10 @@
                             "furigana": [
                                 "ゆう",
                                 "めい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "jɯ̟ːme̞ː"
                         }
                     ],
                     "definitions": [
@@ -4435,27 +4423,7 @@
                             "ipa": "a̠na̠ta̠"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "貴方, 貴女, 貴男: you (second-person pronoun)"
-                        },
-                        {
-                            "definition": "貴方: (women's speech) dear, darling, sweetheart (term used by a wife to address her husband)"
-                        },
-                        {
-                            "definition": "貴方, 彼方: (uncommon) that person (far from both speaker and listener)"
-                        },
-                        {
-                            "definition": "彼方: (uncommon) that direction, that side, that place (far from both speaker and listener)",
-                            "examples": [
-                                {
-                                    "japanese": "山(やま)の彼(あ)方(なた)",
-                                    "romanji": "yama no anata",
-                                    "english": "that side of the mountain, the far side of the mountain"
-                                }
-                            ]
-                        }
-                    ],
+                    "definitions": [],
                     "usage-notes": "あんた (anta, term of endearment)\n貴方達 (anatatachi, plural)\n貴方方 (anataga​ta, plural, honorific)"
                 }
             }
@@ -4631,7 +4599,10 @@
                             "furigana": [
                                 "がく",
                                 "せい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɡa̠kɯ̟̊se̞ː"
                         }
                     ],
                     "definitions": [
@@ -4908,7 +4879,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目, 眼:",
+                            "definition": "eye",
                             "examples": [
                                 {
                                     "japanese": "目(め)がかゆいです。",
@@ -4923,7 +4894,7 @@
                             ]
                         },
                         {
-                            "definition": "目:"
+                            "definition": "visually prominent feature of something:"
                         }
                     ]
                 },
@@ -4939,7 +4910,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目:",
+                            "definition": "-st, -nd, -rd, or -th, for ordinal numbers (e.g. 8th or eighth, 9th or ninth)",
                             "examples": [
                                 {
                                     "japanese": "三本(さんぼん)目(め)のボトル",
@@ -4949,7 +4920,7 @@
                             ]
                         },
                         {
-                            "definition": "目:",
+                            "definition": "visually prominent feature of something",
                             "examples": [
                                 {
                                     "japanese": "結(むす)び目(め)、編(あ)み目(め)、効(き)き目(め)",
@@ -4971,7 +4942,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "目, 眼:"
+                            "definition": "prefixal bound form of め (me, “eye”)"
                         }
                     ]
                 }
@@ -5811,7 +5782,10 @@
                             "furigana": [
                                 "ばん",
                                 "ごう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "bã̠ŋɡo̞ː"
                         }
                     ],
                     "definitions": [
@@ -6279,7 +6253,10 @@
                             "furigana": [
                                 "びょう",
                                 "いん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bʲo̞ːĩɴ"
                         }
                     ],
                     "definitions": [
@@ -6762,9 +6739,6 @@
                         },
                         {
                             "definition": "(auxiliary, usually spelled in hiragana) After the て-form of a verb:"
-                        },
-                        {
-                            "definition": "イく: (slang) to have an orgasm, to come, to cum"
                         }
                     ],
                     "usage-notes": "In English, the verbs go and come in the senses of physical motion are often used in relation to the listener.  If Alice calls Bob and asks him if he is on his way to her party, he would say, \"I'm coming.\""
@@ -6816,7 +6790,10 @@
                                 "む",
                                 "",
                                 ""
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "mɯ̟ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -6857,7 +6834,10 @@
                             "furigana": [
                                 "じょう",
                                 "ぶ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "d͡ʑo̞ːbɯ̟"
                         }
                     ],
                     "definitions": [
@@ -6877,7 +6857,10 @@
                             "furigana": [
                                 "じょう",
                                 "ぶ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "d͡ʑo̞ːbɯ̟"
                         }
                     ],
                     "definitions": [
@@ -6908,7 +6891,10 @@
                             "furigana": [
                                 "",
                                 "じょうふ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "d͡ʑo̞ːɸɯ̟"
                         }
                     ],
                     "definitions": [
@@ -7138,7 +7124,10 @@
                             "kana": "おとうと",
                             "furigana": [
                                 "おとうと"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 4,
+                            "ipa": "o̞to̞ːto̞"
                         }
                     ],
                     "definitions": [
@@ -7322,7 +7311,10 @@
                             "kana": "とう",
                             "furigana": [
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "to̞ː"
                         }
                     ],
                     "definitions": [
@@ -7338,7 +7330,10 @@
                             "kana": "とう",
                             "furigana": [
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "to̞ː"
                         }
                     ],
                     "definitions": [
@@ -7363,7 +7358,10 @@
                             "kana": "とう",
                             "furigana": [
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "to̞ː"
                         }
                     ],
                     "definitions": [
@@ -8483,7 +8481,10 @@
                             "furigana": [
                                 "おう",
                                 "しょく"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "o̞ːɕo̞kɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8502,7 +8503,10 @@
                             "furigana": [
                                 "こう",
                                 "しょく"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ko̞ːɕo̞kɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8559,7 +8563,10 @@
                             "furigana": [
                                 "きょう",
                                 "しつ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "kʲo̞ːɕi̥t͡sɨ"
                         }
                     ],
                     "definitions": [
@@ -8582,7 +8589,10 @@
                             "furigana": [
                                 "せい",
                                 "と"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "se̞ːto̞"
                         }
                     ],
                     "definitions": [
@@ -8678,7 +8688,10 @@
                     "term": "きょう",
                     "pronunciations": [
                         {
-                            "kana": "きょう"
+                            "kana": "きょう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kʲo̞ː"
                         }
                     ],
                     "definitions": [
@@ -8694,7 +8707,10 @@
                     "term": "きょう",
                     "pronunciations": [
                         {
-                            "kana": "きょう"
+                            "kana": "きょう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kʲo̞ː"
                         }
                     ],
                     "definitions": [
@@ -9549,7 +9565,10 @@
                             "furigana": [
                                 "えい",
                                 "ご"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "e̞ːɡo̞"
                         }
                     ],
                     "definitions": [
@@ -9584,7 +9603,10 @@
                             "furigana": [
                                 "ほん",
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "hõ̞nto̞ː"
                         },
                         {
                             "kana": "ほんと",
@@ -9618,7 +9640,10 @@
                             "furigana": [
                                 "ほん",
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "hõ̞nto̞ː"
                         },
                         {
                             "kana": "ほんと",
@@ -9748,28 +9773,7 @@
                             "ipa": "ikɯ̟t͡sɨ"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "幾つ: how many",
-                            "examples": [
-                                {
-                                    "japanese": "いくつ欲(ほ)しいのか。",
-                                    "romanji": "Ikutsu hoshii no ka.",
-                                    "english": "How many do you want?"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "幾つ: how old (used with small children)",
-                            "examples": [
-                                {
-                                    "japanese": "おいくつですか。",
-                                    "romanji": "O-ikutsu desu ka.",
-                                    "english": "How old are you?"
-                                }
-                            ]
-                        }
-                    ],
+                    "definitions": [],
                     "usage-notes": "いくつか (ikutsuka): a few\nいくつも (ikutsumo): many\nいくつでも (ikutsu de mo): any number of"
                 }
             }
@@ -9828,7 +9832,10 @@
                             "furigana": [
                                 "き",
                                 "れい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kʲiɾe̞ː"
                         }
                     ],
                     "definitions": [
@@ -10291,7 +10298,10 @@
                                 "すい",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "sɨijo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -10369,9 +10379,6 @@
                                     "english": "show someone a picture"
                                 }
                             ]
-                        },
-                        {
-                            "definition": "魅せる: to show off; to demonstrate a skill or talent"
                         },
                         {
                             "definition": "used as a 補助動詞 (hojo dōshi), after a verb in the て (-te) conjunctive form: to show one's ability or determination to do something; to set an example by doing something"
@@ -10658,7 +10665,10 @@
                             "kana": "じょう",
                             "furigana": [
                                 "じょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "d͡ʑo̞ː"
                         }
                     ],
                     "definitions": [
@@ -10677,7 +10687,10 @@
                             "kana": "じょう",
                             "furigana": [
                                 "じょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "d͡ʑo̞ː"
                         }
                     ],
                     "definitions": [
@@ -10693,7 +10706,10 @@
                             "kana": "じょう",
                             "furigana": [
                                 "じょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "d͡ʑo̞ː"
                         }
                     ],
                     "definitions": [
@@ -10958,16 +10974,6 @@
                         },
                         {
                             "definition": "superior"
-                        },
-                        {
-                            "definition": "高価い: expensive",
-                            "synonyms": [
-                                "高価"
-                            ],
-                            "antonyms": [
-                                "安い",
-                                "安価"
-                            ]
                         }
                     ]
                 }
@@ -11077,7 +11083,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "あれ, アレ: (informal, euphemistic) \"you know what I mean\"",
+                            "definition": "(informal, euphemistic) \"you know what I mean\"",
                             "examples": [
                                 {
                                     "japanese": "ちょっとあれな人(ひと)",
@@ -11909,7 +11915,10 @@
                             "furigana": [
                                 "こう",
                                 "えん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ko̞ːẽ̞ɴ"
                         }
                     ],
                     "definitions": [
@@ -12031,7 +12040,10 @@
                             "furigana": [
                                 "みょう",
                                 "にち"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "mʲo̞ːɲ̟it͡ɕi"
                         }
                     ],
                     "definitions": [
@@ -12372,84 +12384,6 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "遣る, 行る: (colloquial) to do (something); to perform or take care of (a responsibility), to take on (a task)",
-                            "synonyms": [
-                                "する",
-                                "なす",
-                                "なさる"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "何(なに)かやることがあるの？",
-                                    "romanji": "Nanika yaru koto ga aru no?",
-                                    "english": "Do you have anything to do?"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "演る: (colloquial) to act, to perform, such as in a film or musical act",
-                            "synonyms": [
-                                "演じる"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "主(しゅ)人(じん)公(こう)をやる",
-                                    "romanji": "shujinkō o yaru",
-                                    "english": "to perform the main character"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "遣る, 行る:  to give (to a non-human or someone inferior)",
-                            "synonyms": [
-                                "上げる",
-                                "差し上げる"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "花(はな)に水(みず)をやる。",
-                                    "romanji": "Hana ni mizu o yaru.",
-                                    "english": "Give the flowers some water."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "遣る, 行る: to send somebody somewhere, to dispatch",
-                            "examples": [
-                                {
-                                    "japanese": "使(つか)いにやる",
-                                    "romanji": "tsukai ni yaru",
-                                    "english": "to send a person on an errand"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "遣る, 犯る, 行る: to have sex, to fuck, to bang (compare English do, as in \"do someone\" or \"do it\")",
-                            "synonyms": [
-                                "性交する"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "やり逃(に)げ",
-                                    "romanji": "yarinige",
-                                    "english": "“fuck and chuck”; break contact after having sex"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "殺る: to do someone in, to kill someone; to get (someone), to fool or deceive (someone)",
-                            "synonyms": [
-                                "殺す"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "嫉(しっ)妬(と)に駆(か)られ、あの人(ひと)をやっちゃいました。",
-                                    "romanji": "Shitto ni karare, ano hito o yatchaimashita.",
-                                    "english": "Driven by jealousy, he killed that person."
-                                }
-                            ]
-                        },
-                        {
                             "definition": "(Can we verify(+) this sense?) to row a boat",
                             "synonyms": [
                                 "漕ぐ"
@@ -12555,9 +12489,6 @@
                     "definitions": [
                         {
                             "definition": "to fly"
-                        },
-                        {
-                            "definition": "跳ぶ: to jump"
                         },
                         {
                             "definition": "to go quickly"
@@ -12680,7 +12611,10 @@
                             "kana": "てい",
                             "furigana": [
                                 "てい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "te̞ː"
                         }
                     ],
                     "definitions": [
@@ -13340,7 +13274,10 @@
                             "furigana": [
                                 "りょ",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɾʲo̞ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -13392,7 +13329,10 @@
                     "term": "どうも",
                     "pronunciations": [
                         {
-                            "kana": "どうも"
+                            "kana": "どうも",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːmo̞"
                         }
                     ],
                     "definitions": [
@@ -13432,7 +13372,10 @@
                     "term": "どうも",
                     "pronunciations": [
                         {
-                            "kana": "どうも"
+                            "kana": "どうも",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːmo̞"
                         }
                     ],
                     "definitions": [
@@ -13572,7 +13515,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "魚:",
+                            "definition": "a fish",
                             "examples": [
                                 {
                                     "japanese": "庭(にわ)で美(お)味(い)しい魚(さかな)を食(た)べた。",
@@ -13790,7 +13733,10 @@
                                 "もく",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "mo̞kɯ̟jo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -13936,7 +13882,10 @@
                                 "れい",
                                 "ぞう",
                                 "こ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "ɾe̞ːzo̞ːko̞"
                         }
                     ],
                     "definitions": [
@@ -14719,7 +14668,10 @@
                             "furigana": [
                                 "ぼう",
                                 "し"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bo̞ːɕi"
                         }
                     ],
                     "definitions": [
@@ -14753,7 +14705,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "取る:",
+                            "definition": "to take",
                             "examples": [
                                 {
                                     "japanese": "人(ひと)の手(て)を取(と)る",
@@ -14763,10 +14715,10 @@
                             ]
                         },
                         {
-                            "definition": "取る:"
+                            "definition": "(board games) to capture"
                         },
                         {
-                            "definition": "取る:",
+                            "definition": "to pick up",
                             "examples": [
                                 {
                                     "japanese": "花(はな)束(たば)を手(て)に取(と)る",
@@ -14776,7 +14728,7 @@
                             ]
                         },
                         {
-                            "definition": "取る:",
+                            "definition": "to pick up on; to grasp",
                             "examples": [
                                 {
                                     "japanese": "意(い)味(み)を取(と)る",
@@ -14801,7 +14753,7 @@
                             ]
                         },
                         {
-                            "definition": "取る:",
+                            "definition": "to earn",
                             "examples": [
                                 {
                                     "japanese": "いい成(せい)績(せき)をとる",
@@ -14811,7 +14763,7 @@
                             ]
                         },
                         {
-                            "definition": "取る:",
+                            "definition": "to remove (one's glasses, etc.)",
                             "examples": [
                                 {
                                     "japanese": "歯(は)の黄(き)ばみを取(と)る",
@@ -14821,7 +14773,7 @@
                             ]
                         },
                         {
-                            "definition": "捕る, 獲る, 取る, 把る:",
+                            "definition": "to catch; to capture",
                             "examples": [
                                 {
                                     "japanese": "虫(むし)を取(と)る",
@@ -14831,16 +14783,16 @@
                             ]
                         },
                         {
-                            "definition": "盗る, 取る, 奪る:"
+                            "definition": "to steal"
                         },
                         {
-                            "definition": "摂る, 取る:"
+                            "definition": "to have food or a meal, to ingest, to eat"
                         },
                         {
-                            "definition": "採る, 取る:"
+                            "definition": "to take, to adopt (a measure, a choice, etc.), to choose"
                         },
                         {
-                            "definition": "採る, 取る:"
+                            "definition": "to pick (plants), to harvest"
                         }
                     ]
                 }
@@ -14914,7 +14866,10 @@
                             "furigana": [
                                 "ぎん",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɡʲĩŋko̞ː"
                         }
                     ],
                     "definitions": [
@@ -14933,7 +14888,10 @@
                     "term": "どうぞ",
                     "pronunciations": [
                         {
-                            "kana": "どうぞ"
+                            "kana": "どうぞ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːzo̞"
                         }
                     ],
                     "definitions": [
@@ -14968,7 +14926,10 @@
                     "term": "どうぞ",
                     "pronunciations": [
                         {
-                            "kana": "どうぞ"
+                            "kana": "どうぞ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːzo̞"
                         }
                     ],
                     "definitions": [
@@ -14992,7 +14953,10 @@
                             "furigana": [
                                 "えい",
                                 "が"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "e̞ːɡa̠"
                         }
                     ],
                     "definitions": [
@@ -15023,7 +14987,10 @@
                                 "か",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "ka̠jo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -15289,7 +15256,10 @@
                             "furigana": [
                                 "きょう",
                                 "だい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kʲo̞ːda̠i"
                         }
                     ],
                     "definitions": [
@@ -15658,7 +15628,10 @@
                                 "えい",
                                 "が",
                                 "かん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "e̞ːɡa̠kã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -16081,7 +16054,10 @@
                             "kana": "どう",
                             "furigana": [
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -16100,7 +16076,10 @@
                             "kana": "どう",
                             "furigana": [
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -16116,7 +16095,10 @@
                             "kana": "どう",
                             "furigana": [
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -16538,7 +16520,7 @@
                             ]
                         },
                         {
-                            "definition": "男, 漢: (specifically) a manly man"
+                            "definition": "(specifically) a manly man"
                         },
                         {
                             "definition": "a male lover",
@@ -16894,7 +16876,10 @@
                             "kana": "れい",
                             "furigana": [
                                 "れい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɾe̞ː"
                         }
                     ],
                     "definitions": [
@@ -16910,7 +16895,10 @@
                             "kana": "れい",
                             "furigana": [
                                 "れい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɾe̞ː"
                         }
                     ],
                     "definitions": [
@@ -16926,7 +16914,10 @@
                             "kana": "れい",
                             "furigana": [
                                 "れい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɾe̞ː"
                         }
                     ],
                     "definitions": [
@@ -17217,7 +17208,10 @@
                                 "こう",
                                 "さ",
                                 "てん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ko̞ːsa̠tẽ̞ɴ"
                         }
                     ],
                     "definitions": [
@@ -17442,14 +17436,7 @@
                             "kana": "かぎ"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "鉤: hook"
-                        },
-                        {
-                            "definition": "鍵: key"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -17793,7 +17780,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "建物:",
+                            "definition": "building, structure, construction, edifice",
                             "synonyms": [
                                 "建造物",
                                 "建築物"
@@ -18062,7 +18049,10 @@
                                 "ど",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "do̞jo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -18285,7 +18275,10 @@
                                 "げつ",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "ɡe̞t͡sɨjo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -18368,7 +18361,10 @@
                             "furigana": [
                                 "けっ",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ke̞k̚ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -18397,7 +18393,10 @@
                             "furigana": [
                                 "けっ",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ke̞k̚ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -18462,7 +18461,10 @@
                             "furigana": [
                                 "けっ",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ke̞k̚ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -18639,7 +18641,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "池:",
+                            "definition": "a pond (small lake or pool)",
                             "examples": [
                                 {
                                     "japanese": "池(いけ)を乾(ほ)す",
@@ -18649,10 +18651,10 @@
                             ]
                         },
                         {
-                            "definition": "池:"
+                            "definition": "a pool (small amount of liquid in a surface)"
                         },
                         {
-                            "definition": "池:",
+                            "definition": "(calligraphy) part of an inkstone where water is stored",
                             "synonyms": [
                                 "海"
                             ]
@@ -18937,7 +18939,10 @@
                             "furigana": [
                                 "こう",
                                 "ばん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ko̞ːbã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -19379,16 +19384,16 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "頭: the head as a whole"
+                            "definition": "the head as a whole"
                         },
                         {
-                            "definition": "頭: boss, leader"
+                            "definition": "boss, leader"
                         },
                         {
-                            "definition": "頭: top part of a Chinese character"
+                            "definition": "top part of a Chinese character"
                         },
                         {
-                            "definition": "頭, 首: the head of a doll"
+                            "definition": "the head of a doll"
                         }
                     ]
                 },
@@ -19504,7 +19509,10 @@
                             "kana": "こうべ",
                             "furigana": [
                                 "こうべ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ko̞ːbe̞"
                         }
                     ],
                     "definitions": [
@@ -19565,7 +19573,10 @@
                             "kana": "とう",
                             "furigana": [
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "to̞ː"
                         }
                     ],
                     "definitions": [
@@ -19581,7 +19592,10 @@
                             "kana": "とう",
                             "furigana": [
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "to̞ː"
                         }
                     ],
                     "definitions": [
@@ -19678,7 +19692,10 @@
                                 "りゅう",
                                 "がく",
                                 "せい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 4,
+                            "ipa": "ɾʲɨːɡa̠kɯ̟se̞ː"
                         }
                     ],
                     "definitions": [
@@ -21208,7 +21225,10 @@
                             "kana": "ほう",
                             "furigana": [
                                 "ほう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ho̞ː"
                         }
                     ],
                     "definitions": [
@@ -21767,7 +21787,10 @@
                             "furigana": [
                                 "よう",
                                 "か"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "jo̞ːka̠"
                         }
                     ],
                     "definitions": [
@@ -21915,11 +21938,7 @@
                             "kana": "それでは"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "其れでは: then, if so"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -21957,7 +21976,10 @@
                             "furigana": [
                                 "か",
                                 "へい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ka̠he̞ː"
                         }
                     ],
                     "definitions": [
@@ -22518,13 +22540,13 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "遅い:",
+                            "definition": "slow, late (as in delayed)",
                             "antonyms": [
                                 "速い"
                             ]
                         },
                         {
-                            "definition": "遅い, 晩い:",
+                            "definition": "late (as in during the day)",
                             "antonyms": [
                                 "早い"
                             ]
@@ -22546,7 +22568,10 @@
                                 "だい",
                                 "じょう",
                                 "ぶ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "da̠iʑo̞ːbɯ̟"
                         }
                     ],
                     "definitions": [
@@ -22638,7 +22663,10 @@
                     "term": "どうして",
                     "pronunciations": [
                         {
-                            "kana": "どうして"
+                            "kana": "どうして",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːɕite̞"
                         }
                     ],
                     "definitions": [
@@ -22654,7 +22682,10 @@
                     "term": "どうして",
                     "pronunciations": [
                         {
-                            "kana": "どうして"
+                            "kana": "どうして",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ːɕite̞"
                         }
                     ],
                     "definitions": [
@@ -22699,7 +22730,10 @@
                     "term": "ちょうど",
                     "pronunciations": [
                         {
-                            "kana": "ちょうど"
+                            "kana": "ちょうど",
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "t͡ɕo̞ːdo̞"
                         }
                     ],
                     "definitions": [
@@ -22961,7 +22995,10 @@
                                 "たん",
                                 "じょう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "tã̠ɲ̟d͡ʑo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -23148,11 +23185,7 @@
                             "kana": "あさって"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "明後日: the day after tomorrow"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -23194,7 +23227,10 @@
                             "furigana": [
                                 "ぶん",
                                 "しょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "bɯ̟̃ɰ̃ɕo̞ː"
                         }
                     ],
                     "definitions": [
@@ -23296,26 +23332,7 @@
                             "kana": "たて"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "立, 立て: a party or banquet; treating others to food and/or drink; the general meaning or gist of something; a rule or regulation; the lead in a musical ensemble"
-                        },
-                        {
-                            "definition": "館: a fortified residence of a powerful clan"
-                        },
-                        {
-                            "definition": "縦, 竪, 経: the vertical direction; vertical length: height; the north and south direction; the north-to-south distance; the warp of a woven textile"
-                        },
-                        {
-                            "definition": "建, 建て: something contracted, such as a contracted sale or purchase where the transaction is still incomplete: a standing sale or purchase"
-                        },
-                        {
-                            "definition": "殺陣, 立, 立て: a fight scene in a play or movie, especially a sword fight"
-                        },
-                        {
-                            "definition": "盾, 楯: a shield"
-                        }
-                    ]
+                    "definitions": []
                 },
                 "Counter": {
                     "term": "たて",
@@ -23324,11 +23341,7 @@
                             "kana": "たて"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "立: the number of rounds or matches in a competition; the number of acts in a kabuki play; the number of losses in a losing streak"
-                        }
-                    ]
+                    "definitions": []
                 },
                 "Suffix": {
                     "term": "たて",
@@ -23337,11 +23350,7 @@
                             "kana": "たて"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "立, 立て: just"
-                        }
-                    ]
+                    "definitions": []
                 },
                 "Prefix": {
                     "term": "たて",
@@ -23350,11 +23359,7 @@
                             "kana": "たて"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "立, 立て: prefixed to a person or role: the head or lead in a group; prefixed to a verb: an intensifier"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -23569,7 +23574,10 @@
                             "kana": "てい",
                             "furigana": [
                                 "てい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "te̞ː"
                         }
                     ],
                     "definitions": [
@@ -23748,7 +23756,10 @@
                             "furigana": [
                                 "りょう",
                                 "しん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɾʲo̞ːɕĩɴ"
                         }
                     ],
                     "definitions": [
@@ -24080,26 +24091,6 @@
                                     "english": "I like apples more than oranges."
                                 }
                             ]
-                        },
-                        {
-                            "definition": "自り: from, beyond, or past a point in space or time",
-                            "examples": [
-                                {
-                                    "japanese": "ここより危(あぶ)ないですよ。",
-                                    "romanji": "Koko yori abunai desu yo.",
-                                    "english": "It's dangerous past / beyond / from here."
-                                },
-                                {
-                                    "japanese": "千(ち)歳(とせ)より出(しゅっ)発(ぱつ)します。",
-                                    "romanji": "Chitose yori shuppatsu shimasu.",
-                                    "english": "We depart from Chitose."
-                                },
-                                {
-                                    "japanese": "博(はく)物(ぶつ)館(かん)の展(てん)示(じ)が 6(ろく)月(がつ) 10(とお)日(か)より開(かい)催(さい)されます。",
-                                    "romanji": "Hakubutsukan no tenji ga rokugatsu tōka yori kaisai saremasu.",
-                                    "english": "The museum exhibit opens from June 10."
-                                }
-                            ]
                         }
                     ],
                     "usage-notes": "(more emphatic) よりも (yori mo)"
@@ -24258,7 +24249,10 @@
                             "kana": "ほう",
                             "furigana": [
                                 "ほう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ho̞ː"
                         }
                     ],
                     "definitions": [
@@ -24419,7 +24413,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "登る, 上る:",
+                            "definition": "to ascend, to climb, to go up",
                             "antonyms": [
                                 "下る"
                             ]
@@ -25008,7 +25002,10 @@
                             "furigana": [
                                 "けい",
                                 "かん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ke̞ːkã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -25034,7 +25031,10 @@
                             "furigana": [
                                 "じょう",
                                 "ず"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "d͡ʑo̞ːzɨ"
                         }
                     ],
                     "definitions": [
@@ -25064,7 +25064,10 @@
                             "furigana": [
                                 "じょう",
                                 "ず"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "d͡ʑo̞ːzɨ"
                         }
                     ],
                     "definitions": [
@@ -25083,7 +25086,10 @@
                             "furigana": [
                                 "じょう",
                                 "て"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "d͡ʑo̞ːte̞"
                         }
                     ],
                     "definitions": [
@@ -25478,12 +25484,6 @@
                                 "愚か",
                                 "鈍い"
                             ]
-                        },
-                        {
-                            "definition": "速い: quick, fast, speedy",
-                            "antonyms": [
-                                "遅い"
-                            ]
                         }
                     ],
                     "usage-notes": "Japanese terms spelled with 早 read as はやJapanese terms read with kun'yomiJapanese terms inherited from Old JapaneseJapanese terms derived from Old JapaneseJapanese terms inherited from Proto-JaponicJapanese terms derived from Proto-JaponicJapanese terms with IPA pronunciationJapanese lemmasJapanese adjectivesJapanese い-i adjectivesJapanese terms spelled with first grade kanjiJapanese terms with 1 kanjiJapanese terms with usage examples"
@@ -25576,7 +25576,10 @@
                                 "",
                                 "いち",
                                 "ど"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "mo̞ː it͡ɕido̞"
                         }
                     ],
                     "definitions": [
@@ -26291,11 +26294,7 @@
                             "kana": "すぐに"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "直ぐに: immediately"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -26339,11 +26338,7 @@
                             "kana": "ほか"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "外, 他: other, the rest"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -26783,14 +26778,7 @@
                             "kana": "ふろ"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "風呂: bath, bathtub; bathroom; bathhouse"
-                        },
-                        {
-                            "definition": "風炉: portable stove for boiling water to make tea used for the tea ceremony during the summer"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -26807,7 +26795,10 @@
                             "furigana": [
                                 "がっ",
                                 "こう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɡa̠k̚ko̞ː"
                         }
                     ],
                     "definitions": [
@@ -27154,7 +27145,10 @@
                             "furigana": [
                                 "ふう",
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɸɯ̟ːto̞ː"
                         }
                     ],
                     "definitions": [
@@ -27258,17 +27252,7 @@
                             "kana": "じゃ"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "蛇: generic name for a large snake; a heavy drinker"
-                        },
-                        {
-                            "definition": "邪: a moral wrong; a bad attitude; maliciousness, wickedness; such a person"
-                        },
-                        {
-                            "definition": "麝: short for 麝香 (jakō, “musk”); short for 麝香鹿 (jakōjika, “musk deer”)"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -27706,7 +27690,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "飲む, 呑む:",
+                            "definition": "to drink, to gulp, to swallow; to eat (soup)",
                             "examples": [
                                 {
                                     "japanese": "私(わたし)たちはさじでスープを飲(の)む。",
@@ -27721,19 +27705,19 @@
                             ]
                         },
                         {
-                            "definition": "飲む, 喫む:",
+                            "definition": "(smoking) to smoke tobacco",
                             "synonyms": [
                                 "すう"
                             ]
                         },
                         {
-                            "definition": "飲む:"
+                            "definition": "to overwhelm, to engulf"
                         },
                         {
-                            "definition": "飲む:"
+                            "definition": "to suppress, to keep down"
                         },
                         {
-                            "definition": "飲む, 呑む:",
+                            "definition": "to take (medicine)",
                             "examples": [
                                 {
                                     "japanese": "薬(くすり)を飲(の)む",
@@ -27743,7 +27727,7 @@
                             ]
                         },
                         {
-                            "definition": "飲む, 呑む:"
+                            "definition": "to accept something like a demand or a condition"
                         }
                     ],
                     "usage-notes": "飲み物 (nomimono, “a drink”)飲み込む (nomikomu, “to gulp down”)飲み放題 (nomihōdai, “all you can drink”)飲み干す (nomihosu, “empty one's glass”)飲み代 (nomishiro, “drinking money”)飲み会 (nomikai, “drinking party”)飲み屋 (nomiya, “bar, pub”)固唾を呑む (katazu o nomu)清濁併せ呑む (seidaku awasenomu)"
@@ -27811,10 +27795,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "歌う, 唄う:"
+                            "definition": "(transitive, intransitive) to sing"
                         },
                         {
-                            "definition": "歌う, 唄う:",
+                            "definition": "(intransitive) to tweet, said of birds",
                             "synonyms": [
                                 "鳴く"
                             ]
@@ -28237,26 +28221,7 @@
                             "ipa": "ma̠ta̠"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "又, 復: again, as well",
-                            "examples": [
-                                {
-                                    "japanese": "またやったか？",
-                                    "romanji": "Mata yatta ka?",
-                                    "english": "They did it again?"
-                                },
-                                {
-                                    "japanese": "また連(れん)絡(らく)します。",
-                                    "romanji": "Mata renraku shimasu.",
-                                    "english": "I will contact you again."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "亦: as well, likewise"
-                        }
-                    ]
+                    "definitions": []
                 },
                 "Conjunction": {
                     "term": "また",
@@ -28603,7 +28568,10 @@
                     "term": "どう",
                     "pronunciations": [
                         {
-                            "kana": "どう"
+                            "kana": "どう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -28677,7 +28645,10 @@
                     "term": "どう",
                     "pronunciations": [
                         {
-                            "kana": "どう"
+                            "kana": "どう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -28717,7 +28688,10 @@
                             "kana": "どう",
                             "furigana": [
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ː"
                         }
                     ],
                     "definitions": [
@@ -29676,7 +29650,10 @@
                             "furigana": [
                                 "さ",
                                 "とう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "sa̠to̞ː"
                         }
                     ],
                     "definitions": [
@@ -30004,7 +29981,10 @@
                             "furigana": [
                                 "しょう",
                                 "ゆ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɕo̞ːjɯ̟"
                         }
                     ],
                     "definitions": [
@@ -30368,7 +30348,10 @@
                                 "じ",
                                 "どう",
                                 "しゃ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "d͡ʑido̞ːɕa̠"
                         }
                     ],
                     "definitions": [
@@ -30757,7 +30740,10 @@
                             "kana": "いもうと",
                             "furigana": [
                                 "いもうと"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 4,
+                            "ipa": "imo̞ːto̞"
                         }
                     ],
                     "definitions": [
@@ -31015,7 +31001,10 @@
                             "furigana": [
                                 "そう",
                                 "じ"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "so̞ːʑi"
                         }
                     ],
                     "definitions": [
@@ -31188,13 +31177,13 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "口:"
+                            "definition": "mouth"
                         },
                         {
-                            "definition": "口:"
+                            "definition": "opening"
                         },
                         {
-                            "definition": "口:",
+                            "definition": "voice, author",
                             "examples": [
                                 {
                                     "japanese": "書(か)き口(くち)",
@@ -31204,7 +31193,7 @@
                             ]
                         },
                         {
-                            "definition": "口:",
+                            "definition": "drinker, consumer",
                             "examples": [
                                 {
                                     "japanese": "行(い)ける口(くち)",
@@ -31219,7 +31208,7 @@
                             ]
                         },
                         {
-                            "definition": "口:",
+                            "definition": "taste (in food), preference",
                             "examples": [
                                 {
                                     "japanese": "日(に)本(ほん)人(じん)の口(くち)に合(あ)わせた料(りょう)理(り)",
@@ -31241,7 +31230,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "口:"
+                            "definition": "prefixal bound form of くち (kuchi, “mouth”)"
                         }
                     ]
                 }
@@ -31472,7 +31461,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "足:"
+                            "definition": "foot"
                         }
                     ]
                 }
@@ -31601,7 +31590,10 @@
                                 "ひ",
                                 "こう",
                                 "き"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "çi̥ko̞ːkʲi"
                         }
                     ],
                     "definitions": [
@@ -31636,18 +31628,7 @@
                             "kana": "など"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "等: for example, things like, such as, etc., and so on",
-                            "examples": [
-                                {
-                                    "japanese": "納(なっ)豆(とう)や歌(か)舞(ぶ)伎(き)などは日(に)本(ほん)だけにある。",
-                                    "romanji": "Nattō ya kabuki nado wa Nihon dake ni aru.",
-                                    "english": "Things like natto and kabuki are only in Japan."
-                                }
-                            ]
-                        }
-                    ],
+                    "definitions": [],
                     "usage-notes": "など (nado), when used as a particle, functions as a noun and may be followed by other particles, including の (no)."
                 }
             }
@@ -31952,7 +31933,10 @@
                     "term": "もう",
                     "pronunciations": [
                         {
-                            "kana": "もう"
+                            "kana": "もう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "mo̞ː"
                         }
                     ],
                     "definitions": [
@@ -32013,7 +31997,10 @@
                     "term": "もう",
                     "pronunciations": [
                         {
-                            "kana": "もう"
+                            "kana": "もう",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "mo̞ː"
                         }
                     ],
                     "definitions": [
@@ -32045,7 +32032,10 @@
                             "kana": "もう",
                             "furigana": [
                                 "もう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "mo̞ː"
                         }
                     ],
                     "definitions": [
@@ -32093,7 +32083,10 @@
                             "kana": "もう",
                             "furigana": [
                                 "もう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "mo̞ː"
                         }
                     ],
                     "definitions": [
@@ -32137,7 +32130,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "欲しい:",
+                            "definition": "wanted, desired, needed",
                             "examples": [
                                 {
                                     "japanese": "私(わたし)はこの本(ほん)が欲(ほ)しいです。",
@@ -32581,7 +32574,10 @@
                             "furigana": [
                                 "か",
                                 "てい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ka̠te̞ː"
                         }
                     ],
                     "definitions": [
@@ -32651,12 +32647,6 @@
                             "antonyms": [
                                 "明るい間",
                                 "夜"
-                            ]
-                        },
-                        {
-                            "definition": "午: the noon, midday",
-                            "synonyms": [
-                                "正午"
                             ]
                         },
                         {
@@ -32864,9 +32854,6 @@
                         },
                         {
                             "definition": "to make use of, to apply"
-                        },
-                        {
-                            "definition": "遣う: to spend"
                         }
                     ]
                 }
@@ -32900,12 +32887,6 @@
                             "definition": "(regional, dialect, Etchū region) a deep gap in a mountain ridge (so called for the way the wind blows through, like a window)",
                             "synonyms": [
                                 "きれっと"
-                            ]
-                        },
-                        {
-                            "definition": "マド: (investing) on a candlestick chart, a gap in day-to-day candlesticking caused by a marked increase or decrease in the price of a security, derivative, currency, or other investment",
-                            "synonyms": [
-                                "空"
                             ]
                         }
                     ]
@@ -33088,7 +33069,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "美味い, 旨い, 甘い, 甘美い, 味い, 美い:",
+                            "definition": "delicious, tasty",
                             "synonyms": [
                                 "美味しい"
                             ],
@@ -33125,7 +33106,10 @@
                             "furigana": [
                                 "おお",
                                 "ぜい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "o̞ːze̞ː"
                         }
                     ],
                     "definitions": [
@@ -33149,7 +33133,10 @@
                             "furigana": [
                                 "おお",
                                 "ぜい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "o̞ːze̞ː"
                         }
                     ],
                     "definitions": [
@@ -33175,7 +33162,10 @@
                             "furigana": [
                                 "たい",
                                 "ぜい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "ta̠ize̞ː"
                         }
                     ],
                     "definitions": [
@@ -33194,7 +33184,10 @@
                             "furigana": [
                                 "たい",
                                 "せい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ta̠ise̞ː"
                         }
                     ],
                     "definitions": [
@@ -33441,11 +33434,7 @@
                             "kana": "ください"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "下さい: (polite) Imperative of 下さる"
-                        }
-                    ],
+                    "definitions": [],
                     "usage-notes": "Nowadays, except in very formal or traditional contexts, this term is normally written in kana. Outside of such contexts, the spelling 「下さい」 can emphasize the meaning of \"give\" associated with 「下」, though this is rare.\nThe imperative sense is either attached to the て form (te-form) of a verb, or a noun prefixed with お (o-) or ご (go-).\nちょっとお待ちください。Chotto o-machi kudasai.Please wait a little. (Here 待ち is the continuative form of 待つ.)\nこれをご覧ください。Kore o go-ran kudasai.Please have a look at this."
                 }
             }
@@ -33484,7 +33473,10 @@
                             "furigana": [
                                 "せん",
                                 "せい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "sẽ̞ɰ̃se̞ː"
                         }
                     ],
                     "definitions": [
@@ -33514,7 +33506,10 @@
                             "furigana": [
                                 "せん",
                                 "せい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "sẽ̞ɰ̃se̞ː"
                         }
                     ],
                     "definitions": [
@@ -33610,20 +33605,7 @@
                             "kana": "せっけん"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "石鹸: soap"
-                        },
-                        {
-                            "definition": "席巻, 席捲: conquest"
-                        },
-                        {
-                            "definition": "接見: interview"
-                        },
-                        {
-                            "definition": "節倹: economy"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -35114,7 +35096,10 @@
                             "furigana": [
                                 "しょく",
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ɕo̞kɯ̟do̞ː"
                         }
                     ],
                     "definitions": [
@@ -35140,7 +35125,10 @@
                             "furigana": [
                                 "じき",
                                 "どう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "d͡ʑikʲido̞ː"
                         }
                     ],
                     "definitions": [
@@ -35163,7 +35151,10 @@
                             "furigana": [
                                 "と",
                                 "けい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "to̞ke̞ː"
                         }
                     ],
                     "definitions": [
@@ -35841,7 +35832,10 @@
                             "furigana": [
                                 "べん",
                                 "きょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bẽ̞ŋʲkʲo̞ː"
                         }
                     ],
                     "definitions": [
@@ -35979,7 +35973,10 @@
                                 "にち",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "ɲ̟it͡ɕijo̞ːbʲi"
                         }
                     ],
                     "definitions": [
@@ -36022,7 +36019,10 @@
                             "kana": "ちょう",
                             "furigana": [
                                 "ちょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "t͡ɕo̞ː"
                         }
                     ],
                     "definitions": [
@@ -36050,7 +36050,10 @@
                             "kana": "ちょう",
                             "furigana": [
                                 "ちょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "t͡ɕo̞ː"
                         }
                     ],
                     "definitions": [
@@ -36084,7 +36087,10 @@
                             "kana": "ちょう",
                             "furigana": [
                                 "ちょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "t͡ɕo̞ː"
                         }
                     ],
                     "definitions": [
@@ -36132,7 +36138,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "厚い:",
+                            "definition": "thick",
                             "antonyms": [
                                 "薄い"
                             ],
@@ -36155,7 +36161,7 @@
                             ]
                         },
                         {
-                            "definition": "厚い, 篤い, 惇い, 淳い:",
+                            "definition": "hearty, sincere, warm",
                             "examples": [
                                 {
                                     "japanese": "厚(あつ)い信(しん)頼(らい)",
@@ -37324,11 +37330,7 @@
                             "kana": "だんだん"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "団々: very round of shape, such as the roundness of the full moon; full of dew, covered in dewdrops"
-                        }
-                    ]
+                    "definitions": []
                 }
             },
             "Etymology 3": {
@@ -37790,7 +37792,10 @@
                             "furigana": [
                                 "よう",
                                 "ふく"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "jo̞ːɸɯ̟̊kɯ̟"
                         }
                     ],
                     "definitions": [
@@ -38091,9 +38096,6 @@
                             "definition": "nine"
                         },
                         {
-                            "definition": "究: an indeterminate large number, a myriad, a great many"
-                        },
-                        {
                             "definition": "(divination) the number of yang, in opposition to 六 (roku, “six”) as the number of yin"
                         }
                     ]
@@ -38232,7 +38234,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "靴:"
+                            "definition": "footwear, footgear: a shoe, (a pair of) shoes"
                         }
                     ]
                 }
@@ -38466,7 +38468,10 @@
                             "furigana": [
                                 "びょう",
                                 "き"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bʲo̞ːkʲi"
                         }
                     ],
                     "definitions": [
@@ -38490,7 +38495,10 @@
                             "furigana": [
                                 "びょう",
                                 "き"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "bʲo̞ːkʲi"
                         }
                     ],
                     "definitions": [
@@ -38671,7 +38679,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "広い, 弘い, 宏い:",
+                            "definition": "wide, broad",
                             "examples": [
                                 {
                                     "japanese": "その川(かわ)は広(ひろ)い。",
@@ -38681,7 +38689,7 @@
                             ]
                         },
                         {
-                            "definition": "広い, 弘い, 宏い:",
+                            "definition": "spacious",
                             "examples": [
                                 {
                                     "japanese": "一(いち)番(ばん)広(ひろ)い都(と)道(どう)府(ふ)県(けん)",
@@ -38691,10 +38699,10 @@
                             ]
                         },
                         {
-                            "definition": "広い, 弘い, 宏い:"
+                            "definition": "vast, large"
                         },
                         {
-                            "definition": "広い, 弘い, 宏い, 博い:"
+                            "definition": "broad, wide-ranging"
                         }
                     ]
                 }
@@ -38717,39 +38725,6 @@
                     "definitions": [
                         {
                             "definition": "to exist, to be, to have"
-                        },
-                        {
-                            "definition": "有る: (of a matter or state) to be recognized, be acknowledged",
-                            "examples": [
-                                {
-                                    "japanese": "近(きん)年(ねん)、物(ぶっ)価(か)の上(じょう)昇(しょう)にある。",
-                                    "romanji": "Kinnen, bukka no jōshō ni aru.",
-                                    "english": "It is known that prices have been rising in recent years."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "在る: to depend on, lie in, be influenced by",
-                            "synonyms": [
-                                "左右される"
-                            ],
-                            "examples": [
-                                {
-                                    "japanese": "成(せい)功(こう)の秘(ひ)訣(けつ)は努(ど)力(りょく)にある。",
-                                    "romanji": "Seikō no hiketsu wa doryoku ni aru.",
-                                    "english": "The secret to success lies in hard work."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "在る, 存る: to be alive, surviving",
-                            "examples": [
-                                {
-                                    "japanese": "世(よ)にある間(あいだ)",
-                                    "romanji": "yo ni aru aida",
-                                    "english": "during one's lifetime"
-                                }
-                            ]
                         },
                         {
                             "definition": "to have"
@@ -39307,10 +39282,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "覚える, 憶える: to recall, to remember"
+                            "definition": "to recall, to remember"
                         },
                         {
-                            "definition": "覚える: to learn",
+                            "definition": "to learn",
                             "examples": [
                                 {
                                     "japanese": "料理(りょうり)を覚(おぼ)える",
@@ -39320,7 +39295,7 @@
                             ]
                         },
                         {
-                            "definition": "覚える, 憶える: to memorize",
+                            "definition": "to memorize",
                             "examples": [
                                 {
                                     "japanese": "歌(か)詞(し)を覚(おぼ)える",
@@ -39330,7 +39305,7 @@
                             ]
                         },
                         {
-                            "definition": "覚える: to feel (an emotion or sense)",
+                            "definition": "to feel (an emotion or sense)",
                             "examples": [
                                 {
                                     "japanese": "違(い)和(わ)感(かん)を覚(おぼ)える",
@@ -39422,16 +39397,6 @@
                     "definitions": [
                         {
                             "definition": "to go in; to come in"
-                        },
-                        {
-                            "definition": "要る: to be necessary, to be required",
-                            "examples": [
-                                {
-                                    "japanese": "お金(かね)がいるね",
-                                    "romanji": "okane ga iru ne",
-                                    "english": "money comes into it → money is needed → you'll need money"
-                                }
-                            ]
                         }
                     ],
                     "usage-notes": "Mostly confined to fixed expressions and idioms."
@@ -39512,7 +39477,10 @@
                             "furigana": [
                                 "こん",
                                 "ちょう"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "kõ̞ɲ̟t͡ɕo̞ː"
                         }
                     ],
                     "definitions": [
@@ -39857,7 +39825,10 @@
                             "furigana": [
                                 "りょう",
                                 "り"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɾʲo̞ːɾʲi"
                         }
                     ],
                     "definitions": [
@@ -40169,7 +40140,10 @@
                             "kana": "けい",
                             "furigana": [
                                 "けい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ke̞ː"
                         }
                     ],
                     "definitions": [
@@ -40185,7 +40159,10 @@
                             "kana": "けい",
                             "furigana": [
                                 "けい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ke̞ː"
                         }
                     ],
                     "definitions": [
@@ -40201,7 +40178,10 @@
                             "kana": "けい",
                             "furigana": [
                                 "けい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ke̞ː"
                         }
                     ],
                     "definitions": [
@@ -40227,16 +40207,6 @@
                         }
                     ],
                     "definitions": [
-                        {
-                            "definition": "彼方: that way; that over there, far away, in the distance",
-                            "examples": [
-                                {
-                                    "japanese": "皆(みな)さま、あちらをごらんください",
-                                    "romanji": "Mina sama, achira o goran kudasai",
-                                    "english": "Everybody, please look in that direction."
-                                }
-                            ]
-                        },
                         {
                             "definition": "(polite) that person",
                             "examples": [
@@ -41233,20 +41203,7 @@
                             "kana": "する"
                         }
                     ],
-                    "definitions": [
-                        {
-                            "definition": "刷る, 摺る: to print something (from the way the paper would be placed on the printing block and rubbed)"
-                        },
-                        {
-                            "definition": "掏る: to pick someone's pocket (possibly from the way a pickpocket must slide along unnoticed; compare English slick)"
-                        },
-                        {
-                            "definition": "擦る, 摩る, 磨る, 擂る: to slide, to rub, to chafe, to strike (as in a match, by rubbing); to lose or waste money"
-                        },
-                        {
-                            "definition": "剃る: irregular reading for 剃る (soru, “to shave”)"
-                        }
-                    ]
+                    "definitions": []
                 }
             }
         }
@@ -41573,7 +41530,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "長い: long",
+                            "definition": "long",
                             "antonyms": [
                                 "短い"
                             ],
@@ -41591,7 +41548,7 @@
                             ]
                         },
                         {
-                            "definition": "長い, 永い: (time) long, lengthy",
+                            "definition": "(time) long, lengthy",
                             "examples": [
                                 {
                                     "japanese": "長(なが)い間(あいだ)",
@@ -42025,7 +41982,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "分かる, 解る:",
+                            "definition": "to be understandable, to understand",
                             "examples": [
                                 {
                                     "japanese": "はい、分(わ)かりました。",
@@ -42035,13 +41992,13 @@
                             ]
                         },
                         {
-                            "definition": "分かる:"
+                            "definition": "to tell (one thing from another), to distinguish"
                         },
                         {
-                            "definition": "分かる, 判る:"
+                            "definition": "to be recognized, to be realized"
                         },
                         {
-                            "definition": "分かる:",
+                            "definition": "to become known, to turn out",
                             "examples": [
                                 {
                                     "japanese": "分(わ)かった！",
@@ -42068,7 +42025,10 @@
                                 "きん",
                                 "よう",
                                 "び"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "kʲĩɰ̃jo̞ːbʲi"
                         }
                     ],
                     "definitions": [

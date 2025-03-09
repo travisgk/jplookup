@@ -8,10 +8,10 @@ import jplookup
 
 def main():
 
-    MODE = "testing"
+    MODE = "all"
     USE_PROMPT = False
 
-    AGGRESSIVENESS = 6
+    AGGRESSIVENESS = 7
 
     if MODE == "testing":
         for i, c in enumerate(
@@ -64,7 +64,7 @@ def main():
                     AGGRESSIVENESS * 0.75, AGGRESSIVENESS * 1.5
                 )
                 time.sleep(sleep_length)
-                word_info = jplookup.scrape(term, sleep_seconds=6)
+                word_info = jplookup.scrape(term, sleep_seconds=8)
 
                 if len(word_info) > 0:
                     percent_done = int(i / len(terms) * 100)
