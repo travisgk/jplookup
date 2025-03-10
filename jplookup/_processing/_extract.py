@@ -1,3 +1,7 @@
+"""
+
+"""
+
 from jplookup._cleanstr._textwork import (
     percent_japanese,
     remove_text_in_brackets,
@@ -7,6 +11,16 @@ from jplookup._cleanstr._textwork import (
     extract_japanese,
     extract_tag_contents,
 )
+
+IGNORE_GIVEN_NAMES_AND_SURNAMES = True
+GIVEN_NAMES_AND_SURNAMES = [
+    "a female given name",
+    "a surname",
+    "a male given name",
+    "a placename",
+    "a place name",
+    "a unisex given name",
+]
 
 
 def extract_data(layout: dict):
@@ -26,8 +40,8 @@ def extract_data(layout: dict):
         }
 
         """
-        Creates a dict mapping each header name (e.g. "p3" or "s1") 
-        to the line where its contents end.
+        Step 1) Creates a dict mapping each header name (e.g. "p3" or "s1") 
+                to the line where its contents end.
         """
         e = layout[key]  # etymology.
 
@@ -55,7 +69,7 @@ def extract_data(layout: dict):
         results = None
 
         """
-        Searches for pronunciation information.
+        Step 2) Searches for pronunciation information.
         """
         for i, p_header in enumerate(e["pronunciation-headers"]):
             # looks for the next <ul> which could contain pronunciation info.
@@ -70,7 +84,7 @@ def extract_data(layout: dict):
                 current_ul = current_ul.find_next("ul")
 
         """
-        Searches for headwords under each Part of Speech header.
+        Step 3) Searches for headwords under each Part of Speech header.
         """
         u_has_been_used = [False for _ in e["usage-notes"]]
         for i, s_header in enumerate(e["speech-headers"]):
@@ -96,7 +110,7 @@ def extract_data(layout: dict):
                 headword = str(headword_span).strip()
                 period_index = headword.find("•")
 
-                # looks for a counter.
+                # looks for a counter noun.
                 counter = None
                 if period_index >= 0:
                     headword = headword[:period_index].strip()
@@ -139,6 +153,20 @@ def extract_data(layout: dict):
                     # cleans up the text contents.
                     li = li[4:-5]
                     li = remove_tags(li, omissions=["ol", "li", "dd"])
+                    li = li.strip()
+
+                    # checks if Definition meets standards.
+                    # definitions beginning with certain phrases are ignored.
+                    if IGNORE_GIVEN_NAMES_AND_SURNAMES and any(
+                        li.startswith(s) for s in GIVEN_NAMES_AND_SURNAMES
+                    ):
+                        continue
+
+                    DUMMY_PHRASE = "This term needs a translation to English."
+                    if li.startswith("("):
+                        closed_paren = li.find(") ")
+                        if li[closed_paren + 2 :].startswith(DUMMY_PHRASE):
+                            continue
 
                     # looks for an embedded <ol> inside the current <ol>.
                     sub_ol_start = li.find("<ol>")
@@ -153,11 +181,7 @@ def extract_data(layout: dict):
                                 parent_def
                             ).strip()
                             entry["sublines"] = sublines
-
-                            # definitions with this phrase are ignored.
-                            DUMMY_PHRASE = "This term needs a translation to English."
-                            if not entry["definition"].startswith(DUMMY_PHRASE):
-                                definitions.append(entry)
+                            definitions.append(entry)
                             continue
 
                     # no sublist is contained.

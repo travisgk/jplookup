@@ -5,15 +5,17 @@ from bs4 import BeautifulSoup
 
 # Text identification/search functions.
 def is_kanji(char) -> bool:
-    """Returns True if the given char is a Kanji."""
+    """Returns True if the given char is Kanji."""
     return "\u4e00" <= char <= "\u9fff"
 
 
 def is_hiragana(char) -> bool:
+    """Returns True if the given char is hiragana."""
     return "\u3040" <= char <= "\u309f"
 
 
 def is_katakana(char) -> bool:
+    """Returns True if the given char is katakana."""
     return "\u30a0" <= char <= "\u30ff"
 
 
@@ -77,6 +79,9 @@ def remove_tags(html: str, omissions: list = []) -> str:
 
 
 def remove_further_pronunciations(html: str) -> str:
+    """
+    Returns the HTML with any 'Further pronunciations' removed entirely.
+    """
     KEY = ">Further pronunciations</div>"
     soup = BeautifulSoup(html, "html.parser")
 
@@ -111,7 +116,10 @@ def remove_unwanted_html(html: str) -> str:
 
 
 def remove_alternative_spellings(data):
-    """Recursively removes all 'alternative-spellings' keys from nested dictionaries and lists."""
+    """
+    Recursively removes all 'alternative-spellings'
+    keys from nested dictionaries and lists and returns the result.
+    """
     if isinstance(data, dict):
         # Remove the key if it exists
         data.pop("alternative-spellings", None)
@@ -180,9 +188,3 @@ def extract_japanese(subline: str) -> list:
 
     terms = [t for t in terms if len(t) > 0]
     return terms
-
-
-# Miscellaneous functions.
-def random_hex(length: int) -> str:
-    """Returns a random string of hex characters."""
-    return "".join(random.choices("0123456789abcdef", k=length))

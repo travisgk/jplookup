@@ -707,56 +707,6 @@
                         }
                     ]
                 }
-            },
-            "Etymology 6": {
-                "Proper noun 1": {
-                    "term": "中",
-                    "pronunciations": [
-                        {
-                            "kana": "あたり",
-                            "furigana": [
-                                "あたり"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "中",
-                    "pronunciations": [
-                        {
-                            "kana": "あたる",
-                            "furigana": [
-                                "あたる"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
-                },
-                "Proper noun 3": {
-                    "term": "中",
-                    "pronunciations": [
-                        {
-                            "kana": "なかば",
-                            "furigana": [
-                                "なかば"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
             }
         }
     ],
@@ -1084,32 +1034,6 @@
                             "definition": "(card games) a suit in 花札 (hanafuda), representing the month of June"
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "牡丹",
-                    "pronunciations": [
-                        {
-                            "kana": "ぼたん",
-                            "furigana": [
-                                "ぼ",
-                                "たん"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "bo̞tã̠ɴ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a place name"
-                        },
-                        {
-                            "definition": "a surname"
-                        },
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -1353,12 +1277,6 @@
                                 "北郭",
                                 "北国"
                             ]
-                        },
-                        {
-                            "definition": "a surname"
-                        },
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 }
@@ -1553,12 +1471,6 @@
                         },
                         {
                             "definition": "(historical) a red-light district in Edo-period Shinjuku (as it was located west of Edo Castle)"
-                        },
-                        {
-                            "definition": "a place name, especially the name of various wards in major cities throughout Japan"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -2332,24 +2244,6 @@
                     ]
                 }
             },
-            "Etymology 2": {
-                "Proper noun 1": {
-                    "term": "飯",
-                    "pronunciations": [
-                        {
-                            "kana": "いい",
-                            "furigana": [
-                                "いい"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
-            },
             "Etymology 3": {
                 "Noun 3": {
                     "term": "飯",
@@ -2380,25 +2274,6 @@
                         }
                     ],
                     "usage-notes": "This is an informal way to refer to food, and 食う (kuu) is a correspondingly informal way to say \"eat\"."
-                },
-                "Proper noun 2": {
-                    "term": "飯",
-                    "pronunciations": [
-                        {
-                            "kana": "めし",
-                            "furigana": [
-                                "めし"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "me̞ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 4": {
@@ -2634,25 +2509,6 @@
                         },
                         {
                             "definition": "the local government"
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "町",
-                    "pronunciations": [
-                        {
-                            "kana": "まち",
-                            "furigana": [
-                                "まち"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ma̠t͡ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -5212,22 +5068,6 @@
                         }
                     ]
                 },
-                "Proper noun": {
-                    "term": "今",
-                    "pronunciations": [
-                        {
-                            "kana": "こん",
-                            "furigana": [
-                                "こん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Prefix": {
                     "term": "今",
                     "pronunciations": [
@@ -5976,25 +5816,6 @@
                             "definition": "a street corner"
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "角",
-                    "pronunciations": [
-                        {
-                            "kana": "かど",
-                            "furigana": [
-                                "かど"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ka̠do̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -6029,25 +5850,6 @@
                             "definition": "A bishop (shogi). Abbreviation of 角行."
                         }
                     ]
-                },
-                "Proper noun 2": {
-                    "term": "角",
-                    "pronunciations": [
-                        {
-                            "kana": "かく",
-                            "furigana": [
-                                "かく"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ka̠kɯ̟"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 3": {
@@ -6076,25 +5878,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 3": {
-                    "term": "角",
-                    "pronunciations": [
-                        {
-                            "kana": "つの",
-                            "furigana": [
-                                "つの"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "t͡sɨno̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 4": {
@@ -6111,22 +5894,6 @@
                     "definitions": [
                         {
                             "definition": "interior corner (e.g., of a room or board surface), nook"
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "すみ",
-                    "pronunciations": [
-                        {
-                            "kana": "すみ",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "sɨmʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -6905,25 +6672,6 @@
                         }
                     ]
                 }
-            },
-            "Etymology 3": {
-                "Proper noun": {
-                    "term": "丈夫",
-                    "pronunciations": [
-                        {
-                            "kana": "たけお",
-                            "furigana": [
-                                "たけ",
-                                "お"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                }
             }
         }
     ],
@@ -6997,26 +6745,48 @@
                             "definition": "wide sea, a wide expanse (of the sea)"
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "庭",
+                }
+            }
+        }
+    ],
+    "ゆっくり": [
+        {
+            "Etymology 1": {
+                "Adverb": {
+                    "term": "ゆっくり",
                     "pronunciations": [
                         {
-                            "kana": "にわ",
-                            "furigana": [
-                                "にわ"
-                            ],
+                            "kana": "ゆっくり",
                             "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ɲ̟iβ̞a̠"
+                            "pitch-accent": 3,
+                            "ipa": "jɯ̟k̚kɯ̟ɾʲi"
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
+                            "definition": "slowly; at ease, without rushing, restfully",
+                            "examples": [
+                                {
+                                    "japanese": "母(はは)はゆっくり話(はな)します。",
+                                    "romanji": "Haha wa yukkuri hanashimasu.",
+                                    "english": "My mom speaks slowly."
+                                },
+                                {
+                                    "japanese": "もっとゆっくり言(い)ってください。",
+                                    "romanji": "Motto yukkuri itte kudasai.",
+                                    "english": "Please speak more slowly."
+                                },
+                                {
+                                    "japanese": "トムはゆっくり歩(ある)きます。",
+                                    "romanji": "Tomu wa yukkuri arukimasu.",
+                                    "english": "Tom walks slowly."
+                                },
+                                {
+                                    "japanese": "ゆっくりしていってね！！！",
+                                    "romanji": "Yukkuri shite itte ne!!!",
+                                    "english": "Take it easy! (Internet meme)"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -7200,9 +6970,6 @@
                             "antonyms": [
                                 "西"
                             ]
-                        },
-                        {
-                            "definition": "(theater) This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 },
@@ -7234,16 +7001,6 @@
                         },
                         {
                             "definition": "A former ward of Osaka, Japan"
-                        },
-                        {
-                            "definition": "a surname",
-                            "examples": [
-                                {
-                                    "japanese": "東(ひがし)音(おと)高(たか)",
-                                    "romanji": "Higashi Ototaka",
-                                    "english": "Ototaka Higashi, pediatrician known for Chédiak–Higashi syndrome"
-                                }
-                            ]
                         }
                     ]
                 }
@@ -7279,53 +7036,9 @@
                             "definition": "Short for 東下駄 (azumageta): This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
-                },
-                "Proper noun 2": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "あずま",
-                            "furigana": [
-                                "あずま"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "a̠zɨma̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a placename"
-                        },
-                        {
-                            "definition": "a unisex given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 4": {
-                "Noun 4": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "とう",
-                            "furigana": [
-                                "とう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "to̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "(music) This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
-                        }
-                    ]
-                },
                 "Proper noun 3": {
                     "term": "東",
                     "pronunciations": [
@@ -7348,9 +7061,6 @@
                         },
                         {
                             "definition": "Short for 東京 (Tōkyō): Tokyo"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -7394,91 +7104,6 @@
                         },
                         {
                             "definition": "(mahjong) a 役 (yaku, “winning hand”) with a triplet or quad of east wind tiles; depending on wind round and player's seat wind, it is worth either 1 or 2 翻 (han, “doubles”)"
-                        }
-                    ]
-                },
-                "Proper noun 4": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "とん",
-                            "furigana": [
-                                "とん"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "tõ̞ɴ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
-            },
-            "Etymology 6": {
-                "Proper noun 5": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "あきら",
-                            "furigana": [
-                                "あきら"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "a̠kʲiɾa̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        },
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                }
-            },
-            "Etymology 7": {
-                "Proper noun 6": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "のぼる",
-                            "furigana": [
-                                "のぼる"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                }
-            },
-            "Etymology 8": {
-                "Proper noun 7": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "はじめ",
-                            "furigana": [
-                                "はじめ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ha̠ʑime̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        },
-                        {
-                            "definition": "a male given name"
                         }
                     ]
                 }
@@ -8706,22 +8331,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "きょう",
-                    "pronunciations": [
-                        {
-                            "kana": "きょう",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "kʲo̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -9447,6 +9056,59 @@
                         }
                     ],
                     "usage-notes": "Jōyō kanji recognized only じゅう (jū) and じっ (ji') as readings of 十 until 2010, even though the latter is actually pronounced じゅっ (ju') today and NHK accepted it already in 1966."
+                }
+            }
+        }
+    ],
+    "鳥": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "鳥",
+                    "pronunciations": [
+                        {
+                            "kana": "とり",
+                            "furigana": [
+                                "とり"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "to̞ɾʲi"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "a bird"
+                        },
+                        {
+                            "definition": "a chicken"
+                        },
+                        {
+                            "definition": "fowl or chicken meat"
+                        }
+                    ]
+                }
+            },
+            "Etymology 2": {
+                "Prefix": {
+                    "term": "鳥",
+                    "pronunciations": [
+                        {
+                            "kana": "と",
+                            "furigana": [
+                                "と"
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "a bird"
+                        },
+                        {
+                            "definition": "(more specifically) a chicken"
+                        }
+                    ],
+                    "usage-notes": "Appears in old compounds. Does not appear to be productive in modern Japanese."
                 }
             }
         }
@@ -10320,22 +9982,6 @@
     "はく": [
         {
             "Etymology 1": {
-                "Proper noun": {
-                    "term": "泊",
-                    "pronunciations": [
-                        {
-                            "kana": "とまり",
-                            "furigana": [
-                                "とまり"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Counter": {
                     "term": "泊",
                     "pronunciations": [
@@ -10521,25 +10167,6 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
-                    "term": "上",
-                    "pronunciations": [
-                        {
-                            "kana": "うえ",
-                            "furigana": [
-                                "うえ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ɯ̟e̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Suffix 1": {
                     "term": "上",
                     "pronunciations": [
@@ -10576,22 +10203,6 @@
                             "definition": "upper, over"
                         }
                     ]
-                },
-                "Proper noun 2": {
-                    "term": "上",
-                    "pronunciations": [
-                        {
-                            "kana": "うわ",
-                            "furigana": [
-                                "うわ"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a place name"
-                        }
-                    ]
                 }
             },
             "Etymology 4": {
@@ -10619,46 +10230,6 @@
                             "definition": "one with higher rank"
                         }
                     ]
-                },
-                "Proper noun 3": {
-                    "term": "上",
-                    "pronunciations": [
-                        {
-                            "kana": "かみ",
-                            "furigana": [
-                                "かみ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ka̠mʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a place name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
-            },
-            "Etymology 5": {
-                "Proper noun 4": {
-                    "term": "上",
-                    "pronunciations": [
-                        {
-                            "kana": "かん",
-                            "furigana": [
-                                "かん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a place name"
-                        }
-                    ]
                 }
             },
             "Etymology 6": {
@@ -10681,25 +10252,6 @@
                             "antonyms": [
                                 "下"
                             ]
-                        }
-                    ]
-                },
-                "Proper noun 5": {
-                    "term": "上",
-                    "pronunciations": [
-                        {
-                            "kana": "じょう",
-                            "furigana": [
-                                "じょう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "d͡ʑo̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -10946,9 +10498,6 @@
                                     "english": "(please add an English translation of this example)"
                                 }
                             ]
-                        },
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 }
@@ -11969,26 +11518,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "明日",
-                    "pronunciations": [
-                        {
-                            "kana": "あした",
-                            "furigana": [
-                                "",
-                                "あした"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 3,
-                            "ipa": "a̠ɕi̥ta̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -12012,26 +11541,6 @@
                         },
                         {
                             "definition": "the near future"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "明日",
-                    "pronunciations": [
-                        {
-                            "kana": "あす",
-                            "furigana": [
-                                "",
-                                "あす"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "a̠sɨ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 }
@@ -12075,54 +11584,6 @@
                             "definition": "(rare) tomorrow"
                         }
                     ]
-                }
-            },
-            "Etymology 5": {
-                "Proper noun 3": {
-                    "term": "明日",
-                    "pronunciations": [
-                        {
-                            "kana": "ぬくい",
-                            "furigana": [
-                                "",
-                                "ぬくい"
-                            ]
-                        },
-                        {
-                            "kana": "あけひ",
-                            "furigana": [
-                                "あけ",
-                                "ひ"
-                            ]
-                        },
-                        {
-                            "kana": "みょうが",
-                            "furigana": [
-                                "みょう",
-                                "が"
-                            ]
-                        },
-                        {
-                            "kana": "ぬくひ",
-                            "furigana": [
-                                "ぬく",
-                                "ひ"
-                            ]
-                        },
-                        {
-                            "kana": "あけび",
-                            "furigana": [
-                                "あけ",
-                                "び"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ],
-                    "usage-notes": "Note that the pronunciation differs depending on register, which also happens for the antonym “yesterday” and the coordinate term “today”. Corresponding in formality to ashita, asu, and myōnichi for “tomorrow” are 昨日 (kinō), 昨日 (kiso, rare), and 昨日 (sakujitsu) for “yesterday”; and きょう (kyō), 今日 (konnichi), and 本日 (honjitsu) for “today”."
                 }
             }
         }
@@ -12224,26 +11685,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "一人",
-                    "pronunciations": [
-                        {
-                            "kana": "ひとり",
-                            "furigana": [
-                                "ひと",
-                                "り"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "çi̥to̞ɾʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -12298,46 +11739,6 @@
                                 "天子",
                                 "天皇"
                             ]
-                        }
-                    ]
-                }
-            },
-            "Etymology 4": {
-                "Proper noun 2": {
-                    "term": "一人",
-                    "pronunciations": [
-                        {
-                            "kana": "かずと",
-                            "furigana": [
-                                "",
-                                "かずと"
-                            ]
-                        },
-                        {
-                            "kana": "かずひと",
-                            "furigana": [
-                                "",
-                                "かずひと"
-                            ]
-                        },
-                        {
-                            "kana": "かずんど",
-                            "furigana": [
-                                "",
-                                "かずんど"
-                            ]
-                        },
-                        {
-                            "kana": "くにひと",
-                            "furigana": [
-                                "",
-                                "くにひと"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
                         }
                     ]
                 }
@@ -12874,25 +12275,6 @@
                             "definition": "a clan, family, kin"
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "門",
-                    "pronunciations": [
-                        {
-                            "kana": "かど",
-                            "furigana": [
-                                "かど"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ka̠do̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 3": {
@@ -13130,27 +12512,6 @@
                                     "english": "Don't you fuckin' dare touch someone else's girl!"
                                 }
                             ]
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Proper noun 1": {
-                    "term": "女",
-                    "pronunciations": [
-                        {
-                            "kana": "おみな",
-                            "furigana": [
-                                "おみな"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "o̞mʲina̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 }
@@ -14305,25 +13666,6 @@
                                     "english": "It is an adventure story."
                                 }
                             ]
-                        }
-                    ]
-                },
-                "Prefix": {
-                    "term": "物",
-                    "pronunciations": [
-                        {
-                            "kana": "もの",
-                            "furigana": [
-                                "もの"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "mo̞no̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "(non-productive, with adjectives) This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 }
@@ -15847,25 +15189,6 @@
                         }
                     ]
                 },
-                "Proper noun": {
-                    "term": "七",
-                    "pronunciations": [
-                        {
-                            "kana": "なな",
-                            "furigana": [
-                                "なな"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "na̠na̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Numeral 1": {
                     "term": "七",
                     "pronunciations": [
@@ -16067,25 +15390,6 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
-                    "term": "道",
-                    "pronunciations": [
-                        {
-                            "kana": "どう",
-                            "furigana": [
-                                "どう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "do̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Prefix": {
                     "term": "道",
                     "pronunciations": [
@@ -16198,122 +15502,6 @@
                         }
                     ],
                     "usage-notes": "This is the most common term for “road”, “street”, or “way” in modern Japanese."
-                },
-                "Proper noun 2": {
-                    "term": "道",
-                    "pronunciations": [
-                        {
-                            "kana": "みち",
-                            "furigana": [
-                                "みち"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "mʲit͡ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
-            },
-            "Etymology 5": {
-                "Proper noun 3": {
-                    "term": "道",
-                    "pronunciations": [
-                        {
-                            "kana": "おさむ",
-                            "furigana": [
-                                "おさむ"
-                            ]
-                        },
-                        {
-                            "kana": "すすむ",
-                            "furigana": [
-                                "すすむ"
-                            ]
-                        },
-                        {
-                            "kana": "ただし",
-                            "furigana": [
-                                "ただし"
-                            ]
-                        },
-                        {
-                            "kana": "ただす",
-                            "furigana": [
-                                "ただす"
-                            ]
-                        },
-                        {
-                            "kana": "なおし",
-                            "furigana": [
-                                "なおし"
-                            ]
-                        },
-                        {
-                            "kana": "まこと",
-                            "furigana": [
-                                "まこと"
-                            ]
-                        },
-                        {
-                            "kana": "みちひろ",
-                            "furigana": [
-                                "みちひろ"
-                            ]
-                        },
-                        {
-                            "kana": "もとい",
-                            "furigana": [
-                                "もとい"
-                            ]
-                        },
-                        {
-                            "kana": "わたる",
-                            "furigana": [
-                                "わたる"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                },
-                "Proper noun 4": {
-                    "term": "道",
-                    "pronunciations": [
-                        {
-                            "kana": "たお",
-                            "furigana": [
-                                "たお"
-                            ]
-                        },
-                        {
-                            "kana": "とおる",
-                            "furigana": [
-                                "とおる"
-                            ]
-                        },
-                        {
-                            "kana": "ふみ",
-                            "furigana": [
-                                "ふみ"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             }
         }
@@ -16548,25 +15736,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "男",
-                    "pronunciations": [
-                        {
-                            "kana": "おとこ",
-                            "furigana": [
-                                "おとこ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 3,
-                            "ipa": "o̞to̞ko̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -16695,25 +15864,6 @@
                             "synonyms": [
                                 "男爵"
                             ]
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "男",
-                    "pronunciations": [
-                        {
-                            "kana": "だん",
-                            "furigana": [
-                                "だん"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "dã̠ɴ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
                         }
                     ]
                 }
@@ -16886,25 +16036,6 @@
                         }
                     ],
                     "usage-notes": "The 〇 spelling is more common in numeric notation."
-                },
-                "Proper noun": {
-                    "term": "零",
-                    "pronunciations": [
-                        {
-                            "kana": "れい",
-                            "furigana": [
-                                "れい"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ɾe̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
                 },
                 "Numeral": {
                     "term": "零",
@@ -18631,40 +17762,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "いけ",
-                    "pronunciations": [
-                        {
-                            "kana": "いけ",
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ike̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Proper noun": {
-                    "term": "池",
-                    "pronunciations": [
-                        {
-                            "kana": "ち",
-                            "furigana": [
-                                "ち"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             }
         }
@@ -20350,22 +19447,6 @@
                 }
             },
             "Etymology 2": {
-                "Proper noun": {
-                    "term": "隣",
-                    "pronunciations": [
-                        {
-                            "kana": "りん",
-                            "furigana": [
-                                "りん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
-                },
                 "Affix": {
                     "term": "隣",
                     "pronunciations": [
@@ -21112,28 +20193,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "夏",
-                    "pronunciations": [
-                        {
-                            "kana": "なつ",
-                            "furigana": [
-                                "なつ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "na̠t͡sɨ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -21177,9 +20236,6 @@
                         },
                         {
                             "definition": "Short for 西夏 (Seika): Western Xia, an empire during the Song dynasty"
-                        },
-                        {
-                            "definition": "a surname"
                         },
                         {
                             "definition": "a male or female given name"
@@ -22361,28 +21417,6 @@
                     ],
                     "usage-notes": "Note that, while mizu is the most general Japanese term for “water”, it does refer specifically to “water that is not hot”.  Meanwhile, the word 湯 (yu) refers specifically to “hot water”.  Consider 水風呂 (mizu-buro, “cold-water bath”), contrasting with 風呂 (furo, “bath”, implying hot water)."
                 },
-                "Proper noun 1": {
-                    "term": "水",
-                    "pronunciations": [
-                        {
-                            "kana": "みず",
-                            "furigana": [
-                                "みず"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "mʲizɨ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Prefix": {
                     "term": "水",
                     "pronunciations": [
@@ -22447,25 +21481,6 @@
                             "synonyms": [
                                 "氷水"
                             ]
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "水",
-                    "pronunciations": [
-                        {
-                            "kana": "すい",
-                            "furigana": [
-                                "すい"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "sɨi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 },
@@ -22959,6 +21974,61 @@
             }
         }
     ],
+    "誕生日": [
+        {
+            "Etymology 1": {
+                "Noun 1": {
+                    "term": "誕生日",
+                    "pronunciations": [
+                        {
+                            "kana": "たんじょうび",
+                            "furigana": [
+                                "たん",
+                                "じょう",
+                                "び"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "tã̠ɲ̟d͡ʑo̞ːbʲi"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "a birthday",
+                            "synonyms": [
+                                "誕辰",
+                                "バースデー"
+                            ],
+                            "antonyms": [
+                                "忌日",
+                                "命日"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "Etymology 2": {
+                "Noun 2": {
+                    "term": "誕生日",
+                    "pronunciations": [
+                        {
+                            "kana": "たんじょうにち",
+                            "furigana": [
+                                "たん",
+                                "じょう",
+                                "にち"
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(rare) a birthday"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "左": [
         {
             "Etymology 1": {
@@ -23166,23 +22236,6 @@
                         },
                         {
                             "definition": "a writing style"
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "文章",
-                    "pronunciations": [
-                        {
-                            "kana": "ふみあき",
-                            "furigana": [
-                                "ふみ",
-                                "あき"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
                         }
                     ]
                 }
@@ -23594,7 +22647,10 @@
                             "kana": "はん",
                             "furigana": [
                                 "はん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "hã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -23614,7 +22670,10 @@
                             "kana": "はん",
                             "furigana": [
                                 "はん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "hã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -23642,7 +22701,10 @@
                             "kana": "はん",
                             "furigana": [
                                 "はん"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "hã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -24381,26 +23443,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "出口",
-                    "pronunciations": [
-                        {
-                            "kana": "でぐち",
-                            "furigana": [
-                                "で",
-                                "ぐち"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "de̞ɡɯ̟t͡ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
                 }
             }
         }
@@ -24484,25 +23526,6 @@
                         },
                         {
                             "definition": "the bottom string of a shamisen or other Japanese musical instrument"
-                        }
-                    ]
-                },
-                "Proper noun 1": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "いち",
-                            "furigana": [
-                                "いち"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "it͡ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -24618,25 +23641,6 @@
                         },
                         {
                             "definition": "the same"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "いつ",
-                            "furigana": [
-                                "いつ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "it͡sɨ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 },
@@ -24793,30 +23797,6 @@
                     "definitions": [
                         {
                             "definition": "(mahjong) one, 1"
-                        }
-                    ]
-                }
-            },
-            "Etymology 7": {
-                "Proper noun 3": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "はじめ",
-                            "furigana": [
-                                "はじめ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ha̠ʑime̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a unisex given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -26866,81 +25846,6 @@
             }
         }
     ],
-    "鳥": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "鳥",
-                    "pronunciations": [
-                        {
-                            "kana": "とり",
-                            "furigana": [
-                                "とり"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "to̞ɾʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a bird"
-                        },
-                        {
-                            "definition": "a chicken"
-                        },
-                        {
-                            "definition": "fowl or chicken meat"
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "鳥",
-                    "pronunciations": [
-                        {
-                            "kana": "とり",
-                            "furigana": [
-                                "とり"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "to̞ɾʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        },
-                        {
-                            "definition": "a unisex given name"
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Prefix": {
-                    "term": "鳥",
-                    "pronunciations": [
-                        {
-                            "kana": "と",
-                            "furigana": [
-                                "と"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a bird"
-                        },
-                        {
-                            "definition": "(more specifically) a chicken"
-                        }
-                    ],
-                    "usage-notes": "Appears in old compounds. Does not appear to be productive in modern Japanese."
-                }
-            }
-        }
-    ],
     "六": [
         {
             "Etymology 1": {
@@ -27962,45 +26867,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "元気",
-                    "pronunciations": [
-                        {
-                            "kana": "げんき",
-                            "furigana": [
-                                "げん",
-                                "き"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ɡẽ̞ŋʲkʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Proper noun 2": {
-                    "term": "元気",
-                    "pronunciations": [
-                        {
-                            "kana": "もとき",
-                            "furigana": [
-                                "もと",
-                                "き"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
                 }
             }
         }
@@ -28222,25 +27088,6 @@
     "千": [
         {
             "Etymology 1": {
-                "Proper noun": {
-                    "term": "千",
-                    "pronunciations": [
-                        {
-                            "kana": "せん",
-                            "furigana": [
-                                "せん"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "sẽ̞ɴ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname, especially from the line of tea ceremony masters"
-                        }
-                    ]
-                },
                 "Affix": {
                     "term": "千",
                     "pronunciations": [
@@ -28929,25 +27776,6 @@
                                     "english": "My selection of what I needed to review for the test was correct."
                                 }
                             ]
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "山",
-                    "pronunciations": [
-                        {
-                            "kana": "やま",
-                            "furigana": [
-                                "やま"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ja̠ma̠"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -30148,15 +28976,6 @@
                         },
                         {
                             "definition": "the name of a ward in various cities throughout Japan, especially a former ward in the city of Osaka which is now part of Chūō Ward"
-                        },
-                        {
-                            "definition": "a male given name"
-                        },
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -30181,25 +29000,6 @@
                         },
                         {
                             "definition": "Short for 南鐐 (nanryō): beautiful silver; a type of silver coin in the Edo period"
-                        }
-                    ]
-                },
-                "Proper noun 3": {
-                    "term": "南",
-                    "pronunciations": [
-                        {
-                            "kana": "なん",
-                            "furigana": [
-                                "なん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 },
@@ -30322,25 +29122,6 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "いち",
-                            "furigana": [
-                                "いち"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "it͡ɕi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Affix 1": {
                     "term": "一",
                     "pronunciations": [
@@ -30453,25 +29234,6 @@
                         },
                         {
                             "definition": "the same"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "いつ",
-                            "furigana": [
-                                "いつ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "it͡sɨ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
                         }
                     ]
                 },
@@ -30631,30 +29393,6 @@
                         }
                     ]
                 }
-            },
-            "Etymology 7": {
-                "Proper noun 3": {
-                    "term": "一",
-                    "pronunciations": [
-                        {
-                            "kana": "はじめ",
-                            "furigana": [
-                                "はじめ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ha̠ʑime̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a unisex given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
             }
         }
     ],
@@ -30709,41 +29447,9 @@
                             "definition": "(rare) Synonym of 妹 (imōto, “one's own younger sister”)"
                         }
                     ]
-                },
-                "Proper noun 1": {
-                    "term": "妹",
-                    "pronunciations": [
-                        {
-                            "kana": "いもと",
-                            "furigana": [
-                                "いもと"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a placename"
-                        }
-                    ]
                 }
             },
             "Etymology 4": {
-                "Proper noun 2": {
-                    "term": "妹",
-                    "pronunciations": [
-                        {
-                            "kana": "まい",
-                            "furigana": [
-                                "まい"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
-                },
                 "Affix": {
                     "term": "妹",
                     "pronunciations": [
@@ -31970,38 +30676,6 @@
                     "definitions": [
                         {
                             "definition": "ferociousness"
-                        }
-                    ]
-                },
-                "Proper noun 1": {
-                    "term": "猛",
-                    "pronunciations": [
-                        {
-                            "kana": "たけし",
-                            "furigana": [
-                                "たけし"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "猛",
-                    "pronunciations": [
-                        {
-                            "kana": "たける",
-                            "furigana": [
-                                "たける"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a male given name"
                         }
                     ]
                 },
@@ -33853,6 +32527,47 @@
             }
         }
     ],
+    "コピー": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "コピー",
+                    "pronunciations": [
+                        {
+                            "kana": "コピー",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ko̞pʲiː"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "act of copying"
+                        },
+                        {
+                            "definition": "copied paper"
+                        },
+                        {
+                            "definition": "Short for キャッチコピー."
+                        }
+                    ]
+                },
+                "Verb": {
+                    "term": "コピーする",
+                    "pronunciations": [
+                        {
+                            "kana": "コピーする"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "to copy"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "引く": [
         {
             "Etymology 1": {
@@ -34044,28 +32759,6 @@
                         },
                         {
                             "definition": "in kabuki and 浄瑠璃 (jōruri, “puppet theater”), performing just the main parts of a work and omitting the 狂言 (kyōgen)"
-                        }
-                    ]
-                },
-                "Proper noun": {
-                    "term": "緑",
-                    "pronunciations": [
-                        {
-                            "kana": "みどり",
-                            "furigana": [
-                                "みどり"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "mʲido̞ɾʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -34935,28 +33628,6 @@
                         }
                     ]
                 }
-            },
-            "Etymology 2": {
-                "Proper noun": {
-                    "term": "沢山",
-                    "pronunciations": [
-                        {
-                            "kana": "さわやま",
-                            "furigana": [
-                                "さわ",
-                                "やま"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a placename"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                }
             }
         }
     ],
@@ -35174,25 +33845,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "夜",
-                    "pronunciations": [
-                        {
-                            "kana": "よる",
-                            "furigana": [
-                                "よる"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "jo̞ɾɯ̟"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             }
         }
@@ -35304,28 +33956,6 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
-                    "term": "青",
-                    "pronunciations": [
-                        {
-                            "kana": "あお",
-                            "furigana": [
-                                "あお"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "a̠o̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Prefix": {
                     "term": "青",
                     "pronunciations": [
@@ -35360,25 +33990,6 @@
                     "definitions": [
                         {
                             "definition": "the color blue"
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "青",
-                    "pronunciations": [
-                        {
-                            "kana": "せい",
-                            "furigana": [
-                                "せい"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }
@@ -39863,25 +38474,6 @@
                         }
                     ],
                     "usage-notes": "This is the most common general term in modern Japanese for sea or ocean."
-                },
-                "Proper noun": {
-                    "term": "海",
-                    "pronunciations": [
-                        {
-                            "kana": "うみ",
-                            "furigana": [
-                                "うみ"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ɯ̟mʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        }
-                    ]
                 }
             },
             "Etymology 2": {
@@ -41274,28 +39866,6 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
-                    "term": "園",
-                    "pronunciations": [
-                        {
-                            "kana": "えん",
-                            "furigana": [
-                                "えん"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ẽ̞ɴ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
-                        }
-                    ]
-                },
                 "Affix": {
                     "term": "園",
                     "pronunciations": [
@@ -41347,28 +39917,6 @@
                             "synonyms": [
                                 "場所"
                             ]
-                        }
-                    ]
-                },
-                "Proper noun 2": {
-                    "term": "園",
-                    "pronunciations": [
-                        {
-                            "kana": "その",
-                            "furigana": [
-                                "その"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "so̞no̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "a female given name"
-                        },
-                        {
-                            "definition": "a surname"
                         }
                     ]
                 }

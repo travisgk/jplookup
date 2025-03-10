@@ -82,11 +82,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
                     return scrape(
                         alternative, 0, alternative, sleep_seconds=sleep_seconds
                     )
-                else:
-                    next_depth = depth + 1
 
                 alt_results = scrape(
-                    alternative, next_depth, original_term, sleep_seconds=sleep_seconds
+                    alternative, depth + 1, original_term, sleep_seconds=sleep_seconds
                 )
 
                 if alt_results is not None:

@@ -11,13 +11,12 @@ def main():
     MODE = "all"
     USE_PROMPT = False
 
-    AGGRESSIVENESS = 7
+    AGGRESSIVENESS = 8
 
     if MODE == "testing":
         for i, c in enumerate(
             [
-                "昨日",
-                "たばこ",
+                "いい",
             ]
         ):
             time.sleep(AGGRESSIVENESS)
@@ -71,7 +70,7 @@ def main():
                     print(f"\n\n{percent_done:> 2d}% {term}:")
                     data[term] = word_info
 
-                    print(word_info)
+                    print(word_info[0])
                 else:
                     unfound.append(term)
             except KeyboardInterrupt:

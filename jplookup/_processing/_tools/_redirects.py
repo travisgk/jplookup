@@ -1,3 +1,17 @@
+"""
+Filename: jplookup._processing._tools._redirects.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines a function which will 
+             handles redirected data entries,
+             as is the case when Wiktionary links to a
+             completely different page for a different spelling.
+
+Version: 1.0
+License: MIT
+"""
+
 import re
 from jplookup._cleanstr._textwork import is_japanese_char, remove_alternative_spellings
 
@@ -27,6 +41,11 @@ def _sort_dict_by_trailing_number(data):
 
 
 def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
+    """
+    Returns the <clean_data>, that being the list of scraped Wiktionary entries,
+    where any of the Etymology entries under <clean_data[0]> that are None
+    will be matched up to any other later elements in the <clean_data> list.
+    """
     MAX_NUM_ETYMS = 9
     redirect_keys = redirects.keys()
 
@@ -37,6 +56,15 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if len(clean_data) == 1:
         result = clean_data
 
+    """
+    Step 1) If there are no redirects specified, meaning that the program
+            failed to match them up, and all the Etymology terms in the first
+            element of <clean_data> are None, and the number of them happen
+            to match up with the number of elements occurring 
+            after <clean_data[0]>, then the program simply fills in the blanks
+            of <clean_data[0]> with the first Etymology of every element
+            in <clean_data[1:]>.
+    """
     if (
         (redirects is None or len(redirects.keys()) == 0)
         and len(clean_data[0].keys()) == len(clean_data) - 1
@@ -47,16 +75,18 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
             for i, w in enumerate(clean_data[1:])
         }
 
-    # For any redirects, any definitions with specified kanji
-    # that DO NOT match the original term are removed;
-    # those without kanji or with matching kanji remain.
+    """
+    Step 2) For any redirects, any definitions with specified kanji
+            that DO NOT match the original term are removed;
+            those without kanji or with matching kanji remain.
+    """
     for entry in clean_data:  # [1:]
         for etym in entry.values():
             if etym is None:
                 continue
 
             for part_of_speech, contents in etym.items():
-                if part_of_speech in ["alternative-spellings", "usage-notes"]:
+                if part_of_speech == "alternative-spellings":
                     continue
 
                 defs = contents.get("definitions")
@@ -75,7 +105,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                             kanji_terms = def_str[:colon_index].split(",")
                             kanji_terms = [k.strip() for k in kanji_terms]
 
-                            # removes the context specifiers when it's a referral.
+                            # removes the context specifiers from definitions.
                             end_i = colon_index + 1
                             definition["definition"] = def_str[end_i:].strip()
                             if original_term not in kanji_terms:

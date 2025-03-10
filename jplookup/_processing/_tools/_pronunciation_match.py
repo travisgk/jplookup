@@ -1,3 +1,16 @@
+"""
+Filename: jplookup._processing._tools._pronunciation_match.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines a function which will 
+             return a pronunciation-data dictionary for a given transcription
+             taken from a headword.
+
+Version: 1.0
+License: MIT
+"""
+
 import jaconv
 
 
@@ -16,7 +29,7 @@ def _kana_matches(p_kana: str, t_kana: str) -> bool:
     t_kana = jaconv.hira2kata(t_kana)
 
     for p, t in zip(p_kana, t_kana):
-        if p != t and not (p == "ー" and t in "いうイウ"):
+        if p != t and not (p == "ー" and t in "イウ"):
             return False
 
     return True

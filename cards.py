@@ -57,26 +57,39 @@ def find_first_value(data, term):
     return None
 
 
+TAG_PRIORITIES = [("ipa", "pitch-accent"), ("pitch-accent"), ("ipa",)]
+
+
+def search_for_pronunciation(pronunciations: list, tag_priority_i: int = 0):
+    keys = TAG_PRIORITIES[tag_priority_i]
+    for p in pronunciations:
+        if all(p.get(k) is not None for k in keys):
+            return p
+
+    if tag_priority_i < len(TAG_PRIORITIES) - 2:
+        return search_for_pronunciation(pronunciations, tag_priority_i + 1)
+
+    return None
+
+
 def main():
-    TAG_PRIORITIES = [("ipa", "pitch-accent"), ("pitch-accent"), ("ipa",)]
 
     # loads the .json with the written jplookup info.
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
 
-    def search_for_pronunciation(pronunciations: list, tag_priority_i: int = 0):
-        keys = TAG_PRIORITIES[tag_priority_i]
-        for p in pronunciations:
-            if all(p.get(k) is not None for k in keys):
-                return p
-
-        if tag_priority_i < len(TAG_PRIORITIES) - 2:
-            return search_for_pronunciation(pronunciations, tag_priority_i + 1)
-
-        return None
-
     cards = {}
+
     for search_term, entries in word_info.items():
+        if len(entries) > 1:
+            print(entries)
+
+
+def main2():
+    # goes through each entry.
+    for search_term, entries in word_info.items():
+        # using a dict, the number of times the best kana transcription
+        # from each part of speech occurs in all of the parts of speech.
         kana_bank = {}
         for etym_term, etym_data in entries[0].items():
             for part_of_speech, word_data in etym_data.items():
@@ -93,13 +106,14 @@ def main():
                             (part_of_speech, word_data),
                         ]
 
+        # iterates through
         if len(kana_bank) > 0:
-            best_key = list(kana_bank.keys())[0]
+            best_kana = list(kana_bank.keys())[0]
             if len(kana_bank) > 1:
                 best_count = 0
-                for key, parts_list in kana_bank.items():
+                for kana, parts_list in kana_bank.items():
                     if len(parts_list) > best_count:
-                        best_key = key
+                        best_kana = kana
                         best_count = len(parts_list)
 
             print("\n\n\n")

@@ -1,3 +1,17 @@
+"""
+Filename: jplookup._processing._clean.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines a function that takes the outputs
+             from extract_data(...) seen in ._extract.py and extrapolates
+             it into a more useful format while also
+             cleaning up residual data.
+
+Version: 1.0
+License: MIT
+"""
+
 from jplookup._cleanstr._textwork import (
     percent_japanese,
     extract_japanese,
@@ -19,7 +33,10 @@ def clean_data(word_info: list, term: str):
     # Cycles through all the Etymology keys.
     etym_keys = word_info.keys()
     for etym_key in etym_keys:
-        # Creates a new dictionary for this etymology title.
+        """
+
+        Step 1) Creates a new dictionary for this etymology title.
+        """
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         result[etym_title] = {}
         entry = word_info[etym_key]
@@ -28,12 +45,14 @@ def clean_data(word_info: list, term: str):
         if alt_spellings is not None:
             result[etym_title]["alternative-spellings"] = alt_spellings
 
-        # Cycles through the pronunciations
-        # under this Etymology header.
-        # ---
-        # Each pronunciation is stored in a bank
-        # and will be later matched up to the parts of speech
-        # by their kana.
+        """
+
+        Step 2) Cycles through the pronunciations
+                under this Etymology header, storing each
+                pronunciation in a dictionary (bank) to
+                later be matched up to the Parts of Speech
+                by their kana.
+        """
         pronunciation_bank = {}
         for pronunciation in entry["pronunciations"]:
             region, kana, pitch_accent, ipa = extract_pronunciation_info(pronunciation)
@@ -53,14 +72,20 @@ def clean_data(word_info: list, term: str):
                     new_pronunciation["ipa"] = ipa
                 pronunciation_bank[kana] = new_pronunciation
 
-        # Cycles through the Parts of Speech under this Etymology header.
+        """
+
+        Step 3) Cycles through the Parts of Speech under this Etymology header.
+        """
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
-
             if part == "alternative-spellings":
                 continue
 
+            # Gets the headword string
+            # from the list parallel to the parts of speech.
             headword_str = entry["headwords"][i]
+
+            # Looks for a Counter noun.
             counter_index = headword_str.find(" counter:")
             counter = None
             if counter_index >= 0:
@@ -81,6 +106,21 @@ def clean_data(word_info: list, term: str):
                 # result[etym_title][part]["usage-notes"] = usage_notes
                 prefers_katakana = "often spelled in katakana" in usage_notes
 
+            """
+            Gets a singular term and furigana and kana transcriptions
+            from each headword. 
+
+            If a verb adds a stem to a word
+            and its transcription is changed because of it,
+            then that transcription will still be added to the
+            output lists but won't change the <term> that's receieved.
+
+            This shouldn't be an issue, since Wiktionary tends to be
+            written with the top priority definitions closer to the start
+            of the HTML, and also verb forms of words commonly exist under
+            their own Etymology header, meaning that its transcription 
+            extraction process is independent from the noun forms.
+            """
             term, furigana, kanas = extract_info_from_headwords(
                 headwords, prefers_katakana
             )
@@ -124,7 +164,8 @@ def clean_data(word_info: list, term: str):
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
             for definition in entry["definitions"][i]:
-                # prevents archaic definitions from being added.
+                # prevents archaic definitions from being added
+                # (these come in parentheses before the actual definition).
                 if REMOVE_ARCHAIC_DEFINITIONS or REMOVE_LITERARY_DEFINITIONS:
                     def_text = definition["definition"]
                     if def_text.startswith("("):
@@ -185,7 +226,8 @@ def clean_data(word_info: list, term: str):
                             new_def["antonyms"] = extract_japanese(sub)
                             handled = True
 
-                        elif "―" in sub:  # some examples are given on one line.
+                        # Some examples are given on one line.
+                        elif "―" in sub:
                             sub_strs = sub.split("―")
                             if (
                                 len(sub_strs) == 3
@@ -246,8 +288,11 @@ def clean_data(word_info: list, term: str):
                 if len(usage_notes) > 0:
                     result[etym_title][part]["usage-notes"] = usage_notes.strip()
             else:
+                # deletes a Part of Speech entry
+                # if it no longer has any definitions.
                 del result[etym_title][part]
 
+    # Deletes any Etymology entries that don't have any Parts of Speech anymore.
     for etym_key in etym_keys:
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         parts = [k for k in result[etym_title].keys() if k != "alternative-spellings"]
