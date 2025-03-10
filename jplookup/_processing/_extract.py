@@ -153,7 +153,11 @@ def extract_data(layout: dict):
                                 parent_def
                             ).strip()
                             entry["sublines"] = sublines
-                            definitions.append(entry)
+
+                            # definitions with this phrase are ignored.
+                            DUMMY_PHRASE = "This term needs a translation to English."
+                            if not entry["definition"].startswith(DUMMY_PHRASE):
+                                definitions.append(entry)
                             continue
 
                     # no sublist is contained.

@@ -172,13 +172,37 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                 and u.sourceline < next_ety_line_num
                 and (e is None or e.sourceline <= u.sourceline)
             ):
-                u_used[j] = True
-
-                # retrieves the text contents out of the following <ul>
-                # to get the usage notes.
+                # retrieves the text contents out of either
+                # the following <ul> or <p> to get the usage notes,
+                # grabbing the closest text.
+                next_p = u.find_next("p")
                 next_ul = u.find_next("ul")
-                if next_ul is not None and next_ul.sourceline < next_ety_line_num:
-                    layout[key]["usage-headers"].append(u)
+                DUMMY_PHRASE = "Japanese terms spelled with"
+                if next_p and next_p.sourceline < next_ety_line_num:
+                    u_used[j] = True
+                    if (
+                        next_ul
+                        and next_ul.sourceline < next_ety_line_num
+                        and not next_ul.get_text().startswith(DUMMY_PHRASE)
+                    ):
+                        # both a <p> and <ul> were found.
+                        if next_p.sourceline < next_ul.sourceline:
+                            layout[key]["usage-headers"].append(next_p)
+                            layout[key]["usage-notes"].append(next_p.get_text())
+                        else:
+                            layout[key]["usage-headers"].append(next_ul)
+                            layout[key]["usage-notes"].append(next_ul.get_text())
+
+                    else:
+                        layout[key]["usage-headers"].append(next_p)
+                        layout[key]["usage-notes"].append(next_p.get_text())
+                elif (
+                    next_ul
+                    and next_ul.sourceline < next_ety_line_num
+                    and not next_ul.get_text().startswith(DUMMY_PHRASE)
+                ):
+                    u_used[j] = True
+                    layout[key]["usage-headers"].append(next_ul)
                     layout[key]["usage-notes"].append(next_ul.get_text())
 
     # Figures out which empty Etymology headers to delete.

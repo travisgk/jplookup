@@ -7,7 +7,9 @@ from ._tools._headwords import *
 from ._tools._pronunciation_match import *
 
 REMOVE_ARCHAIC_DEFINITIONS = True
-ARCHAIC_TERMS = ["archaic", "Classical Japanese", "obsolete"]
+REMOVE_LITERARY_DEFINITIONS = True
+ARCHAIC_TERMS = ["archaic", "classical japanese", "obsolete"]
+LITERARY_TERMS = ["literary"]
 
 
 def clean_data(word_info: list, term: str):
@@ -123,14 +125,19 @@ def clean_data(word_info: list, term: str):
             definitions = []
             for definition in entry["definitions"][i]:
                 # prevents archaic definitions from being added.
-                if REMOVE_ARCHAIC_DEFINITIONS:
+                if REMOVE_ARCHAIC_DEFINITIONS or REMOVE_LITERARY_DEFINITIONS:
                     def_text = definition["definition"]
                     if def_text.startswith("("):
                         end_param_i = def_text.find(")")
                         if end_param_i >= 0:
+                            terms_list = []
+                            if REMOVE_ARCHAIC_DEFINITIONS:
+                                terms_list.extend(ARCHAIC_TERMS)
+                            if REMOVE_LITERARY_DEFINITIONS:
+                                terms_list.extend(LITERARY_TERMS)
                             if any(
-                                forbid in def_text[1:end_param_i]
-                                for forbid in ARCHAIC_TERMS
+                                forbid in def_text[1:end_param_i].lower()
+                                for forbid in terms_list
                             ):
                                 continue
 
@@ -148,7 +155,6 @@ def clean_data(word_info: list, term: str):
                             definitions.append(definition)
                         else:
                             def_text = def_text[:dd_index].strip()
-                            # def_text = def_text.replace("\n", "")
                     else:
                         # this definition has no sublist so it can just be added.
                         definitions.append(definition)
@@ -238,7 +244,7 @@ def clean_data(word_info: list, term: str):
             if len(definitions) > 0:
                 result[etym_title][part]["definitions"] = definitions
                 if len(usage_notes) > 0:
-                    result[etym_title][part]["usage-notes"] = usage_notes
+                    result[etym_title][part]["usage-notes"] = usage_notes.strip()
             else:
                 del result[etym_title][part]
 
