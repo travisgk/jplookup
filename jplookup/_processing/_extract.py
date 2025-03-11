@@ -15,6 +15,7 @@ Version: 1.0
 License: MIT
 """
 
+from collections import OrderedDict
 from jplookup._cleanstr._textwork import (
     percent_japanese,
     remove_text_in_brackets,

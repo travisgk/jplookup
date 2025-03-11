@@ -76,8 +76,14 @@ def clean_data(word_info: list, term: str):
 
         Step 3) Cycles through the Parts of Speech under this Etymology header.
         """
-        parts_to_remove = []
+
+        # Sorts parts of speech by their appearance
+        # on the page from top-to-bottom.
         parts_of_speech = entry["parts-of-speech"]
+        parts_of_speech = sorted(parts_of_speech, key=lambda x: x[1])
+        parts_of_speech = [s[0] for s in parts_of_speech]
+
+        parts_to_remove = []
         for i, part in enumerate(parts_of_speech):
             if part == "alternative-spellings":
                 continue

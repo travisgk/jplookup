@@ -16,6 +16,8 @@ def main():
     if MODE == "testing":
         for i, c in enumerate(
             [
+                "どこ",
+                "同じ",
                 "これ",
                 "どうして",
                 # "中",

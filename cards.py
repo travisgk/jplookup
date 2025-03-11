@@ -57,7 +57,22 @@ def find_first_value(data, term):
     return None
 
 
-TAG_PRIORITIES = [("ipa", "pitch-accent"), ("pitch-accent"), ("ipa",)]
+TAG_PRIORITIES = [
+    (
+        "ipa",
+        "pitch-accent",
+        "kana",
+    ),
+    (
+        "pitch-accent",
+        "kana",
+    ),
+    (
+        "ipa",
+        "kana",
+    ),
+    ("kana",),
+]
 
 
 def search_for_pronunciation(pronunciations: list, tag_priority_i: int = 0):
@@ -66,10 +81,73 @@ def search_for_pronunciation(pronunciations: list, tag_priority_i: int = 0):
         if all(p.get(k) is not None for k in keys):
             return p
 
-    if tag_priority_i < len(TAG_PRIORITIES) - 2:
+    if tag_priority_i < len(TAG_PRIORITIES) - 1:
         return search_for_pronunciation(pronunciations, tag_priority_i + 1)
 
     return None
+
+
+def _join_word_data(word_data_a: dict, word_data_b: dict) -> dict:
+    result = {
+        "term": word_data_a["term"],
+        "pronunciation": word_data_a["pronunciation"],
+    }
+    definitions = []
+    definitions.extend(word_data_a["definitions"])
+    definitions.extend(word_data_b["definitions"])
+    result["definitions"] = definitions
+
+    usage_notes_a = word_data_a.get("usage-notes")
+    usage_notes_b = word_data_b.get("usage-notes")
+    usage_notes = ""
+    if usage_notes_a:
+        usage_notes += usage_notes_a
+    if usage_notes_b:
+        if len(usage_notes) > 0:
+            usage_notes += "\n"
+        usage_notes += usage_notes_b
+    if len(usage_notes) > 0:
+        result["usage-notes"] = usage_notes
+
+    return result
+
+
+def combine_like_terms(card_parts: list) -> list:
+    results = []
+    processed = [False for _ in card_parts]
+    for i, part_a in enumerate(card_parts):
+        if processed[i]:
+            continue
+
+        part_of_speech_a, word_data_a = part_a
+
+        matched = False
+        for j_raw, part_b in enumerate(card_parts[i + 1 :]):
+            j = j_raw + i + 1
+
+            if i == j or processed[j]:
+                continue
+
+            part_of_speech_b, word_data_b = part_b
+            if (
+                part_of_speech_a == part_of_speech_b
+                and word_data_a["term"] == word_data_b["term"]
+            ):
+                result = _join_word_data(
+                    word_data_a,
+                    word_data_b,
+                )
+                results.append((part_of_speech_a, result))
+                processed[i] = True
+                processed[j] = True
+                matched = True
+                break
+
+        if not matched:
+            results.append(part_a)
+            processed[i] = True
+
+    return results
 
 
 def main():
@@ -103,31 +181,41 @@ def main2():
                 pronunciation = search_for_pronunciation(pronunciations)
                 if pronunciation is not None:
                     kana = pronunciation["kana"]
-                    if kana_bank.get(kana):
-                        kana_bank[kana].append((part_of_speech, word_data))
-                    else:
-                        kana_bank[kana] = [
-                            (part_of_speech, word_data),
-                        ]
+                    part_of_speech = part_of_speech.split(" ")[0]
+                    if word_data.get("pronunciations"):
+                        del word_data["pronunciations"]
+                    word_data["pronunciation"] = pronunciation
 
-        # iterates through the <kana_bank>.
-        if len(kana_bank) > 0:
-            best_kana = list(kana_bank.keys())[0]
-            if len(kana_bank) > 1:
-                best_count = 0
-                for kana, parts_list in kana_bank.items():
-                    if len(parts_list) > best_count:
-                        best_kana = kana
-                        best_count = len(parts_list)
+                    if part_of_speech in DESIRED_PARTS:
+                        if kana_bank.get(kana):
+                            kana_bank[kana].append((part_of_speech, word_data))
+                        else:
+                            kana_bank[kana] = [
+                                (part_of_speech, word_data),
+                            ]
 
-            # print("\n\n\n")
-            card_parts = kana_bank[best_kana]
-            # print(kana_bank[best_kana])
-            # print(card_parts)
+        if len(kana_bank.keys()) == 0:
+            continue
 
-        else:
-            print("\n\n\n")
-            print(entries)
+        best_kana = list(kana_bank.keys())[0]
+        if len(kana_bank) > 1:
+            best_count = 0
+            for kana, parts_list in kana_bank.items():
+                if len(parts_list) > best_count:
+                    best_kana = kana
+                    best_count = len(parts_list)
+
+        card_parts = kana_bank[best_kana]
+
+        print(json.dumps(card_parts, indent=4, ensure_ascii=False))
+        card_parts = combine_like_terms(card_parts)
+        print("\n\n\n")
+        # print(json.dumps(card_parts, indent=4, ensure_ascii=False))
+
+    else:
+        pass
+        # print("\n\n\nKANABANK IS LEN 0:")
+        # print(json.dumps(entries, indent=4, ensure_ascii=False))
     '''
 
     # goes through each term in the .json.

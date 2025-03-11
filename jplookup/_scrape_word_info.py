@@ -96,6 +96,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
     Step 3) Finds title tags containing parts of speech.
     """
     found_word_parts = []
+    found_word_part_lines = []
     found_word_part_headers = []
     breakout = False
     for part in PARTS_OF_SPEECH:
@@ -105,6 +106,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                 header_text = current_header.get_text().strip()
                 if header_text.startswith(part) and header_text != part + "s":
                     found_word_parts.append(part)
+                    found_word_part_lines.append(current_header.sourceline)
                     found_word_part_headers.append(current_header)
                 current_header = current_header.find_next(tag)
 
@@ -144,7 +146,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
         else:
             next_ety_line_num = etymology_headers[i + 1].sourceline
 
-        # looks for any "Alternative spelling" specifications.
+        # Looks for any "Alternative spelling" specifications.
         alt_spellings_header = e.find_next("table", class_="wikitable floatright")
 
         if alt_spellings_header is None:
@@ -166,7 +168,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                         alts.append(remove_tags(str(alt_spelling_span)))
                     layout[key]["alternative-spellings"] = alts
 
-        # adds any pronunciation header that's below the "Etymology" header.
+        # Adds any pronunciation header that's below the "Etymology" header.
         for j, h in enumerate(pronunciation_headers):
             if (
                 not h_used[j]
@@ -176,25 +178,28 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                 h_used[j] = True
                 layout[key]["pronunciation-headers"].append(h)
 
-        # adds any part-of-speech header that's below the "Etymology" header.
+        # Adds any part-of-speech header that's below the "Etymology" header.
         for j, f in enumerate(found_word_part_headers):
             if (
                 not f_used[j]
                 and f.sourceline < next_ety_line_num
                 and (e is None or e.sourceline <= f.sourceline)
             ):
+                # Appends the information and includes the sourceline too.
                 f_used[j] = True
                 layout[key]["speech-headers"].append(f)
-                layout[key]["parts-of-speech"].append(found_word_parts[j])
+                layout[key]["parts-of-speech"].append(
+                    (found_word_parts[j], found_word_part_lines[j])
+                )
 
-        # adds any usage notes header that's below the "Etymology" header.
+        # Adds any usage notes header that's below the "Etymology" header.
         for j, u in enumerate(usage_notes_headers):
             if (
                 not u_used[j]
                 and u.sourceline < next_ety_line_num
                 and (e is None or e.sourceline <= u.sourceline)
             ):
-                # retrieves the text contents out of either
+                # Retrieves the text contents out of either
                 # the following <ul> or <p> to get the usage notes,
                 # grabbing the closest text.
                 next_p = u.find_next("p")
@@ -207,7 +212,7 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                         and next_ul.sourceline < next_ety_line_num
                         and not next_ul.get_text().startswith(DUMMY_PHRASE)
                     ):
-                        # both a <p> and <ul> were found.
+                        # Both a <p> and <ul> were found.
                         if next_p.sourceline < next_ul.sourceline:
                             layout[key]["usage-headers"].append(next_p)
                             layout[key]["usage-notes"].append(next_p.get_text())
