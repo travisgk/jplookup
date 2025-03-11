@@ -86,6 +86,10 @@ def main():
 
 
 def main2():
+    # loads the .json with the written jplookup info.
+    with open("jp-data.json", "r", encoding="utf-8") as f:
+        word_info = json.load(f)
+
     # goes through each entry.
     for search_term, entries in word_info.items():
         # using a dict, the number of times the best kana transcription
@@ -106,7 +110,7 @@ def main2():
                             (part_of_speech, word_data),
                         ]
 
-        # iterates through
+        # iterates through the <kana_bank>.
         if len(kana_bank) > 0:
             best_kana = list(kana_bank.keys())[0]
             if len(kana_bank) > 1:
@@ -116,9 +120,14 @@ def main2():
                         best_kana = kana
                         best_count = len(parts_list)
 
-            print("\n\n\n")
-            print(kana_bank[best_key])
+            # print("\n\n\n")
+            card_parts = kana_bank[best_kana]
+            # print(kana_bank[best_kana])
+            # print(card_parts)
 
+        else:
+            print("\n\n\n")
+            print(entries)
     '''
 
     # goes through each term in the .json.
@@ -223,4 +232,4 @@ def main2():
 
 
 if __name__ == "__main__":
-    main()
+    main2()

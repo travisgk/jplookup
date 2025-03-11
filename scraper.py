@@ -16,7 +16,11 @@ def main():
     if MODE == "testing":
         for i, c in enumerate(
             [
-                "いい",
+                "煩い",
+                "中",
+                "多い",
+                "曇る",
+                "お兄さん",
             ]
         ):
             time.sleep(AGGRESSIVENESS)
@@ -76,6 +80,7 @@ def main():
             except KeyboardInterrupt:
                 print("Keyboard interrupt received, exiting gracefully.")
                 sys.exit(0)
+
             except requests.exceptions.HTTPError as e:
                 time.sleep(20)  # take a long break.
                 print("Whoops. Let's try that again.")

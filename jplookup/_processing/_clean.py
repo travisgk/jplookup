@@ -76,6 +76,7 @@ def clean_data(word_info: list, term: str):
 
         Step 3) Cycles through the Parts of Speech under this Etymology header.
         """
+        parts_to_remove = []
         parts_of_speech = entry["parts-of-speech"]
         for i, part in enumerate(parts_of_speech):
             if part == "alternative-spellings":
@@ -164,6 +165,8 @@ def clean_data(word_info: list, term: str):
             # Cycles through the Definitions under this Parts of Speech header.
             definitions = []
             for definition in entry["definitions"][i]:
+                definition["definition"] = definition["definition"].strip()
+
                 # prevents archaic definitions from being added
                 # (these come in parentheses before the actual definition).
                 if REMOVE_ARCHAIC_DEFINITIONS or REMOVE_LITERARY_DEFINITIONS:
@@ -183,6 +186,7 @@ def clean_data(word_info: list, term: str):
                                 continue
 
                 # examines to see if there are any sublines provided.
+
                 def_text = definition["definition"]
                 sublines = definition.get("sublines")
                 dd_index = def_text.find("<dd>")
@@ -201,6 +205,9 @@ def clean_data(word_info: list, term: str):
                         definitions.append(definition)
 
                 if sublines is not None:
+                    # strips the newline nonsense.
+                    sublines = [s.strip() for s in sublines]
+
                     # the found sublist will be included
                     # along with its above definition text.
                     if dd_index >= 0:
@@ -290,7 +297,11 @@ def clean_data(word_info: list, term: str):
             else:
                 # deletes a Part of Speech entry
                 # if it no longer has any definitions.
-                del result[etym_title][part]
+                parts_to_remove.append((etym_title, part))
+
+        # deletes the Parts of Speech with no Definitions left.
+        for etym_title, part in parts_to_remove:
+            del result[etym_title][part]
 
     # Deletes any Etymology entries that don't have any Parts of Speech anymore.
     for etym_key in etym_keys:

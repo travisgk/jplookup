@@ -158,11 +158,12 @@ def separate_term_and_furigana(word: str):
             inside_furi = True
         elif inside_furi and c == ")":
             inside_furi = False
-        elif inside_furi:
-            furi[-1].append(c)
-        else:
-            furi.append([])
-            term += c
+        elif is_japanese_char(c):
+            if inside_furi:
+                furi[-1].append(c)
+            else:
+                furi.append([])
+                term += c
 
     furi = [tuple(f) for f in furi]
     return term, furi

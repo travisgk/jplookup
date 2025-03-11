@@ -5,6 +5,7 @@ from ._cleanstr._textwork import (
     shorten_html,
 )
 from ._cleanstr._dictform import get_dictionary_form
+from ._processing._remove_empty import remove_empty_entries
 from ._processing._tools._redirects import (
     remove_alternative_spellings,
     link_up_redirects,
@@ -100,6 +101,9 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
                 dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds
             )
 
+    # the additional call may be unnecessary...
+    # results = remove_empty_entries(results)
+    results = remove_empty_entries(results)
     if depth == 0:
         results = link_up_redirects(
             results,
@@ -109,5 +113,14 @@ def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> 
 
         if len(results) > 0:
             results = remove_alternative_spellings(results)
+        results = remove_empty_entries(results, remove_entries=True)
+
+    indices_to_remove = []
+    for i in range(len(results)):
+        for etym_name, parts in results[i].items():
+            if parts is None:
+                indices_to_remove.append(i)
+    if len(indices_to_remove) > 0:
+        results = [r for i, r in enumerate(results) if i not in indices_to_remove]
 
     return results
