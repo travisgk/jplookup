@@ -75,7 +75,7 @@ def main():
                     print(f"\n\n{percent_done:> 2d}% {term}:")
                     data[term] = word_info
 
-                    print(word_info[0])
+                    print(json.dumps(word_info[0], indent=4, ensure_ascii=False))
                 else:
                     unfound.append(term)
             except KeyboardInterrupt:

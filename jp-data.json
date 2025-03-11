@@ -239,22 +239,6 @@
     "どこ": [
         {
             "Etymology 1": {
-                "Adverb": {
-                    "term": "どこ",
-                    "pronunciations": [
-                        {
-                            "kana": "どこ",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "do̞ko̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
-                        }
-                    ]
-                },
                 "Pronoun": {
                     "term": "どこ",
                     "pronunciations": [
@@ -577,18 +561,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "なか",
-                    "pronunciations": [
-                        {
-                            "kana": "なか",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "na̠ka̠"
-                        }
-                    ],
-                    "definitions": []
                 }
             },
             "Etymology 4": {
@@ -658,9 +630,6 @@
                                     "english": "our company"
                                 }
                             ]
-                        },
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 },
@@ -1057,9 +1026,6 @@
                         },
                         {
                             "definition": "a 小袖 (kosode, “short-sleeved robe”) worn by maidservants of the Imperial Palace"
-                        },
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 }
@@ -1093,7 +1059,7 @@
                             "definition": "extremely strained, faked, insincere, affected"
                         },
                         {
-                            "definition": "oppressive and annoying in a surrounding and overwhelming way\n"
+                            "definition": "oppressive and annoying in a surrounding and overwhelming way"
                         },
                         {
                             "definition": "troublesome, bothersome, irksome (usually in reference to having to do something)",
@@ -2226,24 +2192,6 @@
             }
         },
         {
-            "Etymology 1": {
-                "Noun 1": {
-                    "term": "飯",
-                    "pronunciations": [
-                        {
-                            "kana": "はん",
-                            "furigana": [
-                                "はん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
-                        }
-                    ]
-                }
-            },
             "Etymology 3": {
                 "Noun 3": {
                     "term": "飯",
@@ -2292,7 +2240,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "(Tsugaru) cooked rice"
+                            "definition": "(regional) cooked rice"
                         },
                         {
                             "definition": "(childish) Alternative form of 飯 (manma)"
@@ -3454,17 +3402,6 @@
     ],
     "よく": [
         {
-            "Etymology 1": {
-                "Adjective": {
-                    "term": "よく",
-                    "pronunciations": [
-                        {
-                            "kana": "よく"
-                        }
-                    ],
-                    "definitions": []
-                }
-            },
             "Etymology 2": {
                 "Noun": {
                     "term": "欲",
@@ -4266,25 +4203,6 @@
                             "definition": "(dialect, Kagoshima) evening meal, dinner"
                         }
                     ]
-                }
-            }
-        }
-    ],
-    "あなた": [
-        {
-            "Etymology 1": {
-                "Pronoun": {
-                    "term": "あなた",
-                    "pronunciations": [
-                        {
-                            "kana": "あなた",
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "a̠na̠ta̠"
-                        }
-                    ],
-                    "definitions": [],
-                    "usage-notes": "The you sense is spelled most often in hiragana in modern usage.  The 貴方 spelling is gender-neutral. Alternative spellings include 貴女 when referring to females and 貴男 when referring to males."
                 }
             }
         }
@@ -5656,7 +5574,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "this\n"
+                            "definition": "this"
                         }
                     ]
                 }
@@ -7426,8 +7344,8 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
-                    "term": "外",
+                "Noun 1": {
+                    "term": "他",
                     "pronunciations": [
                         {
                             "kana": "ほか",
@@ -7441,7 +7359,19 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "other (things); the rest"
+                            "definition": "another, other, some other, the rest",
+                            "examples": [
+                                {
+                                    "japanese": "この他(ほか)にも行(ゆ)き先(さき)がありますか。",
+                                    "romanji": "Kono hoka ni mo yukisaki ga arimasu ka.",
+                                    "english": "Do you have any other destinations?"
+                                },
+                                {
+                                    "japanese": "他(ほか)にだれが手(て)伝(つだ)いに行(い)きますか。",
+                                    "romanji": "Hoka ni dare ga tetsudai ni ikimasu ka.",
+                                    "english": "Who else will go to help you?"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -7482,7 +7412,7 @@
                 }
             },
             "Etymology 4": {
-                "Noun 3": {
+                "Noun 2": {
                     "term": "外",
                     "pronunciations": [
                         {
@@ -7510,7 +7440,10 @@
                             "kana": "がい",
                             "furigana": [
                                 "がい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɡa̠i"
                         }
                     ],
                     "definitions": [
@@ -7524,7 +7457,7 @@
                 }
             },
             "Etymology 6": {
-                "Noun 4": {
+                "Noun 3": {
                     "term": "外",
                     "pronunciations": [
                         {
@@ -9426,25 +9359,6 @@
             }
         }
     ],
-    "いくつ": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "いくつ",
-                    "pronunciations": [
-                        {
-                            "kana": "いくつ",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ikɯ̟t͡sɨ"
-                        }
-                    ],
-                    "definitions": [],
-                    "usage-notes": "This term is often spelled in hiragana."
-                }
-            }
-        }
-    ],
     "問題": [
         {
             "Etymology 1": {
@@ -10474,32 +10388,6 @@
                             "definition": "Short for 八朔の雪 (hassaku no yuki): This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "雪",
-                    "pronunciations": [
-                        {
-                            "kana": "ゆき",
-                            "furigana": [
-                                "ゆき"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "jɯ̟kʲi"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}.",
-                            "examples": [
-                                {
-                                    "japanese": "雪(ゆき)やこんこ霰(あられ)やこんこ　降(ふ)っては降(ふ)ってはずんずん積(つも)る",
-                                    "romanji": "yuki ya konko arare ya konko futte wa futte wa zunzun tsumoru",
-                                    "english": "(please add an English translation of this example)"
-                                }
-                            ]
-                        }
-                    ]
                 }
             }
         }
@@ -10659,7 +10547,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "distal demonstrative, something far off removed from both speaker and listener: that, yon\n"
+                            "definition": "distal demonstrative, something far off removed from both speaker and listener: that, yon"
                         },
                         {
                             "definition": "(chiefly derogatory) third-person personal pronoun: he, she, that person"
@@ -10978,13 +10866,13 @@
                             ]
                         },
                         {
-                            "definition": "(temporally) later time, afterwards, some time after the present\n"
+                            "definition": "(temporally) later time, afterwards, some time after the present"
                         },
                         {
-                            "definition": "(in order) the next person or thing\n"
+                            "definition": "(in order) the next person or thing"
                         },
                         {
-                            "definition": "the rest; certain part, space or thing left\n"
+                            "definition": "the rest; certain part, space or thing left"
                         }
                     ]
                 },
@@ -12321,7 +12209,7 @@
                             "definition": "a treasury bill or bond"
                         },
                         {
-                            "definition": "Clipping of ノートブック (nōtobukku, “notebook”).\n"
+                            "definition": "Clipping of ノートブック (nōtobukku, “notebook”)."
                         }
                     ]
                 },
@@ -13629,7 +13517,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "thing (concrete, tangible)\n"
+                            "definition": "thing (concrete, tangible)"
                         }
                     ]
                 },
@@ -16552,21 +16440,6 @@
                             ]
                         }
                     ]
-                }
-            }
-        }
-    ],
-    "かぎ": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "かぎ",
-                    "pronunciations": [
-                        {
-                            "kana": "かぎ"
-                        }
-                    ],
-                    "definitions": []
                 }
             }
         }
@@ -19800,7 +19673,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "to run (move fast on foot)\n"
+                            "definition": "to run (move fast on foot)"
                         },
                         {
                             "definition": "(transitive) to run through some kind of place",
@@ -20936,43 +20809,6 @@
             }
         }
     ],
-    "あっち": [
-        {
-            "Etymology 1": {
-                "Pronoun": {
-                    "term": "あっち",
-                    "pronunciations": [
-                        {
-                            "kana": "あっち"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "(informal) Alternative form of あちら"
-                        },
-                        {
-                            "definition": "(slang) I (first person pronoun)"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "それでは": [
-        {
-            "Etymology 1": {
-                "Conjunction": {
-                    "term": "それでは",
-                    "pronunciations": [
-                        {
-                            "kana": "それでは"
-                        }
-                    ],
-                    "definitions": []
-                }
-            }
-        }
-    ],
     "花瓶": [
         {
             "Etymology 1": {
@@ -21667,22 +21503,6 @@
                             "definition": "how, in what way"
                         }
                     ]
-                },
-                "Interjection": {
-                    "term": "どうして",
-                    "pronunciations": [
-                        {
-                            "kana": "どうして",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "do̞ːɕite̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
-                        }
-                    ]
                 }
             }
         }
@@ -22166,21 +21986,6 @@
             }
         }
     ],
-    "あさって": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "あさって",
-                    "pronunciations": [
-                        {
-                            "kana": "あさって"
-                        }
-                    ],
-                    "definitions": []
-                }
-            }
-        }
-    ],
     "赤い": [
         {
             "Etymology 1": {
@@ -22292,48 +22097,6 @@
                         }
                     ],
                     "usage-notes": "This term is spelled in hiragana when referring to non-age-specific relatives."
-                }
-            }
-        }
-    ],
-    "たて": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "たて",
-                    "pronunciations": [
-                        {
-                            "kana": "たて"
-                        }
-                    ],
-                    "definitions": []
-                },
-                "Counter": {
-                    "term": "たて",
-                    "pronunciations": [
-                        {
-                            "kana": "たて"
-                        }
-                    ],
-                    "definitions": []
-                },
-                "Suffix": {
-                    "term": "たて",
-                    "pronunciations": [
-                        {
-                            "kana": "たて"
-                        }
-                    ],
-                    "definitions": []
-                },
-                "Prefix": {
-                    "term": "たて",
-                    "pronunciations": [
-                        {
-                            "kana": "たて"
-                        }
-                    ],
-                    "definitions": []
                 }
             }
         }
@@ -23402,18 +23165,6 @@
                             ]
                         }
                     ]
-                },
-                "Proper noun": {
-                    "term": "のぼる",
-                    "pronunciations": [
-                        {
-                            "kana": "のぼる",
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "no̞bo̞ɾɯ̟"
-                        }
-                    ],
-                    "definitions": []
                 }
             }
         }
@@ -25233,21 +24984,6 @@
             }
         }
     ],
-    "ほか": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "ほか",
-                    "pronunciations": [
-                        {
-                            "kana": "ほか"
-                        }
-                    ],
-                    "definitions": []
-                }
-            }
-        }
-    ],
     "戸": [
         {
             "Etymology 1": {
@@ -25673,21 +25409,6 @@
             }
         }
     ],
-    "ふろ": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "ふろ",
-                    "pronunciations": [
-                        {
-                            "kana": "ふろ"
-                        }
-                    ],
-                    "definitions": []
-                }
-            }
-        }
-    ],
     "学校": [
         {
             "Etymology 1": {
@@ -25715,131 +25436,119 @@
             }
         }
     ],
-    "本": [
+    "元": [
         {
             "Etymology 1": {
                 "Noun 1": {
-                    "term": "本",
-                    "counter": "個",
+                    "term": "元",
                     "pronunciations": [
                         {
                             "kana": "もと",
                             "furigana": [
                                 "もと"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "mo̞to̞"
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "Alternative form of 元"
+                            "definition": "cause, origin"
+                        },
+                        {
+                            "definition": "basis, foundation"
+                        },
+                        {
+                            "definition": "cost",
+                            "examples": [
+                                {
+                                    "japanese": "元(もと)がとれる",
+                                    "romanji": "moto ga toreru",
+                                    "english": "to be able to cover the cost"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "(finance) capital",
+                            "examples": [
+                                {
+                                    "japanese": "2000円(にせんえん)の元(もと)を取(と)る",
+                                    "romanji": "nisen-en no moto o toru",
+                                    "english": "to get one's 2000 yen's worth"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "principal"
                         }
                     ]
                 },
-                "Counter 1": {
-                    "term": "本",
+                "Prefix": {
+                    "term": "元",
                     "pronunciations": [
                         {
                             "kana": "もと",
                             "furigana": [
                                 "もと"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "mo̞to̞"
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "blades of grass and tree trunks"
-                        },
-                        {
-                            "definition": "falcons"
+                            "definition": "former, erstwhile",
+                            "examples": [
+                                {
+                                    "japanese": "元(もと)カレ、元(もと)カノ",
+                                    "romanji": "motokare, motokano",
+                                    "english": "former boyfriend, former girlfriend"
+                                },
+                                {
+                                    "japanese": "プロジェクトの元(もと)・担(たん)当(とう)者(しゃ)の田(た)中(なか)氏(し)",
+                                    "romanji": "purojekuto no moto tantōsha no Tanaka-shi",
+                                    "english": "former project manager Tanaka"
+                                }
+                            ]
                         }
                     ]
                 }
             },
             "Etymology 2": {
                 "Noun 2": {
-                    "term": "本",
-                    "counter": "冊",
+                    "term": "元",
                     "pronunciations": [
                         {
-                            "kana": "ほん",
+                            "kana": "げん",
                             "furigana": [
-                                "ほん"
+                                "げん"
                             ]
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "a book",
-                            "examples": [
-                                {
-                                    "japanese": "本(ほん)を読(よ)む",
-                                    "romanji": "hon o yomu",
-                                    "english": "to read a book"
-                                }
+                            "definition": "yuan (currency)",
+                            "synonyms": [
+                                "ユアン"
                             ]
                         }
                     ]
                 },
-                "Counter 2": {
-                    "term": "本",
+                "Proper noun 1": {
+                    "term": "元",
                     "pronunciations": [
                         {
-                            "kana": "ほん",
+                            "kana": "げん",
                             "furigana": [
-                                "ほん"
+                                "げん"
                             ]
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "long cylindrical things such as glasses of drink, pairs of jeans, pens or trains and buses"
-                        },
-                        {
-                            "definition": "films or TV shows"
-                        },
-                        {
-                            "definition": "home runs or goals"
-                        },
-                        {
-                            "definition": "rounds of a match in boxing, wrestling or judo"
-                        }
-                    ]
-                },
-                "Prefix": {
-                    "term": "本",
-                    "pronunciations": [
-                        {
-                            "kana": "ほん",
-                            "furigana": [
-                                "ほん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "current, this, the matter in question",
-                            "examples": [
-                                {
-                                    "japanese": "本(ほん)大(たい)会(かい)",
-                                    "romanji": "hontaikai",
-                                    "english": "this event; today’s competition"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "original, actual, base",
-                            "examples": [
-                                {
-                                    "japanese": "本(ほん)山葵(わさび)",
-                                    "romanji": "honwasabi",
-                                    "english": "real wasabi (as opposed to horseradish or other substitutes)"
-                                },
-                                {
-                                    "japanese": "本(ほん)大(だい)臣(じん)",
-                                    "romanji": "hondaijin",
-                                    "english": "the cabinet member (on whose behalf a proxy speaks)"
-                                }
-                            ]
+                            "definition": "the Yuan dynasty (1271–1368)"
                         }
                     ]
                 }
@@ -26073,36 +25782,6 @@
                         }
                     ],
                     "usage-notes": "Variation on the Japanese copula だ (da) used in western Japan, such as in Chūgoku, Shikoku, or Kyūshū; particularly common in Hiroshima. The use of じゃ (ja) is also common in fictional dialogue attributed to archaic characters. In Kansai, じゃ (ja) changed to や (ya) in the late Edo period."
-                }
-            },
-            "Etymology 4": {
-                "Noun": {
-                    "term": "じゃ",
-                    "pronunciations": [
-                        {
-                            "kana": "じゃ"
-                        }
-                    ],
-                    "definitions": []
-                }
-            }
-        }
-    ],
-    "じゃあ": [
-        {
-            "Etymology 1": {
-                "Interjection": {
-                    "term": "じゃあ",
-                    "pronunciations": [
-                        {
-                            "kana": "じゃあ"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "Alternative form of じゃ"
-                        }
-                    ]
                 }
             }
         }
@@ -27003,18 +26682,6 @@
     "また": [
         {
             "Etymology 1": {
-                "Adverb": {
-                    "term": "また",
-                    "pronunciations": [
-                        {
-                            "kana": "また",
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ma̠ta̠"
-                        }
-                    ],
-                    "definitions": []
-                },
                 "Conjunction": {
                     "term": "また",
                     "pronunciations": [
@@ -28905,7 +28572,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "that (near the addressee)\n"
+                            "definition": "that (near the addressee)"
                         },
                         {
                             "definition": "that of (used only in writing)",
@@ -30255,16 +29922,6 @@
                             "definition": "how, in what way"
                         }
                     ]
-                },
-                "Particle": {
-                    "term": "など",
-                    "pronunciations": [
-                        {
-                            "kana": "など"
-                        }
-                    ],
-                    "definitions": [],
-                    "usage-notes": "など (nado), when used as a particle, functions as a noun and may be followed by other particles, including の (no)."
                 }
             }
         }
@@ -30576,7 +30233,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "already (having reached a certain situation or finished a certain action)\n"
+                            "definition": "already (having reached a certain situation or finished a certain action)"
                         },
                         {
                             "definition": "already the time to do so; shortly, soon",
@@ -31520,13 +31177,12 @@
         {
             "Etymology 1": {
                 "Noun": {
-                    "term": "色々",
+                    "term": "色",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろ",
-                                "いろ"
+                                "いろいろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -31540,13 +31196,12 @@
                     ]
                 },
                 "Adjective": {
-                    "term": "色々",
+                    "term": "色",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろ",
-                                "いろ"
+                                "いろいろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -31560,13 +31215,12 @@
                     ]
                 },
                 "Adverb": {
-                    "term": "色々",
+                    "term": "色",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろ",
-                                "いろ"
+                                "いろいろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -32004,22 +31658,6 @@
             }
         }
     ],
-    "ください": [
-        {
-            "Etymology 1": {
-                "Verb": {
-                    "term": "ください",
-                    "pronunciations": [
-                        {
-                            "kana": "ください"
-                        }
-                    ],
-                    "definitions": [],
-                    "usage-notes": "Nowadays, except in very formal or traditional contexts, this term is normally written in kana. Outside of such contexts, the spelling 「下さい」 can emphasize the meaning of \"give\" associated with 「下」, though this is rare.\nThe imperative sense is either attached to the て form (te-form) of a verb, or a noun prefixed with お (o-) or ご (go-).\nちょっとお待ちください。Chotto o-machi kudasai.Please wait a little. (Here 待ち is the continuative form of 待つ.)\nこれをご覧ください。Kore o go-ran kudasai.Please have a look at this."
-                }
-            }
-        }
-    ],
     "ハンカチ": [
         {
             "Etymology 1": {
@@ -32171,21 +31809,6 @@
                         }
                     ],
                     "usage-notes": "This term is often spelled in hiragana."
-                }
-            }
-        }
-    ],
-    "せっけん": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "せっけん",
-                    "pronunciations": [
-                        {
-                            "kana": "せっけん"
-                        }
-                    ],
-                    "definitions": []
                 }
             }
         }
@@ -34226,13 +33849,12 @@
         {
             "Etymology 1": {
                 "Adverb": {
-                    "term": "時々",
+                    "term": "時",
                     "pronunciations": [
                         {
                             "kana": "ときどき",
                             "furigana": [
-                                "とき",
-                                "どき"
+                                "ときどき"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -34601,20 +34223,6 @@
     ],
     "厚い": [
         {
-            "Etymology 1": {
-                "Adjective 1": {
-                    "term": "あつい",
-                    "pronunciations": [
-                        {
-                            "kana": "あつい",
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "a̠t͡sɨi"
-                        }
-                    ],
-                    "definitions": []
-                }
-            },
             "Etymology 2": {
                 "Adjective 2": {
                     "term": "あつい",
@@ -35812,17 +35420,6 @@
     ],
     "だんだん": [
         {
-            "Etymology 1": {
-                "Adjective": {
-                    "term": "だんだん",
-                    "pronunciations": [
-                        {
-                            "kana": "だんだん"
-                        }
-                    ],
-                    "definitions": []
-                }
-            },
             "Etymology 3": {
                 "Interjection": {
                     "term": "だんだん",
@@ -35842,13 +35439,12 @@
         {
             "Etymology 1": {
                 "Noun": {
-                    "term": "段々",
+                    "term": "段",
                     "pronunciations": [
                         {
                             "kana": "だんだん",
                             "furigana": [
-                                "だん",
-                                "だん"
+                                "だんだん"
                             ]
                         }
                     ],
@@ -35859,13 +35455,12 @@
                     ]
                 },
                 "Adverb": {
-                    "term": "段々",
+                    "term": "段",
                     "pronunciations": [
                         {
                             "kana": "だんだん",
                             "furigana": [
-                                "だん",
-                                "だん"
+                                "だんだん"
                             ]
                         }
                     ],
@@ -36857,7 +36452,7 @@
                                     "english": "Nishimura does not eat breakfast very often."
                                 },
                                 {
-                                    "japanese": "見(み)た目(め)はあんまりですが、 […] ",
+                                    "japanese": "見(み)た目(め)はあんまりですが、 […]",
                                     "romanji": "Mitame wa anmari desu ga, […] ",
                                     "english": "The appearance is not very [impressive], but  […] "
                                 }
@@ -37542,16 +37137,6 @@
                         },
                         {
                             "definition": "to accept one's talk; to get on board"
-                        },
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}.",
-                            "examples": [
-                                {
-                                    "japanese": "流通(りゅうつう)に乗(の)らない野菜(やさい)",
-                                    "romanji": "ryūtsū ni noranai yasai",
-                                    "english": "vegetables that do not enter distribution"
-                                }
-                            ]
                         }
                     ]
                 }
@@ -37813,7 +37398,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "to enter, go into, get into a place or a thing\n"
+                            "definition": "to enter, go into, get into a place or a thing"
                         },
                         {
                             "definition": "to be contained (in), to be included (in)"
@@ -38039,16 +37624,6 @@
                         },
                         {
                             "definition": "(law) legal person"
-                        },
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}.",
-                            "synonyms": [
-                                "方",
-                                "者"
-                            ]
-                        },
-                        {
-                            "definition": "This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         },
                         {
                             "definition": "an adult",
@@ -39649,17 +39224,6 @@
                         }
                     ],
                     "usage-notes": "The verb する (“to do”) is seldom written in kanji (為る).\nIt is common to use する after certain nouns to indicate that the noun is being done; this is highly productive, meaning many nouns can be used as verbs in this way. Some examples are:\n勉強 (benkyō, “studying”) → 勉強する (benkyō suru, “to do studying” → “to study”)\n旅行 (ryokō, “journey”) → 旅行する (ryokō suru, “to do journey” → “to travel”)\nアップロード (appurōdo, “upload”) → アップロードする (appurōdo suru, “to do uploading” → “to upload”)"
-                }
-            },
-            "Etymology 2": {
-                "Verb 2": {
-                    "term": "する",
-                    "pronunciations": [
-                        {
-                            "kana": "する"
-                        }
-                    ],
-                    "definitions": []
                 }
             }
         }
