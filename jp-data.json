@@ -239,7 +239,7 @@
     "どこ": [
         {
             "Etymology 1": {
-                "Pronoun": {
+                "Adverb": {
                     "term": "どこ",
                     "pronunciations": [
                         {
@@ -1199,7 +1199,7 @@
                         }
                     ]
                 },
-                "Verb": {
+                "Proper noun": {
                     "term": "北する",
                     "pronunciations": [
                         {
@@ -1220,7 +1220,7 @@
                         }
                     ]
                 },
-                "Proper noun": {
+                "Verb": {
                     "term": "北",
                     "pronunciations": [
                         {
@@ -1544,7 +1544,7 @@
                 }
             },
             "Etymology 3": {
-                "Noun 2": {
+                "Affix": {
                     "term": "私",
                     "pronunciations": [
                         {
@@ -1566,7 +1566,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Noun 2": {
                     "term": "私",
                     "pronunciations": [
                         {
@@ -1949,7 +1949,7 @@
     "好き": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective 1": {
                     "term": "好き",
                     "pronunciations": [
                         {
@@ -1976,7 +1976,7 @@
                         }
                     ]
                 },
-                "Adjective 1": {
+                "Noun": {
                     "term": "好き",
                     "pronunciations": [
                         {
@@ -2910,7 +2910,7 @@
     "八": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Numeral": {
                     "term": "八",
                     "pronunciations": [
                         {
@@ -2935,7 +2935,7 @@
                         }
                     ]
                 },
-                "Numeral": {
+                "Noun 1": {
                     "term": "八",
                     "pronunciations": [
                         {
@@ -3015,7 +3015,7 @@
                 }
             },
             "Etymology 2": {
-                "Adverb": {
+                "Particle": {
                     "term": "のみ",
                     "pronunciations": [
                         {
@@ -3031,7 +3031,7 @@
                         }
                     ]
                 },
-                "Particle": {
+                "Adverb": {
                     "term": "のみ",
                     "pronunciations": [
                         {
@@ -3564,7 +3564,7 @@
     "少し": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "少し",
                     "pronunciations": [
                         {
@@ -3584,7 +3584,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "少し",
                     "pronunciations": [
                         {
@@ -3882,7 +3882,7 @@
     "有名": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "有名",
                     "pronunciations": [
                         {
@@ -3902,7 +3902,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "有名",
                     "pronunciations": [
                         {
@@ -4908,7 +4908,7 @@
     "今": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "今",
                     "pronunciations": [
                         {
@@ -4957,7 +4957,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "今",
                     "pronunciations": [
                         {
@@ -4986,7 +4986,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Proper noun": {
                     "term": "今",
                     "pronunciations": [
                         {
@@ -5169,7 +5169,7 @@
     "何": [
         {
             "Etymology 1": {
-                "Adverb": {
+                "Interjection": {
                     "term": "何",
                     "pronunciations": [
                         {
@@ -5195,7 +5195,7 @@
                         }
                     ]
                 },
-                "Interjection": {
+                "Pronoun": {
                     "term": "何",
                     "pronunciations": [
                         {
@@ -5215,7 +5215,7 @@
                     ],
                     "usage-notes": "何 is usually read as なに, but before だ, で, の, it is read as なん. When followed by で, both readings are possible, albeit with different meanings."
                 },
-                "Prefix": {
+                "Adverb": {
                     "term": "何",
                     "pronunciations": [
                         {
@@ -5244,7 +5244,7 @@
                         }
                     ]
                 },
-                "Pronoun": {
+                "Prefix": {
                     "term": "何",
                     "pronunciations": [
                         {
@@ -5418,7 +5418,7 @@
     "毎日": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "毎日",
                     "pronunciations": [
                         {
@@ -5455,7 +5455,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "毎日",
                     "pronunciations": [
                         {
@@ -5657,7 +5657,7 @@
     "便利": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "便利",
                     "pronunciations": [
                         {
@@ -5677,7 +5677,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "便利",
                     "pronunciations": [
                         {
@@ -6513,7 +6513,7 @@
     "丈夫": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective": {
                     "term": "丈夫",
                     "pronunciations": [
                         {
@@ -6536,7 +6536,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun 1": {
                     "term": "丈夫",
                     "pronunciations": [
                         {
@@ -6957,7 +6957,7 @@
                 }
             },
             "Etymology 4": {
-                "Proper noun 3": {
+                "Noun 4": {
                     "term": "東",
                     "pronunciations": [
                         {
@@ -7993,7 +7993,7 @@
     "黄色": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective": {
                     "term": "黄色",
                     "pronunciations": [
                         {
@@ -8013,7 +8013,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun 1": {
                     "term": "黄色",
                     "pronunciations": [
                         {
@@ -9194,7 +9194,7 @@
     "ほんとう": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "本当",
                     "pronunciations": [
                         {
@@ -9231,7 +9231,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "本当",
                     "pronunciations": [
                         {
@@ -9484,6 +9484,25 @@
     "キロ": [
         {
             "Etymology 1": {
+                "Prefix": {
+                    "term": "キロ",
+                    "pronunciations": [
+                        {
+                            "kana": "キロ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kʲiɾo̞"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "Clipping of キログラム (kiroguramu, “kilogram”); kilo"
+                        },
+                        {
+                            "definition": "Clipping of キロメートル (kiromētoru, “kilometer”)."
+                        }
+                    ]
+                },
                 "Noun": {
                     "term": "キロ",
                     "pronunciations": [
@@ -9504,25 +9523,6 @@
                     ]
                 },
                 "Counter": {
-                    "term": "キロ",
-                    "pronunciations": [
-                        {
-                            "kana": "キロ",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "kʲiɾo̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "Clipping of キログラム (kiroguramu, “kilogram”); kilo"
-                        },
-                        {
-                            "definition": "Clipping of キロメートル (kiromētoru, “kilometer”)."
-                        }
-                    ]
-                },
-                "Prefix": {
                     "term": "キロ",
                     "pronunciations": [
                         {
@@ -9896,7 +9896,7 @@
     "はく": [
         {
             "Etymology 1": {
-                "Counter": {
+                "Proper noun": {
                     "term": "泊",
                     "pronunciations": [
                         {
@@ -9980,7 +9980,7 @@
     "近く": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "近く",
                     "pronunciations": [
                         {
@@ -9997,7 +9997,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "近く",
                     "pronunciations": [
                         {
@@ -10081,7 +10081,7 @@
                         }
                     ]
                 },
-                "Suffix 1": {
+                "Proper noun 1": {
                     "term": "上",
                     "pronunciations": [
                         {
@@ -10169,7 +10169,7 @@
                         }
                     ]
                 },
-                "Suffix 2": {
+                "Proper noun 5": {
                     "term": "上",
                     "pronunciations": [
                         {
@@ -10212,7 +10212,7 @@
     "大学": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Proper noun": {
                     "term": "大学",
                     "pronunciations": [
                         {
@@ -10232,7 +10232,7 @@
                         }
                     ]
                 },
-                "Proper noun": {
+                "Noun": {
                     "term": "大学",
                     "pronunciations": [
                         {
@@ -10512,7 +10512,7 @@
     "あれ": [
         {
             "Etymology 1": {
-                "Adjective": {
+                "Pronoun 1": {
                     "term": "あれ",
                     "pronunciations": [
                         {
@@ -10535,7 +10535,7 @@
                         }
                     ]
                 },
-                "Pronoun 1": {
+                "Adjective": {
                     "term": "あれ",
                     "pronunciations": [
                         {
@@ -11924,7 +11924,7 @@
     "いつも": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "いつも",
                     "pronunciations": [
                         {
@@ -11952,7 +11952,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "いつも",
                     "pronunciations": [
                         {
@@ -13417,7 +13417,7 @@
     "嫌い": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "嫌い",
                     "pronunciations": [
                         {
@@ -13440,7 +13440,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "嫌い",
                     "pronunciations": [
                         {
@@ -14689,7 +14689,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Prefix": {
                     "term": "手",
                     "pronunciations": [
                         {
@@ -14728,7 +14728,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Suffix": {
                     "term": "手",
                     "pronunciations": [
                         {
@@ -15055,7 +15055,7 @@
     "七": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Numeral 1": {
                     "term": "七",
                     "pronunciations": [
                         {
@@ -15077,7 +15077,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Proper noun": {
                     "term": "七",
                     "pronunciations": [
                         {
@@ -15508,7 +15508,7 @@
     "大切": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "大切",
                     "pronunciations": [
                         {
@@ -15531,7 +15531,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "大切",
                     "pronunciations": [
                         {
@@ -15925,7 +15925,7 @@
                     ],
                     "usage-notes": "The 〇 spelling is more common in numeric notation."
                 },
-                "Numeral": {
+                "Proper noun": {
                     "term": "零",
                     "pronunciations": [
                         {
@@ -17360,7 +17360,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Verb": {
                     "term": "結構",
                     "pronunciations": [
                         {
@@ -17403,7 +17403,7 @@
                         }
                     ]
                 },
-                "Verb": {
+                "Adjective": {
                     "term": "結構する",
                     "pronunciations": [
                         {
@@ -18310,7 +18310,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Counter 1": {
                     "term": "頭",
                     "pronunciations": [
                         {
@@ -18338,7 +18338,7 @@
                         }
                     ]
                 },
-                "Counter 1": {
+                "Noun 2": {
                     "term": "頭",
                     "pronunciations": [
                         {
@@ -18508,7 +18508,7 @@
                 }
             },
             "Etymology 11": {
-                "Noun 11": {
+                "Counter 2": {
                     "term": "頭",
                     "pronunciations": [
                         {
@@ -18527,7 +18527,7 @@
                         }
                     ]
                 },
-                "Counter 2": {
+                "Noun 11": {
                     "term": "頭",
                     "pronunciations": [
                         {
@@ -18866,7 +18866,7 @@
     "たいへん": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "大変",
                     "pronunciations": [
                         {
@@ -18892,7 +18892,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Adverb": {
                     "term": "大変",
                     "pronunciations": [
                         {
@@ -18933,7 +18933,7 @@
                     ],
                     "usage-notes": "The sense of \"difficult\" is commonly used in conversation to empathize with someone else's troubles."
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "大変",
                     "pronunciations": [
                         {
@@ -19320,7 +19320,7 @@
                 }
             },
             "Etymology 2": {
-                "Affix": {
+                "Proper noun": {
                     "term": "隣",
                     "pronunciations": [
                         {
@@ -19390,7 +19390,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 1": {
+                "Counter": {
                     "term": "次",
                     "pronunciations": [
                         {
@@ -19406,7 +19406,7 @@
                         }
                     ]
                 },
-                "Counter": {
+                "Noun 1": {
                     "term": "次",
                     "pronunciations": [
                         {
@@ -19903,7 +19903,7 @@
                         }
                     ]
                 },
-                "Verb": {
+                "Interjection": {
                     "term": "始め",
                     "pronunciations": [
                         {
@@ -19923,7 +19923,7 @@
                         }
                     ]
                 },
-                "Interjection": {
+                "Verb": {
                     "term": "始め",
                     "pronunciations": [
                         {
@@ -19998,7 +19998,7 @@
                         }
                     ]
                 },
-                "Verb": {
+                "Interjection": {
                     "term": "始め",
                     "pronunciations": [
                         {
@@ -20018,7 +20018,7 @@
                         }
                     ]
                 },
-                "Interjection": {
+                "Verb": {
                     "term": "始め",
                     "pronunciations": [
                         {
@@ -20273,7 +20273,7 @@
                     ],
                     "usage-notes": "Used primarily by women of the red-light districts of the Edo period.[1]"
                 },
-                "Suffix": {
+                "Pronoun": {
                     "term": "さま",
                     "pronunciations": [
                         {
@@ -21253,7 +21253,7 @@
                     ],
                     "usage-notes": "Note that, while mizu is the most general Japanese term for “water”, it does refer specifically to “water that is not hot”.  Meanwhile, the word 湯 (yu) refers specifically to “hot water”.  Consider 水風呂 (mizu-buro, “cold-water bath”), contrasting with 風呂 (furo, “bath”, implying hot water)."
                 },
-                "Prefix": {
+                "Proper noun 1": {
                     "term": "水",
                     "pronunciations": [
                         {
@@ -21320,7 +21320,7 @@
                         }
                     ]
                 },
-                "Affix 2": {
+                "Proper noun 2": {
                     "term": "水",
                     "pronunciations": [
                         {
@@ -22255,7 +22255,7 @@
     "体": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Counter": {
                     "term": "体",
                     "pronunciations": [
                         {
@@ -22283,7 +22283,7 @@
                         }
                     ]
                 },
-                "Counter": {
+                "Noun 1": {
                     "term": "体",
                     "pronunciations": [
                         {
@@ -22426,7 +22426,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Prefix": {
                     "term": "半",
                     "pronunciations": [
                         {
@@ -22457,7 +22457,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Suffix": {
                     "term": "半",
                     "pronunciations": [
                         {
@@ -22717,7 +22717,7 @@
     "一緒": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "一緒",
                     "pronunciations": [
                         {
@@ -22740,7 +22740,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "一緒",
                     "pronunciations": [
                         {
@@ -23252,7 +23252,7 @@
         },
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Numeral 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23280,7 +23280,7 @@
                         }
                     ]
                 },
-                "Affix 1": {
+                "Suffix": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23320,7 +23320,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Affix 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23351,7 +23351,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Proper noun 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23395,7 +23395,7 @@
                         }
                     ]
                 },
-                "Affix 2": {
+                "Proper noun 2": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23431,7 +23431,7 @@
                 }
             },
             "Etymology 3": {
-                "Prefix": {
+                "Numeral 2": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23469,7 +23469,7 @@
                         }
                     ]
                 },
-                "Numeral 2": {
+                "Prefix": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -23660,7 +23660,7 @@
     "上手": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective 1": {
                     "term": "上手",
                     "pronunciations": [
                         {
@@ -23693,7 +23693,7 @@
                         }
                     ]
                 },
-                "Adjective 1": {
+                "Noun 1": {
                     "term": "上手",
                     "pronunciations": [
                         {
@@ -23740,7 +23740,7 @@
                 }
             },
             "Etymology 4": {
-                "Noun 4": {
+                "Adjective 3": {
                     "term": "上手",
                     "pronunciations": [
                         {
@@ -23772,7 +23772,7 @@
                         }
                     ]
                 },
-                "Adjective 3": {
+                "Noun 4": {
                     "term": "上手",
                     "pronunciations": [
                         {
@@ -24795,7 +24795,7 @@
                 }
             },
             "Etymology 2": {
-                "Interjection": {
+                "Conjunction": {
                     "term": "では",
                     "pronunciations": [
                         {
@@ -24811,7 +24811,7 @@
                         }
                     ]
                 },
-                "Conjunction": {
+                "Interjection": {
                     "term": "では",
                     "pronunciations": [
                         {
@@ -25517,7 +25517,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Proper noun 1": {
                     "term": "元",
                     "pronunciations": [
                         {
@@ -25536,7 +25536,7 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
+                "Noun 2": {
                     "term": "元",
                     "pronunciations": [
                         {
@@ -25724,7 +25724,7 @@
                 }
             },
             "Etymology 2": {
-                "Interjection": {
+                "Conjunction": {
                     "term": "じゃ",
                     "pronunciations": [
                         {
@@ -25747,7 +25747,7 @@
                         }
                     ]
                 },
-                "Conjunction": {
+                "Interjection": {
                     "term": "じゃ",
                     "pronunciations": [
                         {
@@ -25789,7 +25789,7 @@
     "服": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Counter": {
                     "term": "服",
                     "pronunciations": [
                         {
@@ -25811,7 +25811,7 @@
                         }
                     ]
                 },
-                "Counter": {
+                "Noun": {
                     "term": "服",
                     "pronunciations": [
                         {
@@ -26054,7 +26054,7 @@
     "暇": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective": {
                     "term": "暇",
                     "pronunciations": [
                         {
@@ -26076,7 +26076,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun 1": {
                     "term": "暇",
                     "pronunciations": [
                         {
@@ -26449,7 +26449,7 @@
     "元気": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "元気",
                     "pronunciations": [
                         {
@@ -26497,7 +26497,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "元気",
                     "pronunciations": [
                         {
@@ -26777,7 +26777,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Proper noun": {
                     "term": "千",
                     "pronunciations": [
                         {
@@ -27468,7 +27468,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Proper noun": {
                     "term": "山",
                     "pronunciations": [
                         {
@@ -27489,7 +27489,7 @@
                 }
             },
             "Etymology 2": {
-                "Affix": {
+                "Suffix": {
                     "term": "山",
                     "pronunciations": [
                         {
@@ -27514,7 +27514,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Affix": {
                     "term": "山",
                     "pronunciations": [
                         {
@@ -27558,7 +27558,7 @@
     "十": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Numeral 1": {
                     "term": "十",
                     "pronunciations": [
                         {
@@ -27577,7 +27577,7 @@
                         }
                     ]
                 },
-                "Affix 1": {
+                "Noun": {
                     "term": "十",
                     "pronunciations": [
                         {
@@ -27611,7 +27611,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Affix 1": {
                     "term": "十",
                     "pronunciations": [
                         {
@@ -27842,7 +27842,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Affix": {
                     "term": "塩",
                     "pronunciations": [
                         {
@@ -27861,7 +27861,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Noun 2": {
                     "term": "塩",
                     "pronunciations": [
                         {
@@ -28163,7 +28163,7 @@
                 }
             },
             "Etymology 2": {
-                "Adjective": {
+                "Prefix": {
                     "term": "白",
                     "pronunciations": [
                         {
@@ -28188,7 +28188,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Adjective": {
                     "term": "白",
                     "pronunciations": [
                         {
@@ -28541,7 +28541,7 @@
     "それ": [
         {
             "Etymology 1": {
-                "Interjection": {
+                "Pronoun": {
                     "term": "それ",
                     "pronunciations": [
                         {
@@ -28560,7 +28560,7 @@
                         }
                     ]
                 },
-                "Pronoun": {
+                "Interjection": {
                     "term": "それ",
                     "pronunciations": [
                         {
@@ -28624,7 +28624,7 @@
                         }
                     ]
                 },
-                "Proper noun 1": {
+                "Verb": {
                     "term": "南",
                     "pronunciations": [
                         {
@@ -28670,7 +28670,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Proper noun 3": {
                     "term": "南",
                     "pronunciations": [
                         {
@@ -28761,7 +28761,7 @@
     "一": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Numeral 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28789,7 +28789,7 @@
                         }
                     ]
                 },
-                "Affix 1": {
+                "Suffix": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28829,7 +28829,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Affix 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28860,7 +28860,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Proper noun 1": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28904,7 +28904,7 @@
                         }
                     ]
                 },
-                "Affix 2": {
+                "Proper noun 2": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28940,7 +28940,7 @@
                 }
             },
             "Etymology 3": {
-                "Prefix": {
+                "Numeral 2": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -28978,7 +28978,7 @@
                         }
                     ]
                 },
-                "Numeral 2": {
+                "Prefix": {
                     "term": "一",
                     "pronunciations": [
                         {
@@ -29117,7 +29117,7 @@
                 }
             },
             "Etymology 4": {
-                "Affix": {
+                "Proper noun 2": {
                     "term": "妹",
                     "pronunciations": [
                         {
@@ -29200,7 +29200,7 @@
                     ],
                     "usage-notes": "This term is often spelled in hiragana. As a suffix, attach after the 連用形 (ren'yōkei) or the -masu form of the verb."
                 },
-                "Conjunction": {
+                "Suffix": {
                     "term": "掛ける",
                     "pronunciations": [
                         {
@@ -29221,7 +29221,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Conjunction": {
                     "term": "掛ける",
                     "pronunciations": [
                         {
@@ -29705,7 +29705,7 @@
                 }
             },
             "Etymology 4": {
-                "Counter": {
+                "Affix 2": {
                     "term": "色",
                     "pronunciations": [
                         {
@@ -29728,7 +29728,7 @@
                         }
                     ]
                 },
-                "Affix 2": {
+                "Counter": {
                     "term": "色",
                     "pronunciations": [
                         {
@@ -30026,7 +30026,7 @@
     "年": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Counter": {
                     "term": "年",
                     "pronunciations": [
                         {
@@ -30052,7 +30052,7 @@
                         }
                     ]
                 },
-                "Counter": {
+                "Noun 1": {
                     "term": "年",
                     "pronunciations": [
                         {
@@ -30336,7 +30336,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Proper noun 2": {
                     "term": "猛",
                     "pronunciations": [
                         {
@@ -30470,7 +30470,7 @@
                 }
             },
             "Etymology 3": {
-                "Noun 2": {
+                "Affix 2": {
                     "term": "風",
                     "pronunciations": [
                         {
@@ -30501,7 +30501,7 @@
                         }
                     ]
                 },
-                "Affix 2": {
+                "Noun 2": {
                     "term": "風",
                     "pronunciations": [
                         {
@@ -31176,7 +31176,7 @@
     "いろいろ": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "色",
                     "pronunciations": [
                         {
@@ -31195,7 +31195,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Adverb": {
                     "term": "色",
                     "pronunciations": [
                         {
@@ -31214,7 +31214,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "色",
                     "pronunciations": [
                         {
@@ -31355,7 +31355,7 @@
     "大勢": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adverb": {
                     "term": "大勢",
                     "pronunciations": [
                         {
@@ -31382,7 +31382,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun 1": {
                     "term": "大勢",
                     "pronunciations": [
                         {
@@ -31912,7 +31912,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Suffix 2": {
                     "term": "殿",
                     "pronunciations": [
                         {
@@ -31934,7 +31934,7 @@
                         }
                     ]
                 },
-                "Suffix 2": {
+                "Affix": {
                     "term": "殿",
                     "pronunciations": [
                         {
@@ -32462,7 +32462,7 @@
     "どれ": [
         {
             "Etymology 1": {
-                "Interjection": {
+                "Pronoun": {
                     "term": "どれ",
                     "pronunciations": [
                         {
@@ -32478,7 +32478,7 @@
                         }
                     ]
                 },
-                "Pronoun": {
+                "Interjection": {
                     "term": "どれ",
                     "pronunciations": [
                         {
@@ -32718,7 +32718,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Suffix 2": {
                     "term": "前",
                     "pronunciations": [
                         {
@@ -32813,7 +32813,7 @@
                 }
             },
             "Etymology 3": {
-                "Noun": {
+                "Numeral 3": {
                     "term": "四",
                     "pronunciations": [
                         {
@@ -32832,7 +32832,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Noun": {
                     "term": "四",
                     "pronunciations": [
                         {
@@ -32860,7 +32860,7 @@
                         }
                     ]
                 },
-                "Numeral 3": {
+                "Affix": {
                     "term": "四",
                     "pronunciations": [
                         {
@@ -32907,7 +32907,7 @@
     "下手": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective 1": {
                     "term": "下手",
                     "pronunciations": [
                         {
@@ -32934,7 +32934,7 @@
                         }
                     ]
                 },
-                "Adjective 1": {
+                "Noun 1": {
                     "term": "下手",
                     "pronunciations": [
                         {
@@ -32981,7 +32981,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Adjective 2": {
                     "term": "下手",
                     "pronunciations": [
                         {
@@ -33019,7 +33019,7 @@
                         }
                     ]
                 },
-                "Adjective 2": {
+                "Noun 2": {
                     "term": "下手",
                     "pronunciations": [
                         {
@@ -33190,7 +33190,7 @@
     "たくさん": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adjective 1": {
                     "term": "沢山",
                     "pronunciations": [
                         {
@@ -33579,7 +33579,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Proper noun 1": {
                     "term": "青",
                     "pronunciations": [
                         {
@@ -34010,7 +34010,7 @@
     "りっぱ": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "立派",
                     "pronunciations": [
                         {
@@ -34033,7 +34033,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "立派",
                     "pronunciations": [
                         {
@@ -34155,7 +34155,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Suffix": {
                     "term": "朝",
                     "pronunciations": [
                         {
@@ -34192,7 +34192,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Affix": {
                     "term": "朝",
                     "pronunciations": [
                         {
@@ -34896,7 +34896,7 @@
     "毎年": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adverb 1": {
                     "term": "毎年",
                     "pronunciations": [
                         {
@@ -34916,7 +34916,7 @@
                         }
                     ]
                 },
-                "Adverb 1": {
+                "Noun 1": {
                     "term": "毎年",
                     "pronunciations": [
                         {
@@ -34938,7 +34938,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Adverb 2": {
                     "term": "毎年",
                     "pronunciations": [
                         {
@@ -34958,7 +34958,7 @@
                         }
                     ]
                 },
-                "Adverb 2": {
+                "Noun 2": {
                     "term": "毎年",
                     "pronunciations": [
                         {
@@ -35438,7 +35438,7 @@
         },
         {
             "Etymology 1": {
-                "Noun": {
+                "Adverb": {
                     "term": "段",
                     "pronunciations": [
                         {
@@ -35454,7 +35454,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "段",
                     "pronunciations": [
                         {
@@ -36163,7 +36163,7 @@
     "九": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Numeral 1": {
                     "term": "九",
                     "pronunciations": [
                         {
@@ -36185,7 +36185,7 @@
                         }
                     ]
                 },
-                "Numeral 1": {
+                "Noun 1": {
                     "term": "九",
                     "pronunciations": [
                         {
@@ -36206,7 +36206,7 @@
                 }
             },
             "Etymology 2": {
-                "Noun 2": {
+                "Numeral 2": {
                     "term": "九",
                     "pronunciations": [
                         {
@@ -36228,7 +36228,7 @@
                         }
                     ]
                 },
-                "Numeral 2": {
+                "Noun 2": {
                     "term": "九",
                     "pronunciations": [
                         {
@@ -36358,7 +36358,7 @@
     "あまり": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "余り",
                     "pronunciations": [
                         {
@@ -36381,7 +36381,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Adverb": {
                     "term": "余り",
                     "pronunciations": [
                         {
@@ -36415,7 +36415,7 @@
                     ],
                     "usage-notes": "This is used both as a -na adjective with the な (na) attributive particle, and as an attributive noun followed by の (no)."
                 },
-                "Adverb": {
+                "Noun": {
                     "term": "余り",
                     "pronunciations": [
                         {
@@ -37487,7 +37487,7 @@
     "今朝": [
         {
             "Etymology 1": {
-                "Noun 1": {
+                "Adverb": {
                     "term": "今朝",
                     "pronunciations": [
                         {
@@ -37507,7 +37507,7 @@
                         }
                     ]
                 },
-                "Adverb": {
+                "Noun 1": {
                     "term": "今朝",
                     "pronunciations": [
                         {
@@ -37709,7 +37709,7 @@
                 }
             },
             "Etymology 3": {
-                "Affix 2": {
+                "Suffix": {
                     "term": "人",
                     "pronunciations": [
                         {
@@ -37731,7 +37731,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Affix 2": {
                     "term": "人",
                     "pronunciations": [
                         {
@@ -38183,7 +38183,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Pronoun": {
                     "term": "兄",
                     "pronunciations": [
                         {
@@ -38202,7 +38202,7 @@
                         }
                     ]
                 },
-                "Pronoun": {
+                "Suffix": {
                     "term": "兄",
                     "pronunciations": [
                         {
@@ -38803,7 +38803,7 @@
     "同じ": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective 1": {
                     "term": "同じ",
                     "pronunciations": [
                         {
@@ -38830,7 +38830,7 @@
                         }
                     ]
                 },
-                "Adjective 1": {
+                "Adverb 1": {
                     "term": "同じ",
                     "pronunciations": [
                         {
@@ -38861,7 +38861,7 @@
                     ],
                     "usage-notes": "In modern Japanese, the adjective normally follows -na inflection (形容動詞), but modifies a noun directly without the suffix な (-na).\n同じ空の下 ― onaji sora no shita ― under the same sky\nWhen attaching ので or のに, な is still needed as in 同じなので or 同じなのに."
                 },
-                "Adverb 1": {
+                "Noun": {
                     "term": "同じ",
                     "pronunciations": [
                         {
@@ -39430,7 +39430,7 @@
                         }
                     ]
                 },
-                "Affix": {
+                "Proper noun 1": {
                     "term": "園",
                     "pronunciations": [
                         {
@@ -39631,7 +39631,7 @@
                         }
                     ]
                 },
-                "Suffix": {
+                "Prefix": {
                     "term": "所",
                     "pronunciations": [
                         {
@@ -39647,7 +39647,7 @@
                         }
                     ]
                 },
-                "Prefix": {
+                "Suffix": {
                     "term": "所",
                     "pronunciations": [
                         {
@@ -39793,7 +39793,7 @@
     "まっすぐ": [
         {
             "Etymology 1": {
-                "Noun": {
+                "Adjective": {
                     "term": "真っ直ぐ",
                     "pronunciations": [
                         {
@@ -39818,7 +39818,7 @@
                         }
                     ]
                 },
-                "Adjective": {
+                "Noun": {
                     "term": "真っ直ぐ",
                     "pronunciations": [
                         {
