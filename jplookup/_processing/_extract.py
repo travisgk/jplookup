@@ -1,5 +1,18 @@
 """
+Filename: jplookup._processing._extract.py
+Author: TravisGK
+Date: 2025-03-10
 
+Description: This file defines a function that can be given a
+             conjugated verb and will do its best to guess
+             the unconjugated form of the verb.
+
+             This is used when a Wiktionary page couldn't be found
+             for the searched term, so the program assumes it could
+             be a conjugated verb and needs the dictionary form.
+
+Version: 1.0
+License: MIT
 """
 
 from jplookup._cleanstr._textwork import (
@@ -84,18 +97,26 @@ def extract_data(layout: dict):
                 current_ul = current_ul.find_next("ul")
 
         """
-        Step 3) Searches for headwords under each Part of Speech header.
+        Step 3) Searches for headwords under each Part of Speech header
+                and places Usage Notes, 
         """
         u_has_been_used = [False for _ in e["usage-notes"]]
         for i, s_header in enumerate(e["speech-headers"]):
+            """
+            Step 3a) Extracts information from the headword span
+                     and gets the Usage Notes for this Etymology.
+            """
+            # looks for the first next <span class="headword-line">.
             headword = None
             headword_span = s_header.find_next("span", class_="headword-line")
 
+            # determines where this etymology information ends.
             if i == len(e["speech-headers"]) - 1:
                 s_end_line_num = 9999999
             else:
                 s_end_line_num = e["speech-headers"][i + 1].sourceline
 
+            # places a Usage Notes header.
             usage_notes = None
             for j, u_header in enumerate(e["usage-headers"]):
                 if (
@@ -107,6 +128,7 @@ def extract_data(layout: dict):
                     break
 
             if headword_span is not None:
+                # grabs information from the headword span.
                 headword = str(headword_span).strip()
                 period_index = headword.find("•")
 
@@ -124,9 +146,14 @@ def extract_data(layout: dict):
                             if percent_japanese(contents) > 0.9:
                                 counter = contents
 
+                # removes junk space from headword information.
                 headword = remove_tags(headword).replace("\u0020", "")
+
+                # embeds the counter noun into the headword directly.
                 if counter is not None:
                     headword += f" counter:{counter}"
+
+                # adds the headword string and usage notes.
                 data[key]["headwords"].append(headword)
                 data[key]["usage-notes"].append(
                     "" if usage_notes is None else usage_notes
@@ -135,18 +162,18 @@ def extract_data(layout: dict):
                 continue  # no headword span found. skips.
 
             """
-            Searches for an ordered list that contains definitions.
+            Step 3b) Searches for an ordered list that contains definitions.
             """
             ol = headword_span.find_next("ol")
             definitions = []
-            if ol is not None:
+            if ol is not None:  # the <ol> with definitions was found.
                 ol_str = remove_unwanted_html(str(ol))
                 li_contents = extract_tag_contents(ol_str, "li")
 
-                # iterates through every item in the ordered list.
+                # iterates through every listed item in the ordered list.
                 for li in li_contents:
                     if len(li) <= 9 or '<div class="citation-whole">' in li:
-                        continue
+                        continue  # ignores tiny <li>'s and other irrelevants.
 
                     entry = {"definition": ""}
 
@@ -160,13 +187,16 @@ def extract_data(layout: dict):
                     if IGNORE_GIVEN_NAMES_AND_SURNAMES and any(
                         li.startswith(s) for s in GIVEN_NAMES_AND_SURNAMES
                     ):
-                        continue
+                        continue  # skips.
 
+                    # the Definitons beginning with this phrase are ignored.
                     DUMMY_PHRASE = "This term needs a translation to English."
+                    if li.startswith(DUMMY_PHRASE):
+                        continue  # skips.
                     if li.startswith("("):
                         closed_paren = li.find(") ")
                         if li[closed_paren + 2 :].startswith(DUMMY_PHRASE):
-                            continue
+                            continue  # skips.
 
                     # looks for an embedded <ol> inside the current <ol>.
                     sub_ol_start = li.find("<ol>")
@@ -191,9 +221,13 @@ def extract_data(layout: dict):
                     tag_name = "dd"
                     dd_index = li.find("<dd>")
                     if dd_index < 0:
+                        # searches for a <dl> if a <dd> wasn't found.
                         dd_index = li.find("<dl>")
 
                     if dd_index >= 0:
+                        # a <dd> or <dl> was found.
+                        # the <li> string is already stripped of its HTML tag
+                        # on the left, so only the right needs to be clipped.
                         entry["definition"] = li[:dd_index].strip()
                         dd_tags = extract_tag_contents(li, "dd")
                         sublines = []

@@ -27,7 +27,10 @@ def _remove_alt_spellings(data):
 
 
 def _sort_dict_by_trailing_number(data):
-    """Sorts a dictionary by the number at the end of each key and returns a new normal dictionary."""
+    """
+    Sorts a dictionary by the number at the end of each key
+    and returns a new normal dictionary.
+    """
 
     def extract_number(key):
         match = re.search(r"(\d+)$", key)  # Find the trailing number
@@ -52,7 +55,8 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if len(clean_data) == 0:
         return None
 
-    result = None  # temp var used to make use
+    # A temp var is used to check for an early return later.
+    result = None
     if len(clean_data) == 1:
         result = clean_data
 
@@ -76,28 +80,32 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
         }
 
     """
-    Step 2) For any redirects, any definitions with specified kanji
+    Step 2) For any redirects, any definitions with specified context kanji
             that DO NOT match the original term are removed;
             those without kanji or with matching kanji remain.
     """
-    for entry in clean_data:  # [1:]
+    for entry in clean_data:
         for etym in entry.values():
             if etym is None:
                 continue
 
             for part_of_speech, contents in etym.items():
                 if part_of_speech == "alternative-spellings":
-                    continue
+                    continue  # skips alternative spellings.
 
                 defs = contents.get("definitions")
                 if defs is None:
-                    continue
+                    continue  # skips Parts of Speech w/o Definitions.
 
+                # Iterates through all the Definitions
+                # and only takes Definitions that either have
+                # no context specification at all or whose context
+                # specification matches the original term.
                 def_indices_to_remove = []
                 for i, definition in enumerate(defs):
                     def_str = definition["definition"]
                     if is_japanese_char(def_str[0]):
-                        # there are kanji specifiers for this definition;
+                        # There are kanji specifiers for this definition;
                         # the program ensures only relevant definitions
                         # of child entries are included.
                         colon_index = def_str.find(":")
@@ -105,7 +113,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                             kanji_terms = def_str[:colon_index].split(",")
                             kanji_terms = [k.strip() for k in kanji_terms]
 
-                            # removes the context specifiers from definitions.
+                            # Removes the context specifiers from definitions.
                             end_i = colon_index + 1
                             definition["definition"] = def_str[end_i:].strip()
                             if original_term not in kanji_terms:
@@ -119,58 +127,57 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     if result is not None:
         return result
 
-    successfully_redirected = [False for _ in clean_data]
+    """
+    Step 3) Goes through each wiki redirect Entry scraped in the given clean data
+            (that comes after the root entry) and sees which Etymology is
+            referred to by each wiki Entry's referal in <redirects>.
 
-    # goes through each wiki entry scraped in the given clean data
-    # that comes after the root entry.
+            If the redirect Entry has more than one Etymology,
+            then the redirect's Etymology to be used is found
+            by matching up the original term 
+            with the redirect Entry's given alternative spellings.
+    """
+    was_redirected = [False for _ in clean_data]
     for i, entry in enumerate(clean_data[1:]):
         index = i + 1
 
-        # goes through each contained etymology header.
+        # Goes through each contained Etymology header
+        # in the subsequent Entry to look for alternative spellings.
         for etym_key, etymology in entry.items():
-            new_etym_header = None
-            new_etym = None
             alt_spellings = etymology.get("alternative-spellings")
             if alt_spellings is None:
                 continue
 
-            # goes through each part-of-speech contents.
+            new_etym_header = None
+            new_etym = None
             for part_of_speech, word_data in etymology.items():
                 if part_of_speech == "alternative-spellings":
-                    continue  # can prob move removal of alt spellings to prior to call and then i can do away with this if statement
+                    continue
 
-                term = word_data.get("term")
+                term = word_data.get("term")  # gets the redirect etym's term.
                 if term in redirect_keys and (
                     len(entry) == 1 or (original_term in alt_spellings)
                 ):
+                    # This is the Etymology that's being referred to.
                     new_etym_header = redirects[term]
                     new_etym = etymology
                     break
 
             if new_etym is not None:
                 clean_data[0][new_etym_header] = new_etym
-                successfully_redirected[index] = True
+                was_redirected[index] = True
                 break
 
-    clean_data = [e for i, e in enumerate(clean_data) if not successfully_redirected[i]]
-
     """
-    empty_keys = []
-    for key, value in enumerate(clean_data[0].items()):
-        if value is None:
-            empty_keys.append(key)
-
-    if len(empty_keys) == len(clean_data) - 1:
-        for i, key in enumerate(empty_keys):
-            clean_data[0][key] = clean_data[i + 1][list(clean_data[i + 1].keys())[0]]
-        clean_data = clean_data[:1]
+    Step 4) Cleans up the data and returns the results.
     """
-
+    clean_data = [e for i, e in enumerate(clean_data) if not was_redirected[i]]
     clean_data = [item for item in clean_data if item != {}]
     clean_data[0] = _sort_dict_by_trailing_number(clean_data[0])
     clean_data = _remove_alt_spellings(clean_data)
 
     if all(clean_data[0][key] is None for key in clean_data[0].keys()):
+        # snips off the dummy Entry if it's all blanks.
         clean_data = clean_data[1:]
 
     return clean_data

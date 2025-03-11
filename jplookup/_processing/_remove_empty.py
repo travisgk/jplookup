@@ -1,3 +1,17 @@
+"""
+Filename: jplookup._processing._remove_empty.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines a function that will remove
+             all empty Parts of Speech, then will remove
+             all empty Etymologies, and then optionally will remove
+             all empty Entries from the given list of Wiktionary Entries.
+
+Version: 1.0
+License: MIT
+"""
+
 import copy
 
 

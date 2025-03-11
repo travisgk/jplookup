@@ -1,3 +1,20 @@
+"""
+Filename: jplookup._scrape.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines the primary function that scrapes
+             information about a Japanese term from its English Wiktionary
+             page and returns it in an easy-to-read format for the user.
+
+             The idea is to give back the information on the main Wiktionary
+             page while also incorporating the relevant Etymologies referred
+             to on separate Wiktionary pages.
+
+Version: 1.0
+License: MIT
+"""
+
 import time
 import requests
 from ._cleanstr._textwork import (
@@ -13,7 +30,12 @@ from ._processing._tools._redirects import (
 from ._scrape_word_info import *
 
 
-def scrape(term: str, depth: int = 0, original_term=None, sleep_seconds=1.5) -> list:
+def scrape(
+    term: str,
+    depth: int = 0,
+    original_term=None,
+    sleep_seconds=5,
+) -> list:
     MAX_DEPTH = 1  # not inclusive.
 
     if depth > 0:

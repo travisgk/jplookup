@@ -1,5 +1,23 @@
+"""
+Filename: jplookup._cleanstr._dictform.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines a function that can be given a
+             conjugated verb and will do its best to guess
+             the unconjugated form of the verb.
+
+             This is used when a Wiktionary page couldn't be found
+             for the searched term, so the program assumes it could
+             be a conjugated verb and needs the dictionary form.
+
+Version: 1.0
+License: MIT
+"""
+
+
 def get_dictionary_form(word):
-    # Expanded list of irregular verbs & their dictionary forms
+    # Expanded list of irregular verbs & their dictionary forms.
     irregular_verbs = {
         #
         # する and its variations
@@ -134,6 +152,6 @@ def get_dictionary_form(word):
 
     for end, base in ichidan_mappings.items():
         if word.endswith(end):
-            return word[: -len(end)] + base  # Restore dictionary form
+            return word[: -len(end)] + base  # restores dictionary form.
 
-    return None  # Not recognized as a conjugated verb
+    return None  # not recognized as a conjugated verb.

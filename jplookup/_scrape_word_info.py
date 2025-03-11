@@ -1,3 +1,15 @@
+"""
+Filename: jplookup._scrape.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines the helper function that actually
+             retrieves raw data from the Wiktionary HTML.
+
+Version: 1.0
+License: MIT
+"""
+
 from bs4 import BeautifulSoup
 from ._processing._clean import clean_data
 from ._processing._extract import extract_data
@@ -26,7 +38,12 @@ PARTS_OF_SPEECH = [
 HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
 
-def get_alternative_term_from_table(table_obj) -> str:
+def get_alternative_term_from_table(table_obj):
+    """
+    Returns the text that's in brackets of a specific table element
+    which contains some form of alternative spelling.
+    """
+
     text = table_obj.get_text()
     declaring_index = text.find("For pronunciation and definitions of")
 
@@ -43,6 +60,11 @@ def get_alternative_term_from_table(table_obj) -> str:
 
 
 def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
+    """
+    Returns a list of dictionaries, with each dict representing
+    a page from Wiktionary. This marks down the locations of various HTML
+    elements and grabs some raw HTML contents.
+    """
     """
     Step 1) Looks for the source line where the Japanese ends.
     """

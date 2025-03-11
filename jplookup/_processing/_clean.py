@@ -211,7 +211,7 @@ def clean_data(word_info: list, term: str):
                     # the found sublist will be included
                     # along with its above definition text.
                     if dd_index >= 0:
-                        def_text = def_text[:dd_index]
+                        def_text = def_text[:dd_index].strip()
 
                     new_def = {"definition": def_text}
                     percent_jp = [percent_japanese(s) for s in sublines]

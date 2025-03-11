@@ -1,4 +1,16 @@
-import random
+"""
+Filename: jplookup._cleanstr._textwork.py
+Author: TravisGK
+Date: 2025-03-10
+
+Description: This file defines functions for identifying characters,
+             removing specific parts of HTML,
+             and extracting text from within HTML.
+
+Version: 1.0
+License: MIT
+"""
+
 import re
 from bs4 import BeautifulSoup
 
@@ -43,13 +55,14 @@ def percent_japanese(text: str):
 
 # Text removal functions.
 def remove_text_in_brackets(text: str) -> str:
-    """Returns text with any text in [..] removed."""
+    """Returns text with any text in [...] removed."""
     return re.sub(r"\[.*?\]", "", text)
 
 
 def shorten_html(html: str) -> str:
     """
-    Returns the HTML text chopped down
+    Returns the Wiktionary HTML text chopped down
+    to only the Japanese section,
     so that BeautifulSoup can parse it much more quickly.
     """
     DIV_TAG = '<div class="mw-heading mw-heading2">'
@@ -121,14 +134,16 @@ def remove_alternative_spellings(data):
     keys from nested dictionaries and lists and returns the result.
     """
     if isinstance(data, dict):
-        # Remove the key if it exists
+        # Removes the key if it exists.
         data.pop("alternative-spellings", None)
-        # Recur for each value in the dictionary
+
+        # Runs recursion for each key/value in the dict.
         for key, value in data.items():
             data[key] = remove_alternative_spellings(value)
     elif isinstance(data, list):
-        # Recur for each element in the list
+        # Runs recursion for each list.
         data = [remove_alternative_spellings(item) for item in data]
+
     return data
 
 

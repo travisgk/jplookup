@@ -16,11 +16,12 @@ def main():
     if MODE == "testing":
         for i, c in enumerate(
             [
-                "煩い",
-                "中",
-                "多い",
-                "曇る",
-                "お兄さん",
+                "これ",
+                "どうして",
+                # "中",
+                # "多い",
+                # "曇る",
+                # "お兄さん",
             ]
         ):
             time.sleep(AGGRESSIVENESS)

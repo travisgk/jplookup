@@ -42,19 +42,25 @@ def extract_info_from_headwords(headwords: list, prefers_katakana: bool = False)
     """
     results = [separate_term_and_furigana(h) for h in headwords]
 
-    # gets the defining term for each headword.
+    """
+    Step 1) Retrieves the terms from the headwords,
+            gets the furigana for each term
+            and then uses both to generate the kana
+            transcription for the term.
+    """
+    # Gets the defining term for each headword.
     terms = [r[0] for r in results]
     if len(terms) == 0:
         return None
 
-    # gets a list of furigana for each kanji.
+    # Gets a list of furigana for each kanji.
     furis = []
     for r in results:
         local_furi = r[1]
         local_furi = ["".join(f) for f in local_furi]
         furis.append(local_furi)
 
-    # gets the kana transcription for each headword.
+    # Gets the kana transcription for each headword.
     kanas = []
     for term, furi in zip(terms, furis):
         kana = ""
@@ -62,10 +68,12 @@ def extract_info_from_headwords(headwords: list, prefers_katakana: bool = False)
             kana += c if is_kana(c) else f
         kanas.append(kana)
 
-    # Headwords whose transcriptions are just one-to-one katakana
-    # conversions are excluded.
+    """
+    Step 2) Headwords whose transcriptions are just one-to-one katakana
+            conversions are excluded.
+    """
     if REMOVE_DUPLICATE_KATAKANA:
-        # determines which indices of <kana> contain
+        # Determines which indices of <kana> contain
         # a transcription in either hiragana or katakana.
         hira_indices, kata_indices = [], []
         for i, r in enumerate(kanas):
@@ -74,14 +82,14 @@ def extract_info_from_headwords(headwords: list, prefers_katakana: bool = False)
             elif is_katakana(r[0]):
                 kata_indices.append(i)
 
-        # converts the hiragana transcriptions to katakana for comparison.
+        # Converts the hiragana transcriptions to katakana for comparison.
         hira_as_kata = {
             i: jaconv.hira2kata(kanas[i])
             for i in range(len(kanas))
             if i in hira_indices
         }
 
-        # iterates through both to find matches between the hiragana strings
+        # Iterates through both to find matches between the hiragana strings
         # and the katakana strings, if a match is found, then one of those
         # will be marked to be removed from the overall list of kana.
         indices_to_remove = []
@@ -90,7 +98,7 @@ def extract_info_from_headwords(headwords: list, prefers_katakana: bool = False)
                 if kanas[i] == hira_as_kata[j]:
                     indices_to_remove.append(j if prefers_katakana else i)
 
-        # updates the lists of furigana and kana.
+        # Updates the lists of furigana and kana.
         if len(indices_to_remove) > 0:
             new_furis, new_kanas = [], []
             for i in range(len(kanas)):
