@@ -27,6 +27,7 @@ from jplookup._cleanstr._textwork import (
 )
 
 IGNORE_GIVEN_NAMES_AND_SURNAMES = True
+IGNORE_SHORT_FOR_DEFINITIONS = True
 GIVEN_NAMES_AND_SURNAMES = [
     "a female given name",
     "a surname",
@@ -183,23 +184,38 @@ def extract_data(layout: dict):
                     li = remove_tags(li, omissions=["ol", "li", "dd"])
                     li = li.strip()
 
-                    # checks if Definition meets standards.
-                    # definitions beginning with certain phrases are ignored.
+                    """
+                    Step 3b.1) Checks if Definition meets standards.
+                    """
+                    # Definitions beginning with certain phrases are ignored.
                     if IGNORE_GIVEN_NAMES_AND_SURNAMES and any(
                         li.startswith(s) for s in GIVEN_NAMES_AND_SURNAMES
                     ):
                         continue  # skips.
 
-                    # the Definitons beginning with this phrase are ignored.
+                    # Definitions beginning with this phrase are ignored.
+                    if li.startswith("Short for "):
+                        continue  # skips.
+
+                    # Definitions beginning with this phrase are ignored.
                     DUMMY_PHRASE = "This term needs a translation to English."
                     if li.startswith(DUMMY_PHRASE):
                         continue  # skips.
+                    else:
+                        # The dummy phrase could still occur after the colon.
+                        colon_index = li.find(":")
+                        if colon_index >= 0:
+                            if li[colon_index + 1 :].strip().startswith(DUMMY_PHRASE):
+                                continue  # skips.
+
                     if li.startswith("("):
                         closed_paren = li.find(") ")
                         if li[closed_paren + 2 :].startswith(DUMMY_PHRASE):
                             continue  # skips.
 
-                    # looks for an embedded <ol> inside the current <ol>.
+                    """
+                    Step 3b.2) Looks for an embedded <ol> inside the current <ol>.
+                    """
                     sub_ol_start = li.find("<ol>")
                     if sub_ol_start >= 0:
                         sub_ol_end = li.rfind("</ol>")
@@ -215,10 +231,12 @@ def extract_data(layout: dict):
                             definitions.append(entry)
                             continue
 
-                    # no sublist is contained.
-                    # searches for any contained <dd> or <dl> tags,
-                    # which can contain synonym and antonym info,
-                    # as well as example sentences.
+                    """
+                    Step 3b.3) By this point, no sublist is contained.
+                               The program will now search for any contained <dd> 
+                               or <dl> tags, which can contain synonym 
+                               and antonym info, as well as example sentences.
+                    """
                     tag_name = "dd"
                     dd_index = li.find("<dd>")
                     if dd_index < 0:
@@ -246,15 +264,16 @@ def extract_data(layout: dict):
                     else:
                         entry["definition"] = li.strip()
 
-                    # removes any text in brackets (usually a date of origin.
-                    # since those are not helpful for learning.
+                    """
+                    Step 3b.4) Removes any text in brackets.
+                               Usually a date of origin.
+                               since those are not helpful for learning,
+                               then finially adds the new entry.
+                    """
                     entry["definition"] = remove_text_in_brackets(
                         entry["definition"]
                     ).strip()
-
-                    # the new definition entry is finally added.
                     definitions.append(entry)
-
             data[key]["definitions"].append(definitions)
 
     return data

@@ -17,6 +17,7 @@ License: MIT
 
 import time
 import requests
+from bs4 import BeautifulSoup
 from ._cleanstr._textwork import (
     remove_further_pronunciations,
     shorten_html,
@@ -27,33 +28,59 @@ from ._processing._tools._redirects import (
     remove_alternative_spellings,
     link_up_redirects,
 )
-from ._scrape_word_info import *
+from ._scrape_entry import *
 
 
 def scrape(
     term: str,
     depth: int = 0,
     original_term=None,
-    sleep_seconds=5,
-) -> list:
+    rc_sleep_seconds=5,
+    force_sleep: bool = False,
+    verbose: bool = True,
+):
+    """Returns either a list or None."""
+    MAX_CONNECT_ATTEMPTS = 3
     MAX_DEPTH = 1  # not inclusive.
 
-    if depth > 0:
+    if depth > 0 or force_sleep:
         # sleeps when doing a recursive loop to prevent getting blocked.
-        time.sleep(sleep_seconds)
+        time.sleep(rc_sleep_seconds)
 
     # Gets the HTML source.
-    url = f"https://en.wiktionary.org/wiki/{term}"
-    headers = {"User-Agent": "Mozilla/5.0"}
-    response = requests.get(url, headers=headers)
-    if response.status_code != 200:
-        print(f"Error {response.status_code}: Could not fetch page for {term}")
-        if depth < MAX_DEPTH:
-            dict_form = get_dictionary_form(term)
-        if dict_form is not None:
-            return scrape(
-                dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds
-            )
+    num_attempts = 0
+    successful = False
+    while num_attempts < MAX_CONNECT_ATTEMPTS:
+        try:
+            url = f"https://en.wiktionary.org/wiki/{term}"
+            headers = {"User-Agent": "Mozilla/5.0"}
+            response = requests.get(url, headers=headers)
+            if response.status_code != 200:
+                if verbose:
+                    print(
+                        f"Error {response.status_code}: "
+                        f"Could not fetch page for {term}"
+                    )
+                if depth < MAX_DEPTH:
+                    dict_form = get_dictionary_form(term)
+                if dict_form is not None:
+                    return scrape(
+                        dict_form,
+                        depth + 1,
+                        original_term,
+                        rc_sleep_seconds=rc_sleep_seconds,
+                    )
+                return None
+            successful = True
+            break
+        except requests.exceptions.HTTPError as e:
+            if verbose:
+                print(f"HTTPError in grabbing Wiktionary contents: {e}")
+                print("You may be scraping too fast!")
+            time.sleep(rc_sleep_seconds)
+            num_attempts += 1
+
+    if not successful:
         return None
 
     clean_text = shorten_html(response.text)
@@ -70,7 +97,8 @@ def scrape(
             break
 
     if japanese_header is None:
-        print("Error: No Japanese header was found on that Wiktionary page.")
+        if verbose:
+            print("Error: No Japanese header was found" "on that Wiktionary page.")
         return None
 
     # Scrapes.
@@ -103,11 +131,18 @@ def scrape(
                 if (results is None or len(results) == 0) and len(next_tables) == 1:
                     # a simple redirect.
                     return scrape(
-                        alternative, 0, alternative, sleep_seconds=sleep_seconds
+                        alternative,
+                        0,
+                        alternative,
+                        rc_sleep_seconds=rc_sleep_seconds,
+                        force_sleep=True,
                     )
 
                 alt_results = scrape(
-                    alternative, depth + 1, original_term, sleep_seconds=sleep_seconds
+                    alternative,
+                    depth + 1,
+                    original_term,
+                    rc_sleep_seconds=rc_sleep_seconds,
                 )
 
                 if alt_results is not None:
@@ -120,7 +155,10 @@ def scrape(
         dict_form = get_dictionary_form(term)
         if dict_form is not None:
             return scrape(
-                dict_form, depth + 1, original_term, sleep_seconds=sleep_seconds
+                dict_form,
+                depth + 1,
+                original_term,
+                rc_sleep_seconds=rc_sleep_seconds,
             )
 
     # the additional call may be unnecessary...

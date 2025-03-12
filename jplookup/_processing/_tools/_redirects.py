@@ -15,6 +15,8 @@ License: MIT
 import re
 from jplookup._cleanstr._textwork import is_japanese_char, remove_alternative_spellings
 
+REMOVE_CONTEXT_SPECIFIERS_FROM_DEFS = True
+
 
 def _remove_alt_spellings(data):
     if isinstance(data, dict):
@@ -83,7 +85,7 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
             that DO NOT match the original term are removed;
             those without kanji or with matching kanji remain.
     """
-    for entry in clean_data:
+    for entry_index, entry in enumerate(clean_data):
         for etym in entry.values():
             if etym is None:
                 continue
@@ -109,13 +111,19 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
                         # of child entries are included.
                         colon_index = def_str.find(":")
                         if colon_index >= 0:
+                            # Determines the context specifiers.
                             kanji_terms = def_str[:colon_index].split(",")
                             kanji_terms = [k.strip() for k in kanji_terms]
 
-                            # Removes the context specifiers from definitions.
-                            end_i = colon_index + 1
-                            definition["definition"] = def_str[end_i:].strip()
-                            if original_term not in kanji_terms:
+                            # Deletes any definitions that have context
+                            # specifiers which do not match up with the
+                            # <original_term>, then removes said context
+                            # specifiers from definitions.
+                            if REMOVE_CONTEXT_SPECIFIERS_FROM_DEFS:
+                                end_i = colon_index + 1
+                                definition["definition"] = def_str[end_i:].strip()
+
+                            if entry_index > 0 and original_term not in kanji_terms:
                                 def_indices_to_remove.append(i)
 
                 if len(def_indices_to_remove) > 0:

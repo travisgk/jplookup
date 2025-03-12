@@ -14,23 +14,40 @@ def main():
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
-        for i, c in enumerate(
+        for i, term in enumerate(
             [
-                "どこ",
-                "同じ",
-                "これ",
-                "どうして",
-                # "中",
-                # "多い",
-                # "曇る",
-                # "お兄さん",
+                "コココココココ",
+                "あなた",
+                "いくつ",
+                "かぎ",
+                "それでは",
+                "あさって",
+                "たて",
+                "ほか",
+                "ふろ",
+                "なぜ",
+                "ください",
+                "せっけん",
             ]
         ):
             time.sleep(AGGRESSIVENESS)
-            word_info = jplookup.scrape(c, sleep_seconds=5)
-            with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
-                json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
-            print(word_info[0], end="\n\n\n\n\n\n\n\n\n\n")
+            word_info = jplookup.scrape(term, rc_sleep_seconds=5)
+            if word_info and len(word_info) > 0:
+                with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
+                    json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
+                print(
+                    json.dumps(
+                        word_info[0],
+                        indent=4,
+                        ensure_ascii=False,
+                    ),
+                    end="\n\n\n\n\n\n\n\n\n\n",
+                )
+            else:
+                print(
+                    f"No relevant info found for {term}. Skipping...",
+                    end="\n\n\n\n\n\n\n\n\n\n",
+                )
 
     elif MODE == "prompt":
         word = None
@@ -60,48 +77,35 @@ def main():
 
         unfound = []
         exceptionals = []
-        i = 0
-        num_retries = 0
-        while i < len(terms):
-            term = terms[i]
+        for i, term in enumerate(terms):
             try:
                 sleep_length = random.uniform(
                     AGGRESSIVENESS * 0.75, AGGRESSIVENESS * 1.5
                 )
                 time.sleep(sleep_length)
-                word_info = jplookup.scrape(term, sleep_seconds=8)
+                word_info = jplookup.scrape(term, rc_sleep_seconds=8)
 
-                if len(word_info) > 0:
+                if word_info and len(word_info) > 0:
                     percent_done = int(i / len(terms) * 100)
                     print(f"\n\n{percent_done:> 2d}% {term}:")
                     data[term] = word_info
 
                     print(json.dumps(word_info[0], indent=4, ensure_ascii=False))
+
                 else:
                     unfound.append(term)
-            except KeyboardInterrupt:
+
+            except KeyboardInterrupt as e:
                 print("Keyboard interrupt received, exiting gracefully.")
                 sys.exit(0)
 
-            except requests.exceptions.HTTPError as e:
-                time.sleep(20)  # take a long break.
-                print("Whoops. Let's try that again.")
-                num_retries += 1
-                if num_retries <= 3:
-                    continue  # tries again.
-                else:
-                    print(
-                        f"################################\nEXCEPTION {e} from term {term}\n################################\n"
-                    )
-                    exceptionals.append(term)
             except Exception as e:
                 print(
                     f"################################\nEXCEPTION {e} from term {term}\n################################\n"
                 )
                 exceptionals.append(term)
-            i += 1
-            num_retries = 0
 
+        # End of run. Saves everything that went wrong (if anything).
         with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
             for x in exceptionals:
                 out_file.write(x + "\n")
@@ -110,7 +114,7 @@ def main():
             for u in unfound:
                 out_file.write(u + "\n")
 
-        # Save the dictionary to a file
+        # Save the dictionary to a file.
         with open("jp-data.json", "w", encoding="utf-8") as json_file:
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 

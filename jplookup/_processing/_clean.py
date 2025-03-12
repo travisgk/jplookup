@@ -246,23 +246,31 @@ def clean_data(word_info: list, term: str):
                                 and percent_japanese(sub_strs[0]) > 0.5
                                 and all(percent_japanese(s) < 0.5 for s in sub_strs[1:])
                             ):
-                                # adds the inline example.
-                                if new_def.get("examples") is None:
-                                    new_def["examples"] = []
+                                english = sub_strs[2].strip()
+                                DUMMY_PHRASE = "(please add an English translation"
+                                if not english.startswith(DUMMY_PHRASE):
+                                    sentence = {
+                                        "japanese": sub_strs[0].strip(),
+                                        "romanji": sub_strs[1].strip(),
+                                        "english": english,
+                                    }
 
-                                sentence = {
-                                    "japanese": sub_strs[0].strip(),
-                                    "romanji": sub_strs[1].strip(),
-                                    "english": sub_strs[2].strip(),
-                                }
-
-                                new_def["examples"].append(sentence)
+                                    # adds the inline example.
+                                    if new_def.get("examples") is None:
+                                        new_def["examples"] = [
+                                            sentence,
+                                        ]
+                                    else:
+                                        new_def["examples"].append(sentence)
                                 handled = True
+
+                        if handled:
+                            j += 1
+                            continue
 
                         # Handles multi-line sentence examples.
                         if (
-                            not handled
-                            and j + 2 < len(sublines)
+                            j + 2 < len(sublines)
                             and percent_jp[j] > 0.5
                             and not sub.startswith("<dd>")
                             and all(
@@ -276,16 +284,22 @@ def clean_data(word_info: list, term: str):
                             # where it goes JP, <dd>EN</dd>, <dd>EN</dd>,
                             # then this is assumed
                             # to be an example sentence.
-                            if new_def.get("examples") is None:
-                                new_def["examples"] = []
 
-                            sentence = {
-                                "japanese": sublines[j],
-                                "romanji": sublines[j + 1][4:-5],
-                                "english": sublines[j + 2][4:-5],
-                            }
+                            english = sublines[j + 2][4:-5]
+                            DUMMY_PHRASE = "(please add an English translation"
+                            if not english.startswith(DUMMY_PHRASE):
+                                sentence = {
+                                    "japanese": sublines[j],
+                                    "romanji": sublines[j + 1][4:-5],
+                                    "english": english,
+                                }
 
-                            new_def["examples"].append(sentence)
+                                if new_def.get("examples") is None:
+                                    new_def["examples"] = [
+                                        sentence,
+                                    ]
+                                else:
+                                    new_def["examples"].append(sentence)
 
                             j += 3  # skips ahead of the example lines.
                             continue
