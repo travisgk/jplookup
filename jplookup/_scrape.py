@@ -124,7 +124,6 @@ def scrape(
             )
 
     # the additional call may be unnecessary...
-    # results = remove_empty_entries(results)
     results = remove_empty_entries(results)
     if depth == 0:
         results = link_up_redirects(

@@ -31,8 +31,7 @@ def clean_data(word_info: list, term: str):
     result = {}
 
     # Cycles through all the Etymology keys.
-    etym_keys = word_info.keys()
-    for etym_key in etym_keys:
+    for etym_key, entry in word_info.items():
         """
 
         Step 1) Creates a new dictionary for this etymology title.
@@ -310,7 +309,7 @@ def clean_data(word_info: list, term: str):
             del result[etym_title][part]
 
     # Deletes any Etymology entries that don't have any Parts of Speech anymore.
-    for etym_key in etym_keys:
+    for etym_key in word_info.keys():
         etym_title = f"Etymology {int(etym_key[1:]) + 1}"
         parts = [k for k in result[etym_title].keys() if k != "alternative-spellings"]
         if all(len(result[etym_title][part].keys()) == 0 for part in parts):

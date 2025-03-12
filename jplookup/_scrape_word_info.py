@@ -52,7 +52,7 @@ def get_alternative_term_from_table(table_obj):
         if opening_index >= 0:
             closing_index = text.find("】", opening_index)
             if closing_index >= 0:
-                # splices out the term of the alternative spelling.
+                # Splices out the term of the alternative spelling.
                 alternative = text[opening_index + 1 : closing_index]
                 return alternative
 

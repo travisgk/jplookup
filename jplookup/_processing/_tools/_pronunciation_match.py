@@ -45,8 +45,8 @@ def find_pronunciation_match(pronunciation_bank: dict, transcription: dict):
     """
     t_kana = transcription["kana"]
 
-    for p_kana in pronunciation_bank.keys():
+    for p_kana, value in pronunciation_bank.items():
         if _kana_matches(p_kana, t_kana):
-            return pronunciation_bank[p_kana]
+            return value
 
     return None

@@ -49,7 +49,6 @@ def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> 
     where any of the Etymology entries under <clean_data[0]> that are None
     will be matched up to any other later elements in the <clean_data> list.
     """
-    MAX_NUM_ETYMS = 9
     redirect_keys = redirects.keys()
 
     if len(clean_data) == 0:
