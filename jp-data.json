@@ -413,19 +413,6 @@
                         },
                         {
                             "definition": "hitting (the center, mark, etc.)"
-                        },
-                        {
-                            "definition": "Short for 中国 (Chūgoku): China, Chinese",
-                            "examples": [
-                                {
-                                    "japanese": "日(にっ)中(ちゅう)関(かん)係(けい)",
-                                    "romanji": "Ni'chū kankei",
-                                    "english": "Sino-Japanese relations"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "Short for 中学生 (chūgakusei): junior high school student"
                         }
                     ]
                 },
@@ -702,6 +689,9 @@
                         },
                         {
                             "definition": "to call; to order; to reserve"
+                        },
+                        {
+                            "definition": "to rely on"
                         }
                     ]
                 }
@@ -1190,9 +1180,6 @@
                             "antonyms": [
                                 "南"
                             ]
-                        },
-                        {
-                            "definition": "Short for 北の方 (kita no kata): northward"
                         },
                         {
                             "definition": "a developed country"
@@ -2680,6 +2667,9 @@
                                     "english": "Ow!"
                                 }
                             ]
+                        },
+                        {
+                            "definition": "(slang) cringy; embarrassing"
                         }
                     ],
                     "usage-notes": "The desiderative suffix たい (tai) is ultimately derived from this word. The sense of “wonderful” may have influenced this development."
@@ -2926,12 +2916,6 @@
                     "definitions": [
                         {
                             "definition": "eight"
-                        },
-                        {
-                            "definition": "Short for 八の字."
-                        },
-                        {
-                            "definition": "Short for 八兵衛."
                         }
                     ]
                 },
@@ -3176,12 +3160,6 @@
                             ]
                         },
                         {
-                            "definition": "Short for 生け花 (ikebana): flower arrangement"
-                        },
-                        {
-                            "definition": "Short for 花札 (hanafuda): Japanese playing cards"
-                        },
-                        {
                             "definition": "the best days of one's life"
                         },
                         {
@@ -3402,6 +3380,44 @@
     ],
     "よく": [
         {
+            "Etymology 1": {
+                "Adjective": {
+                    "term": "よく",
+                    "pronunciations": [
+                        {
+                            "kana": "よく"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "adverbial form of よい (yoi, “good”) good, well"
+                        },
+                        {
+                            "definition": "frequently, often",
+                            "examples": [
+                                {
+                                    "japanese": "私(わたし)は本(ほん)をよく読(よ)みます。",
+                                    "romanji": "Watashi wa hon o yoku yomimasu.",
+                                    "english": "I read books a lot."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "having astonishing ability or guts",
+                            "examples": [
+                                {
+                                    "japanese": "よくそんなこと言(い)えるね。",
+                                    "romanji": "Yoku sonna koto ieru ne.",
+                                    "english": "You've got guts saying something like that."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "(literary) able to"
+                        }
+                    ]
+                }
+            },
             "Etymology 2": {
                 "Noun": {
                     "term": "欲",
@@ -4203,6 +4219,45 @@
                             "definition": "(dialect, Kagoshima) evening meal, dinner"
                         }
                     ]
+                }
+            }
+        }
+    ],
+    "あなた": [
+        {
+            "Etymology 1": {
+                "Pronoun": {
+                    "term": "あなた",
+                    "pronunciations": [
+                        {
+                            "kana": "あなた",
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "a̠na̠ta̠"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "you (second-person pronoun)"
+                        },
+                        {
+                            "definition": "(women's speech) dear, darling, sweetheart (term used by a wife to address her husband)"
+                        },
+                        {
+                            "definition": "(uncommon) that person (far from both speaker and listener)"
+                        },
+                        {
+                            "definition": "(uncommon) that direction, that side, that place (far from both speaker and listener)",
+                            "examples": [
+                                {
+                                    "japanese": "山(やま)の彼(あ)方(なた)",
+                                    "romanji": "yama no anata",
+                                    "english": "that side of the mountain, the far side of the mountain"
+                                }
+                            ]
+                        }
+                    ],
+                    "usage-notes": "The you sense is spelled most often in hiragana in modern usage.  The 貴方 spelling is gender-neutral. Alternative spellings include 貴女 when referring to females and 貴男 when referring to males."
                 }
             }
         }
@@ -6426,6 +6481,9 @@
                         },
                         {
                             "definition": "(auxiliary, usually spelled in hiragana) After the て-form of a verb:"
+                        },
+                        {
+                            "definition": "(slang) to have an orgasm, to come, to cum"
                         }
                     ],
                     "usage-notes": "In English, the verbs go and come in the senses of physical motion are often used in relation to the listener.  If Alice calls Bob and asks him if he is on his way to her party, he would say, \"I'm coming.\""
@@ -6943,45 +7001,11 @@
                         },
                         {
                             "definition": "(regional, historical) during the Edo period, the region around Edo"
-                        },
-                        {
-                            "definition": "Short for 東つ (azumatsu): This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
-                        },
-                        {
-                            "definition": "Short for 東琴 (azumagoto): a six-stringed Japanese zither"
-                        },
-                        {
-                            "definition": "Short for 東下駄 (azumageta): This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 }
             },
             "Etymology 4": {
-                "Noun 4": {
-                    "term": "東",
-                    "pronunciations": [
-                        {
-                            "kana": "とう",
-                            "furigana": [
-                                "とう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "to̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "Short for 関東 (Kantō):: the Kantō region of Japan"
-                        },
-                        {
-                            "definition": "Short for 東国 (Tōgoku): a historical administrative division of Japan, corresponding to the modern Kantō and Tōkai regions"
-                        },
-                        {
-                            "definition": "Short for 東京 (Tōkyō): Tokyo"
-                        }
-                    ]
-                },
                 "Affix": {
                     "term": "東",
                     "pronunciations": [
@@ -9359,6 +9383,46 @@
             }
         }
     ],
+    "いくつ": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "いくつ",
+                    "pronunciations": [
+                        {
+                            "kana": "いくつ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ikɯ̟t͡sɨ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "how many",
+                            "examples": [
+                                {
+                                    "japanese": "いくつ欲(ほ)しいのか。",
+                                    "romanji": "Ikutsu hoshii no ka.",
+                                    "english": "How many do you want?"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "how old (used with small children)",
+                            "examples": [
+                                {
+                                    "japanese": "おいくつですか。",
+                                    "romanji": "O-ikutsu desu ka.",
+                                    "english": "How old are you?"
+                                }
+                            ]
+                        }
+                    ],
+                    "usage-notes": "This term is often spelled in hiragana."
+                }
+            }
+        }
+    ],
     "問題": [
         {
             "Etymology 1": {
@@ -9945,6 +10009,9 @@
                             ]
                         },
                         {
+                            "definition": "to show off; to demonstrate a skill or talent"
+                        },
+                        {
                             "definition": "used as a 補助動詞 (hojo dōshi), after a verb in the て (-te) conjunctive form: to show one's ability or determination to do something; to set an example by doing something"
                         }
                     ]
@@ -10383,9 +10450,6 @@
                         },
                         {
                             "definition": "a 家紋 (kamon, “family crest”) with various designs of snowflakes"
-                        },
-                        {
-                            "definition": "Short for 八朔の雪 (hassaku no yuki): This term needs a translation to English. Please help out and add a translation, then remove the text {{rfdef}}."
                         }
                     ]
                 }
@@ -10415,6 +10479,16 @@
                         },
                         {
                             "definition": "superior"
+                        },
+                        {
+                            "definition": "expensive",
+                            "synonyms": [
+                                "高価"
+                            ],
+                            "antonyms": [
+                                "安い",
+                                "安価"
+                            ]
                         }
                     ]
                 }
@@ -10471,9 +10545,6 @@
                         },
                         {
                             "definition": "(figurative) something that has a beneficial effect in correcting one's mistakes"
-                        },
-                        {
-                            "definition": "Short for 釉薬 (uwagusuri): a glaze or enamel applied to ceramics"
                         },
                         {
                             "definition": "gunpowder (from the “mystical substance” sense, and the second character in the word 火薬 (kayaku, “gunpowder”))"
@@ -11678,6 +11749,84 @@
                     ],
                     "definitions": [
                         {
+                            "definition": "(colloquial) to do (something); to perform or take care of (a responsibility), to take on (a task)",
+                            "synonyms": [
+                                "する",
+                                "なす",
+                                "なさる"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "何(なに)かやることがあるの？",
+                                    "romanji": "Nanika yaru koto ga aru no?",
+                                    "english": "Do you have anything to do?"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "(colloquial) to act, to perform, such as in a film or musical act",
+                            "synonyms": [
+                                "演じる"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "主(しゅ)人(じん)公(こう)をやる",
+                                    "romanji": "shujinkō o yaru",
+                                    "english": "to perform the main character"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to give (to a non-human or someone inferior)",
+                            "synonyms": [
+                                "上げる",
+                                "差し上げる"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "花(はな)に水(みず)をやる。",
+                                    "romanji": "Hana ni mizu o yaru.",
+                                    "english": "Give the flowers some water."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to send somebody somewhere, to dispatch",
+                            "examples": [
+                                {
+                                    "japanese": "使(つか)いにやる",
+                                    "romanji": "tsukai ni yaru",
+                                    "english": "to send a person on an errand"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to have sex, to fuck, to bang (compare English do, as in \"do someone\" or \"do it\")",
+                            "synonyms": [
+                                "性交する"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "やり逃(に)げ",
+                                    "romanji": "yarinige",
+                                    "english": "“fuck and chuck”; break contact after having sex"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to do someone in, to kill someone; to get (someone), to fool or deceive (someone)",
+                            "synonyms": [
+                                "殺す"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "嫉(しっ)妬(と)に駆(か)られ、あの人(ひと)をやっちゃいました。",
+                                    "romanji": "Shitto ni karare, ano hito o yatchaimashita.",
+                                    "english": "Driven by jealousy, he killed that person."
+                                }
+                            ]
+                        },
+                        {
                             "definition": "(Can we verify(+) this sense?) to row a boat",
                             "synonyms": [
                                 "漕ぐ"
@@ -11783,6 +11932,9 @@
                     "definitions": [
                         {
                             "definition": "to fly"
+                        },
+                        {
+                            "definition": "to jump"
                         },
                         {
                             "definition": "to go quickly"
@@ -12081,9 +12233,6 @@
                         },
                         {
                             "definition": "(biology) a phylum, division"
-                        },
-                        {
-                            "definition": "Short for 門限 (mongen): a curfew"
                         }
                     ]
                 },
@@ -12312,9 +12461,6 @@
                                 "思い草",
                                 "忘れ草"
                             ]
-                        },
-                        {
-                            "definition": "Short for 紙巻きタバコ (kamimaki tabako, “cigarette”)."
                         }
                     ],
                     "usage-notes": "Unusually for gairaigo (non-Middle Chinese borrowings), tabako is often written in hiragana. This is particularly seen on convenience store signs, indicating that cigarettes are for sale. This usage (hiragana rather than katakana) is attributed to this being an old borrowing, dating to the nanban trade period (16th & 17th century), before the convention of writing gairaigo as katakana had developed."
@@ -12818,9 +12964,6 @@
                     "definitions": [
                         {
                             "definition": "a fish"
-                        },
-                        {
-                            "definition": "Short for 魚鱗 (gyorin): fish scales"
                         }
                     ]
                 },
@@ -14928,9 +15071,6 @@
                         },
                         {
                             "definition": "twenty days"
-                        },
-                        {
-                            "definition": "Short for 二十日鼠 (hatsuka nezumi): a house mouse"
                         }
                     ]
                 },
@@ -15275,32 +15415,6 @@
                         },
                         {
                             "definition": "(chiefly historical) a region of Japan consisting of multiple provinces or prefectures"
-                        }
-                    ]
-                },
-                "Prefix": {
-                    "term": "道",
-                    "pronunciations": [
-                        {
-                            "kana": "どう",
-                            "furigana": [
-                                "どう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "do̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "Short for 北(ほっ)海(かい)道(どう) (Hokkaidō)",
-                            "examples": [
-                                {
-                                    "japanese": "道(どう)央(おう)自(じ)動(どう)車(しゃ)道(どう)",
-                                    "romanji": "Dō Ō jidōshadō",
-                                    "english": "Dō-Ō Expressway (literally \"Central Hokkaido Expressway\")"
-                                }
-                            ]
                         }
                     ]
                 }
@@ -16438,6 +16552,28 @@
                                     "english": "a women's magazine"
                                 }
                             ]
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "かぎ": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "かぎ",
+                    "pronunciations": [
+                        {
+                            "kana": "かぎ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "hook"
+                        },
+                        {
+                            "definition": "key"
                         }
                     ]
                 }
@@ -20105,12 +20241,6 @@
                             "definition": "the Xia dynasty (first dynasty of China)"
                         },
                         {
-                            "definition": "Short for 大夏 (Daika): Xia, one of the Sixteen Kingdoms"
-                        },
-                        {
-                            "definition": "Short for 西夏 (Seika): Western Xia, an empire during the Song dynasty"
-                        },
-                        {
                             "definition": "a male or female given name"
                         }
                     ]
@@ -20809,6 +20939,25 @@
             }
         }
     ],
+    "それでは": [
+        {
+            "Etymology 1": {
+                "Conjunction": {
+                    "term": "それでは",
+                    "pronunciations": [
+                        {
+                            "kana": "それでは"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "then, if so"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "花瓶": [
         {
             "Etymology 1": {
@@ -21310,9 +21459,6 @@
                             "definition": "water: one of the five classical elements in traditional Chinese philosophy and medicine"
                         },
                         {
-                            "definition": "Short for 水曜日 (suiyōbi): Wednesday"
-                        },
-                        {
                             "definition": "shaved ice served with flavored syrup",
                             "synonyms": [
                                 "氷水"
@@ -21342,9 +21488,6 @@
                         },
                         {
                             "definition": "fluid, liquid"
-                        },
-                        {
-                            "definition": "Short for 水素 (suiso): hydrogen"
                         }
                     ]
                 }
@@ -21986,6 +22129,25 @@
             }
         }
     ],
+    "あさって": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "あさって",
+                    "pronunciations": [
+                        {
+                            "kana": "あさって"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "the day after tomorrow"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "赤い": [
         {
             "Etymology 1": {
@@ -22097,6 +22259,79 @@
                         }
                     ],
                     "usage-notes": "This term is spelled in hiragana when referring to non-age-specific relatives."
+                }
+            }
+        }
+    ],
+    "たて": [
+        {
+            "Etymology 1": {
+                "Counter": {
+                    "term": "たて",
+                    "pronunciations": [
+                        {
+                            "kana": "たて"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "a party or banquet; treating others to food and/or drink; the general meaning or gist of something; a rule or regulation; the lead in a musical ensemble"
+                        },
+                        {
+                            "definition": "a fortified residence of a powerful clan"
+                        },
+                        {
+                            "definition": "the vertical direction; vertical length: height; the north and south direction; the north-to-south distance; the warp of a woven textile"
+                        },
+                        {
+                            "definition": "something contracted, such as a contracted sale or purchase where the transaction is still incomplete: a standing sale or purchase"
+                        },
+                        {
+                            "definition": "a fight scene in a play or movie, especially a sword fight"
+                        },
+                        {
+                            "definition": "a shield"
+                        }
+                    ]
+                },
+                "Noun": {
+                    "term": "たて",
+                    "pronunciations": [
+                        {
+                            "kana": "たて"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "the number of rounds or matches in a competition; the number of acts in a kabuki play; the number of losses in a losing streak"
+                        }
+                    ]
+                },
+                "Prefix": {
+                    "term": "たて",
+                    "pronunciations": [
+                        {
+                            "kana": "たて"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "just"
+                        }
+                    ]
+                },
+                "Suffix": {
+                    "term": "たて",
+                    "pronunciations": [
+                        {
+                            "kana": "たて"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "prefixed to a person or role: the head or lead in a group; prefixed to a verb: an intensifier"
+                        }
+                    ]
                 }
             }
         }
@@ -22835,6 +23070,26 @@
                                     "japanese": "オレンジより林(りん)檎(ご)が好(す)き。",
                                     "romanji": "Orenji yori ringo ga suki.",
                                     "english": "I like apples more than oranges."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "from, beyond, or past a point in space or time",
+                            "examples": [
+                                {
+                                    "japanese": "ここより危(あぶ)ないですよ。",
+                                    "romanji": "Koko yori abunai desu yo.",
+                                    "english": "It's dangerous past / beyond / from here."
+                                },
+                                {
+                                    "japanese": "千(ち)歳(とせ)より出(しゅっ)発(ぱつ)します。",
+                                    "romanji": "Chitose yori shuppatsu shimasu.",
+                                    "english": "We depart from Chitose."
+                                },
+                                {
+                                    "japanese": "博(はく)物(ぶつ)館(かん)の展(てん)示(じ)が 6(ろく)月(がつ) 10(とお)日(か)より開(かい)催(さい)されます。",
+                                    "romanji": "Hakubutsukan no tenji ga rokugatsu tōka yori kaisai saremasu.",
+                                    "english": "The museum exhibit opens from June 10."
                                 }
                             ]
                         }
@@ -23732,9 +23987,6 @@
                     "definitions": [
                         {
                             "definition": "(rare) alternate for jōzu above"
-                        },
-                        {
-                            "definition": "Short for 上手物 (jōtemono): an exquisite piece of workmanship"
                         }
                     ]
                 }
@@ -24121,6 +24373,12 @@
                                 "愚か",
                                 "鈍い"
                             ]
+                        },
+                        {
+                            "definition": "quick, fast, speedy",
+                            "antonyms": [
+                                "遅い"
+                            ]
                         }
                     ],
                     "usage-notes": "In modern usage, authors often use the 早い spelling for the early sense and the 速い spelling for fast.  These are ultimately the same word, identical in speech, with the sense clear from context."
@@ -24363,9 +24621,6 @@
                     "definitions": [
                         {
                             "definition": "a tree"
-                        },
-                        {
-                            "definition": "Short for 木曜日 (mokuyōbi): Thursday"
                         },
                         {
                             "definition": "wood grain"
@@ -24984,6 +25239,25 @@
             }
         }
     ],
+    "ほか": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "ほか",
+                    "pronunciations": [
+                        {
+                            "kana": "ほか"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "other, the rest"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "戸": [
         {
             "Etymology 1": {
@@ -25409,6 +25683,28 @@
             }
         }
     ],
+    "ふろ": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "ふろ",
+                    "pronunciations": [
+                        {
+                            "kana": "ふろ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "bath, bathtub; bathroom; bathhouse"
+                        },
+                        {
+                            "definition": "portable stove for boiling water to make tea used for the tea ceremony during the summer"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
     "学校": [
         {
             "Etymology 1": {
@@ -25782,6 +26078,27 @@
                         }
                     ],
                     "usage-notes": "Variation on the Japanese copula だ (da) used in western Japan, such as in Chūgoku, Shikoku, or Kyūshū; particularly common in Hiroshima. The use of じゃ (ja) is also common in fictional dialogue attributed to archaic characters. In Kansai, じゃ (ja) changed to や (ya) in the late Edo period."
+                }
+            },
+            "Etymology 4": {
+                "Noun": {
+                    "term": "じゃ",
+                    "pronunciations": [
+                        {
+                            "kana": "じゃ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "generic name for a large snake; a heavy drinker"
+                        },
+                        {
+                            "definition": "a moral wrong; a bad attitude; maliciousness, wickedness; such a person"
+                        },
+                        {
+                            "definition": "short for 麝香 (jakō, “musk”); short for 麝香鹿 (jakōjika, “musk deer”)"
+                        }
+                    ]
                 }
             }
         }
@@ -26682,6 +26999,37 @@
     "また": [
         {
             "Etymology 1": {
+                "Adverb": {
+                    "term": "また",
+                    "pronunciations": [
+                        {
+                            "kana": "また",
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ma̠ta̠"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "again, as well",
+                            "examples": [
+                                {
+                                    "japanese": "またやったか？",
+                                    "romanji": "Mata yatta ka?",
+                                    "english": "They did it again?"
+                                },
+                                {
+                                    "japanese": "また連(れん)絡(らく)します。",
+                                    "romanji": "Mata renraku shimasu.",
+                                    "english": "I will contact you again."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "as well, likewise"
+                        }
+                    ]
+                },
                 "Conjunction": {
                     "term": "また",
                     "pronunciations": [
@@ -27418,9 +27766,6 @@
                             ]
                         },
                         {
-                            "definition": "Short for 山鉾 (yamaboko): a festival float usually decorated with a 鉾 (hoko)"
-                        },
-                        {
                             "definition": "(colloquial) Mount Hiei and/or Enryaku-ji",
                             "antonyms": [
                                 "寺"
@@ -27508,9 +27853,6 @@
                         },
                         {
                             "definition": "temple, temple ground"
-                        },
-                        {
-                            "definition": "Short for 比叡山 (Hieizan): Mount Hiei"
                         }
                     ]
                 },
@@ -28227,9 +28569,6 @@
                             "definition": "the color white"
                         },
                         {
-                            "definition": "Short for 白人 (hakujin): an amateur"
-                        },
-                        {
                             "definition": "a performer's lines",
                             "synonyms": [
                                 "台詞"
@@ -28274,9 +28613,6 @@
                         },
                         {
                             "definition": "sake cup"
-                        },
-                        {
-                            "definition": "Short for 白居易 (Haku Kyoi): Bai Juyi"
                         }
                     ]
                 }
@@ -28664,9 +29000,6 @@
                             "synonyms": [
                                 "南方"
                             ]
-                        },
-                        {
-                            "definition": "Short for 南鐐 (nanryō): beautiful silver; a type of silver coin in the Edo period"
                         }
                     ]
                 },
@@ -29188,14 +29521,7 @@
                             "definition": "to wear a piece of clothing"
                         },
                         {
-                            "definition": "to pun (謎掛け)",
-                            "examples": [
-                                {
-                                    "japanese": "○○とかけて××と解(と)く。",
-                                    "romanji": "○○ To kakete ×× to toku.",
-                                    "english": "(please add an English translation of this example)"
-                                }
-                            ]
+                            "definition": "to pun (謎掛け)"
                         }
                     ],
                     "usage-notes": "This term is often spelled in hiragana. As a suffix, attach after the 連用形 (ren'yōkei) or the -masu form of the verb."
@@ -29484,14 +29810,7 @@
                             "definition": "opening"
                         },
                         {
-                            "definition": "voice, author",
-                            "examples": [
-                                {
-                                    "japanese": "書(か)き口(くち)",
-                                    "romanji": "kakikuchi",
-                                    "english": "(please add an English translation of this example)"
-                                }
-                            ]
+                            "definition": "voice, author"
                         },
                         {
                             "definition": "drinker, consumer",
@@ -29500,11 +29819,6 @@
                                     "japanese": "行(い)ける口(くち)",
                                     "romanji": "ikeru kuchi",
                                     "english": "able to down a drink"
-                                },
-                                {
-                                    "japanese": "飲(の)める口(くち)",
-                                    "romanji": "nomeru kuchi",
-                                    "english": "(please add an English translation of this example)"
                                 }
                             ]
                         },
@@ -29922,6 +30236,27 @@
                             "definition": "how, in what way"
                         }
                     ]
+                },
+                "Particle": {
+                    "term": "など",
+                    "pronunciations": [
+                        {
+                            "kana": "など"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "for example, things like, such as, etc., and so on",
+                            "examples": [
+                                {
+                                    "japanese": "納(なっ)豆(とう)や歌(か)舞(ぶ)伎(き)などは日(に)本(ほん)だけにある。",
+                                    "romanji": "Nattō ya kabuki nado wa Nihon dake ni aru.",
+                                    "english": "Things like natto and kabuki are only in Japan."
+                                }
+                            ]
+                        }
+                    ],
+                    "usage-notes": "など (nado), when used as a particle, functions as a noun and may be followed by other particles, including の (no)."
                 }
             }
         }
@@ -30910,7 +31245,10 @@
                             ]
                         },
                         {
-                            "definition": "Short for 昼ご飯 (hiru gohan) or 昼飯 (hirumeshi): lunch"
+                            "definition": "the noon, midday",
+                            "synonyms": [
+                                "正午"
+                            ]
                         },
                         {
                             "definition": "the heyday or peak period of something"
@@ -31114,6 +31452,9 @@
                         },
                         {
                             "definition": "to make use of, to apply"
+                        },
+                        {
+                            "definition": "to spend"
                         }
                     ]
                 }
@@ -31147,6 +31488,12 @@
                             "definition": "(regional, dialect, Etchū region) a deep gap in a mountain ridge (so called for the way the wind blows through, like a window)",
                             "synonyms": [
                                 "きれっと"
+                            ]
+                        },
+                        {
+                            "definition": "(investing) on a candlestick chart, a gap in day-to-day candlesticking caused by a marked increase or decrease in the price of a security, derivative, currency, or other investment",
+                            "synonyms": [
+                                "空"
                             ]
                         }
                     ]
@@ -31658,6 +32005,26 @@
             }
         }
     ],
+    "ください": [
+        {
+            "Etymology 1": {
+                "Verb": {
+                    "term": "ください",
+                    "pronunciations": [
+                        {
+                            "kana": "ください"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(polite) Imperative of 下さる"
+                        }
+                    ],
+                    "usage-notes": "Nowadays, except in very formal or traditional contexts, this term is normally written in kana. Outside of such contexts, the spelling 「下さい」 can emphasize the meaning of \"give\" associated with 「下」, though this is rare.\nThe imperative sense is either attached to the て form (te-form) of a verb, or a noun prefixed with お (o-) or ご (go-).\nちょっとお待ちください。Chotto o-machi kudasai.Please wait a little. (Here 待ち is the continuative form of 待つ.)\nこれをご覧ください。Kore o go-ran kudasai.Please have a look at this."
+                }
+            }
+        }
+    ],
     "ハンカチ": [
         {
             "Etymology 1": {
@@ -31809,6 +32176,34 @@
                         }
                     ],
                     "usage-notes": "This term is often spelled in hiragana."
+                }
+            }
+        }
+    ],
+    "せっけん": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "せっけん",
+                    "pronunciations": [
+                        {
+                            "kana": "せっけん"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "soap"
+                        },
+                        {
+                            "definition": "conquest"
+                        },
+                        {
+                            "definition": "interview"
+                        },
+                        {
+                            "definition": "economy"
+                        }
+                    ]
                 }
             }
         }
@@ -32038,9 +32433,6 @@
                         },
                         {
                             "definition": "a variation of stress in pronunciation"
-                        },
-                        {
-                            "definition": "Short for 声点 (shōten): a tone mark (in Middle Chinese)"
                         }
                     ]
                 },
@@ -32169,9 +32561,6 @@
                         },
                         {
                             "definition": "copied paper"
-                        },
-                        {
-                            "definition": "Short for キャッチコピー."
                         }
                     ]
                 },
@@ -33554,12 +33943,6 @@
                             ]
                         },
                         {
-                            "definition": "Short for 青信号 (aoshingō): green light (traffic light color, as the color of plants)",
-                            "antonyms": [
-                                "赤"
-                            ]
-                        },
-                        {
                             "definition": "the black, bluish color of a horse's hair; also, such a horse",
                             "synonyms": [
                                 "青毛"
@@ -33570,12 +33953,6 @@
                         },
                         {
                             "definition": "(card games) a blue card in 天正カルタ (Tenshō karuta)"
-                        },
-                        {
-                            "definition": "Short for 青本 (aohon, “a blue-green covered book containing summaries of plays, histories, and legends”)."
-                        },
-                        {
-                            "definition": "Short for 青銭 (aosen, “a 4 mon coin in circulation from 1768”)."
                         }
                     ]
                 },
@@ -34186,9 +34563,6 @@
                         },
                         {
                             "definition": "(by extension) epoch, period"
-                        },
-                        {
-                            "definition": "Short for 朝鮮 (Chōsen): Korea, specifically short for 朝鮮民主主義人民共和国 (Chōsen Minshu Shugi Jinmin Kyōwakoku): Democratic People's Republic of Korea (North Korea)"
                         }
                     ]
                 },
@@ -35420,6 +35794,21 @@
     ],
     "だんだん": [
         {
+            "Etymology 1": {
+                "Adjective": {
+                    "term": "だんだん",
+                    "pronunciations": [
+                        {
+                            "kana": "だんだん"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "very round of shape, such as the roundness of the full moon; full of dew, covered in dewdrops"
+                        }
+                    ]
+                }
+            },
             "Etymology 3": {
                 "Interjection": {
                     "term": "だんだん",
@@ -36181,6 +36570,9 @@
                             "definition": "nine"
                         },
                         {
+                            "definition": "an indeterminate large number, a myriad, a great many"
+                        },
+                        {
                             "definition": "(divination) the number of yang, in opposition to 六 (roku, “six”) as the number of yin"
                         }
                     ]
@@ -36795,6 +37187,39 @@
                     "definitions": [
                         {
                             "definition": "to exist, to be, to have"
+                        },
+                        {
+                            "definition": "(of a matter or state) to be recognized, be acknowledged",
+                            "examples": [
+                                {
+                                    "japanese": "近(きん)年(ねん)、物(ぶっ)価(か)の上(じょう)昇(しょう)にある。",
+                                    "romanji": "Kinnen, bukka no jōshō ni aru.",
+                                    "english": "It is known that prices have been rising in recent years."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to depend on, lie in, be influenced by",
+                            "synonyms": [
+                                "左右される"
+                            ],
+                            "examples": [
+                                {
+                                    "japanese": "成(せい)功(こう)の秘(ひ)訣(けつ)は努(ど)力(りょく)にある。",
+                                    "romanji": "Seikō no hiketsu wa doryoku ni aru.",
+                                    "english": "The secret to success lies in hard work."
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "to be alive, surviving",
+                            "examples": [
+                                {
+                                    "japanese": "世(よ)にある間(あいだ)",
+                                    "romanji": "yo ni aru aida",
+                                    "english": "during one's lifetime"
+                                }
+                            ]
                         },
                         {
                             "definition": "to have"
@@ -37457,6 +37882,16 @@
                     "definitions": [
                         {
                             "definition": "to go in; to come in"
+                        },
+                        {
+                            "definition": "to be necessary, to be required",
+                            "examples": [
+                                {
+                                    "japanese": "お金(かね)がいるね",
+                                    "romanji": "okane ga iru ne",
+                                    "english": "money comes into it → money is needed → you'll need money"
+                                }
+                            ]
                         }
                     ],
                     "usage-notes": "Mostly confined to fixed expressions and idioms."
@@ -37725,9 +38160,6 @@
                     "definitions": [
                         {
                             "definition": "man"
-                        },
-                        {
-                            "definition": "Short for 人造 (jinzō): artificial, synthetic"
                         }
                     ]
                 },
@@ -38155,9 +38587,6 @@
                             "synonyms": [
                                 "義兄"
                             ]
-                        },
-                        {
-                            "definition": "Short for 花の兄 (hana no ani): alternative name for the 梅 (ume), the Japanese plum (Prunus mume)"
                         }
                     ],
                     "usage-notes": "(elder brother): This term conveys neither positive nor negative connotations and is often used in objective narrations. However, using it to describe someone the speaker knows personally is often considered lacking respect, where more polite forms like お兄さん (onīsan) are preferred."
@@ -38238,6 +38667,16 @@
                         }
                     ],
                     "definitions": [
+                        {
+                            "definition": "that way; that over there, far away, in the distance",
+                            "examples": [
+                                {
+                                    "japanese": "皆(みな)さま、あちらをごらんください",
+                                    "romanji": "Mina sama, achira o goran kudasai",
+                                    "english": "Everybody, please look in that direction."
+                                }
+                            ]
+                        },
                         {
                             "definition": "(polite) that person",
                             "examples": [
@@ -39225,6 +39664,30 @@
                     ],
                     "usage-notes": "The verb する (“to do”) is seldom written in kanji (為る).\nIt is common to use する after certain nouns to indicate that the noun is being done; this is highly productive, meaning many nouns can be used as verbs in this way. Some examples are:\n勉強 (benkyō, “studying”) → 勉強する (benkyō suru, “to do studying” → “to study”)\n旅行 (ryokō, “journey”) → 旅行する (ryokō suru, “to do journey” → “to travel”)\nアップロード (appurōdo, “upload”) → アップロードする (appurōdo suru, “to do uploading” → “to upload”)"
                 }
+            },
+            "Etymology 2": {
+                "Verb 2": {
+                    "term": "する",
+                    "pronunciations": [
+                        {
+                            "kana": "する"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "to print something (from the way the paper would be placed on the printing block and rubbed)"
+                        },
+                        {
+                            "definition": "to pick someone's pocket (possibly from the way a pickpocket must slide along unnoticed; compare English slick)"
+                        },
+                        {
+                            "definition": "to slide, to rub, to chafe, to strike (as in a match, by rubbing); to lose or waste money"
+                        },
+                        {
+                            "definition": "irregular reading for 剃る (soru, “to shave”)"
+                        }
+                    ]
+                }
             }
         }
     ],
@@ -39911,11 +40374,6 @@
                         {
                             "definition": "to persuade",
                             "examples": [
-                                {
-                                    "japanese": "押(お)せばいける",
-                                    "romanji": "oseba ikeru",
-                                    "english": "(please add an English translation of this example)"
-                                },
                                 {
                                     "japanese": "押(お)しに弱(よわ)い",
                                     "romanji": "oshi ni yowai",
