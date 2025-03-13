@@ -220,15 +220,16 @@ def separate_term_and_furigana(word: str):
         # if the program can clearly see furigana are supposed to be distributed
         # over the same number of kanji, then it will do so.
         for k, index, f in zip(sorted_kanji, sorted_kanji_starts, sorted_furi):
-            joined_furi = "".join(f)
+            if len(k) > 1:
+                joined_furi = "".join(["".join(element) for element in f])
 
-            # Redistributes.
-            if len(k) > 1 and len(k) == len(joined_furi):
-                for i, c in enumerate(joined_furi):
-                    f_index = index + i
-                    furi[f_index] = [
-                        joined_furi[i],
-                    ]
+                # Redistributes.
+                if len(k) == len(joined_furi):
+                    for i, c in enumerate(joined_furi):
+                        f_index = index + i
+                        furi[f_index] = [
+                            joined_furi[i],
+                        ]
 
     furi = [tuple(f) for f in furi]
 

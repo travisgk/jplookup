@@ -3526,12 +3526,12 @@
                             "definition": "a cat",
                             "examples": [
                                 {
-                                    "japanese": "猫(ねこ)が二(に)匹(ひき)居(い)る。",
+                                    "japanese": "猫(ネコ)が二(に)匹(ひき)居(い)る。",
                                     "romanji": "Neko ga nihiki iru.",
                                     "english": "There are two cats."
                                 },
                                 {
-                                    "japanese": "家(いえ)には猫(ねこ)が三匹(さんびき)います。",
+                                    "japanese": "家(いえ)には猫(ネコ)が三匹(さんびき)います。",
                                     "romanji": "Ie ni wa neko ga sanbiki imasu.",
                                     "english": "There are three cats in the house."
                                 }
@@ -26470,7 +26470,7 @@
                             "definition": "dog, canine",
                             "examples": [
                                 {
-                                    "japanese": "犬(いぬ)に毎(まい)日(にち)餌(えさ)を上(あ)げて下(くだ)さい。",
+                                    "japanese": "犬(イヌ)に毎(まい)日(にち)餌(えさ)を上(あ)げて下(くだ)さい。",
                                     "romanji": "Inu ni mainichi esa o agete kudasai.",
                                     "english": "Please feed the dog every day."
                                 }
@@ -26480,7 +26480,7 @@
                             "definition": "servant; one who is loyal (like a dog)",
                             "examples": [
                                 {
-                                    "japanese": "会(かい)長(ちょう)の犬(いぬ)",
+                                    "japanese": "会(かい)長(ちょう)の犬(イヌ)",
                                     "romanji": "kaichō no inu",
                                     "english": "a servant of the president"
                                 }
@@ -26490,7 +26490,7 @@
                             "definition": "spy",
                             "examples": [
                                 {
-                                    "japanese": "敵(てき)軍(ぐん)の犬(いぬ)",
+                                    "japanese": "敵(てき)軍(ぐん)の犬(イヌ)",
                                     "romanji": "tekigun no inu",
                                     "english": "a spy of the hostile army"
                                 }
@@ -38071,7 +38071,7 @@
                             "definition": "someone (else)",
                             "examples": [
                                 {
-                                    "japanese": "人(ひと)の物(もの)を盗(ぬす)む",
+                                    "japanese": "人(ヒト)の物(もの)を盗(ぬす)む",
                                     "romanji": "hito no mono  o nusumu",
                                     "english": "to steal someone's things; to steal people's things"
                                 }
