@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing._remove_empty.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines a function that will remove
              all empty Parts of Speech, then will remove
@@ -56,8 +56,8 @@ def remove_empty_entries(
             elif len(parts) == 1:
                 to_delete.append(etym_name)
 
+        # Deletes each, ensuring the key exists before deleting.
         for etym_name in to_delete:
-            # Ensures the key exists before deleting.
             if etym_name in entry:
                 del entry[etym_name]
 

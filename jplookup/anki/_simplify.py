@@ -1,3 +1,18 @@
+"""
+Filename: jplookup.anki._simplify.py
+Author: TravisGK
+Date: 2025-03-13
+
+Description: This file defines helper functions that help
+             the anki module break the outputs of jplookup.scrape(...)
+             down into a much simpler format to display.
+
+Version: 1.0
+License: MIT
+"""
+
+from jplookup._cleanstr._textwork import is_kanji, is_katakana
+
 _TAG_PRIORITIES = [
     (
         "ipa",
@@ -58,7 +73,7 @@ def _join_word_data(word_dicts: list) -> dict:
         usage_notes = part_data.get("usage-notes")
         if usage_notes:
             if len(usage_notes_str) > 0:
-                usage_notes_str += "\n"
+                usage_notes_str += "<br>"
             usage_notes_str += usage_notes
 
     if len(usage_notes_str) > 0:
@@ -99,22 +114,38 @@ def combine_like_terms(card_parts: list) -> list:
     # Removes the individualized attributes since
     # they're all the same; they're going to be moved
     # to a more global scope in the <result>.
-    kanji = result_parts[unique_part_names[0]]["term"]
     pronunciation = result_parts[unique_part_names[0]]["pronunciation"]
+    kanji = result_parts[unique_part_names[0]]["term"]
     for unique_part_name in unique_part_names:
         del result_parts[unique_part_name]["term"]
         del result_parts[unique_part_name]["pronunciation"]
 
+    # Moves the pronunciation attributes to a more global scope in the dict.
     result = {}
     for key, value in pronunciation.items():
         if key != "furigana":
             result[key] = value
 
-    if kanji != pronunciation.get("kana"):
-        result["kanji"] = kanji
-        if pronunciation.get("furigana"):
-            result["furigana"] = pronunciation.get("furigana")
+    # Sets "kanji" to the term if it has diff chars from the kana.
+    if kanji != result.get("kana"):  # and any(is_kanji(k) for k in kanji):
+        if any(is_kanji(k) for k in kanji):
+            result["kanji"] = kanji
+            if pronunciation.get("furigana"):
+                result["furigana"] = pronunciation["furigana"]
+        elif all(is_katakana(k) for k in kanji):
+            result["kana"] = kanji
 
     result["parts-of-speech"] = result_parts
+
+    # Sets the usage notes.
+    usage_notes_str = ""
+    for unique_part_name in unique_part_names:
+        usage_notes = result_parts[unique_part_name].get("usage-notes")
+        if usage_notes:
+            if len(usage_notes_str) > 0:
+                usage_notes_str += "<br>"
+            usage_notes_str += usage_notes
+
+    result["usage-notes"] = usage_notes_str
 
     return result

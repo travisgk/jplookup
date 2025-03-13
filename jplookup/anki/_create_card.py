@@ -1,3 +1,26 @@
+"""
+Filename: jplookup.anki._create_card.py
+Author: TravisGK
+Date: 2025-03-13
+
+Description: This file defines the primary function to take the
+             outputs of a jplookup.scrape(...) call and convert
+             it into a simplified dict object which has each key
+             represent a field in an Anki card. 
+             All the values will be strings, if blank it'll be "".
+             These will be:
+                 - kana
+                 - kanji
+                 - definitions
+                 - ipa
+                 - pretty-kana
+                 - pretty-kanji
+                 - usage-notes
+
+Version: 1.0
+License: MIT
+"""
+
 import json
 from ._field_str import *
 from ._simplify import *
@@ -67,8 +90,8 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
                 best_kana = kana
                 best_count = len(parts_list)
 
+    # Selects the list of Parts-of-Speech dicts to use.
     card_parts = kana_bank[best_kana]
-
     card_parts = combine_like_terms(card_parts)
 
     anki_card = {
@@ -77,7 +100,6 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
     }
 
     # Comes up with definitions string.
-
     def_str = create_definition_str(card_parts)
     anki_card["definitions"] = def_str
     anki_card["ipa"] = card_parts.get("ipa", "")
@@ -90,8 +112,18 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
     anki_card["pretty-kana"] = pretty_kana
 
     # Comes up with the pretty kanji.
-    pretty_kanji = ""
+    if card_parts.get("kanji") and len(card_parts["kanji"]) > 0:
+        pretty_kanji = create_pretty_kanji(
+            card_parts["kanji"],
+            pitch_accent=card_parts.get("pitch-accent", 0),
+            furigana=card_parts.get("furigana"),
+        )
+    else:
+        pretty_kanji = ""
     anki_card["pretty-kanji"] = pretty_kanji
+
+    # Adds the usage notes.
+    anki_card["usage-notes"] = card_parts.get("usage-notes", "")
 
     print(json.dumps(anki_card, indent=4, ensure_ascii=False))
     print("\n\n\n")

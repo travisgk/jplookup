@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing._tools._pronunciation_match.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines a function which will 
              return a pronunciation-data dictionary for a given transcription
@@ -20,7 +20,6 @@ def _kana_matches(p_kana: str, t_kana: str) -> bool:
     with the flexibility that a char in t_kana can
     be either い or う and still match with a p_kana's
     corresponding ー.
-
     """
     if len(p_kana) != len(t_kana):
         return False

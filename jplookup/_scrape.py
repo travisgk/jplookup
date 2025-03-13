@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines the primary function that scrapes
              information about a Japanese term from its English Wiktionary
@@ -26,7 +26,7 @@ from ._cleanstr._dictform import get_dictionary_form
 from ._processing._remove_empty import remove_empty_entries
 from ._processing._tools._redirects import (
     remove_alternative_spellings,
-    link_up_redirects,
+    embed_redirects,
 )
 from ._scrape_entry import *
 
@@ -44,8 +44,20 @@ def scrape(
     MAX_DEPTH = 1  # not inclusive.
 
     if depth > 0 or force_sleep:
-        # sleeps when doing a recursive loop to prevent getting blocked.
+        # Sleeps when doing a recursive loop to prevent getting blocked.
         time.sleep(rc_sleep_seconds)
+
+    """
+    Step 1) Retrieves HTML and searches for the main header.
+    """
+
+    def show_http_error_message(e):
+        # If requests runs into some error other than 404,
+        # then the program assumes Wiktionary is blocking access.
+        if verbose:
+            print(f"Scrape Error in grabbing Wiktionary contents: {e}")
+            print("You may be scraping too fast!")
+        time.sleep(rc_sleep_seconds * 2)
 
     # Gets the HTML source.
     num_attempts = 0
@@ -62,31 +74,38 @@ def scrape(
                         f"Could not fetch page for {term}"
                     )
                 if depth < MAX_DEPTH:
+                    # The word could be a conjugated form of a verb
+                    # so the program tries to search the dict form of it.
                     dict_form = get_dictionary_form(term)
-                if dict_form is not None:
-                    return scrape(
-                        dict_form,
-                        depth + 1,
-                        original_term,
-                        rc_sleep_seconds=rc_sleep_seconds,
-                    )
-                return None
+                    if dict_form is not None:
+                        return scrape(
+                            dict_form,
+                            depth + 1,
+                            original_term,
+                            rc_sleep_seconds=rc_sleep_seconds,
+                        )
+                return None  # unsuccessful.
             successful = True
             break
+
+        except requests.exceptions.ConnectionError as e:
+            show_http_error_message(e)
+            num_attempts += 1  # reattempts a few times before giving up.
+        except requests.exceptions.RequestException as e:
+            show_http_error_message(e)
+            num_attempts += 1  # reattempts a few times before giving up.
         except requests.exceptions.HTTPError as e:
-            if verbose:
-                print(f"HTTPError in grabbing Wiktionary contents: {e}")
-                print("You may be scraping too fast!")
-            time.sleep(rc_sleep_seconds)
-            num_attempts += 1
+            show_http_error_message(e)
+            num_attempts += 1  # reattempts a few times before giving up.
 
     if not successful:
         return None
 
+    # Shortens HTML to give BeautifulSoup less to parse.
     clean_text = shorten_html(response.text)
     clean_text = remove_further_pronunciations(clean_text)
 
-    # Finds the "Japanese" header; returns if no header was found.
+    # Finds the header tag with "Japanese"; returns if no header was found.
     soup = BeautifulSoup(clean_text, "html.parser")
     japanese_header = None
     headers = []
@@ -101,10 +120,10 @@ def scrape(
             print("Error: No Japanese header was found" "on that Wiktionary page.")
         return None
 
-    # Scrapes.
-    # ---
-    # Recursion will be performed on pages linked to by Wiktionary
-    # as being alternative spellings if a definition isn't found.
+    """
+    Step 2) Recursion will be performed on pages linked to by Wiktionary
+            as being alternative spellings if a definition isn't found.
+    """
     results = []
     word_info, redirects_to_etym = scrape_word_info(
         term, japanese_header, depth < MAX_DEPTH
@@ -120,7 +139,7 @@ def scrape(
         results.append({v: None for v in sorted_values})
 
     if depth < MAX_DEPTH:
-        # the program
+        # The program
         # checks to see if there are any alternatives that
         # Wiktionary is redirecting the user to.
         JP_TABLE = "wikitable ja-see"
@@ -128,8 +147,8 @@ def scrape(
         for table in next_tables:
             alternative = get_alternative_term_from_table(table)
             if alternative is not None:
-                if (results is None or len(results) == 0) and len(next_tables) == 1:
-                    # a simple redirect.
+                if len(next_tables) == 1 and (results is None or len(results) == 0):
+                    # This is a simple redirect; no depth added.
                     return scrape(
                         alternative,
                         0,
@@ -138,6 +157,7 @@ def scrape(
                         force_sleep=True,
                     )
 
+                # Otherwise a recursive call with depth added is made.
                 alt_results = scrape(
                     alternative,
                     depth + 1,
@@ -149,7 +169,7 @@ def scrape(
                     results.extend(alt_results)
 
     if (results is None or len(results) == 0) and depth < MAX_DEPTH:
-        # if there were no results found after looking for alternatives,
+        # If there were no results found after looking for alternatives,
         # then the program will try to look for a dictionary form
         # of the word (the program assuming it could be a verb).
         dict_form = get_dictionary_form(term)
@@ -161,10 +181,13 @@ def scrape(
                 rc_sleep_seconds=rc_sleep_seconds,
             )
 
-    # the additional call may be unnecessary...
-    results = remove_empty_entries(results)
+    """
+    Step 3) Embeds the relevant word information from any
+            pages that were redirected to.
+    """
+    results = remove_empty_entries(results)  # possibly unneeded
     if depth == 0:
-        results = link_up_redirects(
+        results = embed_redirects(
             results,
             redirects_to_etym,
             original_term if original_term else term,
@@ -174,6 +197,9 @@ def scrape(
             results = remove_alternative_spellings(results)
         results = remove_empty_entries(results, remove_entries=True)
 
+    """
+    Step 4) Removes any Etymology entry that lacks any Definitions.
+    """
     indices_to_remove = []
     for i in range(len(results)):
         for etym_name, parts in results[i].items():

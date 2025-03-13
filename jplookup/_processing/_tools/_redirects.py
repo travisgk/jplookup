@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing._tools._redirects.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines a function which will 
              handles redirected data entries,
@@ -38,14 +38,14 @@ def _sort_dict_by_trailing_number(data):
         match = re.search(r"(\d+)$", key)  # Find the trailing number
         return (
             int(match.group(1)) if match else float("inf")
-        )  # Default to infinity if no number
+        )  # defaults to infinity if no number
 
     sorted_items = sorted(data.items(), key=lambda item: extract_number(item[0]))
     result = dict(sorted_items)  # Convert back to a normal dictionary
     return result
 
 
-def link_up_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
+def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
     """
     Returns the <clean_data>, that being the list of scraped Wiktionary entries,
     where any of the Etymology entries under <clean_data[0]> that are None

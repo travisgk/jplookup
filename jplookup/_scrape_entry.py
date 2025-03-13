@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrap_entry.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines the helper function that actually
              retrieves raw data from the Wiktionary HTML.
@@ -253,17 +253,14 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
             else:
                 end_line = 9999999
 
+            # Looks for a <table> with a redirect to another webpage
+            # for an alternative spelling.
             next_table = etym_header.find_next("table", class_=JP_TABLE)
-            if (
-                next_table is not None
-                and next_table.sourceline < end_line
-                # and next_table.sourceline - etym_header.sourceline < 18
-            ):
+            if next_table is not None and next_table.sourceline < end_line:
                 redirect_term = get_alternative_term_from_table(next_table)
                 if redirect_term is not None:
                     etym_term = "Etymology " + str(i + 1)
                     redirects_to_etym[redirect_term] = etym_term
-
                     layout[f"e{i}"] = None
 
             etym_index = int(key[1:])

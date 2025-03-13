@@ -16,18 +16,18 @@ def main():
     if MODE == "testing":
         for i, term in enumerate(
             [
-                "コココココココ",
-                "あなた",
+                "鹿",
+                "葉書",
                 "いくつ",
-                "かぎ",
-                "それでは",
-                "あさって",
-                "たて",
-                "ほか",
-                "ふろ",
-                "なぜ",
-                "ください",
-                "せっけん",
+                # "かぎ",
+                # "それでは",
+                # "あさって",
+                # "たて",
+                # "ほか",
+                # "ふろ",
+                # "なぜ",
+                # "ください",
+                # "せっけん",
             ]
         ):
             time.sleep(AGGRESSIVENESS)
@@ -73,6 +73,8 @@ def main():
                 if clean_line not in terms:
                     terms.append(clean_line)
 
+        start_time = time.time()
+
         data = {}
 
         unfound = []
@@ -86,11 +88,23 @@ def main():
                 word_info = jplookup.scrape(term, rc_sleep_seconds=8)
 
                 if word_info and len(word_info) > 0:
-                    percent_done = int(i / len(terms) * 100)
-                    print(f"\n\n{percent_done:> 2d}% {term}:")
-                    data[term] = word_info
+                    percent_done = int((i + 1) / len(terms) * 100)
+                    elapsed = time.time() - start_time
+                    elapsed_per_entry = elapsed / (i + 1)  # avg
+                    num_remaining = len(terms) - (i + 1)
+                    remaining_time = int(num_remaining * elapsed_per_entry)
+                    hours = remaining_time // 3600
+                    remaining_time %= 3600
+                    minutes = remaining_time // 60
+                    remaining_time %= 60
+                    seconds = remaining_time
 
+                    print("\n" * 6)
                     print(json.dumps(word_info[0], indent=4, ensure_ascii=False))
+                    print(
+                        f"{percent_done:> 2d}% [{hours}:{minutes:02}:{seconds:02}] {term}"
+                    )
+                    data[term] = word_info
 
                 else:
                     unfound.append(term)

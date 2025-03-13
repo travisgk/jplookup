@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing._extract.py
 Author: TravisGK
-Date: 2025-03-10
+Date: 2025-03-13
 
 Description: This file defines a function that can be given a
              conjugated verb and will do its best to guess
@@ -130,11 +130,11 @@ def extract_data(layout: dict):
                     break
 
             if headword_span is not None:
-                # grabs information from the headword span.
+                # Grabs information from the headword span.
                 headword = str(headword_span).strip()
                 period_index = headword.find("•")
 
-                # looks for a counter noun.
+                # Looks for a counter noun.
                 counter = None
                 if period_index >= 0:
                     headword = headword[:period_index].strip()
@@ -148,14 +148,14 @@ def extract_data(layout: dict):
                             if percent_japanese(contents) > 0.9:
                                 counter = contents
 
-                # removes junk space from headword information.
+                # Removes junk space from headword information.
                 headword = remove_tags(headword).replace("\u0020", "")
 
-                # embeds the counter noun into the headword directly.
+                # Embeds the counter noun into the headword directly.
                 if counter is not None:
                     headword += f" counter:{counter}"
 
-                # adds the headword string and usage notes.
+                # Adds the headword string and usage notes.
                 data[key]["headwords"].append(headword)
                 data[key]["usage-notes"].append(
                     "" if usage_notes is None else usage_notes
@@ -172,14 +172,14 @@ def extract_data(layout: dict):
                 ol_str = remove_unwanted_html(str(ol))
                 li_contents = extract_tag_contents(ol_str, "li")
 
-                # iterates through every listed item in the ordered list.
+                # Iterates through every listed item in the ordered list.
                 for li in li_contents:
                     if len(li) <= 9 or '<div class="citation-whole">' in li:
                         continue  # ignores tiny <li>'s and other irrelevants.
 
                     entry = {"definition": ""}
 
-                    # cleans up the text contents.
+                    # Cleans up the text contents.
                     li = li[4:-5]
                     li = remove_tags(li, omissions=["ol", "li", "dd"])
                     li = li.strip()
@@ -240,11 +240,11 @@ def extract_data(layout: dict):
                     tag_name = "dd"
                     dd_index = li.find("<dd>")
                     if dd_index < 0:
-                        # searches for a <dl> if a <dd> wasn't found.
+                        # Searches for a <dl> if a <dd> wasn't found.
                         dd_index = li.find("<dl>")
 
                     if dd_index >= 0:
-                        # a <dd> or <dl> was found.
+                        # A <dd> or <dl> was found.
                         # the <li> string is already stripped of its HTML tag
                         # on the left, so only the right needs to be clipped.
                         entry["definition"] = li[:dd_index].strip()
