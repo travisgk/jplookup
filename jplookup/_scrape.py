@@ -18,6 +18,7 @@ License: MIT
 import time
 import requests
 from bs4 import BeautifulSoup
+import jaconv
 from ._cleanstr._textwork import (
     remove_further_pronunciations,
     shorten_html,
@@ -207,5 +208,49 @@ def scrape(
                 indices_to_remove.append(i)
     if len(indices_to_remove) > 0:
         results = [r for i, r in enumerate(results) if i not in indices_to_remove]
+
+    """
+    Step 5) Shares pronunciation information with those of matching kana
+            that lack pitch-accent or IPA.
+    """
+    # Gets all the pronunciation dict objects and kata conversions.
+    all_pronunciations = []
+    all_kata = []
+    all_refs = []
+    for i in range(len(results)):
+        for etym_name, parts in results[i].items():
+            for part_of_speech, part_data in parts.items():
+                pronunciations = part_data.get("pronunciations")
+                if pronunciations is not None:  # TODO: pretty sure this is unneeded.
+                    for j, p in enumerate(pronunciations):
+                        if p.get("kana"):
+                            all_pronunciations.append(p)
+                            all_kata.append(jaconv.hira2kata(p["kana"]))
+                            all_refs.append((i, etym_name, part_of_speech, j))
+
+    if len(all_pronunciations) <= 1:
+        return results
+
+    # Shares information among one another.
+    KEYS = ["kana", "furigana", "region", "pitch-accent", "ipa"]
+    changed_indices = []
+    for i, receiver_p in enumerate(all_pronunciations):
+        for j, giver_p in enumerate(all_pronunciations):
+            if i == j:
+                continue
+
+            if all_kata[i] == all_kata[j]:
+                for key in KEYS[1:]:
+                    if receiver_p.get(key) is None and giver_p.get(key):
+                        receiver_p[key] = giver_p[key]
+                        changed_indices.append(i)
+
+    # Reorders dictionary key order to be consistent.
+    for i in changed_indices:
+        entry_i, etym, part, p_i = all_refs[i]
+        p = results[entry_i][etym][part]["pronunciations"][p_i]
+        results[entry_i][etym][part]["pronunciations"][p_i] = {
+            key: p[key] for key in KEYS if p.get(key)
+        }
 
     return results

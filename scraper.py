@@ -4,11 +4,12 @@ import requests
 import sys
 import json
 import jplookup
+import jplookup.anki
 
 
 def main():
 
-    MODE = "all"
+    MODE = "testing"
     USE_PROMPT = False
 
     AGGRESSIVENESS = 8
@@ -16,15 +17,16 @@ def main():
     if MODE == "testing":
         for i, term in enumerate(
             [
-                "朝御飯",
-                "飲み物",
-                "女の子",
-                "切手",
-                "食べ物",
-                "昼御飯",
-                "男の子",
-                "まっすぐ",
-                "買い物",
+                "締める",
+                # "朝御飯",
+                # "飲み物",
+                # "女の子",
+                # "切手",
+                # "食べ物",
+                # "昼御飯",
+                # "男の子",
+                # "まっすぐ",
+                # "買い物",
                 # "かぎ",
                 # "それでは",
                 # "あさって",
@@ -49,6 +51,7 @@ def main():
                     ),
                     end="\n\n\n\n\n\n\n\n\n\n",
                 )
+                jplookup.anki.dict_to_anki_fields(word_info)
             else:
                 print(
                     f"No relevant info found for {term}. Skipping...",

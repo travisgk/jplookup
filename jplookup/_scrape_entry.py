@@ -178,6 +178,22 @@ def scrape_word_info(term: str, jp_header, finding_alts: bool) -> list:
                 h_used[j] = True
                 layout[key]["pronunciation-headers"].append(h)
 
+        # If the Wiktionary entry doesn't place the Pronunciation
+        # under an Etymology and it was never found to be below any
+        # etym header, then the pronunciation will simply
+        # be applied to the first etymology.
+        # (--be applied to all etymologies present--).
+        #
+        # This may be dangerous? Best case scenario this isn't common
+        # b/c the Pronunciations seem to regularly given under Etyms.
+        if i == len(etymology_headers) - 1 and len(h_used) == 1 and not h_used[0]:
+            h_used[0] = True
+
+            # YOU MAY WANT TO ADD ONLY TO THE FIRST ETYM (done).
+            layout["e0"]["pronunciation-headers"].append(h)
+            # for index in range(len(etymology_headers)):
+            #    layout[f"e{index}"]["pronunciation-headers"].append(h)
+
         # Adds any part-of-speech header that's below the "Etymology" header.
         for j, f in enumerate(found_word_part_headers):
             if (

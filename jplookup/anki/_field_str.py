@@ -13,6 +13,28 @@ License: MIT
 TAB = "\t"
 
 
+def _add_ruby_tags(japanese: str) -> str:
+    result = ""
+    prev_kanji_i = None
+    in_furi = False
+    for i, c in enumerate(japanese):
+        if c == "(":
+            in_furi = True
+            prev_kanji_i = i - 1
+        elif c == ")":
+            in_furi = False
+            if prev_kanji_i is not None:
+                kanji = japanese[prev_kanji_i]
+                furi = japanese[prev_kanji_i + 2 : i]
+                result += f"<ruby>{kanji}<rt>{furi}</rt></ruby>"
+        elif not in_furi and (
+            (i < len(japanese) - 1 and japanese[i + 1] != "(") or i == len(japanese) - 1
+        ):
+            result += c
+
+    return result
+
+
 def create_definition_str(card_parts: list) -> str:
     """
     Returns a string with HTML that nicely displays
@@ -31,8 +53,12 @@ def create_definition_str(card_parts: list) -> str:
             if examples:
                 for example in examples:
                     result_str += f'{TAB}{TAB}<ul class="example-sentence">\n'
-                    japanese = example["japanese"]
+                    japanese = _add_ruby_tags(example["japanese"])
                     romanji = example["romanji"]
+                    # if len(example["japanese"]) <= 25 and len(example["romanji"]) <= 25:
+                    # print(example["japanese"])
+                    # print(example["romanji"])
+                    # print("\n" * 3)
                     english = example["english"]
 
                     # Adds each sentence.
@@ -57,7 +83,15 @@ def create_pretty_kana(kana: str, pitch_accent: int) -> str:
     Returns a string with HTML that nicely displays
     the kana with additional phonetic information displayed.
     """
-    return ""
+    return kana
+
+
+def _place_pitch_accent(kana) -> str:
+    return (
+        '<span class="pitch-container">'
+        '<span class="pitch-mark">•</span>'
+        f"{kana}</span>"
+    )
 
 
 def create_pretty_kanji(
@@ -71,10 +105,27 @@ def create_pretty_kanji(
     and furigana shown.
     """
     result = ""
-    print(kanji)
-    print(furigana)
+    mora_num = 1
+    print(f"pitch-accent: {pitch_accent}")
     for k, furi in zip(kanji, furigana):
         if len(furi) == 0:
-            result += k
+            if mora_num == pitch_accent:
+                result += _place_pitch_accent(k)
+            else:
+                result += k
+            mora_num += 1
+        else:
+            furi_str = ""
+            if pitch_accent < mora_num + len(furi):
+                for f in furi:
+                    if mora_num == pitch_accent:
+                        furi_str += _place_pitch_accent(f)
+                    else:
+                        furi_str += f
+                    mora_num += 1
+            else:
+                furi_str += furi
+                mora_num += len(furi)
+            result += f"<ruby>{k}<rt>{furi_str}</rt></ruby>"
 
     return result

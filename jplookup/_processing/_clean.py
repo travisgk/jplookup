@@ -24,6 +24,9 @@ from ._tools._pronunciation_match import *
 
 REMOVE_ARCHAIC_DEFINITIONS = True
 REMOVE_LITERARY_DEFINITIONS = True
+# if True, furigana will be changed to kata
+# if that's standard.
+ENFORCE_KATAKANA_FURI = True
 ARCHAIC_TERMS = ["archaic", "classical japanese", "obsolete"]
 LITERARY_TERMS = ["literary"]
 
@@ -273,7 +276,7 @@ def clean_data(word_info: list, term: str):
                                         "romanji": sub_strs[1].strip(),
                                         "english": english,
                                     }
-                                    if prefers_katakana:
+                                    if prefers_katakana and ENFORCE_KATAKANA_FURI:
                                         sentence["japanese"] = change_furi_to_kata(
                                             sentence["japanese"],
                                             term=term,
