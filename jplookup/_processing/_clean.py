@@ -17,10 +17,10 @@ from jplookup._cleanstr._textwork import (
     percent_japanese,
     extract_japanese,
     change_furi_to_kata,
+    find_pronunciation_match,
 )
 from ._extract import extract_pronunciation_info
 from ._tools._headwords import *
-from ._tools._pronunciation_match import *
 
 REMOVE_ARCHAIC_DEFINITIONS = True
 REMOVE_LITERARY_DEFINITIONS = True

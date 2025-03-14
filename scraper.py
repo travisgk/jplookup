@@ -9,7 +9,7 @@ import jplookup.anki
 
 def main():
 
-    MODE = "testing"
+    MODE = "all"
     USE_PROMPT = False
 
     AGGRESSIVENESS = 8
@@ -17,7 +17,7 @@ def main():
     if MODE == "testing":
         for i, term in enumerate(
             [
-                "締める",
+                "煩い",
                 # "朝御飯",
                 # "飲み物",
                 # "女の子",

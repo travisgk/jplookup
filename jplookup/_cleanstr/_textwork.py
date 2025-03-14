@@ -54,6 +54,56 @@ def percent_japanese(text: str):
     return num_jp / len(text) if len(text) > 0 else 0
 
 
+def kata_matches(p_kata: str, t_kata: str) -> bool:
+    """
+    Returns True if the katakana match each other,
+    with the flexibility that a char in <t_kana> can
+    be either イ or ウ and still match with a <p_kana>'s
+    corresponding ー.
+    """
+    if len(p_kata) != len(t_kata):
+        return False
+
+    for p, t in zip(p_kata, t_kata):
+        if p != t and not (p == "ー" and t in "イウ"):
+            return False
+
+    return True
+
+
+def kana_matches(p_kana: str, t_kana: str) -> bool:
+    """
+    Returns True if the kana match each other,
+    with the flexibility that a char in <t_kana> can
+    be either い(イ) or う(ウ) and still match with a <p_kana>'s
+    corresponding ー.
+    """
+    if len(p_kana) != len(t_kana):
+        return False
+
+    p_kata = jaconv.hira2kata(p_kana)
+    t_kata = jaconv.hira2kata(t_kana)
+
+    return kata_matches(p_kata, t_kata)
+
+
+def find_pronunciation_match(pronunciation_bank: dict, transcription: dict):
+    """
+    Returns the pronunciation dictionary in <pronunciation_bank>
+    that matches up to the given <transcription> by the kana
+    contained in both.
+
+    If there's no match, then None is returned.
+    """
+    t_kana = transcription["kana"]
+
+    for p_kana, value in pronunciation_bank.items():
+        if kana_matches(p_kana, t_kana):
+            return value
+
+    return None
+
+
 # Text removal functions.
 def remove_text_in_brackets(text: str) -> str:
     """Returns text with any text in [...] removed."""

@@ -265,7 +265,10 @@
                     "term": "どこ",
                     "pronunciations": [
                         {
-                            "kana": "どこ"
+                            "kana": "どこ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ko̞"
                         }
                     ],
                     "definitions": [
@@ -278,7 +281,10 @@
                     "term": "どこ",
                     "pronunciations": [
                         {
-                            "kana": "どこ"
+                            "kana": "どこ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞ko̞"
                         }
                     ],
                     "definitions": [
@@ -936,8 +942,11 @@
                     "pronunciations": [
                         {
                             "kana": "ボタン",
+                            "furigana": [
+                                "ぼ",
+                                "たん"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "bo̞tã̠ɴ"
                         }
                     ],
@@ -2167,7 +2176,10 @@
                     "term": "いい",
                     "pronunciations": [
                         {
-                            "kana": "いい"
+                            "kana": "いい",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "iː"
                         }
                     ],
                     "definitions": [
@@ -2252,7 +2264,10 @@
                             "kana": "まま",
                             "furigana": [
                                 "まま"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ma̠ma̠"
                         }
                     ],
                     "definitions": [
@@ -3328,7 +3343,10 @@
                     "term": "ペット",
                     "pronunciations": [
                         {
-                            "kana": "ペット"
+                            "kana": "ペット",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pe̞t̚to̞"
                         }
                     ],
                     "definitions": [
@@ -3343,7 +3361,10 @@
                     "term": "ペット",
                     "pronunciations": [
                         {
-                            "kana": "ペット"
+                            "kana": "ペット",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pe̞t̚to̞"
                         }
                     ],
                     "definitions": [
@@ -3358,7 +3379,10 @@
                     "term": "ペット",
                     "pronunciations": [
                         {
-                            "kana": "ペット"
+                            "kana": "ペット",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pe̞t̚to̞"
                         }
                     ],
                     "definitions": [
@@ -3385,7 +3409,13 @@
                     "term": "よく",
                     "pronunciations": [
                         {
-                            "kana": "よく"
+                            "kana": "よく",
+                            "furigana": [
+                                "よく"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "jo̞kɯ̟"
                         }
                     ],
                     "definitions": [
@@ -4082,7 +4112,10 @@
                     "term": "バス",
                     "pronunciations": [
                         {
-                            "kana": "バス"
+                            "kana": "バス",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ba̠sɨ"
                         }
                     ],
                     "definitions": [
@@ -4100,7 +4133,10 @@
                     "term": "バス",
                     "pronunciations": [
                         {
-                            "kana": "バス"
+                            "kana": "バス",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ba̠sɨ"
                         }
                     ],
                     "definitions": [
@@ -4115,7 +4151,10 @@
                     "term": "バス",
                     "pronunciations": [
                         {
-                            "kana": "バス"
+                            "kana": "バス",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ba̠sɨ"
                         }
                     ],
                     "definitions": [
@@ -4130,7 +4169,10 @@
                     "term": "バス",
                     "pronunciations": [
                         {
-                            "kana": "バス"
+                            "kana": "バス",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ba̠sɨ"
                         }
                     ],
                     "definitions": [
@@ -5881,6 +5923,9 @@
                     "pronunciations": [
                         {
                             "kana": "はい",
+                            "furigana": [
+                                "はい"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "ha̠i"
@@ -5971,7 +6016,10 @@
                             "kana": "はい",
                             "furigana": [
                                 "はい"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ha̠i"
                         }
                     ],
                     "definitions": [
@@ -7604,6 +7652,11 @@
                     "pronunciations": [
                         {
                             "kana": "しかし",
+                            "furigana": [
+                                "し",
+                                "か",
+                                "し"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 2,
                             "ipa": "ɕi̥ka̠ɕi"
@@ -7736,7 +7789,14 @@
                     "term": "なる",
                     "pronunciations": [
                         {
-                            "kana": "なる"
+                            "kana": "なる",
+                            "furigana": [
+                                "な",
+                                ""
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "na̠ɾɯ̟"
                         }
                     ],
                     "definitions": [
@@ -7866,7 +7926,14 @@
                     "term": "なる",
                     "pronunciations": [
                         {
-                            "kana": "なる"
+                            "kana": "なる",
+                            "furigana": [
+                                "な",
+                                ""
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "na̠ɾɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8442,7 +8509,10 @@
                     "term": "フォーク",
                     "pronunciations": [
                         {
-                            "kana": "フォーク"
+                            "kana": "フォーク",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɸo̞ːkɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8466,7 +8536,10 @@
                     "term": "フォーク",
                     "pronunciations": [
                         {
-                            "kana": "フォーク"
+                            "kana": "フォーク",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɸo̞ːkɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8481,7 +8554,10 @@
                     "term": "フォーク",
                     "pronunciations": [
                         {
-                            "kana": "フォーク"
+                            "kana": "フォーク",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɸo̞ːkɯ̟"
                         }
                     ],
                     "definitions": [
@@ -8496,7 +8572,10 @@
                     "term": "フォーク",
                     "pronunciations": [
                         {
-                            "kana": "フォーク"
+                            "kana": "フォーク",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɸo̞ːkɯ̟"
                         }
                     ],
                     "definitions": [
@@ -10588,8 +10667,11 @@
                     "pronunciations": [
                         {
                             "kana": "あれ",
+                            "furigana": [
+                                "あ",
+                                ""
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "a̠ɾe̞"
                         }
                     ],
@@ -10611,8 +10693,11 @@
                     "pronunciations": [
                         {
                             "kana": "あれ",
+                            "furigana": [
+                                "あ",
+                                ""
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "a̠ɾe̞"
                         }
                     ],
@@ -10636,8 +10721,11 @@
                     "pronunciations": [
                         {
                             "kana": "あれ",
+                            "furigana": [
+                                "あ",
+                                ""
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "a̠ɾe̞"
                         }
                     ],
@@ -11978,7 +12066,12 @@
                     "term": "そこ",
                     "pronunciations": [
                         {
-                            "kana": "そこ"
+                            "kana": "そこ",
+                            "furigana": [
+                                "そこ"
+                            ],
+                            "region": "Tokyo",
+                            "ipa": "so̞ko̞"
                         }
                     ],
                     "definitions": [
@@ -19356,7 +19449,10 @@
                     "counter": "棟",
                     "pronunciations": [
                         {
-                            "kana": "アパート"
+                            "kana": "アパート",
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "a̠pa̠ːto̞"
                         }
                     ],
                     "definitions": [
@@ -21684,8 +21780,11 @@
                     "pronunciations": [
                         {
                             "kana": "ちょうど",
+                            "furigana": [
+                                "ちょう",
+                                "ど"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "t͡ɕo̞ːdo̞"
                         }
                     ],
@@ -21706,7 +21805,9 @@
                             "furigana": [
                                 "ちょう",
                                 "ど"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "ipa": "t͡ɕo̞ːdo̞"
                         }
                     ],
                     "definitions": [
@@ -23054,7 +23155,10 @@
                     "term": "より",
                     "pronunciations": [
                         {
-                            "kana": "より"
+                            "kana": "より",
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "jo̞ɾʲi"
                         }
                     ],
                     "definitions": [
@@ -23201,7 +23305,10 @@
                     "term": "より",
                     "pronunciations": [
                         {
-                            "kana": "より"
+                            "kana": "より",
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "jo̞ɾʲi"
                         }
                     ],
                     "definitions": [
@@ -23220,7 +23327,13 @@
                     "term": "ほう",
                     "pronunciations": [
                         {
-                            "kana": "ほう"
+                            "kana": "ほう",
+                            "furigana": [
+                                "ほう"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ho̞ː"
                         }
                     ],
                     "definitions": [
@@ -23484,6 +23597,9 @@
                     "pronunciations": [
                         {
                             "kana": "いつ",
+                            "furigana": [
+                                "いつ"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "it͡sɨ"
@@ -25017,7 +25133,10 @@
                     "term": "では",
                     "pronunciations": [
                         {
-                            "kana": "では"
+                            "kana": "では",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "de̞ β̞a̠"
                         }
                     ],
                     "definitions": [
@@ -27004,8 +27123,10 @@
                     "pronunciations": [
                         {
                             "kana": "また",
+                            "furigana": [
+                                "また"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "ma̠ta̠"
                         }
                     ],
@@ -27035,8 +27156,10 @@
                     "pronunciations": [
                         {
                             "kana": "また",
+                            "furigana": [
+                                "また"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "ma̠ta̠"
                         }
                     ],
@@ -27175,7 +27298,10 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン"
+                            "kana": "パン",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -27191,7 +27317,10 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン"
+                            "kana": "パン",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -27222,7 +27351,10 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン"
+                            "kana": "パン",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "pã̠ɴ"
                         }
                     ],
                     "definitions": [
@@ -27358,6 +27490,9 @@
                     "pronunciations": [
                         {
                             "kana": "どう",
+                            "furigana": [
+                                "どう"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "do̞ː"
@@ -27435,6 +27570,9 @@
                     "pronunciations": [
                         {
                             "kana": "どう",
+                            "furigana": [
+                                "どう"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "do̞ː"
@@ -30107,7 +30245,10 @@
                     "term": "あ",
                     "pronunciations": [
                         {
-                            "kana": "あ"
+                            "kana": "あ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "a̠"
                         }
                     ],
                     "definitions": [
@@ -30152,7 +30293,10 @@
                     "term": "あ",
                     "pronunciations": [
                         {
-                            "kana": "あ"
+                            "kana": "あ",
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "a̠"
                         }
                     ],
                     "definitions": [
@@ -30561,6 +30705,9 @@
                     "pronunciations": [
                         {
                             "kana": "もう",
+                            "furigana": [
+                                "もう"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "mo̞ː"
@@ -30625,6 +30772,9 @@
                     "pronunciations": [
                         {
                             "kana": "もう",
+                            "furigana": [
+                                "もう"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "mo̞ː"
@@ -31885,12 +32035,19 @@
                     "pronunciations": [
                         {
                             "kana": "ここ",
+                            "furigana": [
+                                "こ",
+                                "こ"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "ko̞ko̞"
                         },
                         {
-                            "kana": "こゝ"
+                            "kana": "こゝ",
+                            "furigana": [
+                                "",
+                                "こゝ"
+                            ]
                         }
                     ],
                     "definitions": [
@@ -32216,6 +32373,9 @@
                     "pronunciations": [
                         {
                             "kana": "どの",
+                            "furigana": [
+                                "どの"
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 1,
                             "ipa": "do̞no̞"
@@ -32246,7 +32406,10 @@
                             "kana": "どの",
                             "furigana": [
                                 "どの"
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "do̞no̞"
                         }
                     ],
                     "definitions": [
@@ -35799,7 +35962,10 @@
                     "term": "だんだん",
                     "pronunciations": [
                         {
-                            "kana": "だんだん"
+                            "kana": "だんだん",
+                            "furigana": [
+                                "だんだん"
+                            ]
                         }
                     ],
                     "definitions": [
@@ -35814,7 +35980,10 @@
                     "term": "だんだん",
                     "pronunciations": [
                         {
-                            "kana": "だんだん"
+                            "kana": "だんだん",
+                            "furigana": [
+                                "だんだん"
+                            ]
                         }
                     ],
                     "definitions": [
@@ -38727,6 +38896,11 @@
                     "pronunciations": [
                         {
                             "kana": "できる",
+                            "furigana": [
+                                "で",
+                                "き",
+                                ""
+                            ],
                             "region": "Tokyo",
                             "pitch-accent": 2,
                             "ipa": "de̞kʲiɾɯ̟"
@@ -39670,7 +39844,9 @@
                     "term": "する",
                     "pronunciations": [
                         {
-                            "kana": "する"
+                            "kana": "する",
+                            "region": "Tokyo",
+                            "ipa": "sɨɾɯ̟"
                         }
                     ],
                     "definitions": [
@@ -39808,8 +39984,10 @@
                     "pronunciations": [
                         {
                             "kana": "その",
+                            "furigana": [
+                                "その"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "so̞no̞"
                         }
                     ],
@@ -39855,8 +40033,10 @@
                     "pronunciations": [
                         {
                             "kana": "その",
+                            "furigana": [
+                                "その"
+                            ],
                             "region": "Tokyo",
-                            "pitch-accent": 0,
                             "ipa": "so̞no̞"
                         }
                     ],
@@ -40594,7 +40774,10 @@
                                 "し",
                                 "",
                                 ""
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "ɕime̞ɾɯ̟"
                         }
                     ],
                     "definitions": [
@@ -40620,7 +40803,10 @@
                                 "し",
                                 "",
                                 ""
-                            ]
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "ɕime̞ɾɯ̟"
                         }
                     ],
                     "definitions": [

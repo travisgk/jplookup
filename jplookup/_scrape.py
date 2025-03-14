@@ -20,6 +20,7 @@ import requests
 from bs4 import BeautifulSoup
 import jaconv
 from ._cleanstr._textwork import (
+    kata_matches,
     remove_further_pronunciations,
     shorten_html,
 )
@@ -209,6 +210,8 @@ def scrape(
     if len(indices_to_remove) > 0:
         results = [r for i, r in enumerate(results) if i not in indices_to_remove]
 
+    if depth > 0:
+        return results
     """
     Step 5) Shares pronunciation information with those of matching kana
             that lack pitch-accent or IPA.
@@ -233,17 +236,28 @@ def scrape(
 
     # Shares information among one another.
     KEYS = ["kana", "furigana", "region", "pitch-accent", "ipa"]
+    needs_updates = [True for _ in all_pronunciations]
     changed_indices = []
-    for i, receiver_p in enumerate(all_pronunciations):
+    for index, receiver_p in enumerate(all_pronunciations[::-1]):
+        i = len(all_pronunciations) - index - 1
+        if not needs_updates[i]:
+            continue
+
         for j, giver_p in enumerate(all_pronunciations):
             if i == j:
                 continue
 
-            if all_kata[i] == all_kata[j]:
+            if kata_matches(all_kata[i], all_kata[j]):
+                has_everything = True
                 for key in KEYS[1:]:
-                    if receiver_p.get(key) is None and giver_p.get(key):
-                        receiver_p[key] = giver_p[key]
-                        changed_indices.append(i)
+                    if giver_p.get(key):
+                        if receiver_p.get(key) is None:
+                            receiver_p[key] = giver_p[key]
+                            changed_indices.append(i)
+                    else:
+                        has_everything = False
+                if has_everything:
+                    needs_updates[j] = False
 
     # Reorders dictionary key order to be consistent.
     for i in changed_indices:

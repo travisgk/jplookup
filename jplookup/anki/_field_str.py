@@ -83,7 +83,14 @@ def create_pretty_kana(kana: str, pitch_accent: int) -> str:
     Returns a string with HTML that nicely displays
     the kana with additional phonetic information displayed.
     """
-    return kana
+    result = ""
+    for i, c in enumerate(kana):
+        if i + 1 == pitch_accent:
+            result += _place_pitch_accent(c)
+        else:
+            result += c
+
+    return result
 
 
 def _place_pitch_accent(kana) -> str:
@@ -106,7 +113,6 @@ def create_pretty_kanji(
     """
     result = ""
     mora_num = 1
-    print(f"pitch-accent: {pitch_accent}")
     for k, furi in zip(kanji, furigana):
         if len(furi) == 0:
             if mora_num == pitch_accent:
