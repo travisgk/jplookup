@@ -8,15 +8,15 @@ import jplookup.anki
 
 
 def main():
-
-    MODE = "all"
-    USE_PROMPT = False
-
+    VERBOSE = True
+    MODE = "testing"
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
         for i, term in enumerate(
             [
+                "ふろ",
+                "よくそう",
                 "犬",
                 "猫",
                 # "短い",
@@ -37,7 +37,9 @@ def main():
                     ),
                     end="\n\n\n\n\n\n\n\n\n\n",
                 )
-                anki_card = jplookup.anki.dict_to_anki_fields(word_info, include_romanji=True)
+                anki_card = jplookup.anki.dict_to_anki_fields(
+                    word_info, include_romanji=True
+                )
                 print(anki_card["definitions"])
             else:
                 print(
@@ -95,11 +97,12 @@ def main():
                     remaining_time %= 60
                     seconds = remaining_time
 
-                    print("\n" * 6)
-                    print(json.dumps(word_info[0], indent=4, ensure_ascii=False))
-                    print(
-                        f"{percent_done:> 2d}% [{hours}:{minutes:02}:{seconds:02}] {term}"
-                    )
+                    if VERBOSE:
+                        print("\n" * 6)
+                        print(json.dumps(word_info[0], indent=4, ensure_ascii=False))
+                        print(
+                            f"{percent_done:> 2d}% [{hours}:{minutes:02}:{seconds:02}] {term}"
+                        )
                     data[term] = word_info
 
                 else:
