@@ -181,7 +181,7 @@ def extract_data(layout: dict):
 
                     # Cleans up the text contents.
                     li = li[4:-5]
-                    li = remove_tags(li, omissions=["ol", "li", "dd"])
+                    li = remove_tags(li, omissions=["ol", "li", "dd", "b"])
                     li = li.strip()
 
                     """
@@ -224,9 +224,12 @@ def extract_data(layout: dict):
                             parent_def = li[:sub_ol_start].strip()
                             sublist_str = li[sub_ol_start + 4 : sub_ol_end].strip()
                             sublines = extract_tag_contents(sublist_str, "li")
-                            entry["definition"] = remove_text_in_brackets(
-                                parent_def
-                            ).strip()
+                            entry["definition"] = (
+                                remove_text_in_brackets(parent_def)
+                                .strip()
+                                .replace("<b>", "")
+                                .replace("</b>", "")
+                            )
                             entry["sublines"] = sublines
                             definitions.append(entry)
                             continue

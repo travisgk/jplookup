@@ -47,7 +47,9 @@ def create_definition_str(card_parts: list) -> str:
         result_str += '<ul class="word-definitions">\n'
         for definition in part_data["definitions"]:
             def_str = definition["definition"]
-            result_str += f"{TAB}<li>\n{TAB}{TAB}{def_str}\n"
+            result_str += (
+                f'{TAB}<li class="definition-entry">\n' f"{TAB}{TAB}{def_str}\n"
+            )
 
             examples = definition.get("examples")
             if examples:

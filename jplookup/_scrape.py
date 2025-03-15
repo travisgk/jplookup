@@ -244,27 +244,33 @@ def scrape(
             continue
 
         for j, giver_p in enumerate(all_pronunciations):
-            if i == j:
+            if i == j or receiver_p.get("pitch-accent") not in [
+                None,
+                giver_p.get("pitch-accent"),
+            ]:
                 continue
 
             if kata_matches(all_kata[i], all_kata[j]):
                 has_everything = True
-                for key in KEYS[1:]:
+                was_changed = False
+                for key in KEYS[2:]:
                     if giver_p.get(key):
                         if receiver_p.get(key) is None:
                             receiver_p[key] = giver_p[key]
-                            changed_indices.append(i)
+                            was_changed = True
                     else:
                         has_everything = False
                 if has_everything:
                     needs_updates[j] = False
+                if was_changed:
+                    changed_indices.append(i)
 
     # Reorders dictionary key order to be consistent.
     for i in changed_indices:
         entry_i, etym, part, p_i = all_refs[i]
         p = results[entry_i][etym][part]["pronunciations"][p_i]
         results[entry_i][etym][part]["pronunciations"][p_i] = {
-            key: p[key] for key in KEYS if p.get(key)
+            key: p[key] for key in KEYS if p.get(key) is not None
         }
 
     return results

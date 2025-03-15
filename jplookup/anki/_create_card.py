@@ -125,5 +125,6 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
     # Adds the usage notes.
     anki_card["usage-notes"] = card_parts.get("usage-notes", "")
 
-    print(json.dumps(anki_card, indent=4, ensure_ascii=False))
-    print("\n\n\n")
+    # print(json.dumps(anki_card, indent=4, ensure_ascii=False))
+    # print("\n\n\n")
+    return anki_card

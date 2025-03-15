@@ -17,6 +17,7 @@ from jplookup._cleanstr._textwork import (
     percent_japanese,
     extract_japanese,
     change_furi_to_kata,
+    remove_spaces_jp,
     find_pronunciation_match,
 )
 from ._extract import extract_pronunciation_info
@@ -272,7 +273,9 @@ def clean_data(word_info: list, term: str):
                                 DUMMY_PHRASE = "(please add an English translation"
                                 if not english.startswith(DUMMY_PHRASE):
                                     sentence = {
-                                        "japanese": sub_strs[0].strip(),
+                                        "japanese": remove_spaces_jp(
+                                            sub_strs[0].strip()
+                                        ),
                                         "romanji": sub_strs[1].strip(),
                                         "english": english,
                                     }
@@ -315,7 +318,7 @@ def clean_data(word_info: list, term: str):
                             DUMMY_PHRASE = "(please add an English translation"
                             if not english.startswith(DUMMY_PHRASE):
                                 sentence = {
-                                    "japanese": sublines[j],
+                                    "japanese": remove_spaces_jp(sublines[j]),
                                     "romanji": sublines[j + 1][4:-5],
                                     "english": english,
                                 }

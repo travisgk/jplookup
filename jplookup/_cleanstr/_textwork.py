@@ -198,6 +198,11 @@ def remove_alternative_spellings(data):
     return data
 
 
+def remove_spaces_jp(text: str) -> str:
+    # Match spaces that do NOT follow a Japanese punctuation mark
+    return re.sub(r"(?<![。、])\s+", "", text)
+
+
 # Extraction functions.
 def extract_tag_contents(html: str, tag: str) -> list:
     """
