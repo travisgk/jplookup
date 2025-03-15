@@ -242,37 +242,48 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                             continue  # skips.
 
                     """
-                    Step 3b.1 + 1/2) Looks for redirects. DEBUG
+                    Step 3b.2) Looks for redirects for a page
+
                     """
                     if (
                         find_embedded_kanji
                         and is_japanese_char(li[0])
                         and len(e["pronunciation-headers"]) == 0
                     ):
-                        # TODO li_with_anchors to exclude pages w/o links
                         colon_index = li.find(":")
                         if colon_index >= 0:
                             kanji_terms = li[:colon_index].split(",")
                             kanji_terms = [k.strip() for k in kanji_terms]
 
-                            alt_term = kanji_terms[0]
+                            # Checks to see which first term has a redirect link.
+                            redirecting_term_index = -1
                             soup = BeautifulSoup(li_with_anchors, "html.parser")
+                            new_anchors = soup.find_all("a", class_="new")
+                            if len(new_anchors) > 0:
+                                anchor_texts = [a.get_text() for a in new_anchors]
+                                for term_index, alt_term in enumerate(kanji_terms):
+                                    has_redirect_link = True
+                                    for a in anchor_texts:
+                                        if a == alt_term:
+                                            has_redirect_link = False
+                                            break
+                                    if has_redirect_link:
+                                        redirecting_term_index = term_index
+                                        break
+                            else:
+                                redirecting_term_index = 0
 
-                            has_redirect_link = True
-                            for a in soup.find_all("a", class_="new"):
-                                if a.get_text() == alt_term:
-                                    has_redirect_link = False
-                                    break
-
-                            # only the first one in a series will be used.
-                            if has_redirect_link:
-                                embedded_kanji_redirects.append(kanji_terms[0])
+                            # only one in a series will be used.
+                            if redirecting_term_index >= 0:
+                                embedded_kanji_redirects.append(
+                                    kanji_terms[redirecting_term_index]
+                                )
 
                     if find_embedded_kanji and len(embedded_kanji_redirects) > 0:
                         continue  # only looking for redirecting context terms now.
 
                     """
-                    Step 3b.2) Looks for an embedded <ol> inside the current <ol>.
+                    Step 3b.3) Looks for an embedded <ol> inside the current <ol>.
                     """
                     sub_ol_start = li.find("<ol>")
                     if sub_ol_start >= 0:
@@ -293,7 +304,7 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                             continue
 
                     """
-                    Step 3b.3) By this point, no sublist is contained.
+                    Step 3b.4) By this point, no sublist is contained.
                                The program will now search for any contained <dd> 
                                or <dl> tags, which can contain synonym 
                                and antonym info, as well as example sentences.
@@ -326,7 +337,7 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                         entry["definition"] = li.strip()
 
                     """
-                    Step 3b.4) Removes any text in brackets.
+                    Step 3b.5) Removes any text in brackets.
                                Usually a date of origin.
                                since those are not helpful for learning,
                                then finially adds the new entry.

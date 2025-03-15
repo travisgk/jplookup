@@ -128,8 +128,6 @@ def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> li
                             if REMOVE_CONTEXT_SPECIFIERS_FROM_DEFS:
                                 end_i = colon_index + 1
                                 definition["definition"] = def_str[end_i:].strip()
-                                # if entry_index == 0: DEBUG
-                                # print(kanji_terms) # DEBUG
 
                             if entry_index > 0 and original_term not in kanji_terms:
                                 def_indices_to_remove.append(i)

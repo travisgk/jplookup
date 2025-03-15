@@ -9,7 +9,7 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "testing"
+    MODE = "all"
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
@@ -17,11 +17,12 @@ def main():
             [
                 "ふろ",
                 "よくそう",
+                "浴槽",
                 "犬",
                 "猫",
-                # "短い",
-                # "コート",
-                # "ボタン",
+                "短い",
+                "コート",
+                "ボタン",
             ]
         ):
             time.sleep(AGGRESSIVENESS)

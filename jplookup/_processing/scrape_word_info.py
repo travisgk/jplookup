@@ -13,6 +13,7 @@ License: MIT
 from bs4 import BeautifulSoup
 from ._helper.extract_data import extract_data
 from ._helper.clean_data import clean_data
+from jplookup._cleanstr.identification import is_japanese_char
 from jplookup._cleanstr.removal import remove_unwanted_html, remove_tags
 
 PARTS_OF_SPEECH = [
@@ -171,7 +172,12 @@ def scrape_word_info(
                 if len(alt_spellings) > 0:
                     alts = []
                     for alt_spelling_span in alt_spellings:
-                        alts.append(remove_tags(str(alt_spelling_span)))
+                        tagless = remove_tags(str(alt_spelling_span))
+                        for i, c in enumerate(tagless):
+                            if not is_japanese_char(c):
+                                tagless = tagless[:i]
+                                break
+                        alts.append(tagless)
                     layout[key]["alternative-spellings"] = alts
 
         # Adds any pronunciation header that's below the "Etymology" header.
