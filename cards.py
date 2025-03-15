@@ -13,8 +13,11 @@ def main():
 
     # for search_term, word_data in word_info.items():
     word_data = word_info.get("犬")
-    anki_card = jplookup.anki.dict_to_anki_fields(word_data)
-    print(anki_card["pretty-kanji"])
+    anki_card = jplookup.anki.dict_to_anki_fields(
+        word_data,
+        include_romanji=True,
+    )
+    print(anki_card["definitions"])
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ def main():
     if MODE == "testing":
         for i, term in enumerate(
             [
+                "犬",
                 "猫",
                 # "短い",
                 # "コート",
@@ -36,7 +37,8 @@ def main():
                     ),
                     end="\n\n\n\n\n\n\n\n\n\n",
                 )
-                jplookup.anki.dict_to_anki_fields(word_info)
+                anki_card = jplookup.anki.dict_to_anki_fields(word_info, include_romanji=True)
+                print(anki_card["definitions"])
             else:
                 print(
                     f"No relevant info found for {term}. Skipping...",

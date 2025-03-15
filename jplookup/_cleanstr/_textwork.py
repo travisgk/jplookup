@@ -48,10 +48,21 @@ def percent_japanese(text: str):
     how many of the characters are Japanese.
     """
     num_jp = 0
+    total = 0
+    in_tag = False
     for c in text:
-        if is_japanese_char(c):
+        if c in "()":
+            pass
+        elif c == "<":
+            in_tag = True
+        elif c == ">":
+            in_tag = False
+        elif not in_tag and is_japanese_char(c):
             num_jp += 1
-    return num_jp / len(text) if len(text) > 0 else 0
+            total += 1
+        else:
+            total += 1
+    return num_jp / total if total > 0 else 0
 
 
 def kata_matches(p_kata: str, t_kata: str) -> bool:

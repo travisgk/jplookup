@@ -43,7 +43,10 @@ _DESIRED_PARTS = [
 ]
 
 
-def dict_to_anki_fields(scrape_output: dict) -> dict:
+def dict_to_anki_fields(
+    scrape_output: dict,
+    include_romanji: bool=False,
+) -> dict:
     """
     Returns a dictionary with the fields:
         "kana", "kanji", "definitions", "ipa", "pretty-kana", "pretty-kanji"
@@ -100,14 +103,14 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
     }
 
     # Comes up with definitions string.
-    def_str = create_definition_str(card_parts)
+    def_str = create_definition_str(card_parts, include_romanji=include_romanji)
     anki_card["definitions"] = def_str
     anki_card["ipa"] = card_parts.get("ipa", "")
 
     # Comes up with pretty kana.
     pretty_kana = create_pretty_kana(
         card_parts["kana"],
-        pitch_accent=card_parts.get("pitch-accent", 0),
+        pitch_accent=card_parts.get("pitch-accent", -1),
     )
     anki_card["pretty-kana"] = pretty_kana
 
@@ -115,7 +118,7 @@ def dict_to_anki_fields(scrape_output: dict) -> dict:
     if card_parts.get("kanji") and len(card_parts["kanji"]) > 0:
         pretty_kanji = create_pretty_kanji(
             card_parts["kanji"],
-            pitch_accent=card_parts.get("pitch-accent", 0),
+            pitch_accent=card_parts.get("pitch-accent", -1),
             furigana=card_parts.get("furigana"),
         )
     else:

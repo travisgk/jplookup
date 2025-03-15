@@ -35,7 +35,7 @@ def _add_ruby_tags(japanese: str) -> str:
     return result
 
 
-def create_definition_str(card_parts: list) -> str:
+def create_definition_str(card_parts: list, include_romanji: bool=False) -> str:
     """
     Returns a string with HTML that nicely displays
     the word's various definitions across different
@@ -52,15 +52,12 @@ def create_definition_str(card_parts: list) -> str:
             )
 
             examples = definition.get("examples")
+            print(examples)
             if examples:
                 for example in examples:
                     result_str += f'{TAB}{TAB}<ul class="example-sentence">\n'
                     japanese = _add_ruby_tags(example["japanese"])
                     romanji = example["romanji"]
-                    # if len(example["japanese"]) <= 25 and len(example["romanji"]) <= 25:
-                    # print(example["japanese"])
-                    # print(example["romanji"])
-                    # print("\n" * 3)
                     english = example["english"]
 
                     # Adds each sentence.
@@ -68,6 +65,13 @@ def create_definition_str(card_parts: list) -> str:
                         f'{TAB}{TAB}{TAB}<li class="japanese-example">'
                         f"{japanese}</li>\n"
                     )
+
+                    if include_romanji:
+                        result_str += (
+                            f'{TAB}{TAB}{TAB}<li class="romanji-example">'
+                            f"{romanji}</li>\n"
+                        )
+
                     result_str += (
                         f'{TAB}{TAB}{TAB}<li class="english-example">'
                         f"{english}</li>\n"
