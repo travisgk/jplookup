@@ -143,7 +143,7 @@ def scrape(
             info = scrape(
                 embed,
                 depth=0,
-                original_term=term,
+                original_term=embed,
                 rc_sleep_seconds=rc_sleep_seconds,
                 force_sleep=True,
                 verbose=verbose,

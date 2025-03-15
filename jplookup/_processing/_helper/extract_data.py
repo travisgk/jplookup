@@ -210,6 +210,7 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                         )
 
                     li = remove_tags(li, omissions=["ol", "li", "dd", "b"])
+                    li = li.replace("<b> ", " <b>").replace(" </b>", "</b> ")
                     li = li.strip()
 
                     """

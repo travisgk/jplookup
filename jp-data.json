@@ -7755,7 +7755,6 @@
                         {
                             "kana": "なる",
                             "region": "Tokyo",
-                            "pitch-accent": 1,
                             "ipa": "na̠ɾɯ̟"
                         }
                     ],
@@ -7888,7 +7887,6 @@
                         {
                             "kana": "なる",
                             "region": "Tokyo",
-                            "pitch-accent": 1,
                             "ipa": "na̠ɾɯ̟"
                         }
                     ],
@@ -16599,18 +16597,74 @@
         {
             "Etymology 1": {
                 "Noun": {
-                    "term": "かぎ",
+                    "term": "鉤",
                     "pronunciations": [
                         {
-                            "kana": "かぎ"
+                            "kana": "かぎ",
+                            "furigana": [
+                                "かぎ"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "ka̠ɡʲi"
                         }
                     ],
                     "definitions": [
                         {
                             "definition": "hook"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Etymology 1": {
+                "Noun 1": {
+                    "term": "鍵",
+                    "pronunciations": [
+                        {
+                            "kana": "かぎ",
+                            "furigana": [
+                                "かぎ"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "ka̠ɡʲi"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "key (tool for opening or locking something)"
                         },
                         {
-                            "definition": "key"
+                            "definition": "key; clue (important fact for solving something)"
+                        },
+                        {
+                            "definition": "lock"
+                        }
+                    ]
+                }
+            },
+            "Etymology 2": {
+                "Noun 2": {
+                    "term": "鍵",
+                    "pronunciations": [
+                        {
+                            "kana": "けん",
+                            "furigana": [
+                                "けん"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "kẽ̞ɴ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(computing) key"
+                        },
+                        {
+                            "definition": "(music) key"
                         }
                     ]
                 }
@@ -22174,16 +22228,50 @@
     "あさって": [
         {
             "Etymology 1": {
-                "Noun": {
-                    "term": "あさって",
+                "Noun 1": {
+                    "term": "明後日",
                     "pronunciations": [
                         {
-                            "kana": "あさって"
+                            "kana": "あさって",
+                            "furigana": [
+                                "",
+                                "",
+                                "あさって"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "a̠sa̠t̚te̞"
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "the day after tomorrow"
+                            "definition": "(colloquial) the day after tomorrow"
+                        }
+                    ]
+                }
+            },
+            "Etymology 3": {
+                "Noun 3": {
+                    "term": "明後日",
+                    "pronunciations": [
+                        {
+                            "kana": "みょうごにち",
+                            "furigana": [
+                                "みょう",
+                                "ご",
+                                "にち"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 3,
+                            "ipa": "mʲo̞ːɡo̞ɲ̟it͡ɕi"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(formal) the day after tomorrow",
+                            "synonyms": [
+                                "明後"
+                            ]
                         }
                     ]
                 }
@@ -25296,18 +25384,174 @@
     "ほか": [
         {
             "Etymology 1": {
-                "Noun": {
-                    "term": "ほか",
+                "Noun 1": {
+                    "term": "外",
                     "pronunciations": [
                         {
-                            "kana": "ほか"
+                            "kana": "そと",
+                            "furigana": [
+                                "そと"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "so̞to̞"
                         }
                     ],
                     "definitions": [
                         {
-                            "definition": "other, the rest"
+                            "definition": "(the) outside",
+                            "examples": [
+                                {
+                                    "japanese": "箱(はこ)の<b>外(そと)</b>",
+                                    "romanji": "hako no <b>soto</b>",
+                                    "english": "<b>outside</b> of the box"
+                                },
+                                {
+                                    "japanese": "<b>外(そと)</b>は雨(あめ)",
+                                    "romanji": "<b>soto</b> wa ame",
+                                    "english": "it is raining <b>outside</b>"
+                                }
+                            ]
                         }
                     ]
+                }
+            },
+            "Etymology 2": {
+                "Noun 1": {
+                    "term": "他",
+                    "pronunciations": [
+                        {
+                            "kana": "ほか",
+                            "furigana": [
+                                "ほか"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "ho̞ka̠"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "another, other, some other, the rest",
+                            "examples": [
+                                {
+                                    "japanese": "この<b>他(ほか)</b>にも行(ゆ)き先(さき)がありますか。",
+                                    "romanji": "Kono <b>hoka</b> ni mo yukisaki ga arimasu ka.",
+                                    "english": "Do you have any <b>other</b> destinations?"
+                                },
+                                {
+                                    "japanese": "<b>他(ほか)</b>にだれが手(て)伝(つだ)いに行(い)きますか。",
+                                    "romanji": "<b>Hoka</b> ni dare ga tetsudai ni ikimasu ka.",
+                                    "english": "Who <b>else</b> will go to help you?"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "Etymology 3": {
+                "Noun": {
+                    "term": "余所",
+                    "pronunciations": [
+                        {
+                            "kana": "よそ",
+                            "furigana": [
+                                "よ",
+                                "そ"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 2,
+                            "ipa": "jo̞so̞"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "another place"
+                        },
+                        {
+                            "definition": "a place outside one's family or group"
+                        },
+                        {
+                            "definition": "an unrelated person, place, or thing",
+                            "examples": [
+                                {
+                                    "japanese": "余(よ)所(そ)にする、余(よ)所(そ)になる",
+                                    "romanji": "yosonisuru, yosoninaru",
+                                    "english": "to neglect, to be neglected"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "Etymology 4": {
+                "Noun 2": {
+                    "term": "外",
+                    "pronunciations": [
+                        {
+                            "kana": "と",
+                            "furigana": [
+                                "と"
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(the) outside"
+                        },
+                        {
+                            "definition": "toilet"
+                        }
+                    ]
+                }
+            },
+            "Etymology 5": {
+                "Suffix": {
+                    "term": "外",
+                    "pronunciations": [
+                        {
+                            "kana": "がい",
+                            "furigana": [
+                                "がい"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɡa̠i"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "outside; external"
+                        },
+                        {
+                            "definition": "except for"
+                        }
+                    ]
+                }
+            },
+            "Etymology 6": {
+                "Noun 3": {
+                    "term": "外",
+                    "pronunciations": [
+                        {
+                            "kana": "げ",
+                            "furigana": [
+                                "げ"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ɡe̞"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(Buddhism) non-Buddhist teachings or texts"
+                        },
+                        {
+                            "definition": "(in compounds) external"
+                        }
+                    ],
+                    "usage-notes": "The printed form of this character often differs from its handwritten form; in the latter, the last stroke often does not pass through, as in the printed Chinese form."
                 }
             }
         }
@@ -27231,10 +27475,7 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "pã̠ɴ"
+                            "kana": "パン"
                         }
                     ],
                     "definitions": [
@@ -27250,10 +27491,7 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "pã̠ɴ"
+                            "kana": "パン"
                         }
                     ],
                     "definitions": [
@@ -27284,10 +27522,7 @@
                     "term": "パン",
                     "pronunciations": [
                         {
-                            "kana": "パン",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "pã̠ɴ"
+                            "kana": "パン"
                         }
                     ],
                     "definitions": [
@@ -32252,24 +32487,127 @@
         {
             "Etymology 1": {
                 "Noun": {
-                    "term": "せっけん",
+                    "term": "石鹸",
                     "pronunciations": [
                         {
-                            "kana": "せっけん"
+                            "kana": "せっけん",
+                            "furigana": [
+                                "せっ",
+                                "けん"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "se̞k̚kẽ̞ɴ"
                         }
                     ],
                     "definitions": [
                         {
                             "definition": "soap"
-                        },
+                        }
+                    ]
+                }
+            },
+            "Etymology 2": {
+                "Noun": {
+                    "term": "サボン",
+                    "pronunciations": [
                         {
-                            "definition": "conquest"
-                        },
+                            "kana": "サボン",
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "sa̠bõ̞ɴ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "(uncommon) alternative form of シャボン (shabon): soap",
+                            "synonyms": [
+                                "石鹸"
+                            ]
+                        }
+                    ],
+                    "usage-notes": "Found historically with the kanji spelling 石鹸.  The form シャボン (shabon) is more common."
+                }
+            }
+        },
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "席巻",
+                    "pronunciations": [
+                        {
+                            "kana": "せっけん",
+                            "furigana": [
+                                "せっ",
+                                "けん"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "se̞k̚kẽ̞ɴ"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "conquering"
+                        }
+                    ]
+                },
+                "Verb": {
+                    "term": "席巻する",
+                    "pronunciations": [
+                        {
+                            "kana": "せっけんする",
+                            "furigana": [
+                                "せっ",
+                                "けん",
+                                "",
+                                ""
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "to conquer"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "接見",
+                    "pronunciations": [
+                        {
+                            "kana": "せっけん",
+                            "furigana": [
+                                "せっ",
+                                "けん"
+                            ]
+                        }
+                    ],
+                    "definitions": [
                         {
                             "definition": "interview"
-                        },
+                        }
+                    ]
+                },
+                "Verb": {
+                    "term": "接見する",
+                    "pronunciations": [
                         {
-                            "definition": "economy"
+                            "kana": "せっけんする",
+                            "furigana": [
+                                "せっ",
+                                "けん",
+                                "",
+                                ""
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "to interview"
                         }
                     ]
                 }
@@ -32840,7 +33178,7 @@
                                 {
                                     "japanese": "<b>緑(みどり)</b>の匂(にお)い",
                                     "romanji": "<b>midori</b> no nioi",
-                                    "english": "the scent of<b> greenery</b>"
+                                    "english": "the scent of <b>greenery</b>"
                                 }
                             ]
                         },
@@ -39069,7 +39407,7 @@
                                 },
                                 {
                                     "japanese": "車(くるま)のエンジンが<b>かからない</b>",
-                                    "romanji": "kuruma no enjin ga<b> kakaranai</b>",
+                                    "romanji": "kuruma no enjin ga <b>kakaranai</b>",
                                     "english": "This car's engine <b>doesn't work</b>."
                                 }
                             ]
@@ -40683,10 +41021,7 @@
                                 "し",
                                 "",
                                 ""
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ɕime̞ɾɯ̟"
+                            ]
                         }
                     ],
                     "definitions": [
@@ -40712,10 +41047,7 @@
                                 "し",
                                 "",
                                 ""
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ɕime̞ɾɯ̟"
+                            ]
                         }
                     ],
                     "definitions": [
