@@ -117,6 +117,19 @@ def scrape_word_info(
                     found_word_part_headers.append(current_header)
                 current_header = current_header.find_next(tag)
 
+    # Zips, sorts by order of appearance, and unzips back into separate lists.
+    if len(found_word_part_lines) > 0:
+        sorted_lists = sorted(
+            zip(
+                found_word_part_lines,
+                found_word_parts,
+                found_word_part_headers,
+            )
+        )
+        found_word_part_lines, found_word_parts, found_word_part_headers = map(
+            list, zip(*sorted_lists)
+        )
+
     # Ensures that word parts all have unique key names.
     for part in PARTS_OF_SPEECH:
         found_indices = []
@@ -316,6 +329,7 @@ def scrape_word_info(
     data, embedded_kanji_redirects = extract_data(layout, find_embedded_kanji)
     if len(embedded_kanji_redirects) > 0:
         return None, [], embedded_kanji_redirects
+
 
     data = clean_data(data, term)
 

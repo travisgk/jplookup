@@ -82,7 +82,7 @@ def scrape(
                         return scrape(
                             dict_form,
                             depth + 1,
-                            original_term,
+                            dict_form,
                             rc_sleep_seconds=rc_sleep_seconds,
                             verbose=verbose,
                         )
@@ -172,7 +172,7 @@ def scrape(
         for table in next_tables:
             alternative = get_alternative_term_from_table(table)
             if alternative is not None:
-                if len(next_tables) == 1 and (results is None or len(results) == 0):
+                """if len(next_tables) == 1 and (results is None or len(results) == 0 or all(r is None for r in results)):
                     # This is a simple redirect; no depth added.
                     return scrape(
                         alternative,
@@ -182,6 +182,7 @@ def scrape(
                         force_sleep=True,
                         verbose=verbose,
                     )
+                """
 
                 # Otherwise a recursive call with depth added is made.
                 alt_results = scrape(
@@ -241,8 +242,13 @@ def scrape(
 
     """
     Step 5) Shares pronunciation information with those of matching kana
-            that lack pitch-accent or IPA.
+            that lack pitch-accent or IPA (depth is at 0)
     """
     results = exchange_phonetic_info(results)
+
+    for r in results:
+        for etym_name, etym_data in r.items():
+            for part_of_speech, part_data in etym_data.items():
+                part_data["term"] = term
 
     return results

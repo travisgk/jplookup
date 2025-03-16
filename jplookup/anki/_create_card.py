@@ -61,6 +61,7 @@ def dict_to_anki_fields(
             is maintained.
     """
     kana_bank = {}
+    print(scrape_output)
     for etym_term, etym_data in scrape_output[0].items():
         for part_of_speech, word_data in etym_data.items():
             term = word_data["term"]
@@ -68,21 +69,31 @@ def dict_to_anki_fields(
 
             pronunciation = search_for_pronunciation(pronunciations)
             if pronunciation is not None:
+
                 kana = pronunciation["kana"]
-                part_of_speech = part_of_speech.split(" ")[0]
+                matched_desired_part = False
+                for part in _DESIRED_PARTS:
+                    if part_of_speech.startswith(part):
+                        part_of_speech = part
+                        matched_desired_part = True
+                        break
+
                 if word_data.get("pronunciations"):
                     del word_data["pronunciations"]
                 word_data["pronunciation"] = pronunciation
 
-                if part_of_speech in _DESIRED_PARTS:
+                if matched_desired_part:
                     if kana_bank.get(kana):
                         kana_bank[kana].append((part_of_speech, word_data))
                     else:
                         kana_bank[kana] = [
                             (part_of_speech, word_data),
                         ]
+                else:
+                    print(f"ppp: {part_of_speech}")
 
     if len(kana_bank.keys()) == 0:
+        print("debug")
         return None
 
     best_kana = list(kana_bank.keys())[0]
@@ -97,9 +108,11 @@ def dict_to_anki_fields(
     card_parts = kana_bank[best_kana]
     card_parts = combine_like_terms(card_parts)
 
+    kanji = card_parts.get("kanji")
     anki_card = {
+        "key-term": kanji if kanji else card_parts["kana"],
         "kana": card_parts["kana"],
-        "kanji": card_parts.get("kanji", ""),
+        "kanji": kanji if kanji else "",
     }
 
     # Comes up with definitions string.
@@ -126,7 +139,9 @@ def dict_to_anki_fields(
     anki_card["pretty-kanji"] = pretty_kanji
 
     # Adds the usage notes.
-    anki_card["usage-notes"] = card_parts.get("usage-notes", "")
+    anki_card["usage-notes"] = (
+        card_parts.get("usage-notes", "").strip().replace("\n", "<br>")
+    )
 
     # print(json.dumps(anki_card, indent=4, ensure_ascii=False))
     # print("\n\n\n")

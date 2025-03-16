@@ -187,9 +187,16 @@ def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> li
                 if term in redirect_keys and (
                     len(entry) == 1 or (original_term in alt_spellings)
                 ):
+
                     # This is the Etymology that's being referred to.
                     new_etym_header = redirects[term]
                     new_etym = etymology
+
+                    if original_term in alt_spellings:
+                        # Updates term with original term 
+                        # since this is a referral via alt spelling.
+                        new_etym[part_of_speech]["term"] = original_term
+
                     break
 
             if new_etym is not None:

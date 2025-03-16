@@ -11,13 +11,27 @@ def main():
     with open("jp-data.json", "r", encoding="utf-8") as f:
         word_info = json.load(f)
 
-    # for search_term, word_data in word_info.items():
-    word_data = word_info.get("犬")
-    anki_card = jplookup.anki.dict_to_anki_fields(
-        word_data,
-        include_romanji=True,
-    )
-    print(anki_card["definitions"])
+    with open("anki-out.txt", "w", encoding="utf-8") as out_file:
+        KEYS = [
+            "key-term",
+            "kana",
+            "kanji",
+            "definitions",
+            "ipa",
+            "pretty-kana",
+            "pretty-kanji",
+            "usage-notes",
+        ]
+        for search_term, word_data in word_info.items():
+            anki_card = jplookup.anki.dict_to_anki_fields(
+                word_data, include_romanji=True
+            )
+
+            for i, key in enumerate(KEYS):
+                out_file.write(anki_card[key])
+                if i < len(KEYS) - 1:
+                    out_file.write("\t")
+            out_file.write("\n")
 
 
 if __name__ == "__main__":

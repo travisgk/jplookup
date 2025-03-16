@@ -10,7 +10,8 @@ Version: 1.0
 License: MIT
 """
 
-TAB = "\t"
+TAB = ""
+NEWLINE = ""
 
 
 def _add_ruby_tags(japanese: str) -> str:
@@ -43,18 +44,19 @@ def create_definition_str(card_parts: list, include_romanji: bool = False) -> st
     """
     result_str = ""
     for word_type, part_data in card_parts["parts-of-speech"].items():
-        result_str += f'<div class="part-of-speech">{word_type}</div>\n'
-        result_str += '<ul class="word-definitions">\n'
+        result_str += f'<div class="part-of-speech">{word_type}</div>{NEWLINE}'
+        result_str += f'<ul class="word-definitions">{NEWLINE}'
         for definition in part_data["definitions"]:
             def_str = definition["definition"]
             result_str += (
-                f'{TAB}<li class="definition-entry">\n' f"{TAB}{TAB}{def_str}\n"
+                f'{TAB}<li class="definition-entry">{NEWLINE}'
+                f"{TAB}{TAB}{def_str}{NEWLINE}"
             )
 
             examples = definition.get("examples")
             if examples:
                 for example in examples:
-                    result_str += f'{TAB}{TAB}<ul class="example-sentence">\n'
+                    result_str += f'{TAB}{TAB}<ul class="example-sentence">{NEWLINE}'
                     japanese = _add_ruby_tags(example["japanese"])
                     romanji = example["romanji"]
                     english = example["english"]
@@ -62,23 +64,23 @@ def create_definition_str(card_parts: list, include_romanji: bool = False) -> st
                     # Adds each sentence.
                     result_str += (
                         f'{TAB}{TAB}{TAB}<li class="japanese-example">'
-                        f"{japanese}</li>\n"
+                        f"{japanese}</li>{NEWLINE}"
                     )
 
                     if include_romanji:
                         result_str += (
                             f'{TAB}{TAB}{TAB}<li class="romanji-example">'
-                            f"{romanji}</li>\n"
+                            f"{romanji}</li>{NEWLINE}"
                         )
 
                     result_str += (
                         f'{TAB}{TAB}{TAB}<li class="english-example">'
-                        f"{english}</li>\n"
+                        f"{english}</li>{NEWLINE}"
                     )
-                    result_str += f"{TAB}{TAB}</ul>\n"
+                    result_str += f"{TAB}{TAB}</ul>{NEWLINE}"
 
-            result_str += f"{TAB}</li>\n"
-        result_str += "</ul>\n"
+            result_str += f"{TAB}</li>{NEWLINE}"
+        result_str += f"</ul>{NEWLINE}"
 
     return result_str
 
@@ -118,6 +120,11 @@ def create_pretty_kanji(
     """
     result = ""
     mora_num = 1
+
+    if furigana is None:
+        return kanji
+
+    # 
     for k, furi in zip(kanji, furigana):
         if len(furi) == 0:
             if mora_num == pitch_accent:
