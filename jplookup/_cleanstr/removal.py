@@ -1,7 +1,7 @@
 """
 Filename: jplookup._cleanstr.removal.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines functions for 
              removing specific parts of HTML.
@@ -12,7 +12,6 @@ License: MIT
 
 import re
 from bs4 import BeautifulSoup
-import jaconv
 
 
 # Text removal functions.

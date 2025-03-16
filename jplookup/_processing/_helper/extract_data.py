@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing._helper.extract_data.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines a function that can be given a
              conjugated verb and will do its best to guess
@@ -23,7 +23,6 @@ from jplookup._cleanstr.identification import (
 from jplookup._cleanstr.removal import (
     remove_text_in_brackets,
     remove_tags,
-    remove_further_pronunciations,
     remove_unwanted_html,
 )
 from jplookup._cleanstr.textwork import (

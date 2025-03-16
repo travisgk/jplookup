@@ -1,0 +1,2 @@
+jaconv
+beautifulsoup4

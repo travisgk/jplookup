@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._simplify.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines helper functions that help
              the anki module break the outputs of jplookup.scrape(...)
@@ -73,7 +73,7 @@ def _join_word_data(word_dicts: list) -> dict:
         usage_notes = part_data.get("usage-notes")
         if usage_notes:
             if len(usage_notes_str) > 0:
-                usage_notes_str += "<br>"
+                usage_notes_str += "<br><br>"
             usage_notes_str += usage_notes
 
     if len(usage_notes_str) > 0:

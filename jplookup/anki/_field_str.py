@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._field_str.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines helper functions that handle
              processing text for individual fields in an Anki card.
@@ -124,7 +124,7 @@ def create_pretty_kanji(
     if furigana is None:
         return kanji
 
-    # 
+    #
     for k, furi in zip(kanji, furigana):
         if len(furi) == 0:
             if mora_num == pitch_accent:

@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._create_card.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines the primary function to take the
              outputs of a jplookup.scrape(...) call and convert
@@ -61,7 +61,6 @@ def dict_to_anki_fields(
             is maintained.
     """
     kana_bank = {}
-    print(scrape_output)
     for etym_term, etym_data in scrape_output[0].items():
         for part_of_speech, word_data in etym_data.items():
             term = word_data["term"]
@@ -89,11 +88,8 @@ def dict_to_anki_fields(
                         kana_bank[kana] = [
                             (part_of_speech, word_data),
                         ]
-                else:
-                    print(f"ppp: {part_of_speech}")
 
     if len(kana_bank.keys()) == 0:
-        print("debug")
         return None
 
     best_kana = list(kana_bank.keys())[0]

@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing.scrape_word_info.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines the helper function that actually
              retrieves raw data from the Wiktionary HTML.
@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from ._helper.extract_data import extract_data
 from ._helper.clean_data import clean_data
 from jplookup._cleanstr.identification import is_japanese_char
-from jplookup._cleanstr.removal import remove_unwanted_html, remove_tags
+from jplookup._cleanstr.removal import remove_tags
 
 PARTS_OF_SPEECH = [
     "Noun",
@@ -39,25 +39,33 @@ PARTS_OF_SPEECH = [
 HEADER_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
 
 
-def get_alternative_term_from_table(table_obj):
+def get_alternative_terms_from_table(table_obj) -> list:
     """
-    Returns the text that's in brackets of a specific table element
+    Returns any text that's in brackets of a specific table element
     which contains some form of alternative spelling.
     """
 
     text = table_obj.get_text()
     declaring_index = text.find("For pronunciation and definitions of")
 
-    if declaring_index >= 0:
-        opening_index = text.find("【", declaring_index)
+    if declaring_index < 0:
+        return []
+
+    alts = []
+    index = declaring_index
+    while index < len(text):
+        opening_index = text.find("【", index + 1)
         if opening_index >= 0:
             closing_index = text.find("】", opening_index)
             if closing_index >= 0:
                 # Splices out the term of the alternative spelling.
                 alternative = text[opening_index + 1 : closing_index]
-                return alternative
+                alts.append(alternative)
+                index = closing_index + 1
+                continue
+        break
 
-    return None
+    return alts
 
 
 def scrape_word_info(
@@ -281,6 +289,7 @@ def scrape_word_info(
     # Looks for redirects for every Etymology
     # lacking any Pronunciation or Part of Speech header.
     JP_TABLE = "wikitable ja-see"
+    all_redirect_terms = []
     redirects_to_etym = {}
     if finding_alts:
         for key in etym_keys_to_delete:
@@ -295,17 +304,24 @@ def scrape_word_info(
             # for an alternative spelling.
             next_table = etym_header.find_next("table", class_=JP_TABLE)
             if next_table is not None and next_table.sourceline < end_line:
-                redirect_term = get_alternative_term_from_table(next_table)
-                if redirect_term is not None:
+                redirect_terms = get_alternative_terms_from_table(next_table)
+
+                if len(redirect_terms) > 0:
+                    all_redirect_terms.extend(redirect_terms)
                     etym_term = "Etymology " + str(i + 1)
-                    redirects_to_etym[redirect_term] = etym_term
+                    redirects_to_etym[redirect_terms[0]] = etym_term
                     layout[f"e{i}"] = None
 
     for key in etym_keys_to_delete:
         del layout[key]
 
     if len(layout.keys()) == 0:
-        return None, redirects_to_etym, []
+        redirects_to_etym = {}
+        for i, redirect_term in enumerate(all_redirect_terms):
+            etym_term = "Etymology " + str(i + 1)
+            redirects_to_etym[redirect_term] = etym_term
+
+        return None, redirects_to_etym, None
 
     """
     Step 5) Adds details about the ending line numbers 
@@ -328,8 +344,7 @@ def scrape_word_info(
     """
     data, embedded_kanji_redirects = extract_data(layout, find_embedded_kanji)
     if len(embedded_kanji_redirects) > 0:
-        return None, [], embedded_kanji_redirects
-
+        return None, None, embedded_kanji_redirects
 
     data = clean_data(data, term)
 

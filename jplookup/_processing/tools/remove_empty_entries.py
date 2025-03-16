@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing.tools.remove_empty_entries.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines a function that will remove
              all empty Parts of Speech, then will remove
@@ -11,8 +11,6 @@ Description: This file defines a function that will remove
 Version: 1.0
 License: MIT
 """
-
-import copy
 
 
 def remove_empty_entries(

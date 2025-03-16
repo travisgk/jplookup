@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing.tools.headwords.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines functions relating to extracting information
              from the contents of a <span class="headword-line">, which will

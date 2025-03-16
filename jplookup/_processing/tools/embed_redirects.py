@@ -1,7 +1,7 @@
 """
 Filename: jplookup._processing.tools.embed_redirects.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines a function which will 
              handles redirected data entries,
@@ -13,8 +13,12 @@ License: MIT
 """
 
 import re
-from jplookup._cleanstr.identification import is_hiragana, is_japanese_char
-from jplookup._cleanstr.removal import remove_alternative_spellings
+import jaconv
+from jplookup._cleanstr.identification import (
+    is_hiragana,
+    is_kana,
+    is_japanese_char,
+)
 
 # if True, removes the kanji that may appear before a definition.
 REMOVE_CONTEXT_SPECIFIERS_FROM_DEFS = True
@@ -51,7 +55,11 @@ def _sort_dict_by_trailing_number(data):
     return result
 
 
-def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> list:
+def embed_redirects(
+    clean_data: list,
+    redirects: dict,
+    original_term: str,
+) -> list:
     """
     Returns the <clean_data>, that being the list of scraped Wiktionary entries,
     where any of the Etymology entries under <clean_data[0]> that are None
@@ -158,23 +166,30 @@ def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> li
         # in the subsequent Entry to look for alternative spellings.
         for etym_key, etymology in entry.items():
             alt_spellings = etymology.get("alternative-spellings")
-
+            kana_spellings = []
             if USE_KANA_AS_ALT_SPELLING:
-                pronunciations = etymology.get("pronunciations")
-                if pronunciations is not None:
-                    for p in pronunciations:
-                        kana = p.get("kana")
-                        if kana is not None:
-                            new_spellings = [
-                                kana,
-                            ]
-                            if is_hiragana(kana[0]):
-                                new_spellings.append(jaconv.hira2kata(kana))
-                            alt_spellings.extend(
-                                [n for n in new_spellings if n not in alt_spellings]
-                            )
+                for part_of_speech, word_data in etymology.items():
+                    if part_of_speech == "alternative-spellings":
+                        continue
+                    pronunciations = word_data.get("pronunciations")
+                    if pronunciations is not None:
+                        for p in pronunciations:
+                            kana = p.get("kana")
+                            if kana is not None:
+                                new_spellings = [
+                                    kana,
+                                ]
+                                if is_hiragana(kana[0]):
+                                    new_spellings.append(jaconv.hira2kata(kana))
+                                kana_spellings.extend(
+                                    [
+                                        n
+                                        for n in new_spellings
+                                        if n not in kana_spellings
+                                    ]
+                                )
 
-            if alt_spellings is None:
+            if alt_spellings is None and len(kana_spellings) == 0:
                 continue
 
             new_etym_header = None
@@ -185,15 +200,21 @@ def embed_redirects(clean_data: list, redirects: dict, original_term: str) -> li
 
                 term = word_data.get("term")  # gets the redirect etym's term.
                 if term in redirect_keys and (
-                    len(entry) == 1 or (original_term in alt_spellings)
+                    len(entry) == 1
+                    or (alt_spellings and original_term in alt_spellings)
+                    or original_term in kana_spellings
                 ):
 
                     # This is the Etymology that's being referred to.
                     new_etym_header = redirects[term]
                     new_etym = etymology
 
-                    if original_term in alt_spellings:
-                        # Updates term with original term 
+                    if (
+                        alt_spellings
+                        and original_term in alt_spellings
+                        and all(is_kana(c) for c in new_etym[part_of_speech]["term"])
+                    ):
+                        # Updates term with original term
                         # since this is a referral via alt spelling.
                         new_etym[part_of_speech]["term"] = original_term
 

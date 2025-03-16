@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines the primary function that scrapes
              information about a Japanese term from its English Wiktionary
@@ -15,12 +15,11 @@ Version: 1.0
 License: MIT
 """
 
-import time
 import requests
+import time
 from bs4 import BeautifulSoup
-import jaconv
 from ._cleanstr.dictform import get_dictionary_form
-from ._cleanstr.identification import kata_matches
+from ._cleanstr.identification import is_kanji
 from ._cleanstr.removal import (
     shorten_html,
     remove_further_pronunciations,
@@ -136,14 +135,14 @@ def scrape(
 
     # If this is a Wiktionary page full of kanji spellings,
     # then a list of recursive results is returned to the user.
-    if len(embedded_kanji_redirects) > 0:
+    if embedded_kanji_redirects and len(embedded_kanji_redirects) > 0:
         comp = []
 
         for embed in embedded_kanji_redirects:
             info = scrape(
                 embed,
-                depth=0,
-                original_term=embed,
+                depth=depth + 1,
+                original_term=term,
                 rc_sleep_seconds=rc_sleep_seconds,
                 force_sleep=True,
                 verbose=verbose,
@@ -151,6 +150,9 @@ def scrape(
             if info is not None:
                 comp.append(info[0])
 
+        if len(comp) > 0:
+            comp = remove_alternative_spellings(comp)
+        comp = remove_empty_entries(comp, remove_entries=True)
         return comp
 
     # Otherwise, results are added as normal.
@@ -170,31 +172,20 @@ def scrape(
         JP_TABLE = "wikitable ja-see"
         next_tables = japanese_header.find_all_next("table", class_=JP_TABLE)
         for table in next_tables:
-            alternative = get_alternative_term_from_table(table)
-            if alternative is not None:
-                """if len(next_tables) == 1 and (results is None or len(results) == 0 or all(r is None for r in results)):
-                    # This is a simple redirect; no depth added.
-                    return scrape(
+            alternatives = get_alternative_terms_from_table(table)
+            if len(alternatives) > 0:
+                # A recursive call with depth added is made.
+                for alternative in alternatives:
+                    alt_results = scrape(
                         alternative,
-                        0,
-                        alternative,
+                        depth + 1,
+                        term,
                         rc_sleep_seconds=rc_sleep_seconds,
-                        force_sleep=True,
                         verbose=verbose,
                     )
-                """
 
-                # Otherwise a recursive call with depth added is made.
-                alt_results = scrape(
-                    alternative,
-                    depth + 1,
-                    original_term,
-                    rc_sleep_seconds=rc_sleep_seconds,
-                    verbose=verbose,
-                )
-
-                if alt_results is not None:
-                    results.extend(alt_results)
+                    if alt_results is not None:
+                        results.extend(alt_results)
 
     if (results is None or len(results) == 0) and depth < MAX_DEPTH:
         # If there were no results found after looking for alternatives,
@@ -219,7 +210,7 @@ def scrape(
         results = embed_redirects(
             results,
             redirects_to_etym,
-            original_term if original_term else term,
+            term,
         )
 
         if len(results) > 0:
@@ -245,10 +236,5 @@ def scrape(
             that lack pitch-accent or IPA (depth is at 0)
     """
     results = exchange_phonetic_info(results)
-
-    for r in results:
-        for etym_name, etym_data in r.items():
-            for part_of_speech, part_data in etym_data.items():
-                part_data["term"] = term
 
     return results

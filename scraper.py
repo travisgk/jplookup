@@ -15,37 +15,44 @@ def main():
     if MODE == "testing":
         for i, term in enumerate(
             [
+                "中",
+                "白",
+                "はく",
                 "捕る",
                 "取る",
-                #"いかが",
-                #"北",
-                # "ふろ",
-                # "よくそう",
-                # "浴槽",
-                # "犬",
-                # "猫",
-                # "短い",
-                # "コート",
-                # "ボタン",
+                "いかが",
+                "北",
+                "ふろ",
+                "よくそう",
+                "浴槽",
+                "犬",
+                "猫",
+                "短い",
+                "コート",
+                "ボタン",
             ]
         ):
-            time.sleep(AGGRESSIVENESS)
-            word_info = jplookup.scrape(term, rc_sleep_seconds=5)
+            if i > 0:
+                time.sleep(AGGRESSIVENESS)
+            word_info = jplookup.scrape(term, rc_sleep_seconds=8)
             if word_info and len(word_info) > 0:
                 with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
-                    json.dump(word_info[0], json_file, indent=4, ensure_ascii=False)
+                    json.dump(word_info, json_file, indent=4, ensure_ascii=False)
                 print(
                     json.dumps(
-                        word_info[0],
+                        word_info,
                         indent=4,
                         ensure_ascii=False,
-                    ),
-                    end="\n\n\n\n\n\n\n\n\n\n",
+                    )
                 )
                 anki_card = jplookup.anki.dict_to_anki_fields(
                     word_info, include_romanji=True
                 )
-                print(anki_card["definitions"])
+                if anki_card:
+                    print(anki_card["definitions"])
+                print(
+                    "\n\n\n\n\n\n\n\n\n\n",
+                )
             else:
                 print(
                     f"No relevant info found for {term}. Skipping...",

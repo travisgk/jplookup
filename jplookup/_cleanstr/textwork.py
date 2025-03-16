@@ -1,7 +1,7 @@
 """
 Filename: jplookup._cleanstr.textwork.py
 Author: TravisGK
-Date: 2025-03-13
+Date: 2025-03-16
 
 Description: This file defines functions for 
              extracting text from within HTML
@@ -11,7 +11,6 @@ Version: 1.0
 License: MIT
 """
 
-import re
 from bs4 import BeautifulSoup
 import jaconv
 from .identification import is_kanji, is_japanese_char
