@@ -126,6 +126,65 @@ def extract_japanese(subline: str) -> list:
     return terms
 
 
+def extract_pronunciation_info(p_str: str):
+    """Returns the region, the kana, the pitch-accent and IPA."""
+    region, kana, pitch_accent, ipa = None, None, None, None
+
+    # Extracts the region.
+    REGIONS = ["Tokyo", "Osaka"]
+    for r in REGIONS:
+        if p_str.startswith(f"({r})"):
+            region = r
+            break
+
+    # Extracts the kana.
+    found_kana = extract_japanese(p_str)
+    if len(found_kana) > 0:
+        kana = found_kana[0]
+
+    # Extracts the accent number.
+    accent_start_index = p_str.find("– [")
+    if accent_start_index >= 0:
+        accent_end_index = p_str.find("])", accent_start_index)
+        if accent_end_index - accent_start_index == 4:
+            pitch_accent = int(p_str[accent_end_index - 1])
+
+    # Extracts the IPA.
+    IPA_TERM = "IPA(key):"
+    ipa_key_index = p_str.find(IPA_TERM)
+    if ipa_key_index >= 0:
+        ipa_key_index += len(IPA_TERM)
+        ipa_start_index = p_str.find("[", ipa_key_index)
+        if ipa_start_index >= 0:
+            ipa_end_index = p_str.find("]", ipa_start_index)
+            if ipa_end_index >= 0:
+                ipa = p_str[ipa_start_index + 1 : ipa_end_index]
+
+    return region, kana, pitch_accent, ipa
+
+
+def kana_to_moras(kana: str) -> list:
+    """
+    Returns a list of moras that the given <kana> is broken into.
+    """
+    SMALL_FOR_DIGRAPH = "ゃゅょャュョァィゥェォ"
+    moras = []
+    i = 0
+    while i < len(kana):
+        current = kana[i]
+        if (
+            i + 1 < len(kana)
+            and kana[i + 1] in SMALL_FOR_DIGRAPH
+            and current not in SMALL_FOR_DIGRAPH
+        ):
+            moras.append(current + kana[i + 1])
+            i += 2
+        else:
+            moras.append(current)
+            i += 1
+    return moras
+
+
 # Replacement functions.
 def change_furi_to_kata(text: str, term: str) -> str:
     """

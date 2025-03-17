@@ -122,6 +122,7 @@ def create_pretty_kanji(
     mora_num = 1
 
     if furigana is None:
+        print(f"furi is none: {kanji}")
         return kanji
 
     #

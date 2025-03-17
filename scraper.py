@@ -9,15 +9,15 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "all"
+    MODE = "testing"
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
         for i, term in enumerate(
             [
-                "中",
-                "白",
-                "はく",
+                # "中",
+                # "白",
+                # "はく",
                 "捕る",
                 "取る",
                 "いかが",
@@ -25,11 +25,11 @@ def main():
                 "ふろ",
                 "よくそう",
                 "浴槽",
-                "犬",
-                "猫",
-                "短い",
-                "コート",
-                "ボタン",
+                # "犬",
+                # "猫",
+                # "短い",
+                # "コート",
+                # "ボタン",
             ]
         ):
             if i > 0:

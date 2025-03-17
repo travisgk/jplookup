@@ -17,9 +17,12 @@ from jplookup._cleanstr.identification import (
     find_pronunciation_match,
 )
 from jplookup._cleanstr.removal import remove_spaces_jp
-from jplookup._cleanstr.textwork import extract_japanese, change_furi_to_kata
+from jplookup._cleanstr.textwork import (
+    extract_japanese,
+    extract_pronunciation_info,
+    change_furi_to_kata,
+)
 from jplookup._processing.tools.headwords import *
-from .extract_data import extract_pronunciation_info
 
 REMOVE_ARCHAIC_DEFINITIONS = True
 REMOVE_LITERARY_DEFINITIONS = True

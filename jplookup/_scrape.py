@@ -29,6 +29,7 @@ from ._processing.tools.exchange_phonetic_info import *
 from ._processing.tools.remove_empty_entries import *
 from ._processing.tools.embed_redirects import *
 from ._processing.scrape_word_info import *
+from ._processing._missing_furigana import fill_in_missing_furigana
 
 
 def scrape(
@@ -236,5 +237,6 @@ def scrape(
             that lack pitch-accent or IPA (depth is at 0)
     """
     results = exchange_phonetic_info(results)
+    results = fill_in_missing_furigana(results)
 
     return results
