@@ -166,6 +166,10 @@ def fill_in_missing_furigana(results: list):
                                     s, m = series[i], moras[i]
                                     new_furi[start_index + i] = moras[i]
                                 p["furigana"] = new_furi
+                            
+                            elif len(series) == 1 and len(moras) > 1:
+                                p["furigana"] = ["".join(moras),]
+
                             else:
 
                                 furi_with_loc = []

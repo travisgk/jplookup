@@ -10,6 +10,8 @@ Version: 1.0
 License: MIT
 """
 
+from jplookup._cleanstr.textwork import kana_to_moras
+
 TAB = ""
 NEWLINE = ""
 
@@ -91,11 +93,12 @@ def create_pretty_kana(kana: str, pitch_accent: int) -> str:
     the kana with additional phonetic information displayed.
     """
     result = ""
-    for i, c in enumerate(kana):
-        if i + 1 == pitch_accent:
-            result += _place_pitch_accent(c)
+    moras = kana_to_moras(kana)
+    for i, mora in enumerate(moras):
+        if i + 1 == pitch_accent: # DEBUG SEE IF THIS WORKS
+            result += _place_pitch_accent(mora)
         else:
-            result += c
+            result += mora
 
     return result
 

@@ -9,7 +9,7 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "testing"
+    MODE = "all"
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
