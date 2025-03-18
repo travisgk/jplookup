@@ -129,6 +129,7 @@ def dict_to_anki_fields(
             card_parts["kanji"],
             pitch_accent=card_parts.get("pitch-accent", -1),
             furigana=card_parts.get("furigana"),
+            furigana_by_index=card_parts.get("furigana-by-index"),
         )
     else:
         pretty_kanji = ""

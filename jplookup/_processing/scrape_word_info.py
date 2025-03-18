@@ -312,6 +312,7 @@ def scrape_word_info(
                     redirects_to_etym[redirect_terms[0]] = etym_term
                     layout[f"e{i}"] = None
 
+    # Finally deletes the keys with None in them.
     for key in etym_keys_to_delete:
         del layout[key]
 
@@ -348,4 +349,4 @@ def scrape_word_info(
 
     data = clean_data(data, term)
 
-    return data, redirects_to_etym, []
+    return data, redirects_to_etym, None

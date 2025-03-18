@@ -16,6 +16,7 @@ import re
 import jaconv
 from jplookup._cleanstr.identification import (
     is_hiragana,
+    is_kanji,
     is_kana,
     is_japanese_char,
 )
@@ -199,12 +200,17 @@ def embed_redirects(
                     continue
 
                 term = word_data.get("term")  # gets the redirect etym's term.
+                search_term = (
+                    original_term
+                    if all(not is_kanji(c) for c in original_term)
+                    else term
+                )
+
                 if term in redirect_keys and (
                     len(entry) == 1
-                    or (alt_spellings and original_term in alt_spellings)
+                    or (alt_spellings is not None and original_term in alt_spellings)
                     or original_term in kana_spellings
                 ):
-
                     # This is the Etymology that's being referred to.
                     new_etym_header = redirects[term]
                     new_etym = etymology

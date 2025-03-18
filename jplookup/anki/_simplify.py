@@ -123,7 +123,7 @@ def combine_like_terms(card_parts: list) -> list:
     # Moves the pronunciation attributes to a more global scope in the dict.
     result = {}
     for key, value in pronunciation.items():
-        if key != "furigana":
+        if key not in ["furigana", "furigana-by-index"]:
             result[key] = value
 
     # Sets "kanji" to the term if it has diff chars from the kana.
@@ -132,6 +132,8 @@ def combine_like_terms(card_parts: list) -> list:
             result["kanji"] = kanji
             if pronunciation.get("furigana"):
                 result["furigana"] = pronunciation["furigana"]
+            elif pronunciation.get("furigana-by-index"):
+                result["furigana-by-index"] = pronunciation["furigana-by-index"]
         elif all(is_katakana(k) for k in kanji):
             result["kana"] = kanji
 

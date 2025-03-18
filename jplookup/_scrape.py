@@ -40,9 +40,62 @@ def scrape(
     force_sleep: bool = False,
     verbose: bool = True,
 ):
+    """
+    Scrapes a Wiktionary entry for Japanese word information,
+    returning a list which includes pronunciations and definitions,
+    with definitions having any example sentences added.
+    This will be a list of dictionaries.
+
+    None is returned if no results could be found.
+
+    The first dictionary of the returned results will contain
+    the primary
+
+    Any pages that are redirected to (i.e. alternative spelling) will
+    be scraped as well, however, only information relevant to the original
+    searched term will be taken and then appended to the root page's data.
+    For example:
+        - term = "はく":
+            This will grab the definitions of ALL words with kanji spellings,
+            where for each kanji spelling its Wiktionary page
+            is scraped recursively, however, only etymologies
+            with pronunciations of "はく" under these child Wiktionary pages
+            will have their definitions taken and added to the data of the
+            original scrape(...) call.
+
+        - term = "捕る"
+            This Wiktionary page indicates that "捕る"
+            is an alternative spelling of "はく", providing a redirect to the
+            Wiktionary page for "はく". In this case, the "はく" page is scraped,
+            however, only definitions that are specified as fitting
+            with the contextual spelling ("捕る") or have no specified
+            fitting contextual spellings at all will be taken
+            and added to the data of the original scrape(...) call.
+
+        - term = "取る"
+            This Wiktionary page indicates that "取る"
+            is an alternative spelling of "はく", providing a redirect to the
+            Wiktionary page for "はく". In this case, the "はく" page is scraped,
+            however, only definitions that are specified as fitting
+            with the contextual spelling ("取る") or have no specified
+            fitting contextual spellings at all will be taken
+            and added to the data of the original scrape(...) call.
+
+    Parameters:
+        term (str): the Japanese word to search.
+        depth (int): the recursive depth.
+        original_term (str): used for recursive calls; holds the original term
+                             searched when <term> is being used
+                             for an alternative spelling.
+        rc_sleep_seconds: the duration in seconds that the program
+                          will sleep before scraping a child Wiktionary page.
+        force_sleep (bool): if True, the program sleeps for <rc_sleep_seconds>
+                            regardless of the current recursive depth.
+        verbose (bool): if False, the script won't print any error messages.
+    """
     """Returns either a list or None."""
-    MAX_CONNECT_ATTEMPTS = 3
-    MAX_DEPTH = 1  # not inclusive.
+    MAX_CONNECT_ATTEMPTS = 5  # number of times to retry if fails for a term.
+    MAX_DEPTH = 1  # not inclusive. not tested for above 1.
 
     if depth > 0 or force_sleep:
         # Sleeps when doing a recursive loop to prevent getting blocked.
@@ -119,7 +172,7 @@ def scrape(
 
     if japanese_header is None:
         if verbose:
-            print("Error: No Japanese header was found" "on that Wiktionary page.")
+            print("Error: No Japanese header was found" + "on that Wiktionary page.")
         return None
 
     """
@@ -138,7 +191,6 @@ def scrape(
     # then a list of recursive results is returned to the user.
     if embedded_kanji_redirects and len(embedded_kanji_redirects) > 0:
         comp = []
-
         for embed in embedded_kanji_redirects:
             info = scrape(
                 embed,
@@ -206,7 +258,7 @@ def scrape(
     Step 3) Embeds the relevant word information from any
             pages that were redirected to.
     """
-    results = remove_empty_entries(results)  # possibly unneeded
+    # results = remove_empty_entries(results)  # probably unneeded
     if depth == 0:
         results = embed_redirects(
             results,
@@ -219,18 +271,23 @@ def scrape(
         results = remove_empty_entries(results, remove_entries=True)
 
     """
-    Step 4) Removes any Etymology entry that lacks any Definitions.
+    Step 4) Goes through each entry 
+            and removes any Etymology entry that lacks any Definitions.
     """
-    indices_to_remove = []
     for i in range(len(results)):
+        keys_to_keep = []
         for etym_name, parts in results[i].items():
-            if parts is None:
-                indices_to_remove.append(i)
-    if len(indices_to_remove) > 0:
-        results = [r for i, r in enumerate(results) if i not in indices_to_remove]
+            if etym_name == "alternative-spellings" or parts is not None:
+                keys_to_keep.append(etym_name)
+        if len(keys_to_keep) > 0:
+            results[i] = {
+                key: value for key, value in results[i].items() if key in keys_to_keep
+            }
 
     if depth > 0:
         return results
+
+    results = remove_alternative_spellings(results)
 
     """
     Step 5) Shares pronunciation information with those of matching kana

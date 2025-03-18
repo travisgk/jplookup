@@ -95,7 +95,7 @@ def create_pretty_kana(kana: str, pitch_accent: int) -> str:
     result = ""
     moras = kana_to_moras(kana)
     for i, mora in enumerate(moras):
-        if i + 1 == pitch_accent: # DEBUG SEE IF THIS WORKS
+        if i + 1 == pitch_accent:  # DEBUG SEE IF THIS WORKS
             result += _place_pitch_accent(mora)
         else:
             result += mora
@@ -114,40 +114,54 @@ def _place_pitch_accent(kana) -> str:
 def create_pretty_kanji(
     kanji: str,
     pitch_accent: int,
-    furigana,  # list, could be None.
+    furigana,
+    furigana_by_index,  #  list, could be None.
 ) -> str:
     """
     Returns a string with HTML that nicely displays
     the kanji with additional phonetic information displayed
     and furigana shown.
     """
+    if furigana is None and furigana_by_index is None:
+        return kanji
+
     result = ""
     mora_num = 1
 
-    if furigana is None:
-        print(f"furi is none: {kanji}")
-        return kanji
-
-    #
-    for k, furi in zip(kanji, furigana):
-        if len(furi) == 0:
-            if mora_num == pitch_accent:
-                result += _place_pitch_accent(k)
+    if furigana_by_index is None:
+        for k, furi in zip(kanji, furigana):
+            if len(furi) == 0:
+                if mora_num == pitch_accent:
+                    result += _place_pitch_accent(k)
+                else:
+                    result += k
+                mora_num += 1
             else:
-                result += k
-            mora_num += 1
-        else:
-            furi_str = ""
-            if pitch_accent < mora_num + len(furi):
-                for f in furi:
-                    if mora_num == pitch_accent:
-                        furi_str += _place_pitch_accent(f)
-                    else:
-                        furi_str += f
-                    mora_num += 1
-            else:
-                furi_str += furi
-                mora_num += len(furi)
-            result += f"<ruby>{k}<rt>{furi_str}</rt></ruby>"
+                furi_str = ""
+                if pitch_accent < mora_num + len(furi):
+                    for f in furi:
+                        if mora_num == pitch_accent:
+                            furi_str += _place_pitch_accent(f)
+                        else:
+                            furi_str += f
+                        mora_num += 1
+                else:
+                    furi_str += furi
+                    mora_num += len(furi)
+                result += f"<ruby>{k}<rt>{furi_str}</rt></ruby>"
+        return result
 
-    return result
+    # handles furigana by index
+    if len(furigana_by_index) == 1:
+        start_index, run, furi = furigana_by_index[0]
+        for i in range(start_index):
+            result += kanji[i]
+
+        result += "<ruby>"
+        for i in range(start_index, start_index + run):
+            result += kanji[i]
+        result += f"<rt>{furi}</rt></ruby>"
+
+        return result
+
+    return kanji

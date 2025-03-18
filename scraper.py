@@ -9,29 +9,31 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "all"
+    MODE = "testing"
     AGGRESSIVENESS = 8
 
+    WORDS = [
+        "かける",
+        "かかる",
+        "中",
+        "白",
+        "はく",
+        "捕る",
+        "取る",
+        "いかが",
+        "北",
+        "ふろ",
+        "よくそう",
+        "浴槽",
+        "犬",
+        "猫",
+        "短い",
+        "コート",
+        "ボタン",
+    ]
+
     if MODE == "testing":
-        for i, term in enumerate(
-            [
-                # "中",
-                # "白",
-                # "はく",
-                "捕る",
-                "取る",
-                "いかが",
-                "北",
-                "ふろ",
-                "よくそう",
-                "浴槽",
-                # "犬",
-                # "猫",
-                # "短い",
-                # "コート",
-                # "ボタン",
-            ]
-        ):
+        for i, term in enumerate(WORDS):
             if i > 0:
                 time.sleep(AGGRESSIVENESS)
             word_info = jplookup.scrape(term, rc_sleep_seconds=8)
@@ -49,7 +51,13 @@ def main():
                     word_info, include_romanji=True
                 )
                 if anki_card:
-                    print(anki_card["definitions"])
+                    print(
+                        json.dumps(
+                            anki_card,
+                            indent=4,
+                            ensure_ascii=False,
+                        )
+                    )
                 print(
                     "\n\n\n\n\n\n\n\n\n\n",
                 )

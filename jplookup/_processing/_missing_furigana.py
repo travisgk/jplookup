@@ -28,6 +28,7 @@ def fill_in_missing_furigana(results: list):
 
                             # Clips identical characters from kanji/kana.
                             start_index = 0
+                            cutoff = 0
                             while (
                                 len(temp_term) > 0
                                 and len(temp_kana) > 0
@@ -44,6 +45,7 @@ def fill_in_missing_furigana(results: list):
                             ):
                                 temp_term = temp_term[:-1]
                                 temp_kana = temp_kana[:-1]
+                                cutoff += 1
 
                             #
                             for search_len in range(1, 5):
@@ -85,6 +87,7 @@ def fill_in_missing_furigana(results: list):
 
                                     temp_term = temp_term[: -search_len - 1]
                                     temp_kana = temp_kana[: -search_len - 1]
+                                    cutoff += search_len
 
                             # Breaks the remaining kana into moras.
                             moras = kana_to_moras(temp_kana)
@@ -110,74 +113,32 @@ def fill_in_missing_furigana(results: list):
                                     last_was_kana = False
                                 series[-1] += c
 
-                            """
-                            # Finds any kana that occurs only once.
-                            kana_count = {}
-                            for c in temp_kana:
-                                if kana_count.get(c) is None:
-                                    kana_count[c] = 1
-                                else:
-                                    kana_count[c] += 1
-
-                            
-                            unique_kana = ""
-                            for key, value in kana_count.items():
-                                if value == 1 and key in temp_term:
-                                    unique_kana += key
-                            unique_moras = kana_to_moras(unique_kana)
-
-                            s_indices_to_delete = []
-                            m_indices_to_delete = []
-
-                            for unique_mora in unique_moras:
-                                if unique_mora in series and unique in moras:
-
-                                    series_index = -1
-                                    for i, s in series:
-                                        if unique == s:
-                                            series_index = i
-                                            break
-
-                                    if series_index < 0:
-                                        continue
-
-                                    mora_index = -1
-                                    for i, m in moras:
-                                        if unique == m:
-                                            mora_index = i
-                                            break
-
-                                    if mora_index < 0:
-                                        continue
-
-                                    s_indices_to_delete.append(series_index)
-                                    m_indices_to_delete.append(mora_index)
-
-
-                            series = [s for i, s in series if i not in s_indices_to_delete]
-                            moras = [m for i, m in moras if i not in m_indices_to_delete]
-                            """
-                            # ):
-                            #   series = series[1:]
-                            #   moras = moras[1:]
-
+                            #
                             if len(series) > 0 and len(series) == len(moras):
                                 for i in range(len(series)):
                                     s, m = series[i], moras[i]
                                     new_furi[start_index + i] = moras[i]
                                 p["furigana"] = new_furi
-                            
-                            elif len(series) == 1 and len(moras) > 1:
-                                p["furigana"] = ["".join(moras),]
+
+                            elif (
+                                len(series) == 1
+                                and len(series[0]) == 1
+                                and len(moras) > 1
+                            ):
+                                p["furigana"] = (
+                                    ["" for _ in range(start_index)]
+                                    + moras
+                                    + ["" for _ in range(cutoff)]
+                                )
 
                             else:
-
                                 furi_with_loc = []
-                                furi_with_loc.append((start_index, "".join(moras)))
+                                furi_with_loc.append(
+                                    (start_index, len(temp_term), "".join(moras))
+                                )
                                 p["furigana-by-index"] = furi_with_loc
-
-                            if furi is not None:
-                                del p["furigana"]
+                                if p.get("furigana"):
+                                    del p["furigana"]
 
                             KEYS = [
                                 "kana",
