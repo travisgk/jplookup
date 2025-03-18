@@ -9,34 +9,36 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "testing"
+    MODE = "all"
     AGGRESSIVENESS = 8
 
-    WORDS = [
-        "かける",
-        "かかる",
-        "中",
-        "白",
-        "はく",
-        "捕る",
-        "取る",
-        "いかが",
-        "北",
-        "ふろ",
-        "よくそう",
-        "浴槽",
-        "犬",
-        "猫",
-        "短い",
-        "コート",
-        "ボタン",
-    ]
-
     if MODE == "testing":
+        WORDS = [
+            "おいしい",
+            "なか",
+            "かける",
+            "かかる",
+            "中",
+            "白",
+            "はく",
+            "捕る",
+            "取る",
+            "いかが",
+            "北",
+            "ふろ",
+            "よくそう",
+            "浴槽",
+            "犬",
+            "猫",
+            "短い",
+            "コート",
+            "ボタン",
+        ]
+
         for i, term in enumerate(WORDS):
             if i > 0:
                 time.sleep(AGGRESSIVENESS)
-            word_info = jplookup.scrape(term, rc_sleep_seconds=8)
+            word_info = jplookup.scrape(term, rc_sleep_seconds=AGGRESSIVENESS)
             if word_info and len(word_info) > 0:
                 with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
                     json.dump(word_info, json_file, indent=4, ensure_ascii=False)
