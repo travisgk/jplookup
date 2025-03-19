@@ -291,6 +291,7 @@ def scrape_word_info(
     JP_TABLE = "wikitable ja-see"
     all_redirect_terms = []
     redirects_to_etym = {}
+    new_to_delete = []
     if finding_alts:
         for key in etym_keys_to_delete:
             i = int(key[1:])
@@ -311,6 +312,15 @@ def scrape_word_info(
                     etym_term = "Etymology " + str(i + 1)
                     redirects_to_etym[redirect_terms[0]] = etym_term
                     layout[f"e{i}"] = None
+
+                    next_id = int(sorted_keys[-1][1:]) + 1
+                    for redirect_term in redirect_terms[1:]:
+                        etym_term = "Etymology " + str(next_id + 1)
+                        redirects_to_etym[redirect_term] = etym_term
+                        layout[f"e{next_id}"] = None
+                        new_to_delete.append(f"e{next_id}")
+                        next_id += 1
+        etym_keys_to_delete.extend(new_to_delete)
 
     # Finally deletes the keys with None in them.
     for key in etym_keys_to_delete:

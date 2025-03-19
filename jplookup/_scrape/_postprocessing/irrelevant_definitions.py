@@ -23,10 +23,10 @@ FORM_PHRASES = [
     "alternative form of ",
     "alternative spelling of ",
     "stem or continuative form of ",
+    "stem or continuative forms of ",
+    "stem (or continuative) form of ",
     "stem (or continuative) forms of ",
     "stem form of ",
-    "stem or continuative form of ",
-    "adverbial form of ",
 ]
 
 
@@ -59,7 +59,7 @@ def remove_irrelevant_definitions(results: list) -> list:
                         if any(phrase in def_text for phrase in FORM_PHRASES):
                             def_indices_to_remove.append(d_index)
 
-                for d_index in def_indices_to_remove:
-                    del word_data["definitions"][d_index]
+                    for d_index in reversed(def_indices_to_remove):
+                        del word_data["definitions"][d_index]
 
     return results

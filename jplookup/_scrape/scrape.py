@@ -299,7 +299,7 @@ def scrape(
     results = remove_irrelevant_definitions(results)
     results = exchange_phonetic_info(results)
     results = fill_in_missing_furigana(results)
-    results = clean_keys(results)
     results = remove_empty_entries(results, remove_entries=True)
+    results = clean_keys(results)
 
     return results

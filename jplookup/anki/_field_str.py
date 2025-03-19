@@ -229,22 +229,57 @@ def create_pretty_kanji(
         return result
 
     # Handles furigana by index.
-    """if len(furigana_by_index) == 1:
+    if len(furigana_by_index) == 1:
         moras = kana_to_moras(kanji)
         mora_num = 1
-        for i in 
-
 
         start_index, run, furi = furigana_by_index[0]
-        for i in range(start_index):
-            result += kanji[i]
 
+        # Deals with the moras coming prior to the furi by index.
+        before = kanji[:start_index]
+        moras_before = kana_to_moras(before)
+
+        for mora in moras_before:
+            if mora_num == pitch_accent:
+                result += _place_pitch_accent(mora)
+            else:
+                result += mora
+            mora_num += 1
+
+        # Deals with the actual furigana.
         result += "<ruby>"
         for i in range(start_index, start_index + run):
             result += kanji[i]
-        result += f"<rt>{furi}</rt></ruby>"
+
+        result += "<rt>"
+        furi_moras = kana_to_moras(furi)
+        uses_pitch_mark = pitch_accent <= start_index + len(furi_moras)
+        if not uses_pitch_mark:
+            result += '<span class="normal-rt">'
+        furi_str = ""
+
+        for mora in furi_moras:
+            if mora_num == pitch_accent:
+                result += _place_pitch_accent(mora)
+            else:
+                result += mora
+            mora_num += 1
+
+        if not uses_pitch_mark:
+            result += "</span>"
+        result += "</rt></ruby>"
+
+        # Deals with the moras coming after the furi by index.
+        after = kanji[start_index + run :]
+        moras_after = kana_to_moras(after)
+
+        for mora in moras_after:
+            if mora_num == pitch_accent:
+                result += _place_pitch_accent(mora)
+            else:
+                result += mora
+            mora_num += 1
 
         return result
-    """
 
     return kanji
