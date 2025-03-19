@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape.scrape.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines the primary function that scrapes
              information about a Japanese term from its English Wiktionary
@@ -31,6 +31,7 @@ from ._postprocessing.remove_empty_entries import *
 from ._postprocessing.embed_redirects import *
 from ._postprocessing.clean_keys import *
 from ._postprocessing.missing_furigana import fill_in_missing_furigana
+from ._postprocessing.irrelevant_definitions import remove_irrelevant_definitions
 
 
 def scrape(
@@ -208,7 +209,7 @@ def scrape(
             comp = remove_alternative_spellings(comp)
         comp = remove_empty_entries(comp, remove_entries=True)
         comp = fill_in_missing_furigana(comp)
-        comp = clean_keys(comp)  # DEBUG
+        comp = clean_keys(comp)
         return comp
 
     # Otherwise, results are added as normal.
@@ -290,14 +291,15 @@ def scrape(
     if depth > 0:
         return results
 
-    results = remove_alternative_spellings(results)
-
     """
     Step 5) Shares pronunciation information with those of matching kana
             that lack pitch-accent or IPA (depth is at 0)
     """
+    results = remove_alternative_spellings(results)
+    results = remove_irrelevant_definitions(results)
     results = exchange_phonetic_info(results)
     results = fill_in_missing_furigana(results)
     results = clean_keys(results)
+    results = remove_empty_entries(results, remove_entries=True)
 
     return results

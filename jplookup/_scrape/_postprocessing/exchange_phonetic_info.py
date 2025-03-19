@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._postprocessing.exchange_phonetic_info.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function that collects every pronunciation
              in <results> and has them compared against each other

@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._create_card.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines the primary function to take the
              outputs of a jplookup.scrape(...) call and convert
@@ -105,6 +105,8 @@ def dict_to_anki_fields(
     # Selects the list of Parts-of-Speech dicts to use.
     card_parts = kana_bank[best_kana]
     card_parts = combine_like_terms(card_parts)
+    if card_parts is None:
+        return None
 
     kanji = card_parts.get("kanji")
     anki_card = {
@@ -129,6 +131,7 @@ def dict_to_anki_fields(
     if card_parts.get("kanji") and len(card_parts["kanji"]) > 0:
         pretty_kanji = create_pretty_kanji(
             card_parts["kanji"],
+            card_parts["kana"],
             pitch_accent=card_parts.get("pitch-accent", -1),
             furigana=card_parts.get("furigana"),
             furigana_by_index=card_parts.get("furigana-by-index"),

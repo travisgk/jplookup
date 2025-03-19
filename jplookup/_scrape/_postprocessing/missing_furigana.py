@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._postprocessing.missing_furigana.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function which will 
              look through the given list to find
@@ -58,6 +58,7 @@ def fill_in_missing_furigana(results: list):
                                 and len(temp_kana) > 0
                                 and temp_term[0] == temp_kana[0]
                             ):
+                                # Chomps left.
                                 temp_term = temp_term[1:]
                                 temp_kana = temp_kana[1:]
                                 start_index += 1
@@ -67,6 +68,7 @@ def fill_in_missing_furigana(results: list):
                                 and len(temp_kana) > 0
                                 and temp_term[-1] == temp_kana[-1]
                             ):
+                                # Chomps right.
                                 temp_term = temp_term[:-1]
                                 temp_kana = temp_kana[:-1]
                                 cutoff += 1
@@ -83,10 +85,6 @@ def fill_in_missing_furigana(results: list):
                                         new_furi[start_index + index] = moras[i]
                                         index += len(s)
                                 p["furigana"] = new_furi
-                                pronunciations[p_index] = {
-                                    key: p[key] for key in KEYS if p.get(key)
-                                }  # updates key order.
-                                continue  # pronunciation is complete.
 
                             # Checks if there's only one kanji to transcribe.
                             elif (
@@ -99,99 +97,21 @@ def fill_in_missing_furigana(results: list):
                                     + moras
                                     + ["" for _ in range(cutoff)]
                                 )
-                                pronunciations[p_index] = {
-                                    key: p[key] for key in KEYS if p.get(key)
-                                }  # updates key order.
-                                continue  # pronunciation is complete.
 
-                            # Searches for kanji * n + a kana and chomps it.
-                            for search_len in range(1, 5):
-                                # Chomps on left side.
-                                while (
-                                    len(temp_term) > search_len
-                                    and len(temp_kana) > search_len
-                                    and is_kana(temp_term[search_len])
-                                    and temp_term[search_len] == temp_kana[search_len]
-                                    and all(
-                                        is_kanji(temp_term[i])
-                                        for i in range(search_len)
-                                    )
-                                ):
-                                    for i, k in enumerate(temp_kana[:search_len]):
-                                        new_furi[start_index + i] = k
-
-                                    temp_term = temp_term[search_len + 1 :]
-                                    temp_kana = temp_kana[search_len + 1 :]
-                                    start_index += search_len + 1
-
-                                # Chomps on right side.
-                                while (
-                                    len(temp_term) > search_len
-                                    and len(temp_kana) > search_len
-                                    and is_kana(temp_term[-search_len - 1])
-                                    and temp_term[-search_len - 1]
-                                    == temp_kana[-search_len - 1]
-                                    and all(
-                                        is_kanji(temp_term[-i - 1])
-                                        for i in range(search_len)
-                                    )
-                                ):
-                                    for i, k in enumerate(temp_kana[-search_len:]):
-                                        new_furi[
-                                            start_index
-                                            + len(temp_term)
-                                            - search_len
-                                            + i
-                                        ] = k
-
-                                    temp_term = temp_term[: -search_len - 1]
-                                    temp_kana = temp_kana[: -search_len - 1]
-                                    cutoff += search_len + 1
-
-                            # Checks once more if the num of moras
-                            # in kana and term are the same.
-                            moras = kana_to_moras(temp_kana)
-                            series = kana_to_moras(temp_term)
-                            if len(series) > 0 and len(series) == len(moras):
-                                index = 0
-                                for i in range(len(series)):
-                                    s = series[i]
-                                    if len(s) == 1 and is_kanji(s):
-                                        new_furi[start_index + index] = moras[i]
-                                        index += len(s)
-                                p["furigana"] = new_furi
-                                pronunciations[p_index] = {
-                                    key: p[key] for key in KEYS if p.get(key)
-                                }  # updates key order.
-                                continue  # pronunciation is complete.
-
-                            # Checks if there's only one kanji to transcribe.
-                            elif (
-                                len(series) == 1
-                                and len(series[0]) == 1
-                                and len(moras) > 1
-                            ):
-                                p["furigana"] = (
-                                    ["" for _ in range(start_index)]
-                                    + moras
-                                    + ["" for _ in range(cutoff)]
+                            else:
+                                # Otherwise, the remaining kana are added
+                                # as a special form of furigana where
+                                # the start index in the term is given,
+                                # as well as for how many chars
+                                # the furigana will span.
+                                furi_with_loc = []
+                                furi_with_loc.append(
+                                    (start_index, len(temp_term), "".join(moras))
                                 )
-                                pronunciations[p_index] = {
-                                    key: p[key] for key in KEYS if p.get(key)
-                                }  # updates key order.
-                                continue  # pronunciation is complete.
 
-                            # Otherwise, the remaining kana are added
-                            # as a special form of furigana where the start index
-                            # in the term is given, as well as for how many chars
-                            # the furigana will span.
-                            furi_with_loc = []
-                            furi_with_loc.append(
-                                (start_index, len(temp_term), "".join(moras))
-                            )
-                            p["furigana-by-index"] = furi_with_loc
-                            if p.get("furigana"):
-                                del p["furigana"]
+                                p["furigana-by-index"] = furi_with_loc
+                                if p.get("furigana"):
+                                    del p["furigana"]
 
                             pronunciations[p_index] = {
                                 key: p[key] for key in KEYS if p.get(key)

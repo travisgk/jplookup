@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._postprocessing.embed_redirects.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function which will 
              handles redirected data entries,

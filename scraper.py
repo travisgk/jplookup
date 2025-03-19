@@ -14,6 +14,7 @@ def main():
 
     if MODE == "testing":
         WORDS = [
+            "強い",
             "おいしい",
             "なか",
             "かける",

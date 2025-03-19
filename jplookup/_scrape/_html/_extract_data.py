@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._html._extract_data.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function that can be given a
              conjugated verb and will do its best to guess
@@ -32,6 +32,7 @@ from jplookup._cleanstr.textwork import (
 
 IGNORE_GIVEN_NAMES_AND_SURNAMES = True
 IGNORE_SHORT_FOR_DEFINITIONS = True
+IGNORE_OTHER_FORMS = True
 GIVEN_NAMES_AND_SURNAMES = [
     "a female given name",
     "a surname",

@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._html._clean_data.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function that takes the outputs
              from extract_data(...) seen in .extract.py and extrapolates
@@ -24,15 +24,9 @@ from jplookup._cleanstr.textwork import (
 )
 from ._headwords import *
 
-REMOVE_ARCHAIC_DEFINITIONS = True
-REMOVE_LITERARY_DEFINITIONS = True
-REMOVE_REGIONAL_DEFINITIONS = True
 # if True, furigana will be changed to kata
 # if that's standard.
 ENFORCE_KATAKANA_FURI = True
-ARCHAIC_TERMS = ["archaic", "classical japanese", "obsolete"]
-LITERARY_TERMS = ["literary"]
-REGIONAL_TERMS = ["regional", "dialect"]
 
 
 def clean_data(word_info: list, term: str) -> dict:
@@ -54,7 +48,6 @@ def clean_data(word_info: list, term: str) -> dict:
             result[etym_title]["alternative-spellings"] = alt_spellings
 
         """
-
         Step 2) Cycles through the pronunciations
                 under this Etymology header, storing each
                 pronunciation in a dictionary (bank) to
@@ -81,7 +74,6 @@ def clean_data(word_info: list, term: str) -> dict:
                 pronunciation_bank[kana] = new_pronunciation
 
         """
-
         Step 3) Cycles through the Parts of Speech under this Etymology header.
         """
 
@@ -194,32 +186,6 @@ def clean_data(word_info: list, term: str) -> dict:
             definitions = []
             for definition in entry["definitions"][i]:
                 definition["definition"] = definition["definition"].strip()
-
-                """
-                Step 3e.1) Prevents archaic definitions from being added
-                           (these come in parentheses before the definition).
-                """
-                if (
-                    REMOVE_ARCHAIC_DEFINITIONS
-                    or REMOVE_LITERARY_DEFINITIONS
-                    or REMOVE_REGIONAL_DEFINITIONS
-                ):
-                    def_text = definition["definition"]
-                    if def_text.startswith("("):
-                        end_param_i = def_text.find(")")
-                        if end_param_i >= 0:
-                            terms_list = []
-                            if REMOVE_ARCHAIC_DEFINITIONS:
-                                terms_list.extend(ARCHAIC_TERMS)
-                            if REMOVE_LITERARY_DEFINITIONS:
-                                terms_list.extend(LITERARY_TERMS)
-                            if REMOVE_REGIONAL_DEFINITIONS:
-                                terms_list.extend(REGIONAL_TERMS)
-                            if any(
-                                forbid in def_text[1:end_param_i].lower()
-                                for forbid in terms_list
-                            ):
-                                continue
 
                 """
                 Step 3e.2) Examines to see if there are any sublines provided.

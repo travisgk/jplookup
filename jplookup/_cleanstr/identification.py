@@ -96,17 +96,12 @@ def kana_matches(p_kana: str, t_kana: str) -> bool:
 
 
 def find_pronunciation_match(pronunciation_bank: dict, transcription: dict):
-    """
-    Returns the pronunciation dictionary in <pronunciation_bank>
-    that matches up to the given <transcription> by the kana
-    contained in both.
-
-    If there's no match, then None is returned.
-    """
-    t_kana = transcription["kana"]
-
-    for p_kana, value in pronunciation_bank.items():
-        if kana_matches(p_kana, t_kana):
-            return value
-
-    return None
+    """Returns the matching pronunciation dictionary or None."""
+    return next(
+        (
+            v
+            for k, v in pronunciation_bank.items()
+            if kana_matches(k, transcription["kana"])
+        ),
+        None,
+    )

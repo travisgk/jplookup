@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._postprocessing.remove_empty_entries.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines a function that will remove
              all empty Parts of Speech, then will remove

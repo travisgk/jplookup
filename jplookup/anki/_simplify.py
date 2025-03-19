@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._simplify.py
 Author: TravisGK
-Date: 2025-03-16
+Date: 2025-03-19
 
 Description: This file defines helper functions that help
              the anki module break the outputs of jplookup.scrape(...)
@@ -12,6 +12,7 @@ License: MIT
 """
 
 from jplookup._cleanstr.identification import is_kanji, is_katakana
+
 
 _TAG_PRIORITIES = [
     (
@@ -87,19 +88,40 @@ def combine_like_terms(card_parts: list) -> dict:
     Returns the list of Part-of-Speech dicts
     combined into one single Etymology dict.
     """
-    unique_part_names = list(set([part for part, _ in card_parts]))
 
-    # Sorts parts into groups by the unique parts names.
+    # Finds the most frequently occurring term.
+    term_bank = {}
+    for part_of_speech, part_data in card_parts:
+        term = part_data["term"]
+        if term_bank.get(term):
+            term_bank[term].append((part_of_speech, part_data))
+        else:
+            term_bank[term] = [(part_of_speech, part_data)]
+
+    best_term = list(term_bank.keys())[0]
+    if len(term_bank) > 1:
+        best_count = 0
+        for term, parts_list in reversed(list(term_bank.items())):
+            if len(parts_list) > best_count:
+                best_term = term
+                best_count = len(parts_list)
+
+    new_card_parts = term_bank[best_term]
+
+    # Determines each unique Part of Speech.
+    unique_part_names = []
+    for part_of_speech, part_data in new_card_parts:
+        if part_of_speech not in unique_part_names:
+            unique_part_names.append(part_of_speech)
+
+    # Takes the parts selected by the best term
+    # and sorts them into groups by the unique part names.
     sorted_parts = []
     for unique_part_name in unique_part_names:
         sorted_parts.append([])
-        for part_of_speech, part_data in card_parts:
+        for part_of_speech, part_data in new_card_parts:
             if part_of_speech == unique_part_name:
-                if (
-                    len(sorted_parts[-1]) == 0
-                    or sorted_parts[-1][-1][1]["term"] == part_data["term"]
-                ):
-                    sorted_parts[-1].append((part_of_speech, part_data))
+                sorted_parts[-1].append((part_of_speech, part_data))
 
     # Each list of sorted parts is collapsed into a single dictionary.
     result_parts = {
