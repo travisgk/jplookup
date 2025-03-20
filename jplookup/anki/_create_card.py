@@ -61,7 +61,7 @@ def dict_to_anki_fields(
             is maintained.
     """
     kana_bank = {}
-    for etym_term, etym_data in list(scrape_output[0].items()):
+    for etym_term, etym_data in scrape_output[0].items():
         part_appended = False
         for part_of_speech, word_data in etym_data.items():
             term = word_data["term"]
@@ -148,7 +148,6 @@ def dict_to_anki_fields(
     if card_parts.get("kanji") and len(card_parts["kanji"]) > 0:
         pretty_kanji = create_pretty_kanji(
             card_parts["kanji"],
-            card_parts["kana"],
             pitch_accent=card_parts.get("pitch-accent", -1),
             furigana=card_parts.get("furigana"),
             furigana_by_index=card_parts.get("furigana-by-index"),

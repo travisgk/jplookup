@@ -94,9 +94,10 @@ def fill_in_missing_furigana(results: list):
                             ):
                                 p["furigana"] = (
                                     ["" for _ in range(start_index)]
-                                    + moras
+                                    + ["".join(moras)]
                                     + ["" for _ in range(cutoff)]
                                 )
+                                new_furi = p["furigana"]
 
                             else:
                                 # Otherwise, the remaining kana are added

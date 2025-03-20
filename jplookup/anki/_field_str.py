@@ -154,7 +154,6 @@ def _place_pitch_accent(kana) -> str:
 
 def create_pretty_kanji(
     kanji: str,
-    kana: str,
     pitch_accent: int,
     furigana,
     furigana_by_index,  #  list, could be None.
@@ -210,7 +209,7 @@ def create_pretty_kanji(
                     )
             else:  # is kana.
                 next_kanji_i = next(
-                    (i + j for j, c in enumerate(kanji[i + 1 :]) if is_kanji(c)),
+                    (i + j + 1 for j, k in enumerate(kanji[i + 1 :]) if is_kanji(k)),
                     -1,
                 )
 

@@ -23,6 +23,7 @@ def main():
             "usage-notes",
         ]
         for search_term, word_data in word_info.items():
+
             anki_card = jplookup.anki.dict_to_anki_fields(
                 word_data, include_romanji=True
             )
