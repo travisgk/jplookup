@@ -23,7 +23,6 @@ def main():
             "usage-notes",
         ]
         for search_term, word_data in word_info.items():
-            # print(search_term)
             anki_card = jplookup.anki.dict_to_anki_fields(
                 word_data, include_romanji=True
             )
@@ -31,7 +30,6 @@ def main():
                 print(search_term)
                 continue
 
-            # print(anki_card)
             for i, key in enumerate(KEYS):
                 out_file.write(anki_card[key])
                 if i < len(KEYS) - 1:

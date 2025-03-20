@@ -313,12 +313,15 @@ def scrape_word_info(
                     redirects_to_etym[redirect_terms[0]] = etym_term
                     layout[f"e{i}"] = None
 
+                    # If a table has multiple different spellings offered,
+                    # they will be added as extra etymologies.
                     next_id = int(sorted_keys[-1][1:]) + 1
                     for redirect_term in redirect_terms[1:]:
                         etym_term = "Etymology " + str(next_id + 1)
                         redirects_to_etym[redirect_term] = etym_term
                         layout[f"e{next_id}"] = None
                         new_to_delete.append(f"e{next_id}")
+                        sorted_keys.append(f"e{next_id}")
                         next_id += 1
         etym_keys_to_delete.extend(new_to_delete)
 

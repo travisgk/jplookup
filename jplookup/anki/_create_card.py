@@ -61,7 +61,8 @@ def dict_to_anki_fields(
             is maintained.
     """
     kana_bank = {}
-    for etym_term, etym_data in scrape_output[0].items():
+    for etym_term, etym_data in list(scrape_output[0].items()):
+        part_appended = False
         for part_of_speech, word_data in etym_data.items():
             term = word_data["term"]
             pronunciations = word_data["pronunciations"]
@@ -81,7 +82,8 @@ def dict_to_anki_fields(
                     del word_data["pronunciations"]
                 word_data["pronunciation"] = pronunciation
 
-                if matched_desired_part:
+                if matched_desired_part and not part_appended:
+                    part_appended = True
                     if kana_bank.get(kana):
                         kana_bank[kana].append((part_of_speech, word_data))
                     else:
@@ -97,13 +99,28 @@ def dict_to_anki_fields(
     best_kana = list(kana_bank.keys())[0]
     if len(kana_bank) > 1:
         best_count = 0
-        for kana, parts_list in reversed(list(kana_bank.items())):
+        for kana, parts_list in list(kana_bank.items()):
             if len(parts_list) > best_count:
                 best_kana = kana
                 best_count = len(parts_list)
 
     # Selects the list of Parts-of-Speech dicts to use.
-    card_parts = kana_bank[best_kana]
+    best_parts = kana_bank[best_kana]
+    term_count = {}
+    for word in best_parts:
+        term = word[1]["term"]
+        if term_count.get(term):
+            term_count[term] += 1
+        else:
+            term_count[term] = 1
+    best_term = best_parts[0]
+    best_count = 0
+    for key, value in term_count.items():
+        if value > best_count:
+            best_term = key
+            best_count = value
+
+    card_parts = [p for p in best_parts if p[1]["term"] == best_term]
     card_parts = combine_like_terms(card_parts)
     if card_parts is None:
         return None
