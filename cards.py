@@ -22,7 +22,46 @@ def main():
             "pretty-kanji",
             "usage-notes",
         ]
+        TERMS = [
+            "借りる",
+            "降りる",
+            "大きな",
+            "勤める",
+            "入れる",
+            "向こう",
+            "食べる",
+            "冷たい",
+            "小さな",
+            "忙しい",
+            "晴れる",
+            "開ける",
+            "初めて",
+            "閉まる",
+            "お婆さん",
+            "曲がる",
+            "並べる",
+            "難しい",
+            "美味しい",
+            "消える",
+            "皆さん",
+            "大きい",
+            "楽しい",
+            "お母さん",
+            "少ない",
+            "誕生日",
+            "涼しい",
+            "小さい",
+            "答える",
+            "危ない",
+            "浴びる",
+            "直ぐに",
+            "無くす",
+            "暖かい",
+            "掛ける",  # YOU ARE ADDING THE BLUES
+        ]
         for search_term, word_data in word_info.items():
+            if not any(search_term == term for term in TERMS):
+                continue
 
             anki_card = jplookup.anki.dict_to_anki_fields(
                 word_data, include_romanji=True

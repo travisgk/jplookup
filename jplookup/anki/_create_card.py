@@ -60,7 +60,17 @@ def dict_to_anki_fields(
             from each part of speech occurs in all of the parts of speech
             is maintained.
     """
+    # An Etymology dict can contain a disproportionate amount
+    # of Parts of Speech.
+    #
+    # Only one Part of Speech per Etymology is allowed in this dict.
+    # This is to reduce favoritism when selecting
+    # the most frequent occurring kana.
+    restricted_kana_bank = {}
+
+    # Holds the data for all parts of speech by their kana.
     kana_bank = {}
+
     for etym_term, etym_data in scrape_output[0].items():
         part_appended = False
         for part_of_speech, word_data in etym_data.items():
@@ -82,24 +92,29 @@ def dict_to_anki_fields(
                     del word_data["pronunciations"]
                 word_data["pronunciation"] = pronunciation
 
-                if matched_desired_part and not part_appended:
-                    part_appended = True
-                    if kana_bank.get(kana):
-                        kana_bank[kana].append((part_of_speech, word_data))
-                    else:
-                        kana_bank[kana] = [
-                            (part_of_speech, word_data),
-                        ]
+                if matched_desired_part:
+
+                    def add_kana(bank: dict):
+                        if bank.get(kana):
+                            bank[kana].append((part_of_speech, word_data))
+                        else:
+                            bank[kana] = [(part_of_speech, word_data)]
+
+                    if not part_appended:
+                        part_appended = True
+                        add_kana(restricted_kana_bank)
+
+                    add_kana(kana_bank)
 
     if len(kana_bank.keys()) == 0:
         return None
 
     # Looks for the most popular kana transcription and
     # runs with that as the main pronunciation of the word.
-    best_kana = list(kana_bank.keys())[0]
-    if len(kana_bank) > 1:
+    best_kana = list(restricted_kana_bank.keys())[0]
+    if len(restricted_kana_bank) > 1:
         best_count = 0
-        for kana, parts_list in list(kana_bank.items()):
+        for kana, parts_list in list(restricted_kana_bank.items()):
             if len(parts_list) > best_count:
                 best_kana = kana
                 best_count = len(parts_list)

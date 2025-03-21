@@ -201,7 +201,10 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                     entry = {"definition": ""}
 
                     # Cleans up the text contents.
-                    li = li[4:-5]
+                    print("before remove_tag")
+                    print(li)
+                    tag_closing_index = li.find(">")
+                    li = li[tag_closing_index + 1 : -5]
                     if find_embedded_kanji:
                         li_with_anchors = li
                         li_with_anchors = remove_tags(
@@ -210,6 +213,9 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                         )
 
                     li = remove_tags(li, omissions=["ol", "li", "dd", "b"])
+                    print("\nafter remove_tag")
+                    print(li, end="\n\n\n")
+
                     li = li.replace("<b> ", " <b>").replace(" </b>", "</b> ")
                     li = li.strip()
 
@@ -225,6 +231,7 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                             forbidden.extend(GIVEN_NAMES_AND_SURNAMES)
                         if IGNORE_SHORT_FOR_DEFINITIONS:
                             forbidden.append("Short for ")
+                            forbidden.append("short for ")
                         if any(li.startswith(s) for s in forbidden):
                             continue  # skips.
 

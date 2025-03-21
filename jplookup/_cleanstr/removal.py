@@ -86,6 +86,9 @@ def remove_unwanted_html(html: str) -> str:
     for obj in soup.find_all("table", class_="wikitable kanji-table"):
         obj.decompose()
 
+    for obj in soup.find_all("li", class_="mw-empty-elt"):
+        obj.unwrap()
+
     return str(soup)
 
 

@@ -38,7 +38,9 @@ def _add_ruby_tags(japanese: str) -> str:
                 result += "<ruby>"
                 for index in prev_kanji_indices:
                     result += japanese[index]
-                result += f"<rt>{furi_buffer}</rt></ruby>"
+                result += (
+                    '<rt><span class="normal-rt">' + furi_buffer + "</span></rt></ruby>"
+                )
 
             prev_kanji_indices = []
             furi_buffer = ""
@@ -158,6 +160,7 @@ def create_pretty_kanji(
     furigana,
     furigana_by_index,  #  list, could be None.
 ) -> str:
+    # YOU ARE HERE TO FIX THE BLUUE NOTES
     """
     Returns a string with HTML that nicely displays
     the kanji with additional phonetic information displayed

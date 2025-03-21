@@ -9,7 +9,7 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "all"
+    MODE = "testing"
     AGGRESSIVENESS = 8
 
     if MODE == "testing":
@@ -38,7 +38,9 @@ def main():
         """
         # WORDS = ["捕る", "ふろ", "よくそう"]
         WORDS = [
-            "煩い",
+            "沢山",
+            # "居る",
+            # "電気",
             # "はく",
             # "捕る",
             # "取る",
