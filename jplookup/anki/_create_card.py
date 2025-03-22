@@ -177,6 +177,10 @@ def dict_to_anki_fields(
         card_parts.get("usage-notes", "").strip().replace("\n", "<br>")
     )
 
-    # print(json.dumps(anki_card, indent=4, ensure_ascii=False))
-    # print("\n\n\n")
+    # Adds the Counter noun (if any).
+    if card_parts.get("counter"):
+        anki_card["counter"] = card_parts["counter"]
+    else:
+        anki_card["counter"] = ""
+
     return anki_card

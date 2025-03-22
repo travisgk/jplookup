@@ -57,15 +57,21 @@ def _join_word_data(word_dicts: list) -> dict:
     Returns a dictionary composed out of
     all the contents of each <word_dict>.
     """
+
     result = {
         "term": word_dicts[0][1]["term"],
         "pronunciation": word_dicts[0][1]["pronunciation"],
     }
+    if word_dicts[0][1].get("counter"):
+        result["counter"] = word_dicts[0][1]["counter"]
 
     # Adds the Definitions of every dictionary.
     definitions = []
     for part_of_speech, part_data in word_dicts:
         definitions.extend(part_data["definitions"])
+        if result.get("counter") is None and part_data.get("counter"):
+            result["counter"] = part_data["counter"]
+
     result["definitions"] = definitions
 
     # Adds the Usage Notes of every dictionary.
@@ -137,9 +143,12 @@ def combine_like_terms(card_parts: list) -> dict:
     # to a more global scope in the <result>.
     pronunciation = result_parts[unique_part_names[0]]["pronunciation"]
     kanji = result_parts[unique_part_names[0]]["term"]
+    counter = result_parts[unique_part_names[0]].get("counter")
     for unique_part_name in unique_part_names:
         del result_parts[unique_part_name]["term"]
         del result_parts[unique_part_name]["pronunciation"]
+        if counter:
+            del result_parts[unique_part_name]["counter"]
 
     # Moves the pronunciation attributes to a more global scope in the dict.
     result = {}
@@ -171,5 +180,6 @@ def combine_like_terms(card_parts: list) -> dict:
             usage_notes_str += usage_notes
 
     result["usage-notes"] = usage_notes_str
+    result["counter"] = counter
 
     return result

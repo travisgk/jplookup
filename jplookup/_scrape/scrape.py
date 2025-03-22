@@ -153,11 +153,13 @@ def scrape(
 
                 num_attempts += 1
                 if verbose and num_attempts == MAX_CONNECT_ATTEMPTS - 1:
-                    print(f"\nCOULD NOT FIND DATA FOR {term}...")
+                    if verbose:
+                        print(f"\nCOULD NOT FIND DATA FOR {term}...")
                     return None
 
             if num_attempts > 0 and verbose:
-                print(" got it!")
+                if verbose:
+                    print(" got it!")
             successful = True
             break
 

@@ -1,0 +1,67 @@
+{
+    "友情": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "友情",
+                    "pronunciations": [
+                        {
+                            "kana": "ゆうじょう",
+                            "furigana": [
+                                "ゆう",
+                                "じょう"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 0,
+                            "ipa": "jɯ̟ːʑo̞ː"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "friendship"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "猫": [
+        {
+            "Etymology 1": {
+                "Noun": {
+                    "term": "猫",
+                    "counter": "匹",
+                    "pronunciations": [
+                        {
+                            "kana": "ネコ",
+                            "furigana": [
+                                "ネコ"
+                            ],
+                            "region": "Tokyo",
+                            "pitch-accent": 1,
+                            "ipa": "ne̞ko̞"
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "a cat",
+                            "examples": [
+                                {
+                                    "japanese": "<b>猫(ネコ)</b>が二(に)匹(ひき)居(い)る。",
+                                    "romanji": "<b>Neko</b> ga nihiki iru.",
+                                    "english": "There are two <b>cats</b>."
+                                },
+                                {
+                                    "japanese": "家(いえ)には<b>猫(ネコ)</b>が三匹(さんびき)います。",
+                                    "romanji": "Ie ni wa <b>neko</b> ga sanbiki imasu.",
+                                    "english": "There are three <b>cats</b> in the house."
+                                }
+                            ]
+                        }
+                    ],
+                    "usage-notes": "As with many terms that name organisms, this term is often spelled in katakana, especially in biological contexts (where katakana is customary), as ネコ."
+                }
+            }
+        }
+    ]
+}
