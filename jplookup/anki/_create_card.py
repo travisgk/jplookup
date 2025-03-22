@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._create_card.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines the primary function to take the
              outputs of a jplookup.scrape(...) call and convert

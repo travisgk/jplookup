@@ -251,7 +251,34 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "indefinite interrogative pronoun:"
+                            "definition": "indefinite interrogative pronoun → points to unknown or unspecified locations: where..., which ...",
+                            "examples": [
+                                {
+                                    "japanese": "新(しん)宿(じゅく)駅(えき)は<b>どこ</b>ですか。",
+                                    "romanji": "Shinjuku-eki wa <b>doko</b> desu ka.",
+                                    "english": "<b>Where</b> is Shinjuku Station?"
+                                },
+                                {
+                                    "japanese": "アメリカの首(しゅ)都(と)は<b>どこ</b>ですか。",
+                                    "romanji": "Amerika no shuto wa <b>doko</b> desu ka.",
+                                    "english": "<b>Which city</b> is the capital of the United States?"
+                                },
+                                {
+                                    "japanese": "<b>どこ</b>が痛(いた)いですか。",
+                                    "romanji": "<b>doko</b> ga itai desu ka.",
+                                    "english": "<b>Which part</b> of your body aches?"
+                                }
+                            ]
+                        },
+                        {
+                            "definition": "indefinite interrogative pronoun → points to objects belonging to an uncertain group: which ...",
+                            "examples": [
+                                {
+                                    "japanese": "今(こん)夜(や)は<b>どこ</b>と<b>どこ</b>が戦(たたか)いますか。",
+                                    "romanji": "Kon'ya wa <b>doko</b> to <b>doko</b> ga tatakaimasu ka.",
+                                    "english": "<b>Which team</b> plays <b>which</b> tonight?"
+                                }
+                            ]
                         },
                         {
                             "definition": "(added before a particle) indefinite demonstrative pronoun: anywhere, everywhere, somewhere"
@@ -1034,7 +1061,14 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "(figuratively) shut up; stop it"
+                            "definition": "(figuratively) shut up; stop it",
+                            "examples": [
+                                {
+                                    "japanese": "<b>うるさい</b>！",
+                                    "romanji": "<b>Urusai</b>!",
+                                    "english": "You are <b>annoying</b>! / That's <b>annoying</b>! → Shut up! / Stop it!"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1301,7 +1335,10 @@
                             ]
                         },
                         {
-                            "definition": "(theater) in kabuki:"
+                            "definition": "(theater) in kabuki →  the left side of the stage in the Edo-style"
+                        },
+                        {
+                            "definition": "(theater) in kabuki →  the right side of the stage in Kyoto and Osaka styles"
                         },
                         {
                             "definition": "(sumo) lower-ranked wrestlers listed on the left side of a banzuke",
@@ -4611,7 +4648,16 @@
                             ]
                         },
                         {
-                            "definition": "visually prominent feature of something:"
+                            "definition": "visually prominent feature of something →  目: small hole, like those inherent to a net-like material (between the warp and the weft)"
+                        },
+                        {
+                            "definition": "visually prominent feature of something →  目: short for 賽の目 (sai no me, “dice pip”)."
+                        },
+                        {
+                            "definition": "visually prominent feature of something →  目: (by extension) experience",
+                            "synonyms": [
+                                "体験"
+                            ]
                         }
                     ]
                 },
@@ -5770,6 +5816,11 @@
                                     "japanese": "<b>はい</b>、何(なん)でしょうか。",
                                     "romanji": "<b>Hai</b>, nan deshō ka.",
                                     "english": "<b>Yes</b>? What is it?"
+                                },
+                                {
+                                    "japanese": "<b>はい</b>。<b>はい</b>。<b>はい</b>。なるほど、なるほど。",
+                                    "romanji": "<b>Hai</b>. <b>Hai</b>. <b>Hai</b>. Naruhodo, naruhodo.",
+                                    "english": "<b>Uh-huh</b>. <b>Uh-huh</b>. <b>Yes</b>. Mmm, I see."
                                 }
                             ]
                         },
@@ -5796,6 +5847,11 @@
                         {
                             "definition": "general shout or call, compare English hey: go, start; stop, time's up (expressing a timing)",
                             "examples": [
+                                {
+                                    "japanese": "1(いち)、2(に)、3(さん)、<b>はい</b>！",
+                                    "romanji": "Ichi, ni, san, <b>hai</b>!",
+                                    "english": "1, 2, 3, <b>go</b>!"
+                                },
                                 {
                                     "japanese": "<b>はい</b>、そこまで。",
                                     "romanji": "<b>Hai</b>, soko made.",
@@ -6489,7 +6545,10 @@
                             ]
                         },
                         {
-                            "definition": "(auxiliary, usually spelled in hiragana) After the て-form of a verb:"
+                            "definition": "(auxiliary, usually spelled in hiragana) After the て-form of a verb → to continue to do something; to go on to do something"
+                        },
+                        {
+                            "definition": "(auxiliary, usually spelled in hiragana) After the て-form of a verb → to gradually do something"
                         },
                         {
                             "definition": "(slang) to have an orgasm, to come, to cum"
@@ -6872,7 +6931,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "applied to a noun denoting a person, or to a person's name:"
+                            "definition": "applied to a noun denoting a person, or to a person's name → next, younger, youngest"
+                        },
+                        {
+                            "definition": "applied to a noun denoting a person, or to a person's name → beautiful, beloved, cute, dear"
                         }
                     ]
                 }
@@ -11000,6 +11062,11 @@
                             "definition": "huh? (expression of surprise and confusion when talking to yourself)",
                             "examples": [
                                 {
+                                    "japanese": "<b>あれ</b>？ない。",
+                                    "romanji": "<b>Are</b>? Nai.",
+                                    "english": "<b>Huh</b>? It's not here."
+                                },
+                                {
                                     "japanese": "<b>あれ</b>？もしかして……",
                                     "romanji": "<b>Are</b>? Moshikashite……",
                                     "english": "<b>Huh</b>? Could it be?"
@@ -12701,7 +12768,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "a note:"
+                            "definition": "a note → a written communication"
+                        },
+                        {
+                            "definition": "a note → a musical note"
                         },
                         {
                             "definition": "a treasury bill or bond"
@@ -13562,9 +13632,6 @@
                         },
                         {
                             "definition": "a style of 紋 (mon, “family crest”)"
-                        },
-                        {
-                            "definition": "short for various terms:"
                         }
                     ]
                 }
@@ -15714,12 +15781,6 @@
                         },
                         {
                             "definition": "a 女房詞 (nyōbō kotoba, “woman's word”) for 鍋 (nabe, “pot, pan”) or 釜 (kama, “pot, kettle”)"
-                        },
-                        {
-                            "definition": "(accounting) short for 黒字 (kuroji): black as an accounting term, indicating a profit"
-                        },
-                        {
-                            "definition": "(euphemistic) short for 黒幕 (kuromaku): a black curtain (someone influencing or controlling matters from behind the scenes)"
                         },
                         {
                             "definition": "guilt; the guilty one, the guilty party",
@@ -20310,81 +20371,6 @@
             }
         }
     ],
-    "初め": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "始め",
-                    "pronunciations": [
-                        {
-                            "kana": "はじめ",
-                            "furigana": [
-                                "はじ",
-                                ""
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ha̠ʑime̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "(especially 初め) beginning, the start of an activity or time period",
-                            "examples": [
-                                {
-                                    "japanese": "<b>始(はじ)め</b>よければ終(お)わりよし。",
-                                    "romanji": "<b>Hajime</b> yokereba owari yoshi.",
-                                    "english": "A good <b>beginning</b> makes a good ending."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "(especially 始め) origin, beginning of a thing"
-                        }
-                    ]
-                },
-                "Interjection": {
-                    "term": "始め",
-                    "pronunciations": [
-                        {
-                            "kana": "はじめ",
-                            "furigana": [
-                                "はじ",
-                                ""
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ha̠ʑime̞"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "begin! used to announce the start of a race, an exam, and others"
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Suffix": {
-                    "term": "初め",
-                    "pronunciations": [
-                        {
-                            "kana": "ぞめ",
-                            "furigana": [
-                                "ぞ",
-                                ""
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "for the first time, typically in the current year"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
     "始め": [
         {
             "Etymology 1": {
@@ -21146,7 +21132,14 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "three"
+                            "definition": "three",
+                            "examples": [
+                                {
+                                    "japanese": "一(ひ)、二(ふ)、<b>三(み)</b>、四(よ)、[…]",
+                                    "romanji": "hi, fu, <b>mi</b>, yo,[…]",
+                                    "english": "one, two, <b>three</b>, four, […]"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -22051,10 +22044,7 @@
                             ]
                         },
                         {
-                            "definition": "class=\"mw-empty-elt\"&gt;"
-                        },
-                        {
-                            "definition": "class=\"senseid\" data-id=\"try\" data-lang=\"ja\" id=\"Japanese:_try\"&gt; みる: (after the te form of a verb) to try to do (literally, “ see”)",
+                            "definition": "(after the te form of a verb) to try to do (literally, “ see”)",
                             "examples": [
                                 {
                                     "japanese": "納豆(なっとう)を食(た)べて<b>みません</b>か。",
@@ -22859,7 +22849,10 @@
                             "definition": "body"
                         },
                         {
-                            "definition": "the state of one's body:"
+                            "definition": "the state of one's body → physique, constitution, frame"
+                        },
+                        {
+                            "definition": "the state of one's body → health"
                         }
                     ]
                 }
@@ -23045,35 +23038,6 @@
             "Etymology 1": {
                 "Adjective": {
                     "term": "丸い",
-                    "pronunciations": [
-                        {
-                            "kana": "まるい",
-                            "furigana": [
-                                "まる",
-                                ""
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 2,
-                            "ipa": "ma̠ɾɯ̟i"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "round; circular"
-                        },
-                        {
-                            "definition": "(of a person) with a gentle personality"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "円い": [
-        {
-            "Etymology 1": {
-                "Adjective": {
-                    "term": "円い",
                     "pronunciations": [
                         {
                             "kana": "まるい",
@@ -23399,206 +23363,6 @@
                         },
                         {
                             "definition": "twist, something twisted together"
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "ほう": [
-        {
-            "Etymology 1": {
-                "Noun": {
-                    "term": "方",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "direction, way, side",
-                            "examples": [
-                                {
-                                    "japanese": "鬼(おに)さんこちら、手(て)の鳴(な)る<b>方(ほう)</b>へ",
-                                    "romanji": "oni-san kochira, te no naru <b>hō</b> e",
-                                    "english": "hey, \"it\", over here, to (the <b>direction</b> of) the clapping of the hands (phrase said in tag)"
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "more so (preceded by ～の, often followed by ～が)",
-                            "examples": [
-                                {
-                                    "japanese": "この時計(とけい)の<b>方(ほう)</b>がそっちより高(たか)いです。",
-                                    "romanji": "Kono tokei no <b>hō</b> ga sotchi yori takai desu.",
-                                    "english": "This watch is <b>more</b> expensive than that one."
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            "Etymology 2": {
-                "Interjection": {
-                    "term": "ほう",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "An indication of excitement, surprise, astonishment, or pleasure.",
-                            "examples": [
-                                {
-                                    "japanese": "<b>ほう</b>！それは驚(おどろ)きだ。",
-                                    "romanji": "<b>Hō</b>! Sore wa odoroki da.",
-                                    "english": "<b>Whoa</b>! That's a surprise."
-                                }
-                            ]
-                        },
-                        {
-                            "definition": "An expression of amazement, awe, or admiration."
-                        }
-                    ]
-                }
-            },
-            "Etymology 3": {
-                "Noun": {
-                    "term": "法",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 0,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "principle"
-                        },
-                        {
-                            "definition": "law"
-                        },
-                        {
-                            "definition": "code of law"
-                        },
-                        {
-                            "definition": "method"
-                        },
-                        {
-                            "definition": "etiquette"
-                        },
-                        {
-                            "definition": "(Buddhism) dharma"
-                        },
-                        {
-                            "definition": "(grammar) mood"
-                        },
-                        {
-                            "definition": "(mathematics) divisor"
-                        }
-                    ]
-                }
-            },
-            "Etymology 4": {
-                "Noun": {
-                    "term": "砲",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "gun, firearm"
-                        }
-                    ]
-                },
-                "Suffix": {
-                    "term": "砲",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "gun"
-                        },
-                        {
-                            "definition": "cannon, artillery"
-                        },
-                        {
-                            "definition": "ordnance"
-                        }
-                    ]
-                }
-            },
-            "Etymology 5": {
-                "Noun": {
-                    "term": "苞",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "(botany) bract"
-                        }
-                    ]
-                }
-            },
-            "Etymology 6": {
-                "Noun": {
-                    "term": "報",
-                    "pronunciations": [
-                        {
-                            "kana": "ほう",
-                            "furigana": [
-                                "ほう"
-                            ],
-                            "region": "Tokyo",
-                            "pitch-accent": 1,
-                            "ipa": "ho̞ː"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "news, information"
                         }
                     ]
                 }
@@ -25009,7 +24773,14 @@
                             "definition": "the lower portion, base"
                         },
                         {
-                            "definition": "under the influence of"
+                            "definition": "under the influence of",
+                            "examples": [
+                                {
+                                    "japanese": "同(どう)意(い)の<b>もと</b>、 […]",
+                                    "romanji": "dōi no <b>moto</b>, […] ",
+                                    "english": "with permission,  […] "
+                                }
+                            ]
                         }
                     ]
                 }
@@ -26200,7 +25971,14 @@
                             "definition": "well; then; so"
                         },
                         {
-                            "definition": "by extension from the \"so then\" meaning: bye, goodbye"
+                            "definition": "by extension from the \"so then\" meaning: bye, goodbye",
+                            "examples": [
+                                {
+                                    "japanese": "<b>じゃ</b>ね！",
+                                    "romanji": "<b>Ja</b> ne!",
+                                    "english": "See you!"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -26242,9 +26020,6 @@
                         },
                         {
                             "definition": "a moral wrong; a bad attitude; maliciousness, wickedness; such a person"
-                        },
-                        {
-                            "definition": "short for 麝香 (jakō, “musk”); short for 麝香鹿 (jakōjika, “musk deer”)"
                         }
                     ]
                 }
@@ -26269,7 +26044,13 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "an amount equal to one swallow:"
+                            "definition": "an amount equal to one swallow → doses of medicine"
+                        },
+                        {
+                            "definition": "an amount equal to one swallow → gulps of tea"
+                        },
+                        {
+                            "definition": "an amount equal to one swallow → puffs of tobacco"
                         }
                     ]
                 },
@@ -26693,7 +26474,7 @@
                             "definition": "to accept something like a demand or a condition"
                         }
                     ],
-                    "usage-notes": "飲み物 (nomimono, “a drink”)飲み込む (nomikomu, “to gulp down”)飲み放題 (nomihōdai, “all you can drink”)飲み干す (nomihosu, “empty one's glass”)飲み代 (nomishiro, “drinking money”)飲み会 (nomikai, “drinking party”)飲み屋 (nomiya, “bar, pub”)固唾を呑む (katazu o nomu)清濁併せ呑む (seidaku awasenomu)"
+                    "usage-notes": ""
                 }
             }
         }
@@ -26866,9 +26647,6 @@
                         },
                         {
                             "definition": "an ink pad, a stamp pad"
-                        },
-                        {
-                            "definition": "(theater, kabuki) short for 肉襦袢 (niku juban): flesh-toned undergarments worn by actors and shown when the character has to display their skin"
                         }
                     ]
                 }
@@ -27485,6 +27263,11 @@
                                     "japanese": "<b>どう</b>しようもない",
                                     "romanji": "<b>dō</b> shiyō mo nai",
                                     "english": "can't be helped"
+                                },
+                                {
+                                    "japanese": "<b>どう</b>だ！",
+                                    "romanji": "<b>Dō</b> da!",
+                                    "english": "<b>How</b> is it, huh? (smug/triumphant)"
                                 },
                                 {
                                     "japanese": "<b>どう</b>だろう。",
@@ -28707,7 +28490,19 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "Combining form of しろ (shiro) above:"
+                            "definition": "Combining form of しろ (shiro) above → white"
+                        },
+                        {
+                            "definition": "Combining form of しろ (shiro) above → undyed, unpainted, unseasoned, etc."
+                        },
+                        {
+                            "definition": "Combining form of しろ (shiro) above → pure"
+                        },
+                        {
+                            "definition": "Combining form of しろ (shiro) above → innocent"
+                        },
+                        {
+                            "definition": "Combining form of しろ (shiro) above → normal, unspecial"
                         }
                     ]
                 },
@@ -28992,10 +28787,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "class=\"mw-empty-elt\"&gt;"
-                        },
-                        {
-                            "definition": "class=\"senseid\" data-id=\"electricity\" data-lang=\"ja\" id=\"Japanese:_electricity\"&gt;  electricity",
+                            "definition": "electricity",
                             "synonyms": [
                                 "電力",
                                 "エレキ",
@@ -29003,10 +28795,7 @@
                             ]
                         },
                         {
-                            "definition": "class=\"mw-empty-elt\"&gt;"
-                        },
-                        {
-                            "definition": "class=\"senseid\" data-id=\"electric light\" data-lang=\"ja\" id=\"Japanese:_electric_light\"&gt;  electric light",
+                            "definition": "electric light",
                             "synonyms": [
                                 "電灯"
                             ]
@@ -29256,7 +29045,19 @@
                             "definition": "one, 1"
                         },
                         {
-                            "definition": "term relating to the number one:"
+                            "definition": "term relating to the number one → the first in order, foremost"
+                        },
+                        {
+                            "definition": "term relating to the number one → the beginning"
+                        },
+                        {
+                            "definition": "term relating to the number one → the best"
+                        },
+                        {
+                            "definition": "term relating to the number one → a kind of; one of something"
+                        },
+                        {
+                            "definition": "term relating to the number one → (card games) an ace"
                         },
                         {
                             "definition": "unity"
@@ -29808,6 +29609,11 @@
                                     "japanese": "<b>この</b>馬(ば)鹿(か)！",
                                     "romanji": "<b>Kono</b> baka!",
                                     "english": "<b>You</b> idiot!"
+                                },
+                                {
+                                    "japanese": "<b>この</b>ボケ！",
+                                    "romanji": "<b>Kono</b> boke!",
+                                    "english": "<b>You</b> halfwit!"
                                 }
                             ]
                         },
@@ -30071,7 +29877,13 @@
                             "definition": "the type or kind of something"
                         },
                         {
-                            "definition": "(informal, slang) various specific kinds of color:"
+                            "definition": "(informal, slang) various specific kinds of color → (informal, slang, woman's speech) lipstick or rouge"
+                        },
+                        {
+                            "definition": "(informal, slang) various specific kinds of color → (informal, slang) soy sauce"
+                        },
+                        {
+                            "definition": "(informal, slang) various specific kinds of color → (informal, slang) paint"
                         }
                     ]
                 },
@@ -31440,10 +31252,7 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "class=\"mw-empty-elt\"&gt;"
-                        },
-                        {
-                            "definition": "class=\"senseid\" data-id=\"be\" data-lang=\"ja\" id=\"Japanese:_be\"&gt; (of animate objects) to exist, to be",
+                            "definition": "(of animate objects) to exist, to be",
                             "examples": [
                                 {
                                     "japanese": "鈴(すず)木(き)ですが、田(た)中(なか)さん<b>います</b>か？",
@@ -31478,10 +31287,7 @@
                             ]
                         },
                         {
-                            "definition": "class=\"mw-empty-elt\"&gt;"
-                        },
-                        {
-                            "definition": "class=\"senseid\" data-id=\"teiru\" data-lang=\"ja\" id=\"Japanese:_teiru\"&gt;Used as a 補助動詞 (hojo dōshi), after a verb in the て (-te) conjunctive form. Note that ている (-te iru) colloquially shortens to てる (-teru), ていた (-te ita) colloquially shortens to てた (-teta), etc."
+                            "definition": "Used as a 補助動詞 (hojo dōshi), after a verb in the て (-te) conjunctive form. Note that ている (-te iru) colloquially shortens to てる (-teru), ていた (-te ita) colloquially shortens to てた (-teta), etc."
                         }
                     ]
                 }
@@ -31668,12 +31474,13 @@
         {
             "Etymology 1": {
                 "Adjective": {
-                    "term": "色",
+                    "term": "色々",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろいろ"
+                                "いろ",
+                                "いろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -31687,12 +31494,13 @@
                     ]
                 },
                 "Adverb": {
-                    "term": "色",
+                    "term": "色々",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろいろ"
+                                "いろ",
+                                "いろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -31706,12 +31514,13 @@
                     ]
                 },
                 "Noun": {
-                    "term": "色",
+                    "term": "色々",
                     "pronunciations": [
                         {
                             "kana": "いろいろ",
                             "furigana": [
-                                "いろいろ"
+                                "いろ",
+                                "いろ"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -33082,10 +32891,22 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "indeterminate demonstrative pronoun:"
+                            "definition": "indeterminate demonstrative pronoun → which... (of three or more choices)"
                         },
                         {
-                            "definition": "indeterminate personal pronoun:"
+                            "definition": "indeterminate demonstrative pronoun → which way...; where...",
+                            "synonyms": [
+                                "どこ"
+                            ]
+                        },
+                        {
+                            "definition": "indeterminate personal pronoun → which... (three or more persons)"
+                        },
+                        {
+                            "definition": "indeterminate personal pronoun → (by) who...",
+                            "synonyms": [
+                                "誰"
+                            ]
                         }
                     ]
                 },
@@ -33101,7 +32922,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "a filled pause in speech:"
+                            "definition": "a filled pause in speech → well, ..."
+                        },
+                        {
+                            "definition": "a filled pause in speech → let me see, ...; let's see, ..."
                         }
                     ]
                 }
@@ -34375,12 +34199,13 @@
         {
             "Etymology 1": {
                 "Adverb": {
-                    "term": "時",
+                    "term": "時々",
                     "pronunciations": [
                         {
                             "kana": "ときどき",
                             "furigana": [
-                                "ときどき"
+                                "とき",
+                                "どき"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -35866,7 +35691,7 @@
             }
         }
     ],
-    "明い": [
+    "明るい": [
         {
             "Etymology 1": {
                 "Adjective": {
@@ -35899,7 +35724,7 @@
                             ]
                         },
                         {
-                            "definition": "merry, cheerful",
+                            "definition": "cheerful, merry",
                             "examples": [
                                 {
                                     "japanese": "電(でん)話(わ)の向(む)こうから<b>明(あか)るい</b>声(こえ)が返(かえ)ってきた。",
@@ -35997,6 +35822,42 @@
                     ]
                 }
             },
+            "Etymology 2": {
+                "Adverb": {
+                    "term": "段々",
+                    "pronunciations": [
+                        {
+                            "kana": "だんだん",
+                            "furigana": [
+                                "だん",
+                                "だん"
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "gradually, step by step, one after another"
+                        }
+                    ]
+                },
+                "Noun": {
+                    "term": "段々",
+                    "pronunciations": [
+                        {
+                            "kana": "だんだん",
+                            "furigana": [
+                                "だん",
+                                "だん"
+                            ]
+                        }
+                    ],
+                    "definitions": [
+                        {
+                            "definition": "steps and steps; the process of something"
+                        }
+                    ]
+                }
+            },
             "Etymology 3": {
                 "Interjection": {
                     "term": "だんだん",
@@ -36008,42 +35869,6 @@
                     "definitions": [
                         {
                             "definition": "(Umpaku, Izumo) thank you"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "Etymology 1": {
-                "Adverb": {
-                    "term": "段",
-                    "pronunciations": [
-                        {
-                            "kana": "だんだん",
-                            "furigana": [
-                                "だんだん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "gradually, step by step, one after another"
-                        }
-                    ]
-                },
-                "Noun": {
-                    "term": "段",
-                    "pronunciations": [
-                        {
-                            "kana": "だんだん",
-                            "furigana": [
-                                "だんだん"
-                            ]
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "definition": "steps and steps; the process of something"
                         }
                     ]
                 }
@@ -36128,10 +35953,10 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "dark; dim"
+                            "definition": "dark, dim"
                         },
                         {
-                            "definition": "sombre; gloomy"
+                            "definition": "gloomy, depressed"
                         }
                     ]
                 }
@@ -38183,9 +38008,9 @@
                     "counter": "人",
                     "pronunciations": [
                         {
-                            "kana": "ヒト",
+                            "kana": "ひと",
                             "furigana": [
-                                "ヒト"
+                                "ひと"
                             ],
                             "region": "Tokyo",
                             "pitch-accent": 0,
@@ -38236,7 +38061,7 @@
                             "definition": "someone (else)",
                             "examples": [
                                 {
-                                    "japanese": "<b>人(ヒト)</b>の物(もの)を盗(ぬす)む",
+                                    "japanese": "<b>人(ひと)</b>の物(もの)を盗(ぬす)む",
                                     "romanji": "<b>hito</b> no mono  o nusumu",
                                     "english": "to steal <b>someone</b>'s things; to steal <b>people</b>'s things"
                                 }
@@ -39074,10 +38899,34 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "large (of size):"
+                            "definition": "large (of size) →  big (of linear objects)"
                         },
                         {
-                            "definition": "rich (of spirit):"
+                            "definition": "large (of size) →  fat"
+                        },
+                        {
+                            "definition": "large (of size) →  deep sounding (of a voice or a breath)"
+                        },
+                        {
+                            "definition": "large (of size) →  rich"
+                        },
+                        {
+                            "definition": "large (of size) →  huge"
+                        },
+                        {
+                            "definition": "large (of size) →  (archery) wide distance of a bow"
+                        },
+                        {
+                            "definition": "large (of size) →  rough (of the eyes)"
+                        },
+                        {
+                            "definition": "rich (of spirit) →  bold, brave, undisturbed, stable"
+                        },
+                        {
+                            "definition": "rich (of spirit) →  shameless"
+                        },
+                        {
+                            "definition": "rich (of spirit) →  majestic"
                         }
                     ]
                 }
@@ -39626,13 +39475,61 @@
                     ],
                     "definitions": [
                         {
-                            "definition": "(intransitive)"
+                            "definition": "intransitive → to exist; to come up (of inanimate objects)"
                         },
                         {
-                            "definition": "(transitive)"
+                            "definition": "intransitive → to exist (in someone or something) (of a specified state; of a specified quality)"
                         },
                         {
-                            "definition": "(auxiliary)"
+                            "definition": "intransitive → to be worth; to have the value of"
+                        },
+                        {
+                            "definition": "intransitive → to pass; to elapse (of time)"
+                        },
+                        {
+                            "definition": "transitive → to do; to perform an action"
+                        },
+                        {
+                            "definition": "transitive → to act as; to play a role of"
+                        },
+                        {
+                            "definition": "transitive → to render; to make become (used as the suppletive causative form of なる (naru))"
+                        },
+                        {
+                            "definition": "transitive → (to be in a specified state; to have a specified quality) to be"
+                        },
+                        {
+                            "definition": "transitive → to wear (accessories)"
+                        },
+                        {
+                            "definition": "transitive → to decide; to choose or to make a judgment"
+                        },
+                        {
+                            "definition": "transitive → (informal) to do it; to have sex",
+                            "synonyms": [
+                                "性交する"
+                            ]
+                        },
+                        {
+                            "definition": "auxiliary → \"Adverb + する\", forming predicates or attributives from adverbs."
+                        },
+                        {
+                            "definition": "auxiliary → \"Verbal noun + emphatic particle (e.g. は, も, こそ, さえ) + する \", emphasizing the verb."
+                        },
+                        {
+                            "definition": "auxiliary → \"Volitional form of verb + と + する\": to be about to; to incline to"
+                        },
+                        {
+                            "definition": "auxiliary → \"に / と + する\", to give a condition or standpoint, either real or hypothetical: if / since; assuming that / now that"
+                        },
+                        {
+                            "definition": "auxiliary → (humble) \"御(お)/御(ご) + verbal noun + する\", a humble form of the verb.",
+                            "antonyms": [
+                                "なる"
+                            ],
+                            "synonyms": [
+                                "致す"
+                            ]
                         }
                     ],
                     "usage-notes": "The verb する (“to do”) is seldom written in kanji (為る).\nIt is common to use する after certain nouns to indicate that the noun is being done; this is highly productive, meaning many nouns can be used as verbs in this way. Some examples are:\n勉強 (benkyō, “studying”) → 勉強する (benkyō suru, “to do studying” → “to study”)\n旅行 (ryokō, “journey”) → 旅行する (ryokō suru, “to do journey” → “to travel”)\nアップロード (appurōdo, “upload”) → アップロードする (appurōdo suru, “to do uploading” → “to upload”)"

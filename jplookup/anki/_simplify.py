@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._simplify.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines helper functions that help
              the anki module break the outputs of jplookup.scrape(...)

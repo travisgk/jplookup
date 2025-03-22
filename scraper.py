@@ -10,46 +10,18 @@ import jplookup.anki
 def main():
     VERBOSE = True
     MODE = "all"
-    PATIENCE = 8
+    PATIENCE = 0.1
 
     if MODE == "testing":
-        """WORDS = [
-            "強い",
-            "おいしい",
-            "なか",
-            "かける",
-            "かかる",
-            "中",
-            "白",
-            "はく",
-            "捕る",
-            "取る",
-            "いかが",
-            "北",
-            "ふろ",
-            "よくそう",
-            "浴槽",
-            "犬",
-            "猫",
-            "短い",
-            "コート",
-            "ボタン",
-        ]
-        """
-        # WORDS = ["捕る", "ふろ", "よくそう"]
         WORDS = [
-            "どこ",
-            "ノート",
-            "車",
-            "色々",
-            "太い",
-            "する",
+            "人",
         ]
 
+        # Scrapes every testing term.
         for i, term in enumerate(WORDS):
             if i > 0:
                 time.sleep(PATIENCE)
-            word_info = jplookup.scrape(term, rc_sleep_seconds=PATIENCE)
+            word_info = jplookup.scrape(term, re_sleep_seconds=PATIENCE)
             if word_info and len(word_info) > 0:
                 with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
                     json.dump(word_info, json_file, indent=4, ensure_ascii=False)
@@ -93,10 +65,17 @@ def main():
                 break
 
             word_info = jplookup.scrape(word)
-            for info in word_info:
-                print(info)
+            if word_info:
+                print(
+                    json.dumps(
+                        word_info[0],
+                        indent=4,
+                        ensure_ascii=False,
+                    )
+                )
 
     elif MODE == "all":
+        # Grabs all unique Japanese terms.
         terms = []
         with open("n5.txt", "r", encoding="utf-8") as file:
             for line in file:
@@ -106,19 +85,32 @@ def main():
 
         start_time = time.time()
 
+        # Collects data into one dictionary.
+        # Any terms that throw errors will be saved to their own text files.
         data = {}
-
         unfound = []
         exceptionals = []
         for i, term in enumerate(terms):
             try:
-                sleep_length = random.uniform(
-                    PATIENCE * 0.75, PATIENCE * 1.5
-                )
-                time.sleep(sleep_length)
-                word_info = jplookup.scrape(term, rc_sleep_seconds=8)
+                if i > 0:
+                    if i % 20 == 0:
+                        # Sleeps for a little while every 20 terms.
+                        sleep_length = random.uniform(6.0, 13.0)
+                    else:
+                        sleep_length = random.uniform(
+                            PATIENCE * 0.75,
+                            PATIENCE * 1.5,
+                        )
+                    time.sleep(sleep_length)
 
+                # Scrapes.
+                word_info = jplookup.scrape(
+                    term,
+                    re_sleep_seconds=0.1,
+                    error_sleep_seconds=20,
+                )
                 if word_info and len(word_info) > 0:
+                    # Prints how much time is remaining to scrape all the words.
                     percent_done = int((i + 1) / len(terms) * 100)
                     elapsed = time.time() - start_time
                     elapsed_per_entry = elapsed / (i + 1)  # avg
@@ -136,9 +128,12 @@ def main():
                         print(
                             f"{percent_done:> 2d}% [{hours}:{minutes:02}:{seconds:02}] {term}"
                         )
+
+                    # Adds the entry to the dictionary.
                     data[term] = word_info
 
                 else:
+                    print(f"No data saved for {term}!")
                     unfound.append(term)
 
             except KeyboardInterrupt as e:
@@ -147,7 +142,9 @@ def main():
 
             except Exception as e:
                 print(
-                    f"################################\nEXCEPTION {e} from term {term}\n################################\n"
+                    "################################\n"
+                    + f"EXCEPTION {e} from term {term}\n"
+                    + "################################\n"
                 )
                 exceptionals.append(term)
 

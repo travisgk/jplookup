@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._html._clean_data.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines a function that takes the outputs
              from extract_data(...) seen in .extract.py and extrapolates
@@ -135,7 +135,15 @@ def clean_data(word_info: list, term: str) -> dict:
             prefers_katakana = False
             usage_notes = entry["usage-notes"][i]
             if len(usage_notes) > 0:
-                prefers_katakana = "often spelled in katakana" in usage_notes
+                kata_phrase_i = usage_notes.find("often spelled in katakana")
+                if kata_phrase_i >= 0:
+                    e = usage_notes.rfind(
+                        "scientifically referring to",
+                        0,
+                        kata_phrase_i,
+                    )
+                    if e < 0:
+                        prefers_katakana = True
 
             # Extracts transcriptions.
             term, furigana, kanas = extract_info_from_headwords(

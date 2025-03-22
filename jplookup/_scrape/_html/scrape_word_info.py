@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._html._scrape_word_info.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines the helper function that actually
              retrieves raw data from the Wiktionary HTML.

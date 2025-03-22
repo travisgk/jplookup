@@ -1,7 +1,7 @@
 """
 Filename: jplookup._cleanstr.dictform.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines a function that can be given a
              conjugated verb and will do its best to guess

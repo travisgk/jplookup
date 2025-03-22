@@ -1,7 +1,7 @@
 """
 Filename: jplookup._cleanstr.textwork.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines functions for 
              extracting text from within HTML

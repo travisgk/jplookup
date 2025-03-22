@@ -1,3 +1,15 @@
+"""
+Filename: jplookup.anki._pretty_kanji.py
+Author: TravisGK
+Date: 2025-03-22
+
+Description: This file defines the function which generates fancy HTML
+             for a Japanese word.
+
+Version: 1.0
+License: MIT
+"""
+
 from jplookup._cleanstr.identification import is_kanji
 from jplookup._cleanstr.textwork import kana_to_moras
 from ._field_str import place_pitch_accent

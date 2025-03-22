@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape.scrape.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines the primary function that scrapes
              information about a Japanese term from its English Wiktionary
@@ -42,7 +42,8 @@ def scrape(
     term: str,
     depth: int = 0,
     original_term=None,
-    rc_sleep_seconds=5,
+    re_sleep_seconds=5,
+    error_sleep_seconds=30,
     force_sleep: bool = False,
     verbose: bool = True,
 ):
@@ -93,9 +94,11 @@ def scrape(
         original_term (str): used for recursive calls; holds the original term
                              searched when <term> is being used
                              for an alternative spelling.
-        rc_sleep_seconds: the duration in seconds that the program
+        re_sleep_seconds: the duration in seconds that the program
                           will sleep before scraping a child Wiktionary page.
-        force_sleep (bool): if True, the program sleeps for <rc_sleep_seconds>
+        error_sleep_seconds: the duration in seconds that the program
+                             will sleep if it gets a 404.
+        force_sleep (bool): if True, the program sleeps for <re_sleep_seconds>
                             regardless of the current recursive depth.
         verbose (bool): if False, the script won't print any error messages.
     """
@@ -105,7 +108,7 @@ def scrape(
 
     if depth > 0 or force_sleep:
         # Sleeps when doing a recursive loop to prevent getting blocked.
-        time.sleep(rc_sleep_seconds)
+        time.sleep(re_sleep_seconds)
 
     """
     Step 1) Retrieves HTML and searches for the main header.
@@ -117,7 +120,7 @@ def scrape(
         if verbose:
             print(f"Scrape Error in grabbing Wiktionary contents: {e}")
             print("You may be scraping too fast!")
-        time.sleep(rc_sleep_seconds * 2)
+        time.sleep(error_sleep_seconds)
 
     # Gets the HTML source.
     num_attempts = 0
@@ -131,7 +134,8 @@ def scrape(
                 if verbose:
                     print(
                         f"Error {response.status_code}: "
-                        f"Could not fetch page for {term}"
+                        f"Could not fetch page for {term}. Trying again...",
+                        end="",
                     )
                 if depth < MAX_DEPTH:
                     # The word could be a conjugated form of a verb
@@ -142,10 +146,18 @@ def scrape(
                             dict_form,
                             depth + 1,
                             dict_form,
-                            rc_sleep_seconds=rc_sleep_seconds,
+                            re_sleep_seconds=re_sleep_seconds,
+                            error_sleep_seconds=error_sleep_seconds,
                             verbose=verbose,
                         )
-                return None  # unsuccessful.
+
+                num_attempts += 1
+                if verbose and num_attempts == MAX_CONNECT_ATTEMPTS - 1:
+                    print(f"\nCOULD NOT FIND DATA FOR {term}...")
+                    return None
+
+            if num_attempts > 0 and verbose:
+                print(" got it!")
             successful = True
             break
 
@@ -202,7 +214,8 @@ def scrape(
                 embed,
                 depth=depth + 1,
                 original_term=term,
-                rc_sleep_seconds=rc_sleep_seconds,
+                re_sleep_seconds=re_sleep_seconds,
+                error_sleep_seconds=error_sleep_seconds,
                 force_sleep=True,
                 verbose=verbose,
             )
@@ -241,7 +254,8 @@ def scrape(
                         alternative,
                         depth + 1,
                         term,
-                        rc_sleep_seconds=rc_sleep_seconds,
+                        re_sleep_seconds=re_sleep_seconds,
+                        error_sleep_seconds=error_sleep_seconds,
                         verbose=verbose,
                     )
 
@@ -258,7 +272,8 @@ def scrape(
                 dict_form,
                 depth + 1,
                 original_term,
-                rc_sleep_seconds=rc_sleep_seconds,
+                re_sleep_seconds=re_sleep_seconds,
+                error_sleep_seconds=error_sleep_seconds,
                 verbose=verbose,
             )
 

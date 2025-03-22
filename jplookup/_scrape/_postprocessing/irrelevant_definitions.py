@@ -1,7 +1,7 @@
 """
 Filename: jplookup._scrape._postprocessing.irrelevant_definitions.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines a function that removes all definitions
              from each Part of Speech that is deemed irrelevant.

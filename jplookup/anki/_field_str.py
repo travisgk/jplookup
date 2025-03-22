@@ -1,7 +1,7 @@
 """
 Filename: jplookup.anki._field_str.py
 Author: TravisGK
-Date: 2025-03-19
+Date: 2025-03-22
 
 Description: This file defines helper functions that handle
              processing text for individual fields in an Anki card.
