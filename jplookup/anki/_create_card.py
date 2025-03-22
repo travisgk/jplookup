@@ -22,8 +22,9 @@ License: MIT
 """
 
 import json
-from ._field_str import *
-from ._simplify import *
+from ._pretty_kanji import create_pretty_kanji
+from ._field_str import create_definition_str, create_pretty_kana
+from ._simplify import search_for_pronunciation, combine_like_terms
 
 
 _DESIRED_PARTS = [

@@ -16,13 +16,20 @@ from jplookup._cleanstr.identification import (
     percent_japanese,
     find_pronunciation_match,
 )
-from jplookup._cleanstr.removal import remove_spaces_jp
+from jplookup._cleanstr.removal import (
+    remove_text_in_brackets,
+    remove_spaces_jp,
+)
 from jplookup._cleanstr.textwork import (
+    extract_tag_contents,
     extract_japanese,
     extract_pronunciation_info,
     change_furi_to_kata,
 )
-from ._headwords import *
+from ._headwords import (
+    break_up_headwords,
+    extract_info_from_headwords,
+)
 
 # if True, furigana will be changed to kata
 # if that's standard.
@@ -184,20 +191,78 @@ def clean_data(word_info: list, term: str) -> dict:
                      then deletes arbitrary data.
             """
             definitions = []
-            for definition in entry["definitions"][i]:
+            entry["definitions"][i]
+
+            j = 0
+            while j < len(entry["definitions"][i]):
+                """
+                Step 3e.1) Expands any definitions that have subdefinitions
+                           (rare occurrence).
+                """
+                definition = entry["definitions"][i][j]
                 definition["definition"] = definition["definition"].strip()
+                def_text = definition["definition"].strip()
+                sublines = definition.get("sublines")
+                if sublines:
+                    new_defs = []
+                    if def_text.endswith(":") or def_text in [
+                        "(transitive)",
+                        "(intransitive)",
+                        "(auxiliary)",
+                    ]:
+                        if def_text.endswith(":"):
+                            category_str = def_text[:-1]
+                        else:
+                            category_str = def_text[1:-1]
+
+                        """
+                        parent_def = li[:sub_ol_start].strip()
+                            sublist_str = li[sub_ol_start + 4 : sub_ol_end].strip()
+                            sublines = extract_tag_contents(sublist_str, "li")
+                            entry["definition"] = (
+                                remove_text_in_brackets(parent_def)
+                                .strip()
+                                .replace("<b>", "")
+                                .replace("</b>", "")
+                            )
+                            entry["sublines"] = sublines
+                            """
+
+                        for subline in sublines:
+                            if subline.startswith("<li>"):
+                                clean_line = subline[4:-5].strip()
+                                new_def_str = f"{category_str} → {clean_line}"
+                                new_def_str = new_def_str.replace("\n", "")
+                                new_def_str = remove_text_in_brackets(new_def_str)
+                                new_defs.append({"definition": new_def_str})
+
+                    if len(new_defs) > 0:
+                        entry["definitions"][i] = (
+                            entry["definitions"][i][:j]
+                            + new_defs
+                            + entry["definitions"][i][j + 1 :]
+                        )
+                        j += len(new_defs)
+                        continue
+                j += 1
+
+            # The definitions have now been properly extrapolated.
+            for definition in entry["definitions"][i]:
+                def_text = definition["definition"]
+                sublines = definition.get("sublines")
 
                 """
                 Step 3e.2) Examines to see if there are any sublines provided.
                 """
-                def_text = definition["definition"]
-                sublines = definition.get("sublines")
                 dd_index = def_text.find("<dd>")
                 if sublines is None:
                     # There may be sublines specified in <dd> tags.
                     if dd_index >= 0:
                         # The definition text contains <dd> tags to break up.
                         sublines = extract_tag_contents(def_text, tag="dd")
+                        sublines = [
+                            s.replace("<dd>", "").replace("</dd>", "") for s in sublines
+                        ]
                         if len(sublines) == 0:
                             sublines = None
                             definitions.append(definition)

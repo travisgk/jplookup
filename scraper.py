@@ -9,8 +9,8 @@ import jplookup.anki
 
 def main():
     VERBOSE = True
-    MODE = "testing"
-    AGGRESSIVENESS = 8
+    MODE = "all"
+    PATIENCE = 8
 
     if MODE == "testing":
         """WORDS = [
@@ -38,18 +38,18 @@ def main():
         """
         # WORDS = ["捕る", "ふろ", "よくそう"]
         WORDS = [
-            "沢山",
-            # "居る",
-            # "電気",
-            # "はく",
-            # "捕る",
-            # "取る",
+            "どこ",
+            "ノート",
+            "車",
+            "色々",
+            "太い",
+            "する",
         ]
 
         for i, term in enumerate(WORDS):
             if i > 0:
-                time.sleep(AGGRESSIVENESS)
-            word_info = jplookup.scrape(term, rc_sleep_seconds=AGGRESSIVENESS)
+                time.sleep(PATIENCE)
+            word_info = jplookup.scrape(term, rc_sleep_seconds=PATIENCE)
             if word_info and len(word_info) > 0:
                 with open(f"out-data-{i}.json", "w", encoding="utf-8") as json_file:
                     json.dump(word_info, json_file, indent=4, ensure_ascii=False)
@@ -113,7 +113,7 @@ def main():
         for i, term in enumerate(terms):
             try:
                 sleep_length = random.uniform(
-                    AGGRESSIVENESS * 0.75, AGGRESSIVENESS * 1.5
+                    PATIENCE * 0.75, PATIENCE * 1.5
                 )
                 time.sleep(sleep_length)
                 word_info = jplookup.scrape(term, rc_sleep_seconds=8)

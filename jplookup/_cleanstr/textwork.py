@@ -13,7 +13,7 @@ License: MIT
 
 from bs4 import BeautifulSoup
 import jaconv
-from .identification import is_kanji, is_japanese_char
+from .identification import is_kanji, is_japanese_char, is_japanese_punct
 
 
 # Extraction functions.
@@ -38,13 +38,14 @@ def separate_term_and_furigana(word: str):
     furi = []
     inside_furi = False
     uses_furi = False
+
     for i, c in enumerate(word):
-        if not inside_furi and c == "(":
-            inside_furi = True
+        if c == "(":
             uses_furi = True
-        elif inside_furi and c == ")":
+            inside_furi = True
+        elif c == ")":
             inside_furi = False
-        elif is_japanese_char(c):
+        elif is_japanese_char(c) or is_japanese_punct(c):
             if inside_furi:
                 furi[-1].append(c)
             else:

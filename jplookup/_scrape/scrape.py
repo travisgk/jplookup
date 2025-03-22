@@ -25,11 +25,15 @@ from jplookup._cleanstr.removal import (
     remove_further_pronunciations,
     remove_alternative_spellings,
 )
-from ._html.scrape_word_info import *
-from ._postprocessing.exchange_phonetic_info import *
-from ._postprocessing.remove_empty_entries import *
-from ._postprocessing.embed_redirects import *
-from ._postprocessing.clean_keys import *
+from ._html.scrape_word_info import (
+    HEADER_TAGS,
+    scrape_word_info,
+    get_alternative_terms_from_table,
+)
+from ._postprocessing.exchange_phonetic_info import exchange_phonetic_info
+from ._postprocessing.remove_empty_entries import remove_empty_entries
+from ._postprocessing.embed_redirects import embed_redirects
+from ._postprocessing.clean_keys import clean_keys
 from ._postprocessing.missing_furigana import fill_in_missing_furigana
 from ._postprocessing.irrelevant_definitions import remove_irrelevant_definitions
 

@@ -201,8 +201,6 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                     entry = {"definition": ""}
 
                     # Cleans up the text contents.
-                    print("before remove_tag")
-                    print(li)
                     tag_closing_index = li.find(">")
                     li = li[tag_closing_index + 1 : -5]
                     if find_embedded_kanji:
@@ -213,8 +211,6 @@ def extract_data(layout: dict, find_embedded_kanji: bool):
                         )
 
                     li = remove_tags(li, omissions=["ol", "li", "dd", "b"])
-                    print("\nafter remove_tag")
-                    print(li, end="\n\n\n")
 
                     li = li.replace("<b> ", " <b>").replace(" </b>", "</b> ")
                     li = li.strip()
