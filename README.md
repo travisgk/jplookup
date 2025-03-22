@@ -2,6 +2,23 @@
 jplookup is a Python tool designed to scrape pitch accent, phonetic pronunciation, definitions and example sentences from Wiktionary and turn them into straight-forward flashcards for Anki.
 ![oniisan](example-outputs/oniisan-sample.png)
 
+<br>
+
+# Installation
+
+```pip install jplookup```
+
+<br>
+
+You can also clone the repository and install the required dependencies (`bs4` and `jaconv`) as such:
+```bash
+git clone https://github.com/travisgk/jplookup.git
+cd jplookup
+pip install -r requirements.txt
+```
+
+<br>
+
 # Features
 ## Pitch Accent
 Anki cards made with jplookup can mark the pitch accent.
@@ -50,18 +67,3 @@ When Wiktionary links to a different page for an alternative spelling, then the 
 - "撮る" redirects to the Wiktionary page for "とる" and grabs any definitions that are either specified as fitting with "撮る" or definitions with no context/kanji specification at all.
 - "取る" redirects to the Wiktionary page for "とる" and grabs any definitions that are either specified as fitting with "取る" or definitions with no context/kanji specification at all.
 - "とる" (the hiragana directly) goes to the Wiktionary page for "とる" and grabs all definitions regardless of context specification.
-
-<br>
-
-## Installation
-
-```pip install jplookup```
-
-<br>
-
-You can also clone the repository and install the required dependencies (`bs4` and `jaconv`) as such:
-```bash
-git clone https://github.com/travisgk/jplookup.git
-cd jplookup
-pip install -r requirements.txt
-```
