@@ -6,7 +6,7 @@ Date: 2025-03-22
 Description: This file defines a function to let the user
              easily scrape a list of Japanese terms.
 
-Version: 1.0
+Version: 1.0.1
 License: MIT
 """
 
@@ -118,13 +118,17 @@ def scrape_all(
             exceptionals.append(term)
 
     # End of run. Saves everything that went wrong (if anything).
-    with open("exceptionals.txt", "w", encoding="utf-8") as out_file:
+    if verbose and len(exceptionals) > 0:
+        print("These terms threw exceptions:")
         for x in exceptionals:
-            out_file.write(x + "\n")
+            print(f"\t{x}")
+        print("\n", end="")
 
-    with open("unfound.txt", "w", encoding="utf-8") as out_file:
+    if verbose and len(unfound) > 0:
+        print("These terms could not be found:")
         for u in unfound:
-            out_file.write(u + "\n")
+            print(f"\t{u}")
+        print("\n", end="")
 
     # Save the dictionary to a file.
     if out_path is not None:
@@ -132,7 +136,3 @@ def scrape_all(
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 
     return data
-
-
-if __name__ == "__main__":
-    main()
