@@ -55,8 +55,11 @@ When Wiktionary links to a different page for an alternative spelling, then the 
 
 ## Installation
 
-Clone the repository and install the required dependencies (`bs4` and `jaconv`):
+```pip install jplookup```
 
+<br>
+
+You can also clone the repository and install the required dependencies (`bs4` and `jaconv`) as such:
 ```bash
 git clone https://github.com/travisgk/jplookup.git
 cd jplookup
