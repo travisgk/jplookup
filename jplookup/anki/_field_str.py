@@ -21,15 +21,12 @@ def place_pitch_accent(kana: str, next_kana=None) -> str:
         sustain_len (int): how many kana
     """
     # Determines the length of the horiz line coming from the pitch marker.
-    if next_kana is None:
+    if next_kana is None or len(kana) > 1:
         extra_sustain = len(kana) - 1
     else:
-        extra_sustain = (
-            len(kana) if creates_long_vowel(kana, next_kana) else len(kana) - 1
-        )
-
-    nums = ["", "-one", "-two"]
-    num_str = nums[extra_sustain]
+        extra_sustain = 1 if creates_long_vowel(kana, next_kana) else 0
+        
+    num_str = "" if extra_sustain == 0 else "-one"
     return (
         '<span class="pitch-container">'
         f'<span class="pitch-mark{num_str}">•</span>'
